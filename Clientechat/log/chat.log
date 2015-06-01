@@ -1,0 +1,8 @@
+2015-06-01 12:17:34,885 [main] INFO  clientechat.ClienteChat - Quieres conectarte a localhost en el puerto 5443 con el nombre de ususario: usuario.
+2015-06-01 12:17:54,415 [main] INFO  clientechat.ClienteChat - Quieres conectarte a localhost en el puerto 5443 con el nombre de ususario: 3usuario.
+2015-06-01 12:18:18,669 [main] INFO  clientechat.ClienteChat - Quieres conectarte a localhost en el puerto 5443 con el nombre de ususario: usuario4.
+2015-06-01 13:14:55,297 [main] ERROR com.ucab.clientechat.view.VentanaChat - El socket no se creo correctamente. 
+2015-06-01 13:14:55,299 [main] ERROR com.ucab.clientechat.view.VentanaChat - El socket no se creo correctamente. 
+2015-06-01 13:14:59,124 [main] INFO  com.ucab.clientechat.view.VentanaChat - Quieres conectarte a localhost en el puerto 1234 con el nombre de ususario: .
+2015-06-01 13:14:59,130 [main] ERROR com.ucab.clientechat.view.VentanaChat - No se ha podido conectar con el servidor (Conexión rehusada).
+2015-06-01 13:14:59,132 [main] ERROR clientechat.ConexionServidor - El socket no se creo correctamente. 
