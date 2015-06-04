@@ -49,13 +49,6 @@ public class ControladorChat {
             }
         }
     }
-    
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        new ControladorChat();
-    }
 
 	public ControladorChat() {	
 		// Carga el archivo de configuracion de log4J

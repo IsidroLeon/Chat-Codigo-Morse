@@ -20,3 +20,31 @@
 2015-06-01 12:18:44,569 [Thread-2] INFO  servidorchat.ConexionCliente - Cliente con la IP localhost desconectado.
 2015-06-01 12:18:45,999 [Thread-0] INFO  servidorchat.ConexionCliente - Cliente con la IP localhost desconectado.
 2015-06-01 12:18:47,620 [Thread-1] INFO  servidorchat.ConexionCliente - Cliente con la IP localhost desconectado.
+2015-06-04 19:00:21,937 [main] INFO  com.ucab.servidorchat.ServidorChat - Servidor a la espera de conexiones.
+2015-06-04 19:00:49,808 [main] INFO  com.ucab.servidorchat.ServidorChat - Cliente con la IP localhost conectado.
+2015-06-04 19:00:49,810 [main] INFO  com.ucab.servidorchat.ServidorChat - Servidor a la espera de conexiones.
+2015-06-04 19:02:21,203 [main] INFO  com.ucab.servidorchat.ServidorChat - Servidor a la espera de conexiones.
+2015-06-04 19:02:37,468 [main] INFO  com.ucab.servidorchat.ServidorChat - Cliente con la IP localhost conectado.
+2015-06-04 19:02:37,478 [main] INFO  com.ucab.servidorchat.ServidorChat - Servidor a la espera de conexiones.
+2015-06-04 19:02:44,873 [Thread-0] INFO  com.ucab.servidorchat.controller.ConexionCliente - Cliente con la IP localhost desconectado.
+2015-06-04 19:04:13,326 [main] ERROR com.ucab.servidorchat.ServidorChat - Error: La dirección ya se está usando
+2015-06-04 19:04:42,061 [main] INFO  com.ucab.servidorchat.ServidorChat - Servidor a la espera de conexiones.
+2015-06-04 19:05:05,655 [main] INFO  com.ucab.servidorchat.ServidorChat - Cliente con la IP localhost conectado.
+2015-06-04 19:05:05,658 [main] INFO  com.ucab.servidorchat.ServidorChat - Servidor a la espera de conexiones.
+2015-06-04 19:05:12,746 [Thread-0] INFO  com.ucab.servidorchat.controller.ConexionCliente - Cliente con la IP localhost desconectado.
+2015-06-04 19:08:59,872 [main] ERROR com.ucab.servidorchat.ServidorChat - Error: La dirección ya se está usando
+2015-06-04 19:09:39,089 [main] ERROR com.ucab.servidorchat.ServidorChat - Error: La dirección ya se está usando
+2015-06-04 19:09:54,687 [main] INFO  com.ucab.servidorchat.ServidorChat - Servidor a la espera de conexiones.
+2015-06-04 19:10:12,119 [main] INFO  com.ucab.servidorchat.ServidorChat - Cliente con la IP localhost conectado.
+2015-06-04 19:10:12,121 [main] INFO  com.ucab.servidorchat.ServidorChat - Servidor a la espera de conexiones.
+2015-06-04 19:10:27,380 [Thread-0] INFO  com.ucab.servidorchat.controller.ConexionCliente - Cliente con la IP localhost desconectado.
+2015-06-04 19:19:50,425 [main] ERROR com.ucab.servidorchat.ServidorChat - Error: La dirección ya se está usando
+2015-06-04 19:20:04,206 [main] INFO  com.ucab.servidorchat.ServidorChat - Servidor a la espera de conexiones.
+2015-06-04 19:20:41,297 [main] INFO  com.ucab.servidorchat.ServidorChat - Cliente con la IP localhost conectado.
+2015-06-04 19:20:41,301 [main] INFO  com.ucab.servidorchat.ServidorChat - Servidor a la espera de conexiones.
+2015-06-04 19:21:29,130 [main] INFO  com.ucab.servidorchat.ServidorChat - Cliente con la IP localhost conectado.
+2015-06-04 19:21:29,132 [main] INFO  com.ucab.servidorchat.ServidorChat - Servidor a la espera de conexiones.
+2015-06-04 19:22:27,359 [Thread-0] INFO  com.ucab.servidorchat.controller.ConexionCliente - Cliente con la IP localhost desconectado.
+2015-06-04 19:22:29,561 [Thread-1] ERROR com.ucab.servidorchat.controller.ConexionCliente - Error al enviar mensaje al cliente (Socket closed).
+2015-06-04 19:22:36,768 [Thread-1] ERROR com.ucab.servidorchat.controller.ConexionCliente - Error al enviar mensaje al cliente (Socket closed).
+2015-06-04 19:22:38,293 [Thread-1] INFO  com.ucab.servidorchat.controller.ConexionCliente - Cliente con la IP localhost desconectado.
