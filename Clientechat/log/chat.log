@@ -59,3 +59,5 @@
 2015-06-04 19:21:20,576 [main] ERROR com.ucab.clientechat.view.VentanaChat - El socket no se creo correctamente. 
 2015-06-04 19:21:20,578 [main] ERROR com.ucab.clientechat.view.VentanaChat - El socket no se creo correctamente. 
 2015-06-04 19:21:29,123 [main] INFO  com.ucab.clientechat.view.VentanaChat - Quieres conectarte a localhost en el puerto 9887 con el nombre de ususario: fsfsdf.
+2015-06-04 20:49:15,462 [main] INFO  com.ucab.clientechat.view.VentanaChat - Quieres conectarte a localhost en el puerto 1234 con el nombre de ususario: aras.
+2015-06-04 20:49:26,967 [main] INFO  com.ucab.clientechat.view.VentanaChat - Quieres conectarte a localhost en el puerto 1234 con el nombre de ususario: hj.

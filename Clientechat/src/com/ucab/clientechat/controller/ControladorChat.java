@@ -54,7 +54,6 @@ public class ControladorChat {
 		// Carga el archivo de configuracion de log4J
         PropertyConfigurator.configure("log4j.properties");        
         VentanaChat vChat = new VentanaChat();
-        recibirMensajesServidor(vChat);
         // Ventana de configuracion inicial
         VentanaConfiguracion vConfiguracion = new VentanaConfiguracion(vChat);
         host = vConfiguracion.tfHost.getText();
@@ -74,6 +73,7 @@ public class ControladorChat {
         
         // Accion para el boton enviar
         vChat.btEnviar.addActionListener(new ConexionServidor(socket, vChat.tfMensaje, usuario));
+        recibirMensajesServidor(vChat);
 	}
 
 }

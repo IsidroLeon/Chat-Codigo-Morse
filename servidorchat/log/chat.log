@@ -48,3 +48,10 @@
 2015-06-04 19:22:29,561 [Thread-1] ERROR com.ucab.servidorchat.controller.ConexionCliente - Error al enviar mensaje al cliente (Socket closed).
 2015-06-04 19:22:36,768 [Thread-1] ERROR com.ucab.servidorchat.controller.ConexionCliente - Error al enviar mensaje al cliente (Socket closed).
 2015-06-04 19:22:38,293 [Thread-1] INFO  com.ucab.servidorchat.controller.ConexionCliente - Cliente con la IP localhost desconectado.
+2015-06-04 20:48:51,428 [main] INFO  com.ucab.servidorchat.ServidorChat - Servidor a la espera de conexiones.
+2015-06-04 20:49:15,474 [main] INFO  com.ucab.servidorchat.ServidorChat - Cliente con la IP localhost conectado.
+2015-06-04 20:49:15,480 [main] INFO  com.ucab.servidorchat.ServidorChat - Servidor a la espera de conexiones.
+2015-06-04 20:49:26,976 [main] INFO  com.ucab.servidorchat.ServidorChat - Cliente con la IP localhost conectado.
+2015-06-04 20:49:26,980 [main] INFO  com.ucab.servidorchat.ServidorChat - Servidor a la espera de conexiones.
+2015-06-04 20:49:35,197 [Thread-1] INFO  com.ucab.servidorchat.controller.ConexionCliente - Cliente con la IP localhost desconectado.
+2015-06-04 20:49:39,744 [Thread-0] INFO  com.ucab.servidorchat.controller.ConexionCliente - Cliente con la IP localhost desconectado.
