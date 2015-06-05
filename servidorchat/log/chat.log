@@ -55,3 +55,4 @@
 2015-06-04 20:49:26,980 [main] INFO  com.ucab.servidorchat.ServidorChat - Servidor a la espera de conexiones.
 2015-06-04 20:49:35,197 [Thread-1] INFO  com.ucab.servidorchat.controller.ConexionCliente - Cliente con la IP localhost desconectado.
 2015-06-04 20:49:39,744 [Thread-0] INFO  com.ucab.servidorchat.controller.ConexionCliente - Cliente con la IP localhost desconectado.
+2015-06-05 12:09:36,741 [main] INFO  com.ucab.servidorchat.ServidorChat - Servidor a la espera de conexiones.

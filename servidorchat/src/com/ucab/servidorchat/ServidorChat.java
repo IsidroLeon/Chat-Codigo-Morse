@@ -4,12 +4,13 @@ package com.ucab.servidorchat;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
 import com.ucab.servidorchat.controller.ConexionCliente;
-import com.ucab.servidorchat.model.MensajesChat;
+import com.ucab.servidorchat.model.*;
 
 /**
  * Servidor para el chat.
@@ -22,7 +23,6 @@ public class ServidorChat {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
         // Carga el archivo de configuracion de log4J
         PropertyConfigurator.configure("log4j.properties");        
         Logger log = Logger.getLogger(ServidorChat.class);
@@ -57,5 +57,6 @@ public class ServidorChat {
                 log.error("Error al cerrar el servidor: " + ex.getMessage());
             }
         }
+    	
     }
 }
