@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>java</name>
+			<type>2</type>
+			<location>/home/valladares/Escritorio/ChatMorse/gson-gson-2.3.1/src/main/java</location>
+		</link>
+	</linkedResources>
 </projectDescription>
