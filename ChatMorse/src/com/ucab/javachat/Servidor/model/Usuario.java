@@ -21,19 +21,10 @@ public class Usuario {
 	 * 25 representa a 1925 y 105 representa a 2005
 	 * los metodos de la libreria java.util.Date estan deprecados, por eso el "@SuppressWarnings("deprecation")"
 	 * */
-	@SuppressWarnings("deprecation")
-	public void validarFecha(Date fecha){ 
-		if ( (fecha.getYear()>25) && (fecha.getYear()<105) ){
-			System.out.println("tiene permiso para usar la aplicacion");
-		}
-		else 
-			System.out.println("Usted debe tener mas de 10 anios o menos de 90 para poder usar la aplicacion");
-	}
 	
 	@SuppressWarnings("deprecation")
-	public Date setFecha(int dia, int mes, int anio){
+	public void setFecha(int dia, int mes, int anio){
 		this.fecha = new Date(anio, mes, dia);
-		return fecha;
 	}
 	
 	/*Getters y Setters 
