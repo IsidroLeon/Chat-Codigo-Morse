@@ -3,9 +3,14 @@ package com.ucab.javachat.Servidor.model;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.Vector;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.ucab.javachat.Servidor.controller.ServidorController;
 
 /**
@@ -43,7 +48,8 @@ public class ServidorModel extends Thread
        nameUser=name;
      }
      
-     public void run()
+     @SuppressWarnings("unchecked")
+	public void run()
      {
     	serv.mostrar(".::Esperando Mensajes :");
     	
@@ -58,7 +64,9 @@ public class ServidorModel extends Thread
     	catch (IOException e) {  e.printStackTrace();     }
     	
         int opcion=0,numUsers=0;
-        String amigo="",mencli="";
+        String amigo = "";
+        String mencli="";
+        Vector<String> amigos = new Vector<String>();
                 
     	while(true)
     	{
@@ -79,9 +87,11 @@ public class ServidorModel extends Thread
                       salida.writeUTF(clientesActivos.get(i).nameUser);
                    break;
                 case 3: // envia mensaje a uno solo
-                   amigo=entrada.readUTF();//captura nombre de amigo
-                   mencli=entrada.readUTF();//mensaje enviado
-                   enviaMsg(amigo,mencli);
+                	Gson gson = new Gson();
+                    mencli=entrada.readUTF();//mensaje enviado
+                    String amigostring = entrada.readUTF();
+                    amigos = gson.fromJson(amigostring, new TypeToken<Vector<String>>() {}.getType()); 
+                   enviaMsg(mencli, amigos, amigostring);
                    break;
              }
           }
@@ -126,22 +136,25 @@ public class ServidorModel extends Thread
             }catch (IOException e) {e.printStackTrace();}
         }
      }
-
-   private void enviaMsg(String amigo, String mencli) 
+   
+   private void enviaMsg(String mencli, Vector<String> amigos, String jsonamigos) 
    {
+	  System.out.println(jsonamigos);
       ServidorModel user=null;
-        for(int i=0;i<clientesActivos.size();i++)
+      for (String amigo : amigos) {
+        for(int i = 0; i < clientesActivos.size(); i++)
         {           
            try
             {
-              user=clientesActivos.get(i);
+              user = clientesActivos.get(i);
               if(user.nameUser.equals(amigo))
               {
-                 user.salida2.writeInt(3);//opcion de mensage amigo   
-                 user.salida2.writeUTF(this.getNameUser());
+                 user.salida2.writeInt(3);//opcion de mensaje amigo
                  user.salida2.writeUTF(""+this.getNameUser()+">"+mencli);
+                 user.salida2.writeUTF(jsonamigos);
               }
             }catch (IOException e) {e.printStackTrace();}
         }
+      }
    }
 }

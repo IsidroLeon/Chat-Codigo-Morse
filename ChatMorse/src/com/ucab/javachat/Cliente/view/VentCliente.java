@@ -11,18 +11,11 @@ package com.ucab.javachat.Cliente.view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 import java.io.*;
-import java.net.Socket;
 import java.util.Vector;
 
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.JOptionPane.*;
-
-import com.ucab.javachat.Cliente.model.Cliente;
 
 /**
  * 

@@ -18,6 +18,7 @@ public class ControladorCliente implements ActionListener {
 	private Cliente cliente;
 	private VentPrivada ventPrivada;
 	private ControladorPrivada contPrivada;
+	String nombreUsuario;
 
 	public ControladorCliente(VentCliente ventana) {
 		this.ventana = ventana;
@@ -28,6 +29,7 @@ public class ControladorCliente implements ActionListener {
         try {
 			cliente = new Cliente(this);
 			cliente.conexion();     
+			nombreUsuario = cliente.getNombre();
 	        ventana.nomUsers = new Vector();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -89,27 +91,28 @@ private void ponerDatosList(JList<String> list,final Vector<String> datos)
        }
        else if(evt.getSource()==this.ventana.butPrivado)
        {
-         // int pos=this.ventana.lstActivos.getSelectedIndex();
-         // if(pos>=0)   /*posicion del usuario en el label de usuarios conectados*/           
-         // {
-         //   contPrivada.setAmigo(ventana.nomUsers.get(pos)); 
-            /*envia al metodo setAmigo del controlador de la ventana privada el nombre que  
-             *se tiene en la posicion seleccionada */
-         // }   
-    	 int[] pos = this.ventana.lstActivos.getSelectedIndices();  
-    	 String[] nombres = new String[10];
-    	 for (int i=0; i<=pos.length; i++){
-    		 //contPrivada.setAmigo(ventana.nomUsers.get(pos[i]));
-    		 nombres[i] = ventana.nomUsers.get(pos[i]);
-    		 //contPrivada.setAmigo(nombres[i]);
+    	 Vector<Integer> posiciones = new Vector<Integer>();
+    	 int[] indices = this.ventana.lstActivos.getSelectedIndices();
+    	 for(int indice : indices)
+    	 {
+    		 posiciones.add(indice);
     	 }
+    	 Vector<String> nombres = new Vector<String>();
+    	 for (int posicion : posiciones){
+    		 try {
+    			nombres.add(ventana.nomUsers.get(posicion));
+    		 } catch(ArrayIndexOutOfBoundsException ex) {
+    			 System.out.println(ex.getMessage());
+    		 }
+    	 }
+    	 nombres.add(nombreUsuario);
     	 contPrivada.setAmigo(nombres);
        }
     }
     
-    public void mensajeAmigo(String[] amigo,String msg)
+    public void mensajeAmigo(String msg, Vector<String> amigos)
     {
-       contPrivada.setAmigo(amigo);           
+       contPrivada.setAmigo(amigos);           
        contPrivada.mostrarMsg(msg);
     }
 

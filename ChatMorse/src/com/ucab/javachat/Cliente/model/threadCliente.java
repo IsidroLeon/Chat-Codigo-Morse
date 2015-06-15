@@ -1,13 +1,14 @@
 package com.ucab.javachat.Cliente.model;
-import java.net.*;
-import java.lang.*;
-import java.io.*;
-import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
+import java.io.DataInputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Vector;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.ucab.javachat.Cliente.controller.ControladorCliente;
-import com.ucab.javachat.Cliente.view.VentCliente;
+import com.ucab.javachat.Servidor.model.Usuario;
 
 class threadCliente extends Thread{
    DataInputStream entrada;
@@ -17,10 +18,12 @@ class threadCliente extends Thread{
       this.entrada=entrada;
       this.vcli=vcli;
    }
-   public void run()
+   @SuppressWarnings("unchecked")
+public void run()
    {
       String menser=""/*,amigo=""*/;
-      String[] amigo = new String[10];
+      Vector<String> amigos = new Vector<String>();
+      String amigo;
       int opcion=0;
       while(true)
       {         
@@ -31,19 +34,19 @@ class threadCliente extends Thread{
                case 1://mensaje enviado
                   menser=entrada.readUTF();
                   System.out.println("ECO del servidor:"+menser);
-                  vcli.mostrarMsg(menser);            
+                  //vcli.mostrarMsg(menser);            
                   break;
                case 2://se agrega
                   menser=entrada.readUTF();
                   vcli.agregarUser(menser);                  
                   break;
                case 3://mensaje de amigo
-            	  /*for (int i=0; i<11; i++){ 	//lo que pense y esta malo :)
-            		  amigo[i]=entrada.readUTF();
-                  }*/
-            	  amigo=entrada.readUTF();
-                  menser=entrada.readUTF();
-                  vcli.mensajeAmigo(amigo,menser);
+            	   Gson gson = new Gson();
+            	   menser = entrada.readUTF();
+            	   String amigostring = entrada.readUTF();
+            	   
+            	   amigos = gson.fromJson(amigostring, new TypeToken<Vector<String>>() {}.getType());
+            	   vcli.mensajeAmigo(menser, amigos);
                   System.out.println("ECO del servidor:"+menser);
                   break;
             }

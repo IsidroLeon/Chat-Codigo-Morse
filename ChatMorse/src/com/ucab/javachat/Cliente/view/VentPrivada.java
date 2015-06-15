@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.util.Vector;
 
 import javax.swing.*;
 
@@ -24,7 +25,7 @@ public class VentPrivada extends JFrame
    public JButton butEnviar;
    
    public Cliente cliente;
-   public String amigo;
+   public Vector<String> amigo;
    
    public VentPrivada(Cliente cliente)
    {
@@ -47,7 +48,7 @@ public class VentPrivada extends JFrame
       add(new JScrollPane(panMostrar),BorderLayout.CENTER);
       add(panAbajo,BorderLayout.SOUTH);
        
-      amigo="";
+      amigo = new Vector<String>();
       
       setSize(300,300);
       setLocation(570,90);      			      

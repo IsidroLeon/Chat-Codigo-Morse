@@ -12,13 +12,13 @@ package com.ucab.javachat.Cliente.model;
 import java.io.*;
 import java.net.*;
 import java.util.Vector;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import javax.swing.JOptionPane;
 
 import com.ucab.javachat.Cliente.controller.ControladorCliente;
-import com.ucab.javachat.Cliente.view.VentCliente;
 
 /**
  *
@@ -42,10 +42,10 @@ public class Cliente{
    
    public void conexion() throws IOException {
       try {
-         comunication = new Socket(Cliente.IP_SERVER, 8081);
-         comunication2 = new Socket(Cliente.IP_SERVER, 8082);
-         entrada = new DataInputStream(comunication.getInputStream());
-         salida = new DataOutputStream(comunication.getOutputStream());
+         comunication = new Socket(Cliente.IP_SERVER, 8081); //envia
+         comunication2 = new Socket(Cliente.IP_SERVER, 8082); //recibe
+         entrada = new DataInputStream(comunication.getInputStream()); // envia al cliente
+         salida = new DataOutputStream(comunication.getOutputStream()); // envia al cliente
          entrada2 = new DataInputStream(comunication2.getInputStream());
          nomCliente = JOptionPane.showInputDialog("Introducir Nick :");
          vent.setNombreUser(nomCliente);         
@@ -69,7 +69,7 @@ public class Cliente{
          for(int i=0;i<numUsers;i++)
             users.add(entrada.readUTF());
       } catch (IOException ex) {
-         Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
+         ex.getMessage();
       }
       return users;
    }
@@ -84,12 +84,14 @@ public class Cliente{
       }
    }
    
-   public void flujo(String amigo,String mens){ /*flujo para mensaje privado*/
+   public void flujo(Vector<String> amigos,String mens) { /*flujo para mensaje privado*/
+	  Gson gson = new Gson();
       try {             
          System.out.println("el mensaje enviado desde el cliente es :" + mens);
-         salida.writeInt(3);//opcion de mensage a amigo
-         salida.writeUTF(amigo);
+         salida.writeInt(3);//opcion de mensaje a amigo
          salida.writeUTF(mens);
+         String jsonamigos = gson.toJson(amigos);
+         salida.writeUTF(jsonamigos);
       } catch (IOException e) {
          System.out.println("error...." + e);
       }
