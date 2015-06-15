@@ -32,28 +32,33 @@ public class ControladorPrivada implements ActionListener {
 	  });
 	}
 	
-	public void setAmigo(String ami)
-	   {      
-	      ventana.amigo=ami;
+	public void setAmigo(String[] ami){  		
+		  /*ventana.amigo=ami;
 	      ventana.setTitle(ami);    
-	      ventana.setVisible(true);
+	      ventana.setVisible(true);*/
+		
+			for (int i=0; i<=ami.length; i++){
+				ventana.amigo=ami[i];
+			    ventana.setTitle(ami[i]);    
+			}
+			ventana.setVisible(true);
 	   }
-	    private void cerrarVentana() 
-	    {       
+	
+	    private void cerrarVentana() {       
 	      ventana.setVisible(false);      
 	    }
-	    public void mostrarMsg(String msg)
-	     {
+	    
+	    public void mostrarMsg(String msg){
 	        ventana.panMostrar.append(msg+"\n");
 	     }
 	    
 	   @Override
 	   public void actionPerformed(ActionEvent e) 
 	   {
-	      String mensaje = ventana.txtMensaje.getText();              
+	      String mensaje = ventana.txtMensaje.getText();  
 	      mostrarMsg(cliente.getNombre()+">"+mensaje);
 	      cliente.flujo(ventana.amigo,mensaje);
-	      ventana.txtMensaje.setText("");
+	      ventana.txtMensaje.setText("");	  
 	   }
 
 }

@@ -53,3 +53,4 @@ public class VentPrivada extends JFrame
       setLocation(570,90);      			      
    }
 }
+

@@ -24,6 +24,3 @@ public class ServidorView extends JFrame
       setVisible(true);
    }
 }
-
-
-

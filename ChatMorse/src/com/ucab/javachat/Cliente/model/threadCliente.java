@@ -19,7 +19,8 @@ class threadCliente extends Thread{
    }
    public void run()
    {
-      String menser="",amigo="";
+      String menser=""/*,amigo=""*/;
+      String[] amigo = new String[10];
       int opcion=0;
       while(true)
       {         
@@ -37,7 +38,10 @@ class threadCliente extends Thread{
                   vcli.agregarUser(menser);                  
                   break;
                case 3://mensaje de amigo
-                  amigo=entrada.readUTF();
+            	  /*for (int i=0; i<11; i++){ 	//lo que pense y esta malo :)
+            		  amigo[i]=entrada.readUTF();
+                  }*/
+            	  amigo=entrada.readUTF();
                   menser=entrada.readUTF();
                   vcli.mensajeAmigo(amigo,menser);
                   System.out.println("ECO del servidor:"+menser);

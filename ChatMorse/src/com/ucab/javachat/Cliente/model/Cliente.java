@@ -24,8 +24,7 @@ import com.ucab.javachat.Cliente.view.VentCliente;
  *
  * @author Administrador
  */
-public class Cliente
-{
+public class Cliente{
    public static String IP_SERVER;
    ControladorCliente vent;
    DataInputStream entrada = null;
@@ -41,8 +40,7 @@ public class Cliente
       this.vent=vent;
    }
    
-   public void conexion() throws IOException 
-   {
+   public void conexion() throws IOException {
       try {
          comunication = new Socket(Cliente.IP_SERVER, 8081);
          comunication2 = new Socket(Cliente.IP_SERVER, 8082);
@@ -58,12 +56,12 @@ public class Cliente
       }
       new threadCliente(entrada2, vent).start();
    }
-   public String getNombre()
-   {
+   
+   public String getNombre(){
       return nomCliente;
    }
-   public Vector<String> pedirUsuarios()
-   {
+   
+   public Vector<String> pedirUsuarios(){
       Vector<String> users = new Vector();
       try {         
          salida.writeInt(2);
@@ -75,11 +73,10 @@ public class Cliente
       }
       return users;
    }
-   public void flujo(String mens) 
-   {
+   
+   public void flujo(String mens) {
       try {             
-         System.out.println("el mensaje enviado desde el cliente es :"
-             + mens);
+         System.out.println("el mensaje enviado desde el cliente es :" + mens);
          salida.writeInt(1);
          salida.writeUTF(mens);
       } catch (IOException e) {
@@ -87,11 +84,9 @@ public class Cliente
       }
    }
    
-   public void flujo(String amigo,String mens) 
-   {
+   public void flujo(String amigo,String mens){ /*flujo para mensaje privado*/
       try {             
-         System.out.println("el mensaje enviado desde el cliente es :"
-             + mens);
+         System.out.println("el mensaje enviado desde el cliente es :" + mens);
          salida.writeInt(3);//opcion de mensage a amigo
          salida.writeUTF(amigo);
          salida.writeUTF(mens);

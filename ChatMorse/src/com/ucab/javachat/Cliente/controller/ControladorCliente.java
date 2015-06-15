@@ -62,6 +62,7 @@ public class ControladorCliente implements ActionListener {
        ventana.nomUsers.remove(user);
        ponerDatosList(ventana.lstActivos,ventana.nomUsers);
     }
+    
    @SuppressWarnings("unchecked")
 private void ponerDatosList(JList<String> list,final Vector<String> datos)
    {
@@ -72,6 +73,7 @@ private void ponerDatosList(JList<String> list,final Vector<String> datos)
            public Object getElementAt(int i) { return datos.get(i); }
        });
    }
+   
     public void actionPerformed(ActionEvent evt) {
         
       String comand=(String)evt.getActionCommand();
@@ -87,15 +89,25 @@ private void ponerDatosList(JList<String> list,final Vector<String> datos)
        }
        else if(evt.getSource()==this.ventana.butPrivado)
        {
-          int pos=this.ventana.lstActivos.getSelectedIndex();
-          if(pos>=0)              
-          {
-            contPrivada.setAmigo(ventana.nomUsers.get(pos));
-          }
+         // int pos=this.ventana.lstActivos.getSelectedIndex();
+         // if(pos>=0)   /*posicion del usuario en el label de usuarios conectados*/           
+         // {
+         //   contPrivada.setAmigo(ventana.nomUsers.get(pos)); 
+            /*envia al metodo setAmigo del controlador de la ventana privada el nombre que  
+             *se tiene en la posicion seleccionada */
+         // }   
+    	 int[] pos = this.ventana.lstActivos.getSelectedIndices();  
+    	 String[] nombres = new String[10];
+    	 for (int i=0; i<=pos.length; i++){
+    		 //contPrivada.setAmigo(ventana.nomUsers.get(pos[i]));
+    		 nombres[i] = ventana.nomUsers.get(pos[i]);
+    		 //contPrivada.setAmigo(nombres[i]);
+    	 }
+    	 contPrivada.setAmigo(nombres);
        }
     }
     
-    public void mensajeAmigo(String amigo,String msg)
+    public void mensajeAmigo(String[] amigo,String msg)
     {
        contPrivada.setAmigo(amigo);           
        contPrivada.mostrarMsg(msg);
