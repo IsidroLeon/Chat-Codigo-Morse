@@ -2,13 +2,11 @@ package com.ucab.javachat.Cliente.model;
 
 import java.io.DataInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Vector;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.ucab.javachat.Cliente.controller.ControladorCliente;
-import com.ucab.javachat.Servidor.model.Usuario;
 
 class threadCliente extends Thread{
    DataInputStream entrada;
@@ -18,12 +16,11 @@ class threadCliente extends Thread{
       this.entrada=entrada;
       this.vcli=vcli;
    }
-   @SuppressWarnings("unchecked")
-public void run()
+   
+   public void run()
    {
       String menser=""/*,amigo=""*/;
       Vector<String> amigos = new Vector<String>();
-      String amigo;
       int opcion=0;
       while(true)
       {         
@@ -44,14 +41,13 @@ public void run()
             	   Gson gson = new Gson();
             	   menser = entrada.readUTF();
             	   String amigostring = entrada.readUTF();
-            	   
             	   amigos = gson.fromJson(amigostring, new TypeToken<Vector<String>>() {}.getType());
             	   vcli.mensajeAmigo(menser, amigos);
                   System.out.println("ECO del servidor:"+menser);
                   break;
             }
          }
-         catch (IOException e){
+         catch (Exception e){
             System.out.println("Error en la comunicación "+"Información para el usuario");
             break;
          }

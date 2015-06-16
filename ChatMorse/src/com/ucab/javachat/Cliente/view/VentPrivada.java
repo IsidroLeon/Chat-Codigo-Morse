@@ -5,10 +5,6 @@
 
 package com.ucab.javachat.Cliente.view;
 import java.awt.BorderLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 import java.util.Vector;
 
 import javax.swing.*;
@@ -20,7 +16,11 @@ import com.ucab.javachat.Cliente.model.Cliente;
  */
 public class VentPrivada extends JFrame
 {
-   public JTextArea panMostrar;
+   /**
+	 * 
+	 */
+	private static final long serialVersionUID = 588393534461811702L;
+public JTextArea panMostrar;
    public JTextField txtMensaje;
    public JButton butEnviar;
    

@@ -6,10 +6,11 @@ import java.io.IOException;
 import java.util.Vector;
 
 import javax.swing.AbstractListModel;
+import javax.swing.JLabel;
 import javax.swing.JList;
-import javax.swing.JOptionPane;
 
 import com.ucab.javachat.Cliente.model.Cliente;
+import com.ucab.javachat.Cliente.model.ThreadActualizarUsuario;
 import com.ucab.javachat.Cliente.view.VentCliente;
 import com.ucab.javachat.Cliente.view.VentPrivada;
 
@@ -18,24 +19,27 @@ public class ControladorCliente implements ActionListener {
 	private Cliente cliente;
 	private VentPrivada ventPrivada;
 	private ControladorPrivada contPrivada;
-	String nombreUsuario;
+	static String nombreUsuario;
+	static String clave;
+	private ThreadActualizarUsuario actualizarUsuario;
 
-	public ControladorCliente(VentCliente ventana) {
-		this.ventana = ventana;
-        this.ventana.txtMensaje.addActionListener(this);
-        this.ventana.butEnviar.addActionListener(this);
-        this.ventana.butPrivado.addActionListener(this);
-        this.ventana.acercaD.addActionListener(this);
+	public ControladorCliente(VentCliente ventana, ControladorIniciarSesion contSesion) {
+        nombreUsuario = contSesion.getUsuario();
+        clave = contSesion.getClave();
+        this.ventana = ventana;
         try {
 			cliente = new Cliente(this);
-			cliente.conexion();     
+			cliente.conexion(nombreUsuario, clave);
 			nombreUsuario = cliente.getNombre();
-	        ventana.nomUsers = new Vector();
+	        ventana.nomUsers = new Vector<String>();
 		} catch (IOException e) {
 			e.printStackTrace();
-			
 		}
-        ponerActivos(cliente.pedirUsuarios());
+        
+        this.ventana.setVisible(true);
+        this.ventana.butPrivado.addActionListener(this);
+        actualizarUsuario = new ThreadActualizarUsuario(cliente);
+        actualizarUsuario.start();
         
         ventPrivada = new VentPrivada(cliente);
         contPrivada = new ControladorPrivada(ventPrivada, cliente);
@@ -43,13 +47,9 @@ public class ControladorCliente implements ActionListener {
 	
 	public void setNombreUser(String user)
     {
-       ventana.lblNomUser.setText("Usuario " + user);
+		this.ventana.lblNomUser.setText("Usuario " + user);
     }
-    public void mostrarMsg(String msg)
-    {
-       ventana.panMostrar.append(msg+"\n");
-    }
-    public void ponerActivos(Vector datos)
+    public void ponerActivos(Vector<String> datos)
     {
        ventana.nomUsers = datos;
        ponerDatosList(ventana.lstActivos,ventana.nomUsers);
@@ -77,19 +77,7 @@ private void ponerDatosList(JList<String> list,final Vector<String> datos)
    }
    
     public void actionPerformed(ActionEvent evt) {
-        
-      String comand=(String)evt.getActionCommand();
-      if(comand.compareTo("Acerca")==0)
-      {   
-          JOptionPane.showMessageDialog(ventana,"Jos� Valdez/Javier Vargas","Desarrollado por",JOptionPane.INFORMATION_MESSAGE);           
-      }
-       if(evt.getSource()==this.ventana.butEnviar || evt.getSource()==this.ventana.txtMensaje)
-       {
-          String mensaje = ventana.txtMensaje.getText();        
-          cliente.flujo(mensaje);
-          ventana.txtMensaje.setText("");
-       }
-       else if(evt.getSource()==this.ventana.butPrivado)
+       if(evt.getSource()==this.ventana.butPrivado)
        {
     	 Vector<Integer> posiciones = new Vector<Integer>();
     	 int[] indices = this.ventana.lstActivos.getSelectedIndices();

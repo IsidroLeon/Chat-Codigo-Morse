@@ -3,10 +3,7 @@ package com.ucab.javachat.Servidor.model;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.net.Socket;
-import java.util.ArrayList;
 import java.util.Vector;
 
 import com.google.gson.Gson;
@@ -25,7 +22,8 @@ public class ServidorModel extends Thread
      DataOutputStream salida=null;
      DataOutputStream salida2=null;
      public static Vector<ServidorModel> clientesActivos = new Vector<ServidorModel>();	
-     String nameUser;
+     private String nameUser;
+     private String clave;
      ServidorController serv;
      
      public ServidorModel(Socket scliente,Socket scliente2,ServidorController serv)
@@ -33,24 +31,32 @@ public class ServidorModel extends Thread
         scli=scliente;
         scli2=scliente2;
         this.serv=serv;
-        nameUser="";
         clientesActivos.add(this);        
         serv.mostrar("cliente agregado: "+this);			
      }
      
-     public String getNameUser()
+     
+     public void setNameUser(String user)
      {
-       return nameUser;
+       this.nameUser = user;
      }
      
-     public void setNameUser(String name)
-     {
-       nameUser=name;
+     public String getNameUser() {
+    	 return nameUser;
      }
      
-     @SuppressWarnings("unchecked")
+     public void setClave(String clave)
+     {
+       this.clave = clave;
+     }
+     
+     public String getClave() {
+    	 return clave;
+     }
+     
 	public void run()
      {
+		Gson gson = new Gson();
     	serv.mostrar(".::Esperando Mensajes :");
     	
     	try
@@ -59,19 +65,22 @@ public class ServidorModel extends Thread
           salida=new DataOutputStream(scli.getOutputStream());
           salida2=new DataOutputStream(scli2.getOutputStream());
           this.setNameUser(entrada.readUTF());
+          this.setClave(entrada.readUTF());
+          
           enviaUserActivos();
     	}
     	catch (IOException e) {  e.printStackTrace();     }
     	
         int opcion=0,numUsers=0;
-        String amigo = "";
-        String mencli="";
+        String mencli = "";
+        String amigostring = "";
         Vector<String> amigos = new Vector<String>();
                 
     	while(true)
     	{
           try
           {
+
              opcion=entrada.readInt();
              switch(opcion)
              {
@@ -87,9 +96,8 @@ public class ServidorModel extends Thread
                       salida.writeUTF(clientesActivos.get(i).nameUser);
                    break;
                 case 3: // envia mensaje a uno solo
-                	Gson gson = new Gson();
                     mencli=entrada.readUTF();//mensaje enviado
-                    String amigostring = entrada.readUTF();
+                    amigostring = entrada.readUTF();
                     amigos = gson.fromJson(amigostring, new TypeToken<Vector<String>>() {}.getType()); 
                    enviaMsg(mencli, amigos, amigostring);
                    break;
@@ -139,7 +147,6 @@ public class ServidorModel extends Thread
    
    private void enviaMsg(String mencli, Vector<String> amigos, String jsonamigos) 
    {
-	  System.out.println(jsonamigos);
       ServidorModel user=null;
       for (String amigo : amigos) {
         for(int i = 0; i < clientesActivos.size(); i++)

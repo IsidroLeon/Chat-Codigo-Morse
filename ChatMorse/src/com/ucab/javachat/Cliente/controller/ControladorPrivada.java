@@ -38,11 +38,15 @@ public class ControladorPrivada implements ActionListener {
 			ventana.amigo = amigos;
 			String usuarios = amigos.toString();
 			ventana.setTitle("Conversación con: "+usuarios);
-			//this.mostrarMsg("Estas habland con; "+usuarios);
 	   }
 	
-	    private void cerrarVentana() {       
-	      ventana.setVisible(false);      
+	    private void cerrarVentana() {     
+	    	String mensaje = "El usuario "+cliente.getNombre()+" se ha retirado de la conversación";
+	    	ventana.amigo.remove(cliente.getNombre());
+		    cliente.flujo(ventana.amigo, mensaje);
+		    ventana.txtMensaje.setText("");
+		    ventana.panMostrar.setText("");
+		    ventana.setVisible(false);      
 	    }
 	    
 	    public void mostrarMsg(String msg){
@@ -53,7 +57,6 @@ public class ControladorPrivada implements ActionListener {
 	   public void actionPerformed(ActionEvent e) 
 	   {
 	      String mensaje = ventana.txtMensaje.getText();  
-	      //mostrarMsg(cliente.getNombre()+">"+mensaje);
 	      cliente.flujo(ventana.amigo, mensaje);
 	      ventana.txtMensaje.setText("");	  
 	   }

@@ -1,4 +1,4 @@
-package com.ucab.javachat.Servidor.model;
+package com.ucab.javachat.Cliente.model;
 	import java.util.Date;
 	/** Un año “y” se representa por el entero y – 1.900. 
 	 * Por ejemplo el año 1982 se representaría por el entero 1982 – 1900 = 82. 
@@ -6,7 +6,7 @@ package com.ucab.javachat.Servidor.model;
 	 * @authors Ismael T.
 	 * */
 	
-public class Usuario {
+public class Usuario extends ModeloValidacion{
 	private String nombreDeUsuario;
 	private boolean sexo;
 	private Date fecha;
@@ -20,19 +20,15 @@ public class Usuario {
 	 * 25 representa a 1925 y 105 representa a 2005
 	 * los metodos de la libreria java.util.Date estan deprecados, por eso el "@SuppressWarnings("deprecation")"
 	 * */
-	@SuppressWarnings("deprecation")
-	public void validarFecha(Date fecha){ 
-		if ( (fecha.getYear()>25) && (fecha.getYear()<105) ){
-			System.out.println("tiene permiso para usar la aplicacion");
-		}
-		else 
-			System.out.println("Usted debe tener mas de 10 anios o menos de 90 para poder usar la aplicacion");
-	}
 	
 	@SuppressWarnings("deprecation")
-	public Date setFecha(int dia, int mes, int anio){
-		this.fecha = new Date(anio, mes, dia);
-		return fecha;
+	public boolean setFecha(int dia, int mes, int año) {
+		if(validarFecha(dia, mes, año)) {
+			this.fecha = new Date(año, mes, dia);
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 	/*Getters y Setters 
@@ -44,8 +40,13 @@ public class Usuario {
 	public String getNombreDeUsuario() {
 		return nombreDeUsuario;
 	}
-	public void setNombreDeUsuario(String nombreDeUsuario) {
-		this.nombreDeUsuario = nombreDeUsuario;
+	public boolean setNombreDeUsuario(String nombreDeUsuario) {
+		if(validarUsuario(nombreDeUsuario)) {
+			this.nombreDeUsuario = nombreDeUsuario;
+			return true;
+		} else {
+			return false;
+		}
 	}
 	public boolean isSexo() {
 		return sexo;
@@ -56,26 +57,41 @@ public class Usuario {
 	public String getNombreCompleto() {
 		return nombreCompleto;
 	}
-	public void setNombreCompleto(String nombreCompleto) {
-		this.nombreCompleto = nombreCompleto;
+	public boolean setNombreCompleto(String nombreCompleto) {
+		if(validarNombreCompleto(nombreCompleto)) {
+			this.nombreCompleto = nombreCompleto;
+			return true;
+		} else {
+			return false;
+		}
 	}
 	public String getEmail() {
 		return email;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public boolean setEmail(String email) {
+		if(validarEmail(email)) {
+			this.email = email;
+			return true;
+		} else {
+			return false;
+		}
+		
 	}
 	public String getClave() {
 		return clave;
 	}
-	public void setClave(String clave) {
-		this.clave = clave;
+	public boolean setClave(String clave) {
+		if(validarContraseña(clave)) {
+			this.clave = clave;
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	/**Constructores con y sin paramteros*/
-	public Usuario(String nombreDeUsuario, boolean sexo, Date fecha,
+	public Usuario(int id, String nombreDeUsuario, boolean sexo, Date fecha,
 			String nombreCompleto, String email, String clave) {
-		super();
 		this.nombreDeUsuario = nombreDeUsuario;
 		this.sexo = sexo;
 		this.fecha = fecha;
@@ -84,11 +100,10 @@ public class Usuario {
 		this.clave = clave;
 	}
 
+	
 	public Usuario() {
-		super();
 	}
 
-	
 	/**metodo toString para imprimir valores de la clase Usuario*/
 	public String toString() {
 		return "Usuario [nombreDeUsuario=" + nombreDeUsuario

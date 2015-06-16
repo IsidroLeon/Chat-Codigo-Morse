@@ -10,6 +10,7 @@ import javax.swing.JTextArea;
  */
 
 
+@SuppressWarnings("serial")
 public class ServidorView extends JFrame
 {
    public JTextArea txaMostrar;
