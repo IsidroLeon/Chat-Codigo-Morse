@@ -6,7 +6,7 @@ package com.ucab.javachat.Cliente.model;
 	 * @authors Ismael T.
 	 * */
 	
-public class Usuario extends ModeloValidacion{
+public class Usuario extends Validacion {
 	private String nombreDeUsuario;
 	private boolean sexo;
 	private Date fecha;
@@ -23,13 +23,22 @@ public class Usuario extends ModeloValidacion{
 	
 	@SuppressWarnings("deprecation")
 	public boolean setFecha(int dia, int mes, int año) {
-		if(validarFecha(dia, mes, año)) {
-			this.fecha = new Date(año, mes, dia);
+		this.fecha = new Date(año, mes, dia);
+		if(validarFecha(fecha)) {
 			return true;
 		} else {
 			return false;
 		}
 	}
+	
+	public boolean setFecha(Date fecha) {
+		if(validarFecha(fecha)) {
+			this.fecha = fecha;
+			return true;
+		} else {
+			return false;
+		}
+	}	
 	
 	/*Getters y Setters 
 	 * */
@@ -111,9 +120,4 @@ public class Usuario extends ModeloValidacion{
 				+ nombreCompleto + ", email=" + email + ", clave=" + clave
 				+ "]";
 	}
-
-	public void setFecha(Date fecha) {
-		this.fecha = fecha;
-		
-	}	
 }

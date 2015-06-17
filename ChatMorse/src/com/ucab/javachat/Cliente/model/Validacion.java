@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
  * @version 1.0
  */
 
-public class ModeloValidacion{
+public class Validacion{
 	
 	/**
 	 * Obtiene un String de usuario y valida que cumpla los siguientes parametros
@@ -83,9 +83,8 @@ public class ModeloValidacion{
 	 * @author		Luis Valladares
 	 */
 	@SuppressWarnings("deprecation")
-	public boolean validarFecha(int dia, int mes, int año){
-		if (año > 1915) {
-			Date fecha = new Date(año, mes, dia);
+	public boolean validarFecha(Date fecha){
+		if (fecha.getYear() > 15) {
 			long nacimiento = fecha.getTime();
 			long actual = System.currentTimeMillis();
 			if(nacimiento > actual) {

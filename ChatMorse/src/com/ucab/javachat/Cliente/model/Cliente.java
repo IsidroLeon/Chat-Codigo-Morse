@@ -104,4 +104,20 @@ public class Cliente{
       }
    }
    
+   /**
+    * Este metodo se encarga de enviar una instancia del objeto usuario al servidor, para esto
+    * se crea un objeto json en el que se añaden los datos del usuario.
+    * @param usuario - Objeto que contiene los datos de un usuario que esta en el proceso de registro.
+    */
+   public void flujo(Usuario usuario) { 			
+		  Gson gson = new Gson();
+	      try {             
+	         salida.writeInt(4);
+	         String jsonRegistroUsuario = gson.toJson(usuario);
+	         salida.writeUTF(jsonRegistroUsuario);
+	      } catch (IOException e) {
+	         System.out.println("error...." + e);
+	      }
+	   }
+   
 }

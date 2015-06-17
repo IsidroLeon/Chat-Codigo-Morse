@@ -23,7 +23,7 @@ import com.toedter.calendar.JDateChooser;
  * @version 1.0
  */
 
-public class VistaRegistro {
+public class VentRegistro {
 
 	public JFrame frmRegistroDeUsuario;
 	public JTextField campoUsuario;
@@ -47,7 +47,7 @@ public class VistaRegistro {
 	/**
 	 * Create the application.
 	 */
-	public VistaRegistro() {
+	public VentRegistro() {
 		initialize();
 		
 	}

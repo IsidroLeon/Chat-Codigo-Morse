@@ -24,15 +24,31 @@ public final class ManejoArchivos {
 	private ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
 	private File miDir = new File (".");
 	private String ruta = "";
-	
-	
+
+	/**
+	 * 
+	 */
 	public ManejoArchivos() {
-		this.listaUsuarios = LeerArchivo();
+		this.listaUsuarios = leerArchivo();
 		try {
 			ruta = miDir.getCanonicalPath() +"Documentos/Java.json";
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	/**
+	 * 
+	 */
+	public void setListaUsuarios() {
+		this.listaUsuarios = leerArchivo();
+	}
+	
+	/**
+	 * @return
+	 */
+	public ArrayList<Usuario> getListaUsuarios() {
+		return this.listaUsuarios;
 	}
 	
 	/**
@@ -43,7 +59,7 @@ public final class ManejoArchivos {
 	 * @return      La lista de usuarios
 	 * @author		Luis Valladares
 	 */
-	public ArrayList<Usuario> LeerArchivo() {
+	public ArrayList<Usuario> leerArchivo() {
 		BufferedReader br = null;
 		try {
 			br = new BufferedReader(new FileReader(ruta)); // Variable para el lector del archivo
@@ -62,7 +78,7 @@ public final class ManejoArchivos {
 	 * @param 		Lista de usuarios a guardar
 	 */
 	
-	public void EscribirArchivo(ArrayList<Usuario> listaUsuarios) {
+	public void escribirArchivo(ArrayList<Usuario> listaUsuarios) {
 		this.listaUsuarios = listaUsuarios;
 		String json = gson.toJson(this.listaUsuarios); //Convierto la lista a json
 		try {  
@@ -71,6 +87,7 @@ public final class ManejoArchivos {
 			writer.close();  
 		} catch (IOException e) {  
 			e.printStackTrace();  
-		}  	
+		} 
 	}
+
 }

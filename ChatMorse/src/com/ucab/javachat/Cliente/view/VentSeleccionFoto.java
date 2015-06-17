@@ -4,12 +4,12 @@ import javax.swing.JFrame;
 import javax.swing.JFileChooser;
 import java.awt.BorderLayout;
 
-public class VistaSeleccionFoto {
+public class VentSeleccionFoto {
 
 	public JFrame frmSeleccioneUnaFoto;
 	public JFileChooser fotoSeleccionada;
 
-	public VistaSeleccionFoto() {
+	public VentSeleccionFoto() {
 		initialize();
 	}
 

@@ -35,7 +35,6 @@ public class ServidorModel extends Thread
         serv.mostrar("cliente agregado: "+this);			
      }
      
-     
      public void setNameUser(String user)
      {
        this.nameUser = user;
@@ -64,10 +63,15 @@ public class ServidorModel extends Thread
           entrada=new DataInputStream(scli.getInputStream());
           salida=new DataOutputStream(scli.getOutputStream());
           salida2=new DataOutputStream(scli2.getOutputStream());
+          // Por hacer: Y si en vez de enviar inicio de sesion envio registrar usuario? aca va otro case
           this.setNameUser(entrada.readUTF());
           this.setClave(entrada.readUTF());
-          
-          enviaUserActivos();
+          Autenticacion inicioDeSesion = new Autenticacion(this.getNameUser(), this.getClave());
+          if(inicioDeSesion.Autenticar()) {    
+        	  enviaUserActivos();
+          } else {
+        	  // Por hacer: Que envio si el inicio de sesion es invalido?
+          }
     	}
     	catch (IOException e) {  e.printStackTrace();     }
     	
@@ -84,7 +88,7 @@ public class ServidorModel extends Thread
                 case 1://envio de mensaje a todos
                    mencli = entrada.readUTF();
                    serv.mostrar("mensaje recibido "+mencli);
-                   enviaMsg(mencli);
+                   enviaMensaje(mencli);
                    break;
                 case 2://envio de lista de activos
                    numUsers = clientesActivos.size();
@@ -96,24 +100,15 @@ public class ServidorModel extends Thread
                     mencli=entrada.readUTF();//mensaje enviado
                     amigostring = entrada.readUTF();
                     amigos = gson.fromJson(amigostring, new TypeToken<Vector<String>>() {}.getType()); 
-                    enviaMsg(mencli, amigos, amigostring);
+                    enviaMensaje(mencli, amigos, amigostring);
                    	break;
-                case 4:
+                case 4: // Por hacer: esto no puede ir aca, tiene que ir en el case de arriba
                 	String jsonRegistroUsuario = entrada.readUTF();
                 	Usuario nuevoUsuario = new Usuario();
                 	nuevoUsuario = gson.fromJson(jsonRegistroUsuario, new TypeToken<Usuario>() {}.getType());
-					try {
-						nuevoUsuario.setEmail(Criptologia.Desencriptar(nuevoUsuario.getEmail()));
-					} catch (Exception e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					try {
-						nuevoUsuario.setClave(Criptologia.Desencriptar(nuevoUsuario.getClave()));
-					} catch (Exception e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+					Autenticacion registro = new Autenticacion(nuevoUsuario);
+					registro.Registrar();
+					// Por hacer: como envio si el registro funciono o fallo?
 	                break;
 	             }
           }
@@ -130,7 +125,7 @@ public class ServidorModel extends Thread
         	}   
      }
      
-     public void enviaMsg(String mencli2)
+     public void enviaMensaje(String mencli2)
      {
         ServidorModel user=  null;
         for(int i = 0;i<clientesActivos.size();i++)
@@ -159,7 +154,7 @@ public class ServidorModel extends Thread
         }
      }
    
-   private void enviaMsg(String mencli, Vector<String> amigos, String jsonamigos) 
+   private void enviaMensaje(String mencli, Vector<String> amigos, String jsonamigos) 
    {
       ServidorModel user=null;
       for (String amigo : amigos) {

@@ -1,5 +1,5 @@
 package com.ucab.javachat.Servidor.model;
-	import java.util.Date;
+import java.util.Date;
 	/** Un año “y” se representa por el entero y – 1.900. 
 	 * Por ejemplo el año 1982 se representaría por el entero 1982 – 1900 = 82. 
 	 * De este modo, 82 representa 1982 y 92 representa 1992.
@@ -20,14 +20,6 @@ public class Usuario {
 	 * 25 representa a 1925 y 105 representa a 2005
 	 * los metodos de la libreria java.util.Date estan deprecados, por eso el "@SuppressWarnings("deprecation")"
 	 * */
-	@SuppressWarnings("deprecation")
-	public void validarFecha(Date fecha){ 
-		if ( (fecha.getYear()>25) && (fecha.getYear()<105) ){
-			System.out.println("tiene permiso para usar la aplicacion");
-		}
-		else 
-			System.out.println("Usted debe tener mas de 10 anios o menos de 90 para poder usar la aplicacion");
-	}
 	
 	@SuppressWarnings("deprecation")
 	public Date setFecha(int dia, int mes, int anio){

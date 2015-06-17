@@ -60,11 +60,11 @@ public class VentIniciarSesion extends JFrame{
 		txtClave.setColumns(10);
 		
 		btnContrasena = new JButton("Recuperar contraseña");
-		btnContrasena.setBounds(20, 178, 200, 25);
+		btnContrasena.setBounds(20, 250, 200, 25);
 		frmInicioDeSesion.getContentPane().add(btnContrasena);
 		
 		btnEnviar = new JButton("Iniciar sesión");
-		btnEnviar.setBounds(20, 250, 200, 25);
+		btnEnviar.setBounds(20, 178, 200, 25);
 		frmInicioDeSesion.getContentPane().add(btnEnviar);
 		
 		btnArchivo = new JButton("Seleccionar");

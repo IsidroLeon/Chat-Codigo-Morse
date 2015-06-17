@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import com.ucab.javachat.Cliente.view.VentCliente;
 import com.ucab.javachat.Cliente.view.VentIniciarSesion;
-import com.ucab.javachat.Cliente.model.ModeloValidacion;
+import com.ucab.javachat.Cliente.model.Validacion;
 
 /*
  * @authors Ismael T.
@@ -14,7 +14,7 @@ public class ControladorIniciarSesion implements ActionListener{
 	private VentIniciarSesion vista;
 	private String usuario;
 	private String clave;
-	private ModeloValidacion validar = new ModeloValidacion();
+	private Validacion validar = new Validacion();
 	
 	public ControladorIniciarSesion(VentIniciarSesion vista) {
 		this.vista = vista;
@@ -77,7 +77,7 @@ public class ControladorIniciarSesion implements ActionListener{
 		}
 		
 		if (vista.btnRegistro == e.getSource()){
-			/*abre la ventana de registro*/
+			// Por hacer: Llamar a la ventana RegistrarUsuario
 		}
 	}
 

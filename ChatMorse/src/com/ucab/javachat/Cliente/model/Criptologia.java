@@ -2,9 +2,11 @@ package com.ucab.javachat.Cliente.model;
 
 import java.security.MessageDigest;
 import java.util.Arrays;
+
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
+
 import org.apache.commons.codec.binary.Base64; 
 
 
@@ -23,7 +25,7 @@ public class Criptologia {
 
    public static String Encriptar(String texto) {
 
-       String secretKey = "qualityinfosolutions"; //llave para encriptar datos (asi sale de donde lo descargue, vemos si la cambiamos.)
+	   String secretKey = "=048!;|599;v_!!1:*y|FQ;w!a+x.93o8I7A48~Ba%i43*3r0:3B"; //llave para encriptar datos
        String base64EncryptedString = "";
 
        try {
@@ -48,7 +50,7 @@ public class Criptologia {
 
    public static String Desencriptar(String textoEncriptado) throws Exception {
 
-       String secretKey = "qualityinfosolutions"; //llave para encriptar datos
+	   String secretKey = "=048!;|599;v_!!1:*y|FQ;w!a+x.93o8I7A48~Ba%i43*3r0:3B"; //llave para encriptar datos
        String base64EncryptedString = "";
 
        try {

@@ -54,6 +54,8 @@ public class ControladorCliente implements ActionListener {
         contPrivada = new ControladorPrivada(ventPrivada, cliente);
 	}
 	
+	// Por hacer: Constructor para registro de usuario
+	
 	/**
 	 * 
 	 * @return El nombre del usuario que inicio sesion.
