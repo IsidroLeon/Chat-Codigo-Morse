@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.util.Vector;
 
 import javax.swing.AbstractListModel;
-import javax.swing.JLabel;
 import javax.swing.JList;
 
 import com.ucab.javachat.Cliente.model.Cliente;
@@ -19,18 +18,17 @@ public class ControladorCliente implements ActionListener {
 	private Cliente cliente;
 	private VentPrivada ventPrivada;
 	private ControladorPrivada contPrivada;
-	static String nombreUsuario;
-	static String clave;
+	private String nombreUsuario;
+	private String clave;
 	private ThreadActualizarUsuario actualizarUsuario;
 
 	public ControladorCliente(VentCliente ventana, ControladorIniciarSesion contSesion) {
-        nombreUsuario = contSesion.getUsuario();
-        clave = contSesion.getClave();
+        setUsuario(contSesion.getUsuario());
+        setClave(contSesion.getClave());
         this.ventana = ventana;
         try {
 			cliente = new Cliente(this);
 			cliente.conexion(nombreUsuario, clave);
-			nombreUsuario = cliente.getNombre();
 	        ventana.nomUsers = new Vector<String>();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -45,10 +43,27 @@ public class ControladorCliente implements ActionListener {
         contPrivada = new ControladorPrivada(ventPrivada, cliente);
 	}
 	
-	public void setNombreUser(String user)
+	public String getUsuario() {
+		return this.nombreUsuario;
+	}
+	
+	public void setUsuario(String usuario) {
+		this.nombreUsuario = usuario;
+	}
+	
+	public String getClave() {
+		return this.clave;
+	}
+	
+	public void setClave(String clave) {
+		this.clave = clave;
+	}
+	
+	public void setLabelUser()
     {
-		this.ventana.lblNomUser.setText("Usuario " + user);
+		this.ventana.lblNomUser.setText("Usuario " + getUsuario());
     }
+	
     public void ponerActivos(Vector<String> datos)
     {
        ventana.nomUsers = datos;
@@ -65,7 +80,7 @@ public class ControladorCliente implements ActionListener {
        ponerDatosList(ventana.lstActivos,ventana.nomUsers);
     }
     
-   @SuppressWarnings("unchecked")
+   @SuppressWarnings({ "unchecked", "rawtypes", "serial" })
 private void ponerDatosList(JList<String> list,final Vector<String> datos)
    {
        list.setModel(new AbstractListModel() {            
@@ -93,7 +108,7 @@ private void ponerDatosList(JList<String> list,final Vector<String> datos)
     			 System.out.println(ex.getMessage());
     		 }
     	 }
-    	 nombres.add(nombreUsuario);
+    	 nombres.add(this.getUsuario());
     	 contPrivada.setAmigo(nombres);
        }
     }

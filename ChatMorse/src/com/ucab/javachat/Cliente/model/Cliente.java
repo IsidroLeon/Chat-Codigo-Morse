@@ -32,7 +32,6 @@ public class Cliente{
    Socket comunication = null;//para la comunicacion
    Socket comunication2 = null;//para recivir msg
    
-   String nomCliente;;
    /** Creates a new instance of Cliente */
    public Cliente(ControladorCliente vent) throws IOException
    {      
@@ -46,7 +45,7 @@ public class Cliente{
          entrada = new DataInputStream(comunication.getInputStream()); // envia al cliente
          salida = new DataOutputStream(comunication.getOutputStream()); // envia al cliente
          entrada2 = new DataInputStream(comunication2.getInputStream());
-         vent.setNombreUser(nombre);
+         vent.setLabelUser();
          salida.writeUTF(nombre);
          salida.writeUTF(clave);
       } catch (IOException e) {
@@ -57,7 +56,7 @@ public class Cliente{
    }
    
    public String getNombre(){
-      return nomCliente;
+      return vent.getUsuario();
    }
    
    public Vector<String> pedirUsuarios(){
@@ -80,7 +79,6 @@ public class Cliente{
          salida.writeInt(3); //opcion de mensaje a amigo
          salida.writeUTF(mens);
          String jsonamigos = gson.toJson(amigos);
-         System.out.println(jsonamigos);
          salida.writeUTF(jsonamigos);
       } catch (IOException e) {
          System.out.println("error...." + e);

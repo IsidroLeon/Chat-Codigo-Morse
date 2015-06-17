@@ -27,7 +27,8 @@ import javax.swing.JScrollPane;
  * 
  * @author Administrador
  */
-public class VentCliente extends JFrame{
+@SuppressWarnings("serial")
+public class VentCliente extends JFrame {
      public String mensajeCliente;
      public JLabel lblNomUser;
      public JList<String> lstActivos;

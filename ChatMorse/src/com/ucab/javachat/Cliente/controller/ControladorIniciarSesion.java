@@ -29,13 +29,13 @@ public class ControladorIniciarSesion implements ActionListener{
 	public boolean validarInicioSesion() {
 		boolean flag = true;
 		if (validar.validarUsuario(vista.txtUsuario.getText())) {
-			usuario = vista.txtUsuario.getText();
+			setUsuario(vista.txtUsuario.getText());
 			// devuelve error de usuario
 		} else {
 			flag = false;
 		}
 		if(validar.validarContraseña(String.valueOf(vista.txtClave.getPassword()))) {
-			clave = String.valueOf(vista.txtClave.getPassword());
+			setClave(String.valueOf(vista.txtClave.getPassword()));
 			//devuelve error de clave
 		} else {
 			flag = false;
@@ -46,15 +46,24 @@ public class ControladorIniciarSesion implements ActionListener{
 	public String getUsuario() {
 		return this.usuario;
 	}
+	
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+	
 	public String getClave() {
 		return this.clave;
+	}
+	
+	public void setClave(String clave) {
+		this.clave = clave;
 	}
 	
 	public void actionPerformed(ActionEvent e) {
 		if (vista.btnEnviar == e.getSource())	
 			if (validarInicioSesion()) {
 				VentCliente vistaCliente = new VentCliente(); // Si el inicio de sesion es valido crea la ventana
-				ControladorCliente p = new ControladorCliente(vistaCliente, this);
+				new ControladorCliente(vistaCliente, this);
 				this.vista.frmInicioDeSesion.dispose();
 			}
 		

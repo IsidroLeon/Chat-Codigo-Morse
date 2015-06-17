@@ -3,10 +3,13 @@ package com.ucab.javachat.Cliente.view;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
+
 import java.awt.Font;
+
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
+@SuppressWarnings("serial")
 public class VentIniciarSesion extends JFrame{
 
 	public JFrame frmInicioDeSesion;
