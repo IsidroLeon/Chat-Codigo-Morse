@@ -104,21 +104,4 @@ public class Cliente{
       }
    }
    
-   /**
-    * Este metodo se encarga de enviar una instancia del objeto usuario al servidor, para esto
-    * se crea un objeto json en el que se añaden los datos del usuario.
-    * @param usuario - Objeto que contiene los datos de un usuario que esta en el proceso de registro.
-    */
-   public void flujo(Vector<String> amigos,String mens) { /*flujo para mensaje privado*/
-	  Gson gson = new Gson();
-      try {             
-         System.out.println("el mensaje enviado desde el cliente es :" + mens);
-         salida.writeInt(3); //opcion de mensaje a amigo
-         salida.writeUTF(mens);
-         String jsonamigos = gson.toJson(amigos);
-         salida.writeUTF(jsonamigos);
-      } catch (IOException e) {
-         System.out.println("error...." + e);
-      }
-   }
 }

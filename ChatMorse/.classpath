@@ -2,11 +2,11 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/media/diego/Archivos/Documentos/eclipse-workspace/ChatMorse/commons-codec-1.9.jar"/>
-	<classpathentry kind="lib" path="/media/diego/Archivos/Documentos/eclipse-workspace/ChatMorse/gson.jar"/>
-	<classpathentry kind="lib" path="/media/diego/Archivos/Documentos/eclipse-workspace/ChatMorse/jcalendar-1.4.jar"/>
-	<classpathentry kind="lib" path="/media/diego/Archivos/Documentos/eclipse-workspace/ChatMorse/jgoodies-common-1.2.0.jar"/>
-	<classpathentry kind="lib" path="/media/diego/Archivos/Documentos/eclipse-workspace/ChatMorse/jgoodies-looks-2.4.1.jar"/>
-	<classpathentry kind="lib" path="/media/diego/Archivos/Documentos/eclipse-workspace/ChatMorse/junit-4.6.jar"/>
+	<classpathentry kind="var" path="CHAT_ROOT/jgoodies-looks-2.4.1.jar"/>
+	<classpathentry kind="var" path="CHAT_ROOT/junit-4.6.jar"/>
+	<classpathentry kind="var" path="CHAT_ROOT/jgoodies-common-1.2.0.jar"/>
+	<classpathentry kind="var" path="CHAT_ROOT/jcalendar-1.4.jar"/>
+	<classpathentry kind="var" path="CHAT_ROOT/gson.jar"/>
+	<classpathentry kind="var" path="CHAT_ROOT/commons-codec-1.9.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
