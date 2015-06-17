@@ -76,21 +76,18 @@ public class ServidorModel extends Thread
         String amigostring = "";
         Vector<String> amigos = new Vector<String>();
                 
-    	while(true)
-    	{
-          try
-          {
-
-             opcion=entrada.readInt();
+    	while(true){
+          try{
+             opcion = entrada.readInt();
              switch(opcion)
              {
                 case 1://envio de mensaje a todos
-                   mencli=entrada.readUTF();
+                   mencli = entrada.readUTF();
                    serv.mostrar("mensaje recibido "+mencli);
                    enviaMsg(mencli);
                    break;
                 case 2://envio de lista de activos
-                   numUsers=clientesActivos.size();
+                   numUsers = clientesActivos.size();
                    salida.writeInt(numUsers);
                    for(int i=0;i<numUsers;i++)
                       salida.writeUTF(clientesActivos.get(i).nameUser);
@@ -99,32 +96,49 @@ public class ServidorModel extends Thread
                     mencli=entrada.readUTF();//mensaje enviado
                     amigostring = entrada.readUTF();
                     amigos = gson.fromJson(amigostring, new TypeToken<Vector<String>>() {}.getType()); 
-                   enviaMsg(mencli, amigos, amigostring);
-                   break;
-             }
+                    enviaMsg(mencli, amigos, amigostring);
+                   	break;
+                case 4:
+                	String jsonRegistroUsuario = entrada.readUTF();
+                	Usuario nuevoUsuario = new Usuario();
+                	nuevoUsuario = gson.fromJson(jsonRegistroUsuario, new TypeToken<Usuario>() {}.getType());
+					try {
+						nuevoUsuario.setEmail(Criptologia.Desencriptar(nuevoUsuario.getEmail()));
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					try {
+						nuevoUsuario.setClave(Criptologia.Desencriptar(nuevoUsuario.getClave()));
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+	                break;
+	             }
           }
-          catch (IOException e) {System.out.println("El cliente termino la conexion");break;}
+          	catch (IOException e) {System.out.println("El cliente termino la conexion.");break;}
     	}
-    	serv.mostrar("Se removio un usuario");
+    	serv.mostrar("Se removio un usuario.");
     	clientesActivos.removeElement(this);
-    	try
-    	{
-          serv.mostrar("Se desconecto un usuario");
-          scli.close();
+    	try{
+    		serv.mostrar("Se desconecto un usuario.");
+    		scli.close();
     	}	
-        catch(Exception et)
-        {serv.mostrar("no se puede cerrar el socket");}   
+        catch(Exception et){
+        	serv.mostrar("No se puede cerrar el socket.");
+        	}   
      }
      
      public void enviaMsg(String mencli2)
      {
-        ServidorModel user=null;
-        for(int i=0;i<clientesActivos.size();i++)
+        ServidorModel user=  null;
+        for(int i = 0;i<clientesActivos.size();i++)
         {
            serv.mostrar("MENSAJE DEVUELTO:"+mencli2);
            try
             {
-              user=clientesActivos.get(i);
+              user = clientesActivos.get(i);
               user.salida2.writeInt(1);//opcion de mensaje 
               user.salida2.writeUTF(""+this.getNameUser()+" >"+ mencli2);              
             }catch (IOException e) {e.printStackTrace();}

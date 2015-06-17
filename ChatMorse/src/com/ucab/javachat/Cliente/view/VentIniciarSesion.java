@@ -15,7 +15,7 @@ public class VentIniciarSesion extends JFrame{
 	public JFrame frmInicioDeSesion;
 	public JTextField txtUsuario;
 	public JPasswordField txtClave;
-	public JButton btnContrasena, btnArchivo, btnEnviar;
+	public JButton btnContrasena, btnArchivo, btnEnviar, btnRegistro;
 	
 	
 	public VentIniciarSesion() {
@@ -71,7 +71,7 @@ public class VentIniciarSesion extends JFrame{
 		btnArchivo.setBounds(84, 127, 128, 25);
 		frmInicioDeSesion.getContentPane().add(btnArchivo);
 		
-		JButton btnRegistro = new JButton("Registrar");
+		btnRegistro = new JButton("Registrar");
 		btnRegistro.setBounds(20, 214, 200, 25);
 		frmInicioDeSesion.getContentPane().add(btnRegistro);
 	}

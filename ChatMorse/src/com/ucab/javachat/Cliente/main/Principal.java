@@ -12,6 +12,5 @@ public class Principal {
         Cliente.IP_SERVER = "localhost";
         VentIniciarSesion ventIniciar = new VentIniciarSesion();
 		new ControladorIniciarSesion(ventIniciar);
-}
-
+    }
 }

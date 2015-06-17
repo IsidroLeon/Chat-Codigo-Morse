@@ -24,6 +24,7 @@ public class ControladorIniciarSesion implements ActionListener{
 		this.vista.btnEnviar.addActionListener(this);
 		this.vista.btnArchivo.addActionListener(this);
 		this.vista.btnContrasena.addActionListener(this);
+		this.vista.btnRegistro.addActionListener(this);
 	}
 	
 	public boolean validarInicioSesion() {
@@ -73,6 +74,10 @@ public class ControladorIniciarSesion implements ActionListener{
 		
 		if (vista.btnArchivo == e.getSource()){
 			/*metodos de openCV para cargar la foto al sistema*/
+		}
+		
+		if (vista.btnRegistro == e.getSource()){
+			/*abre la ventana de registro*/
 		}
 	}
 

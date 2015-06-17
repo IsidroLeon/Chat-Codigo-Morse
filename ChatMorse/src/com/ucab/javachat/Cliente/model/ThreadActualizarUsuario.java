@@ -15,7 +15,7 @@ public class ThreadActualizarUsuario extends Thread{
 	private Cliente cliente;
 	
 	/**
-	 * Constructor del hilo.  
+	 * Constructor de la clase que extiende de Thread.  
 	 * @param cliente
 	 */
 	
@@ -25,7 +25,7 @@ public class ThreadActualizarUsuario extends Thread{
 	   }
 	
 	/**
-	 *  Cuando se ejecuta el hilo este actualiza la lista de usuarios conectados cada 7 segundos. 
+	 *  Cuando se ejecuta el hilo este actualiza la lista de usuarios conectados cada 3 segundos. 
 	 */
 	public void run(){
 		while (true) {	

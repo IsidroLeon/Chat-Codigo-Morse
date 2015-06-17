@@ -90,7 +90,7 @@ public class Usuario extends ModeloValidacion{
 	}
 
 	/**Constructores con y sin paramteros*/
-	public Usuario(int id, String nombreDeUsuario, boolean sexo, Date fecha,
+	public Usuario(String nombreDeUsuario, boolean sexo, Date fecha,
 			String nombreCompleto, String email, String clave) {
 		this.nombreDeUsuario = nombreDeUsuario;
 		this.sexo = sexo;
@@ -110,5 +110,10 @@ public class Usuario extends ModeloValidacion{
 				+ ", sexo=" + sexo + ", fecha=" + fecha + ", nombreCompleto="
 				+ nombreCompleto + ", email=" + email + ", clave=" + clave
 				+ "]";
+	}
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+		
 	}	
 }
