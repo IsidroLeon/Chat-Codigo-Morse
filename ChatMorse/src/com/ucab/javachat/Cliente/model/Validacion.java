@@ -56,7 +56,7 @@ public class Validacion{
 	 * @author		Luis Valladares
 	 */
 	public boolean validarNombreCompleto(String nombreCompleto){
-		Pattern p = Pattern.compile("[a-z A-Z ñáéíóú]");
+		Pattern p = Pattern.compile("[a-z A-Z ñáéíóúÁÉÍÓÚ]+\\b");
 		Matcher m = p.matcher(nombreCompleto);
 		return m.matches();
 	}

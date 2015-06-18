@@ -23,7 +23,7 @@ import org.apache.commons.codec.binary.Base64;
 
 public class Criptologia {
 
-   public static String Encriptar(String texto) {
+   public static String encriptar(String texto) {
 
 	   String secretKey = "=048!;|599;v_!!1:*y|FQ;w!a+x.93o8I7A48~Ba%i43*3r0:3B"; //llave para encriptar datos
        String base64EncryptedString = "";
@@ -44,11 +44,13 @@ public class Criptologia {
            base64EncryptedString = new String(base64Bytes);
 
        } catch (Exception ex) {
+    	   System.out.println("error");
        }
+       System.out.println(base64EncryptedString);
        return base64EncryptedString;
    }
 
-   public static String Desencriptar(String textoEncriptado) throws Exception {
+   public static String desencriptar(String textoEncriptado) throws Exception {
 
 	   String secretKey = "=048!;|599;v_!!1:*y|FQ;w!a+x.93o8I7A48~Ba%i43*3r0:3B"; //llave para encriptar datos
        String base64EncryptedString = "";
@@ -68,7 +70,9 @@ public class Criptologia {
            base64EncryptedString = new String(plainText, "UTF-8");
 
        } catch (Exception ex) {
+    	   System.out.println("error");
        }
+       System.out.println(base64EncryptedString);
        return base64EncryptedString;
    }
 }

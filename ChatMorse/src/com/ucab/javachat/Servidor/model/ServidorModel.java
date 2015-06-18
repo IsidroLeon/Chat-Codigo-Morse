@@ -60,20 +60,31 @@ public class ServidorModel extends Thread
     	
     	try
     	{
-          entrada=new DataInputStream(scli.getInputStream());
-          salida=new DataOutputStream(scli.getOutputStream());
-          salida2=new DataOutputStream(scli2.getOutputStream());
-          // Por hacer: Y si en vez de enviar inicio de sesion envio registrar usuario? aca va otro case
-          this.setNameUser(entrada.readUTF());
-          this.setClave(entrada.readUTF());
-          Autenticacion inicioDeSesion = new Autenticacion(this.getNameUser(), this.getClave());
-          if(inicioDeSesion.Autenticar()) {    
-        	  enviaUserActivos();
-          } else {
-        	  // Por hacer: Que envio si el inicio de sesion es invalido?
+          entrada = new DataInputStream(scli.getInputStream());
+          salida = new DataOutputStream(scli.getOutputStream());
+          salida2 = new DataOutputStream(scli2.getOutputStream());
+          int caseInicio = 0;
+          caseInicio = entrada.readInt();
+          switch(caseInicio) {
+          	case 1: // Inicio de sesion
+          		this.setNameUser(entrada.readUTF());
+          		this.setClave(entrada.readUTF());
+          		Autenticacion inicioDeSesion = new Autenticacion(this.getNameUser(), this.getClave());
+          		// Envia true o false si el inicio de sesion es valido o invalido
+                salida.writeBoolean(inicioDeSesion.autenticar());
+          		break;
+          	case 2: // Registro
+          		String usuarioRegistroJson = entrada.readUTF();
+          		Usuario usuarioRegistro = gson.fromJson(usuarioRegistroJson, new TypeToken<Usuario>() {}.getType()); 
+          		Autenticacion registro = new Autenticacion(usuarioRegistro);
+          		salida.writeBoolean(registro.registrar());
+          		scli.close();
+          		scli2.close();
           }
     	}
-    	catch (IOException e) {  e.printStackTrace();     }
+    	catch (IOException e) {  
+    		e.printStackTrace();     
+    	}
     	
         int opcion=0,numUsers=0;
         String mencli = "";
@@ -102,14 +113,6 @@ public class ServidorModel extends Thread
                     amigos = gson.fromJson(amigostring, new TypeToken<Vector<String>>() {}.getType()); 
                     enviaMensaje(mencli, amigos, amigostring);
                    	break;
-                case 4: // Por hacer: esto no puede ir aca, tiene que ir en el case de arriba
-                	String jsonRegistroUsuario = entrada.readUTF();
-                	Usuario nuevoUsuario = new Usuario();
-                	nuevoUsuario = gson.fromJson(jsonRegistroUsuario, new TypeToken<Usuario>() {}.getType());
-					Autenticacion registro = new Autenticacion(nuevoUsuario);
-					registro.Registrar();
-					// Por hacer: como envio si el registro funciono o fallo?
-	                break;
 	             }
           }
           	catch (IOException e) {System.out.println("El cliente termino la conexion.");break;}

@@ -12,7 +12,7 @@ public class Autenticacion {
 	Usuario user;
 	String nombreDeUsuario;
 	String clave;
-	ArrayList<Usuario> usuariosArchivo;
+	ArrayList<Usuario> usuariosArchivo = new ArrayList<Usuario>();
 	
 	/** Constructor para el registro de un nuevo usuario.
 	 * @param user - El usuario a registrar
@@ -43,23 +43,25 @@ public class Autenticacion {
 	 * con los almacenados en el sistema
 	 * @return Verdadero cuando el usuario existe, falso en cualquier otro caso
 	 */
-	public boolean Autenticar() {
+	public boolean autenticar() {
 		Criptologia cifrado = new Criptologia();
-		for (Usuario usuario : usuariosArchivo) {
-			try {
-				// comprueba si existe algun usuario con el correo o el nombre de usuario indicado
-				if ((usuario.getNombreDeUsuario() == this.nombreDeUsuario)||(usuario.getEmail() == this.nombreDeUsuario)) {
-					// comprueba si hay algun usuario con esa clave
-					if (cifrado.desencriptar(usuario.getClave()) == cifrado.desencriptar(this.clave)) { 
-						return true;
+		if(!usuariosArchivo.isEmpty()) {
+			for (Usuario usuario : usuariosArchivo) {
+				try {
+					// comprueba si existe algun usuario con el correo o el nombre de usuario indicado
+					if ((usuario.getNombreDeUsuario() == this.nombreDeUsuario)||(usuario.getEmail() == this.nombreDeUsuario)) {
+						// comprueba si hay algun usuario con esa clave
+						if (cifrado.desencriptar(usuario.getClave()) == cifrado.desencriptar(this.clave)) { 
+							return true;
+						} else {
+							return false;
+						}
 					} else {
 						return false;
 					}
-				} else {
-					return false;
+				} catch (Exception e) {
+					e.printStackTrace();
 				}
-			} catch (Exception e) {
-				e.printStackTrace();
 			}
 		}
 		return false;
@@ -69,25 +71,31 @@ public class Autenticacion {
 	 * si el correo o el nombre de usuario ya estan registrados
 	 * @return Verdadero si se registro el usuario, falso en cualquier otro caso
 	 */
-	public boolean Registrar() {
+	public boolean registrar() {
 		Criptologia cifrado = new Criptologia();
-		for (Usuario usuario : usuariosArchivo) {
-			try {
-				if (cifrado.desencriptar(usuario.getEmail()) == cifrado.desencriptar(user.getEmail())) {
-					if (usuario.getNombreDeUsuario() == this.user.getNombreDeUsuario()) {
-						return false;
-					} else {
-						return false;
+		if(usuariosArchivo != null) {
+			for (Usuario usuario : usuariosArchivo) {
+				try {
+					if (cifrado.desencriptar(usuario.getEmail()) == cifrado.desencriptar(user.getEmail())) {
+						if (usuario.getNombreDeUsuario() == this.user.getNombreDeUsuario()) {
+							return false;
+						} else {
+							return false;
+						}
 					}
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			}		
-			usuariosArchivo.add(this.user);
-			ManejoArchivos archivo = new ManejoArchivos();
-			archivo.escribirArchivo(usuariosArchivo);
-			return true;
+				} catch (Exception e) {
+					e.printStackTrace();
+				}		
+			}
 		}
-		return false;
+		else
+		{
+			usuariosArchivo = new ArrayList<Usuario>();
+		}
+		System.out.println(user);
+		usuariosArchivo.add(this.user);
+		ManejoArchivos archivo = new ManejoArchivos();
+		archivo.escribirArchivo(usuariosArchivo);
+		return true;
 	}
 }

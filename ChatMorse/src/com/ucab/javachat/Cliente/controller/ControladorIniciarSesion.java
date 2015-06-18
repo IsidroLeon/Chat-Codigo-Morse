@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import com.ucab.javachat.Cliente.view.VentCliente;
 import com.ucab.javachat.Cliente.view.VentIniciarSesion;
+import com.ucab.javachat.Cliente.view.VentRegistro;
 import com.ucab.javachat.Cliente.model.Validacion;
 
 /*
@@ -77,7 +78,9 @@ public class ControladorIniciarSesion implements ActionListener{
 		}
 		
 		if (vista.btnRegistro == e.getSource()){
-			// Por hacer: Llamar a la ventana RegistrarUsuario
+			VentRegistro vistaReg = new VentRegistro();
+			new ControladorRegistrarUsuario(vistaReg);
+			this.vista.frmInicioDeSesion.dispose();
 		}
 	}
 

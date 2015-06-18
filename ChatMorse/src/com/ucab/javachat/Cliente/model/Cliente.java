@@ -42,13 +42,20 @@ public class Cliente{
       this.vent = vent;
    }
    
-   /**
+   public Cliente() throws IOException
+   {      
+	   
+   }
+   
+   /** Metodo que inicializa los sockets con el servidor y envia el nombre de usuario
+    * y la contraseña para la autenticacion en el servidor
     * 
-    * @param nombre
-    * @param clave
+    * @param nombre nombre de usuario
+    * @param clave clave del usuario (cifrada)
     * @throws IOException
     */
    public void conexion(String nombre, String clave) throws IOException {
+	   boolean flag = false;
 	   try {
 		   comunication = new Socket(Cliente.IP_SERVER, 8081); //envia
 		   comunication2 = new Socket(Cliente.IP_SERVER, 8082); //recibe
@@ -56,17 +63,51 @@ public class Cliente{
 		   salida = new DataOutputStream(comunication.getOutputStream()); // envia al cliente
 		   entrada2 = new DataInputStream(comunication2.getInputStream());
 		   vent.setLabelUser();
+		   salida.writeInt(1);
 		   salida.writeUTF(nombre);
 		   salida.writeUTF(clave);
+		   flag = entrada.readBoolean();
 	   } catch (IOException e) {
 		   System.out.println("\tEl servidor no esta levantado");
 		   System.out.println("\t=============================");
 	   }
-	   new threadCliente(entrada2, vent).start();
+	   if (flag) {
+		   new threadCliente(entrada2, vent).start();
+	   }
+   }
+   
+   	/** Envia los datos del nuevo usuario al servidor para realizr las validaciones necesarias del lado del servidor
+   	 * y su almacenamiento en el archivo para el registro
+	 * @param nuevoUsuario - Datos del nuevo usuario a registrar en el sistema
+	 * @throws IOException
+	 */
+   public boolean conexion(Usuario nuevoUsuario) throws IOException {
+	   boolean flag = false;
+	   try {
+		   comunication = new Socket(Cliente.IP_SERVER, 8081); //envia
+		   comunication2 = new Socket(Cliente.IP_SERVER, 8082); //recibe
+		   entrada = new DataInputStream(comunication.getInputStream()); // envia al cliente
+		   salida = new DataOutputStream(comunication.getOutputStream()); // envia al cliente
+		   entrada2 = new DataInputStream(comunication2.getInputStream());
+		   flag = flujo(nuevoUsuario);
+	   } catch (IOException e) {
+		   System.out.println("\tEl servidor no esta levantado");
+		   System.out.println("\t=============================");
+	   }
+	   return flag;
    }
    
    public String getNombre(){
       return vent.getUsuario();
+   }
+   
+   public void cerrarSockets() {
+	   try {
+		comunication.close();
+		comunication2.close();
+	} catch (IOException e) {
+		e.printStackTrace();
+	}	   
    }
    
    /**
@@ -109,15 +150,18 @@ public class Cliente{
     * se crea un objeto json en el que se añaden los datos del usuario.
     * @param usuario - Objeto que contiene los datos de un usuario que esta en el proceso de registro.
     */
-   public void flujo(Usuario usuario) { 			
-		  Gson gson = new Gson();
+   public boolean flujo(Usuario usuario) { 
+	   	boolean flag = false;
+		Gson gson = new Gson();
 	      try {             
-	         salida.writeInt(4);
+	         salida.writeInt(2);
 	         String jsonRegistroUsuario = gson.toJson(usuario);
 	         salida.writeUTF(jsonRegistroUsuario);
+	         flag = entrada.readBoolean();
 	      } catch (IOException e) {
 	         System.out.println("error...." + e);
 	      }
+	      return flag;
 	   }
    
 }

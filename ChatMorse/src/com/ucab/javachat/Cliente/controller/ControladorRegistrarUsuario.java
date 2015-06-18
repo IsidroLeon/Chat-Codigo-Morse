@@ -3,11 +3,12 @@ package com.ucab.javachat.Cliente.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import com.ucab.javachat.Cliente.model.Cliente;
 import com.ucab.javachat.Cliente.model.Criptologia;
 import com.ucab.javachat.Cliente.model.Usuario;
+import com.ucab.javachat.Cliente.view.VentCliente;
 import com.ucab.javachat.Cliente.view.VentRegistro;
 import com.ucab.javachat.Cliente.view.VentSeleccionFoto;
+import com.ucab.javachat.Cliente.model.Validacion;
 
 /**
  * Esta clase es el controlador de la vista del registro de usuario.
@@ -25,77 +26,88 @@ import com.ucab.javachat.Cliente.view.VentSeleccionFoto;
 public class ControladorRegistrarUsuario implements ActionListener {
 	private VentRegistro vista;
 	private Usuario nuevoUsuario;
-	private Cliente cliente;	
+	
+	public Usuario getNuevoUsuario() {
+		return nuevoUsuario;
+	}
 	
 	/**
 	 * Constructor del controlador. Aqui se añaden los Listener a los botones de la vista.
 	 * @param vista - Instancia de la ventana para registrar al usuario.
 	 * @param cliente - Instancia del modelo en el que se envian los datos del usuario al servidor.
 	 */
-	public ControladorRegistrarUsuario(VentRegistro vista, Cliente cliente){
+	public ControladorRegistrarUsuario(VentRegistro vista){
 		this.vista = vista;
 		this.vista.btnRegistrar.addActionListener(this);
 		this.vista.btnSeleccionarFoto.addActionListener(this);
 		this.vista.btnSalir.addActionListener(this);
 		nuevoUsuario = new Usuario();
-		this.cliente = cliente;
+		this.vista.frmRegistroDeUsuario.setVisible(true);
+	}
+	
+	public void cerrarVentana() {
+		this.vista.frmRegistroDeUsuario.dispose();
 	}
 	
 	/**
 	 * Controlador de eventos para los botones de la vista.
 	 */
 	public void actionPerformed(ActionEvent e) {
-		boolean flag = false;
+		boolean flag = true;
 		if (vista.btnSeleccionarFoto == e.getSource()){
 			VentSeleccionFoto seleccionarFoto = new VentSeleccionFoto();
 			seleccionarFoto.frmSeleccioneUnaFoto.setVisible(true);
 		}
 		if (vista.btnRegistrar == e.getSource()){			
-			
+			Validacion validacion = new Validacion();
 			if (vista.rdbtnMasculino.isSelected()) 
 				nuevoUsuario.setSexo(true);
 			else if (vista.rdbtnFemenino.isSelected()) 
 				nuevoUsuario.setSexo(false);
 			
-			if (nuevoUsuario.setNombreDeUsuario(vista.campoUsuario.getText()) == false){
-				vista.usuarioValido.setText("escriba otro username.");
+			if (validacion.validarUsuario(vista.campoUsuario.getText()) == false){
+				vista.usuarioValido.setText("ingrese otro nombre de usuario.");
 				flag = false;
 			}
-			else {
-				;
-				flag = true;
+			else{
+				vista.usuarioValido.setText(" ");
+				nuevoUsuario.setNombreDeUsuario(vista.campoUsuario.getText());
 			}
 			
-			if (nuevoUsuario.setNombreCompleto(vista.campoNombre.getText()) == false){
+			if (validacion.validarNombreCompleto(vista.campoNombre.getText()) == false){
 				vista.nombreValido.setText("escriba nombre valido.");
 				flag = false;
 			}
-			else{	
-				flag = true;
+			else{
+				vista.nombreValido.setText(" ");
+				nuevoUsuario.setNombreCompleto(vista.campoNombre.getText());
 			}
 			
-			if (nuevoUsuario.setFecha(vista.fechaUsuario.getDate()) == false){
+			if (validacion.validarFecha(vista.fechaUsuario.getDate()) == false){
 				vista.fechaValida.setText("usted es muy joven.");
 				flag = false;
 			}
 			else{
-				flag = true;
+				vista.fechaValida.setText(" ");
+				nuevoUsuario.setFecha(vista.fechaUsuario.getDate());
 			}
 			
-			if (nuevoUsuario.setEmail(vista.campoEmail.getText()) == false){
+			if (validacion.validarEmail(vista.campoEmail.getText()) == false){
 				vista.emailValido.setText("correo en formato incorrecto");
 				flag = false;
 			}
 			else{
-				flag = true;
+				vista.emailValido.setText(" ");
+				nuevoUsuario.setEmail(vista.campoEmail.getText());
 			}
 			
- 			if (nuevoUsuario.setClave(String.valueOf(vista.campoContraseña.getPassword())) == false){
+ 			if (validacion.validarContraseña(String.valueOf(vista.campoContraseña.getPassword())) == false){
  				vista.contraseñaValida.setText("contraseña invalida.");
  				flag = false;
  			}
  			else{
- 				flag = true;
+ 				vista.contraseñaValida.setText(" ");
+ 				nuevoUsuario.setClave(String.valueOf(vista.campoContraseña.getPassword()));
  			}
  		}
 		
@@ -104,10 +116,10 @@ public class ControladorRegistrarUsuario implements ActionListener {
 		}	
 		
 		if (flag){
-			nuevoUsuario.setEmail(Criptologia.Encriptar(nuevoUsuario.getEmail()));
-			nuevoUsuario.setClave(Criptologia.Encriptar(nuevoUsuario.getClave()));
-			cliente.flujo(nuevoUsuario);
+			nuevoUsuario.setEmail(Criptologia.encriptar(nuevoUsuario.getEmail()));
+			nuevoUsuario.setClave(Criptologia.encriptar(nuevoUsuario.getClave()));
+			VentCliente ventana = new VentCliente();
+			new ControladorCliente(ventana, this);
 		}
 	}
-	
 }

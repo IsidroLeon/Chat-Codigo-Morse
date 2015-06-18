@@ -29,12 +29,14 @@ public final class ManejoArchivos {
 	 * 
 	 */
 	public ManejoArchivos() {
-		this.listaUsuarios = leerArchivo();
 		try {
-			ruta = miDir.getCanonicalPath() +"Documentos/Java.json";
+			ruta = miDir.getCanonicalPath() +"/Documentos/Java.json";
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		System.out.println(ruta);
+		this.listaUsuarios = leerArchivo();
+		
 	}
 	
 	/**
@@ -67,6 +69,7 @@ public final class ManejoArchivos {
 			System.out.println(ex.getMessage());
 		}
 		// Aca paso el archivo JSON a la lista
+		listaUsuarios = new ArrayList<Usuario>();
 		listaUsuarios = gson.fromJson(br, new TypeToken<ArrayList<Usuario>>() {}.getType()); 
 		return listaUsuarios;
 	}

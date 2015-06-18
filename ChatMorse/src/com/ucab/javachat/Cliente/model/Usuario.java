@@ -22,22 +22,12 @@ public class Usuario extends Validacion {
 	 * */
 	
 	@SuppressWarnings("deprecation")
-	public boolean setFecha(int dia, int mes, int año) {
+	public void setFecha(int dia, int mes, int año) {
 		this.fecha = new Date(año, mes, dia);
-		if(validarFecha(fecha)) {
-			return true;
-		} else {
-			return false;
-		}
 	}
 	
-	public boolean setFecha(Date fecha) {
-		if(validarFecha(fecha)) {
+	public void setFecha(Date fecha) {
 			this.fecha = fecha;
-			return true;
-		} else {
-			return false;
-		}
 	}	
 	
 	/*Getters y Setters 
@@ -49,13 +39,8 @@ public class Usuario extends Validacion {
 	public String getNombreDeUsuario() {
 		return nombreDeUsuario;
 	}
-	public boolean setNombreDeUsuario(String nombreDeUsuario) {
-		if(validarUsuario(nombreDeUsuario)) {
-			this.nombreDeUsuario = nombreDeUsuario;
-			return true;
-		} else {
-			return false;
-		}
+	public void setNombreDeUsuario(String nombreDeUsuario) {
+		this.nombreDeUsuario = nombreDeUsuario;
 	}
 	public boolean isSexo() {
 		return sexo;
@@ -66,36 +51,20 @@ public class Usuario extends Validacion {
 	public String getNombreCompleto() {
 		return nombreCompleto;
 	}
-	public boolean setNombreCompleto(String nombreCompleto) {
-		if(validarNombreCompleto(nombreCompleto)) {
-			this.nombreCompleto = nombreCompleto;
-			return true;
-		} else {
-			return false;
-		}
+	public void setNombreCompleto(String nombreCompleto) {
+		this.nombreCompleto = nombreCompleto;
 	}
 	public String getEmail() {
 		return email;
 	}
-	public boolean setEmail(String email) {
-		if(validarEmail(email)) {
-			this.email = email;
-			return true;
-		} else {
-			return false;
-		}
-		
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public String getClave() {
 		return clave;
 	}
-	public boolean setClave(String clave) {
-		if(validarContraseña(clave)) {
-			this.clave = clave;
-			return true;
-		} else {
-			return false;
-		}
+	public void setClave(String clave) {
+		this.clave = clave;
 	}
 
 	/**Constructores con y sin paramteros*/
@@ -108,7 +77,6 @@ public class Usuario extends Validacion {
 		this.email = email;
 		this.clave = clave;
 	}
-
 	
 	public Usuario() {
 	}

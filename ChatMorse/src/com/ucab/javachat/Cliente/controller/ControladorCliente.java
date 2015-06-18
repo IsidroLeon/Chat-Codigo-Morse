@@ -10,7 +10,9 @@ import javax.swing.JList;
 
 import com.ucab.javachat.Cliente.model.Cliente;
 import com.ucab.javachat.Cliente.model.ThreadActualizarUsuario;
+import com.ucab.javachat.Cliente.model.Usuario;
 import com.ucab.javachat.Cliente.view.VentCliente;
+import com.ucab.javachat.Cliente.view.VentIniciarSesion;
 import com.ucab.javachat.Cliente.view.VentPrivada;
 
 /**
@@ -54,7 +56,31 @@ public class ControladorCliente implements ActionListener {
         contPrivada = new ControladorPrivada(ventPrivada, cliente);
 	}
 	
-	// Por hacer: Constructor para registro de usuario
+	public ControladorCliente(VentCliente ventana, ControladorRegistrarUsuario contUsuario) {
+		boolean flag = false;
+		Usuario nuevoUsuario = (contUsuario.getNuevoUsuario());
+		System.out.println(nuevoUsuario);
+        this.ventana = ventana;
+        try {
+			cliente = new Cliente(this);
+			flag = cliente.conexion(nuevoUsuario);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+        if (flag) {
+        	contUsuario.cerrarVentana();
+        	Cliente.IP_SERVER = "localhost";
+            VentIniciarSesion ventIniciar = new VentIniciarSesion();
+    		new ControladorIniciarSesion(ventIniciar);
+        }
+        this.ventana.setVisible(true);
+        this.ventana.butPrivado.addActionListener(this);
+        actualizarUsuario = new ThreadActualizarUsuario(cliente);
+        actualizarUsuario.start();
+        
+        ventPrivada = new VentPrivada(cliente);
+        contPrivada = new ControladorPrivada(ventPrivada, cliente);
+	}
 	
 	/**
 	 * 

@@ -21,9 +21,9 @@ public class ServidorController {
    }
    public void runServer()
    {
-      ServerSocket serv=null;//para comunicacion
-      ServerSocket serv2=null;//para enviar mensajes
-      boolean listening=true;
+      ServerSocket serv = null;//para comunicacion
+      ServerSocket serv2 = null;//para enviar mensajes
+      boolean listening = true;
       try{
          serv=new ServerSocket(8081);
          serv2=new ServerSocket(8082);
