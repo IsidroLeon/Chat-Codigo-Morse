@@ -79,6 +79,15 @@ public class Usuario {
 	public Usuario() {
 		super();
 	}
+	
+	public boolean usuarioVacio() {
+		if ((this.nombreDeUsuario != null)&&(this.fecha != null)&&
+				(this.nombreCompleto!= null)&&(this.email != null)&&(this.clave != null)) {
+			return false;
+		} else {
+			return true;
+		}
+	}
 
 	
 	/**metodo toString para imprimir valores de la clase Usuario*/

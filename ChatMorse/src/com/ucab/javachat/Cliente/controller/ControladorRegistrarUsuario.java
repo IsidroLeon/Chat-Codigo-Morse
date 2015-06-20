@@ -7,7 +7,6 @@ import com.ucab.javachat.Cliente.model.Criptologia;
 import com.ucab.javachat.Cliente.model.Usuario;
 import com.ucab.javachat.Cliente.view.VentCliente;
 import com.ucab.javachat.Cliente.view.VentRegistro;
-import com.ucab.javachat.Cliente.view.VentSeleccionFoto;
 import com.ucab.javachat.Cliente.model.Validacion;
 
 /**
@@ -55,8 +54,6 @@ public class ControladorRegistrarUsuario implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		boolean flag = true;
 		if (vista.btnSeleccionarFoto == e.getSource()){
-			VentSeleccionFoto seleccionarFoto = new VentSeleccionFoto();
-			seleccionarFoto.frmSeleccioneUnaFoto.setVisible(true);
 		}
 		if (vista.btnRegistrar == e.getSource()){			
 			Validacion validacion = new Validacion();

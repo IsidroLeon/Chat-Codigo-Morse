@@ -77,13 +77,16 @@ public class Autenticacion {
 			for (Usuario usuario : usuariosArchivo) {
 				try {
 					if (cifrado.desencriptar(usuario.getEmail()) == cifrado.desencriptar(user.getEmail())) {
-						if (usuario.getNombreDeUsuario() == this.user.getNombreDeUsuario()) {
-							return false;
-						} else {
-							return false;
-						}
+						return false;
 					}
-				} catch (Exception e) {
+					if (usuario.getNombreDeUsuario() == this.user.getNombreDeUsuario()) {
+						return false;
+					}
+					if (user.usuarioVacio()) {
+						return false;
+					}
+				}
+				catch (Exception e) {
 					e.printStackTrace();
 				}		
 			}

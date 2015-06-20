@@ -36,30 +36,32 @@ public class ControladorCliente implements ActionListener {
 	 * @param ventana - Este carga las especificaciones de la ventana y inicializa todos sus componentes.
 	 */
 	public ControladorCliente(VentCliente ventana, ControladorIniciarSesion contSesion) {
+		boolean flag = false;
         setUsuario(contSesion.getUsuario());
         setClave(contSesion.getClave());
         this.ventana = ventana;
         try {
 			cliente = new Cliente(this);
-			cliente.conexion(nombreUsuario, clave);
+			flag = cliente.conexion(nombreUsuario, clave);
 	        ventana.nomUsers = new Vector<String>();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
         
-        this.ventana.setVisible(true);
-        this.ventana.butPrivado.addActionListener(this);
-        actualizarUsuario = new ThreadActualizarUsuario(cliente);
-        actualizarUsuario.start();
-        
-        ventPrivada = new VentPrivada(cliente);
-        contPrivada = new ControladorPrivada(ventPrivada, cliente);
+        if (flag) {
+	        this.ventana.setVisible(true);
+	        this.ventana.butPrivado.addActionListener(this);
+	        actualizarUsuario = new ThreadActualizarUsuario(cliente);
+	        actualizarUsuario.start();
+	        
+	        ventPrivada = new VentPrivada(cliente);
+	        contPrivada = new ControladorPrivada(ventPrivada, cliente);
+        }
 	}
 	
 	public ControladorCliente(VentCliente ventana, ControladorRegistrarUsuario contUsuario) {
 		boolean flag = false;
 		Usuario nuevoUsuario = (contUsuario.getNuevoUsuario());
-		System.out.println(nuevoUsuario);
         this.ventana = ventana;
         try {
 			cliente = new Cliente(this);
@@ -73,13 +75,6 @@ public class ControladorCliente implements ActionListener {
             VentIniciarSesion ventIniciar = new VentIniciarSesion();
     		new ControladorIniciarSesion(ventIniciar);
         }
-        this.ventana.setVisible(true);
-        this.ventana.butPrivado.addActionListener(this);
-        actualizarUsuario = new ThreadActualizarUsuario(cliente);
-        actualizarUsuario.start();
-        
-        ventPrivada = new VentPrivada(cliente);
-        contPrivada = new ControladorPrivada(ventPrivada, cliente);
 	}
 	
 	/**
@@ -196,8 +191,9 @@ public class ControladorCliente implements ActionListener {
     
     public void mensajeAmigo(String msg, Vector<String> amigos)
     {
-       contPrivada.setAmigo(amigos);           
-       contPrivada.mostrarMsg(msg);
+    	System.out.println("Entre aca");
+    	contPrivada.setAmigo(amigos);      
+    	contPrivada.mostrarMsg(msg);
     }
 
 }

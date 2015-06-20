@@ -54,7 +54,7 @@ public class Cliente{
     * @param clave clave del usuario (cifrada)
     * @throws IOException
     */
-   public void conexion(String nombre, String clave) throws IOException {
+   public boolean conexion(String nombre, String clave) throws IOException {
 	   boolean flag = false;
 	   try {
 		   comunication = new Socket(Cliente.IP_SERVER, 8081); //envia
@@ -74,6 +74,8 @@ public class Cliente{
 	   if (flag) {
 		   new threadCliente(entrada2, vent).start();
 	   }
+	   
+	   return flag;
    }
    
    	/** Envia los datos del nuevo usuario al servidor para realizr las validaciones necesarias del lado del servidor

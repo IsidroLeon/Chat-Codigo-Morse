@@ -71,13 +71,21 @@ public class ServidorModel extends Thread
           		this.setClave(entrada.readUTF());
           		Autenticacion inicioDeSesion = new Autenticacion(this.getNameUser(), this.getClave());
           		// Envia true o false si el inicio de sesion es valido o invalido
-                salida.writeBoolean(inicioDeSesion.autenticar());
+          		boolean flagInicioSesion = inicioDeSesion.autenticar();
+                salida.writeBoolean(flagInicioSesion);
+                if(flagInicioSesion) {
+                	serv.mostrar("Ha iniciado sesion: "+this.getNameUser());
+                }
           		break;
           	case 2: // Registro
           		String usuarioRegistroJson = entrada.readUTF();
           		Usuario usuarioRegistro = gson.fromJson(usuarioRegistroJson, new TypeToken<Usuario>() {}.getType()); 
           		Autenticacion registro = new Autenticacion(usuarioRegistro);
-          		salida.writeBoolean(registro.registrar());
+          		boolean flagRegistro = registro.registrar();
+          		salida.writeBoolean(flagRegistro);
+          		if (flagRegistro) {
+          			serv.mostrar("Nuevo usuario registrado");
+          		}
           		scli.close();
           		scli2.close();
           }
@@ -170,6 +178,7 @@ public class ServidorModel extends Thread
               {
                  user.salida2.writeInt(3);//opcion de mensaje amigo
                  user.salida2.writeUTF(""+this.getNameUser()+">"+mencli);
+                 System.out.println(mencli);
                  user.salida2.writeUTF(jsonamigos);
               }
             }catch (IOException e) {e.printStackTrace();}
