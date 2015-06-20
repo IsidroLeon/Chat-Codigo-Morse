@@ -1,5 +1,6 @@
 package com.ucab.javachat.Cliente.model;
-	import java.util.Date;
+	import java.io.File;
+import java.util.Date;
 	/** Un año “y” se representa por el entero y – 1.900. 
 	 * Por ejemplo el año 1982 se representaría por el entero 1982 – 1900 = 82. 
 	 * De este modo, 82 representa 1982 y 92 representa 1992.
@@ -13,7 +14,7 @@ public class Usuario extends Validacion {
 	private String nombreCompleto;
 	private String email;
 	private String clave;
-	//private file imagen; archivo imagen
+	private File imagen; 
 	
 	/** Metodo que valida si la fecha ingresada es valida
 	 * El minimo de edad son 10 anios y el maximo es de 90 anios
@@ -80,6 +81,8 @@ public class Usuario extends Validacion {
 	
 	public Usuario() {
 	}
+	
+	
 
 	/**metodo toString para imprimir valores de la clase Usuario*/
 	public String toString() {
@@ -88,4 +91,14 @@ public class Usuario extends Validacion {
 				+ nombreCompleto + ", email=" + email + ", clave=" + clave
 				+ "]";
 	}
+
+	public File getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(File imagen) {
+		this.imagen = imagen;
+	}
+
+
 }

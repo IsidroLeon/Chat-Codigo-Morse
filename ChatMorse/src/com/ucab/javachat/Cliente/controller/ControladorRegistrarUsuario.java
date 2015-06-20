@@ -2,6 +2,10 @@ package com.ucab.javachat.Cliente.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import com.ucab.javachat.Cliente.model.Criptologia;
 import com.ucab.javachat.Cliente.model.Usuario;
@@ -54,7 +58,26 @@ public class ControladorRegistrarUsuario implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		boolean flag = true;
 		if (vista.btnSeleccionarFoto == e.getSource()){
+			JFileChooser chooser = new JFileChooser();
+			FileNameExtensionFilter filtro = new FileNameExtensionFilter(".jpg & .gif", "jpg", "gif");
+	        chooser.setFileFilter(filtro);
+	        chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+	        
+			File archivos = new File ("/home/user");
+			chooser.setCurrentDirectory(archivos);
+			chooser.setDialogTitle("Seleccione una foto.");
+			//Elegiremos archivos del directorio;
+			chooser.setAcceptAllFileFilterUsed(false);
+			//Si seleccionamos algún archivo retornaremos su directorio
+			if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+				File fichero = chooser.getSelectedFile();
+				nuevoUsuario.setImagen(fichero);
+				System.out.println(fichero);
+			} 	
+			else flag = false;
 		}
+		
+		
 		if (vista.btnRegistrar == e.getSource()){			
 			Validacion validacion = new Validacion();
 			if (vista.rdbtnMasculino.isSelected()) 

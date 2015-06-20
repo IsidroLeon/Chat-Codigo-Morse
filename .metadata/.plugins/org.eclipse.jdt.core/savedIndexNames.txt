@@ -1,0 +1,22 @@
+INDEX VERSION 1.127+/home/diego/Chat-Codigo-Morse/.metadata/.plugins/org.eclipse.jdt.core
+3305932411.index
+2246894810.index
+3832095003.index
+4201408329.index
+2516598525.index
+207581026.index
+1225813827.index
+3765020915.index
+1435927619.index
+3693448964.index
+931100150.index
+1279675953.index
+2913048097.index
+2031085872.index
+2837890064.index
+843361046.index
+954478507.index
+1453598739.index
+797116470.index
+2064907913.index
+726145421.index

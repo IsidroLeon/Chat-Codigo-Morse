@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Encapsulate field &apos;com.ucab.javachat.Cliente.model.Usuario.imagen&apos; in &apos;com.ucab.javachat.Cliente.model.Usuario&apos;&#x0A;- Original project: &apos;ChatMorse&apos;&#x0A;- Original element: &apos;com.ucab.javachat.Cliente.model.Usuario.imagen&apos;&#x0A;- Getter method name: &apos;getImagen&apos;&#x0A;- Setter method name: &apos;setImagen&apos;&#x0A;- Field visibility: &apos;public&apos;&#x0A;- Use getter and setter methods in declaring type" comments="false" declaring="true" description="Encapsulate field &apos;imagen&apos;" flags="589830" getter="getImagen" id="org.eclipse.jdt.ui.self.encapsulate" input="/src&lt;com.ucab.javachat.Cliente.model{Usuario.java[Usuario^imagen" insertion="15" setter="setImagen" stamp="1434838013433" version="1.0" visibility="1"/>
+</session>
