@@ -62,6 +62,7 @@ public class ControladorRegistrarUsuario implements ActionListener {
 			FileNameExtensionFilter filtro = new FileNameExtensionFilter(".jpg & .gif", "jpg", "gif");
 	        chooser.setFileFilter(filtro);
 	        chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+	        
 			File archivos = new File (".");
 			chooser.setCurrentDirectory(archivos);
 			chooser.setDialogTitle("Seleccione una foto.");
