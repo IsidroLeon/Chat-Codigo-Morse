@@ -38,11 +38,13 @@ public class VentRegistro {
 	public JLabel sexoValido;
 	public JLabel emailValido;
 	public JLabel contraseñaValida;
+	public JLabel imagenValida;
 	public JButton btnRegistrar;
 	public JButton btnSeleccionarFoto;
 	public ButtonGroup grupoSexo;
 	public JDateChooser fechaUsuario;
 	public JButton btnSalir;
+	public JTextField nombreImagen;
 
 	/**
 	 * Create the application.
@@ -164,14 +166,24 @@ public class VentRegistro {
 		lblFotografa.setBounds(32, 203, 94, 15);
 		frmRegistroDeUsuario.getContentPane().add(lblFotografa);
 		
-		btnSeleccionarFoto = new JButton("Seleccionar foto");
-		btnSeleccionarFoto.setBounds(192, 205, 155, 25);
+		btnSeleccionarFoto = new JButton("Seleccionar");
+		btnSeleccionarFoto.setBounds(298, 205, 121, 25);
 		frmRegistroDeUsuario.getContentPane().add(btnSeleccionarFoto);
 		
 		btnSalir = new JButton("Salir");
 		btnSalir.setBounds(517, 247, 89, 23);
 		frmRegistroDeUsuario.getContentPane().add(btnSalir);
 		
+		imagenValida = new JLabel("");
+		imagenValida.setFont(new Font("Dialog", Font.PLAIN, 12));
+		imagenValida.setForeground(new Color(178, 34, 34));
+		imagenValida.setBounds(437, 205, 137, 19);
+		frmRegistroDeUsuario.getContentPane().add(imagenValida);
+		
+		nombreImagen = new JTextField();
+		nombreImagen.setBounds(192, 208, 105, 19);
+		frmRegistroDeUsuario.getContentPane().add(nombreImagen);
+		nombreImagen.setColumns(10);
 		
 	}
 }

@@ -9,11 +9,16 @@
 
 package com.ucab.javachat.Cliente.model;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.Vector;
+
 import javax.swing.JOptionPane;
 
 import com.google.gson.Gson;
@@ -175,16 +180,38 @@ public class Cliente{
    public boolean flujo(Usuario usuario) { 
 	   	boolean flag = false;
 		Gson gson = new Gson();
-	      try {             
-	         salida.writeInt(2);
-	         String jsonRegistroUsuario = gson.toJson(usuario);
-	         salida.writeUTF(jsonRegistroUsuario);
-	         flag = entrada.readBoolean();
-	      } catch (IOException e) {
-	         System.out.println("error...." + e);
-	      }
-	      return flag;
-   }
+	      
+		try {          
+			salida.writeInt(2);
+	        String jsonRegistroUsuario = gson.toJson(usuario);
+	        salida.writeUTF(jsonRegistroUsuario);
+	        BufferedInputStream bis;
+	        BufferedOutputStream bos;
+	        int in;
+	        byte[] byteArray;        
+	        try	{
+	        	File localFile = usuario.getImagen();
+		        bis = new BufferedInputStream(new FileInputStream(localFile));
+		        bos = new BufferedOutputStream(comunication.getOutputStream());
+		        //Enviamos el nombre del fichero
+		        salida.writeUTF(localFile.getName());
+		        //Enviamos el fichero
+		        byteArray = new byte[8192];
+		        while ((in = bis.read(byteArray)) != -1){
+		        	bos.write(byteArray,0,in);
+		        }
+		        bis.close();
+		        bos.close();
+	        }catch ( Exception e ) {
+	        	System.err.println(e);
+	        }
+	        flag = entrada.readBoolean();
+		} catch (IOException e) {
+			System.out.println("error...." + e);
+	    }
+	      
+	    return flag;
+  }
    
    public boolean flujo(String correo){
 	   boolean flag = false;

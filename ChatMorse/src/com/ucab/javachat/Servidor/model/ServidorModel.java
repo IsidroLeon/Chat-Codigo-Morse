@@ -1,7 +1,11 @@
 package com.ucab.javachat.Servidor.model;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.Vector;
@@ -81,8 +85,43 @@ public class ServidorModel extends Thread
           		break;
           	case 2: // Registro
           		String usuarioRegistroJson = entrada.readUTF();
-          		Usuario usuarioRegistro = gson.fromJson(usuarioRegistroJson, new TypeToken<Usuario>() {}.getType()); 
-          		Autenticacion registro = new Autenticacion(usuarioRegistro);
+          		Usuario usuarioRegistro = gson.fromJson(usuarioRegistroJson, new TypeToken<Usuario>() {}.getType());
+          		File miDir = new File (".");
+          		String ruta = "";
+          		BufferedInputStream bis;
+          		BufferedOutputStream bos;
+          		 
+          		byte[] receivedData;
+          		int in;
+          		String file;
+          		try{ 
+          			//Buffer de 1024 bytes
+          			receivedData = new byte[1024];
+          			bis = new BufferedInputStream(scli.getInputStream());
+          			//Recibimos el nombre del fichero
+          			file = entrada.readUTF();
+          			file = file.substring(file.indexOf('\\')+1,file.length());
+          			//Para guardar fichero recibido
+          			bos = new BufferedOutputStream(new FileOutputStream(file));
+          			while ((in = bis.read(receivedData)) != -1){
+          				bos.write(receivedData,0,in);
+          			}
+          			bos.close();
+          			ruta = miDir.getCanonicalPath() + "/" + usuarioRegistro.getImagen().getName();
+          			File imagen = new File(ruta);
+          			 //New path
+          			 File fileSendPath = new File(miDir + "/Documentos/Imagenes de Verificacion/" 
+          			 + usuarioRegistro.getNombreDeUsuario() + ".jpg");
+          			 //Moving the file.
+          			 boolean si = imagen.renameTo(fileSendPath);
+          			 if (si) usuarioRegistro.setImagen(imagen);
+          			           			 
+       			 }catch (Exception e ) {
+          			 System.err.println(e);
+      			 }
+          		
+ 
+          		Autenticacion registro = new Autenticacion(usuarioRegistro);  
           		boolean flagRegistro = registro.registrar();
           		salida.writeBoolean(flagRegistro);
           		if (flagRegistro) {
@@ -96,7 +135,6 @@ public class ServidorModel extends Thread
 				try {
 					correo = Criptologia.desencriptar(correo);
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
           		Autenticacion recupera = new Autenticacion(correo);

@@ -57,23 +57,30 @@ public class ControladorRegistrarUsuario implements ActionListener {
 	 */
 	public void actionPerformed(ActionEvent e) {
 		boolean flag = true;
+		boolean flagImagen = true;
 		if (vista.btnSeleccionarFoto == e.getSource()){
-			JFileChooser chooser = new JFileChooser();
-			FileNameExtensionFilter filtro = new FileNameExtensionFilter(".jpg & .gif", "jpg", "gif");
-	        chooser.setFileFilter(filtro);
-	        chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-			File archivos = new File (".");
-			chooser.setCurrentDirectory(archivos);
-			chooser.setDialogTitle("Seleccione una foto.");
-			//Elegiremos archivos del directorio;
-			chooser.setAcceptAllFileFilterUsed(false);
-			//Si seleccionamos algún archivo retornaremos su directorio
-			if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
-				File fichero = chooser.getSelectedFile();
-				nuevoUsuario.setImagen(fichero);
-				System.out.println(fichero);
-			} 	
-			else flag = false;
+			if (vista.campoUsuario.getText() != ""){
+				JFileChooser chooser = new JFileChooser();
+				FileNameExtensionFilter filtro = new FileNameExtensionFilter(".jpg & .gif", "jpg", "gif");
+		        chooser.setFileFilter(filtro);
+		        chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+				File archivos = new File ("/home/user");
+				chooser.setCurrentDirectory(archivos);
+				chooser.setDialogTitle("Seleccione una foto.");
+				//Elegiremos archivos del directorio;
+				chooser.setAcceptAllFileFilterUsed(false);
+				//Si seleccionamos algún archivo retornaremos su directorio
+				if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+					File fichero = chooser.getSelectedFile();
+					nuevoUsuario.setImagen(fichero);
+					vista.nombreImagen.setText(fichero.getName());
+					flagImagen = true;
+				} 	
+				else flag = false;
+				vista.imagenValida.setText(" ");
+			}
+			else vista.imagenValida.setText("escriba un nombre de usuario.");
+			flag = false;
 		}
 		
 		
@@ -135,10 +142,13 @@ public class ControladorRegistrarUsuario implements ActionListener {
 		}	
 		
 		if (flag){
+			if (flagImagen){
 			nuevoUsuario.setEmail(Criptologia.encriptar(nuevoUsuario.getEmail()));
 			nuevoUsuario.setClave(Criptologia.encriptar(nuevoUsuario.getClave()));
 			VentCliente ventana = new VentCliente();
 			new ControladorCliente(ventana, this);
+			}
 		}
 	}
+	
 }
