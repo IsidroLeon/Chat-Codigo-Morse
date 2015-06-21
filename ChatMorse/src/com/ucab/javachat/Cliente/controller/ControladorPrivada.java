@@ -11,6 +11,7 @@ import java.util.Vector;
 import com.ucab.javachat.Cliente.model.Cliente;
 import com.ucab.javachat.Cliente.model.CodigoMorse;
 import com.ucab.javachat.Cliente.model.ReproducirSonido;
+import com.ucab.javachat.Cliente.model.ThreadSonido;
 import com.ucab.javachat.Cliente.view.VentPrivada;
 
 public class ControladorPrivada implements ActionListener, KeyListener {
@@ -61,7 +62,14 @@ public class ControladorPrivada implements ActionListener, KeyListener {
 		    ventana.setVisible(false);      
 	    }
 	    
-	    public void mostrarMsg(String msg){
+	    public void mostrarMsg(String msg, String usuario){
+	    	sonido = new ReproducirSonido(msg);
+			sonido.setPriority(1);
+		    sonido.start();
+		    ThreadSonido thread = new ThreadSonido(msg, ventana);
+		    thread.start();
+	    	msg = CodigoMorse.traducirMorse(msg);
+	    	msg = ""+usuario+">"+msg;
 	        ventana.panMostrar.append(msg+"\n");
 	     }
 	    
@@ -74,16 +82,18 @@ public class ControladorPrivada implements ActionListener, KeyListener {
 			      	String mensaje = CodigoMorse.traducirAlfabeto(ventana.txtMensaje.getText()); 
 			      	System.out.println(mensaje);
 			      	cliente.flujo(ventana.amigo, mensaje);
-			      	ventana.txtMensaje.setText("");
-			      	ventana.txtMensaje.setEditable(true);
+			      	this.ventana.txtMensaje.setText("");
+			      	ThreadSonido thread = new ThreadSonido(mensaje, ventana);
+				    thread.start();
 			      	esMorse = false;
 				  } else {
 					  if(sonido.isAlive())
 						  sonido.stop();
 				      String mensaje = ventana.txtMensaje.getText();
 				      cliente.flujo(ventana.amigo, mensaje);
-				      ventana.txtMensaje.setText("");	
-				      ventana.txtMensaje.setEditable(true);
+				      this.ventana.txtMensaje.setText("");
+				      ThreadSonido thread = new ThreadSonido(mensaje, ventana);
+					    thread.start();
 				      esMorse = false;
 				  }
 	        }
@@ -99,16 +109,18 @@ public class ControladorPrivada implements ActionListener, KeyListener {
 		      	String mensaje = CodigoMorse.traducirAlfabeto(ventana.txtMensaje.getText()); 
 		      	System.out.println(mensaje);
 		      	cliente.flujo(ventana.amigo, mensaje);
-		      	ventana.txtMensaje.setText("");
-		      	ventana.txtMensaje.setEditable(true);
+		      	this.ventana.txtMensaje.setText("");
+		      	ThreadSonido thread = new ThreadSonido(mensaje, ventana);
+			    thread.start();
 		      	esMorse = false;
 			  } else {
 				  if(sonido.isAlive())
 					  sonido.stop();
 			      String mensaje = ventana.txtMensaje.getText();
 			      cliente.flujo(ventana.amigo, mensaje);
-			      ventana.txtMensaje.setText("");	
-			      ventana.txtMensaje.setEditable(true);
+			      this.ventana.txtMensaje.setText("");
+			      ThreadSonido thread = new ThreadSonido(mensaje, ventana);
+				  thread.start();
 			      esMorse = false;
 			  }
 		  } else if (e.getSource() == this.ventana.btnConvertir) {

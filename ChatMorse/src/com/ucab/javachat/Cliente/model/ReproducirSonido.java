@@ -109,4 +109,19 @@ public class ReproducirSonido extends Thread{
         clip.drain();
         clip.close();
     }
-}  
+    
+    public long duracionSonido() {
+    	long duracion = 0;
+    	for (char letra : mensaje.toCharArray()) {
+    		if ((letra == '-')||(letra == '.')){
+    			duracion = duracion + 100;
+    		} else if (letra == ' ') {
+    			duracion = duracion + 300;
+    		} else if (letra == '/') {
+    			duracion = duracion + 700;
+    		}
+    	}
+    	return duracion;
+
+    }
+}

@@ -176,6 +176,9 @@ public class ServidorModel extends Thread
                    for(int i=0;i<numUsers;i++)
                       salida.writeUTF(clientesActivos.get(i).nameUser);
                    break;
+                   // Esta vaina tiene que enviar el usuario por separado
+                   // para saber quien lo envia en el cliente y poder traducir solo el mensaje
+                   // tambien para que el que lo envie no le suene el sonido
                 case 3: // envia mensaje privado
                     mencli=entrada.readUTF();//mensaje enviado
                     amigostring = entrada.readUTF();
