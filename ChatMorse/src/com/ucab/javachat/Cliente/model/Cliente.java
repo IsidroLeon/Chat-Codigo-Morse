@@ -14,9 +14,9 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.Vector;
+import javax.swing.JOptionPane;
 
 import com.google.gson.Gson;
-
 import com.ucab.javachat.Cliente.controller.ControladorCliente;
 
 /**
@@ -68,6 +68,7 @@ public class Cliente{
 		   salida.writeUTF(clave);
 		   flag = entrada.readBoolean();
 	   } catch (IOException e) {
+		   JOptionPane.showMessageDialog(null, "Imposible conectar con el servidor actualmente", "Problema de conexión", JOptionPane.INFORMATION_MESSAGE);
 		   System.out.println("\tEl servidor no esta levantado");
 		   System.out.println("\t=============================");
 	   }
@@ -93,6 +94,7 @@ public class Cliente{
 		   entrada2 = new DataInputStream(comunication2.getInputStream());
 		   flag = flujo(nuevoUsuario);
 	   } catch (IOException e) {
+		   JOptionPane.showMessageDialog(null, "Imposible conectar con el servidor actualmente", "Problema de conexión", JOptionPane.INFORMATION_MESSAGE);
 		   System.out.println("\tEl servidor no esta levantado");
 		   System.out.println("\t=============================");
 	   }
