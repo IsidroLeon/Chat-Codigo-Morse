@@ -7,8 +7,6 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.DataLine;
-import javax.sound.sampled.LineEvent;
-import javax.sound.sampled.LineListener;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
@@ -17,15 +15,23 @@ public class ReproducirSonido extends Thread{
 	private String mensaje;
 	private File miDir = new File (".");
 
-    public ReproducirSonido(String mensaje){
+    public ReproducirSonido() { }
+    
+    public ReproducirSonido(String mensaje) {
+    	this.mensaje = mensaje;
+    }
+    
+    public void setMensaje(String mensaje) {
     	this.mensaje = mensaje;
     }
     
     public void run() {
     	for (char letra : mensaje.toCharArray()) {
+    		System.out.println("entre");
     		if (letra == '-') {
     			try {
 					playRaya();
+					System.out.println("RAYA");
 					try {
 						Thread.sleep(100);
 					} catch (InterruptedException e) {
@@ -42,6 +48,7 @@ public class ReproducirSonido extends Thread{
     		} else if (letra == '.') {
     			try {
 					playPunto();
+					System.out.println("PUNTO");
 					try {
 						Thread.sleep(100);
 					} catch (InterruptedException e) {
@@ -78,24 +85,13 @@ public class ReproducirSonido extends Thread{
 
     private void playPunto() throws UnsupportedAudioFileException, IOException, LineUnavailableException
     {
-    	String ruta = miDir.getCanonicalPath() +"/Documentos/Sonidos/punto.mp3";
+    	String ruta = miDir.getCanonicalPath() +"/Documentos/Sonidos/punto.wav";
         File soundFile = new File(ruta);
         AudioInputStream sound = AudioSystem.getAudioInputStream(soundFile);
 
         DataLine.Info info = new DataLine.Info(Clip.class, sound.getFormat());
         Clip clip = (Clip) AudioSystem.getLine(info);
         clip.open(sound);
-
-        clip.addLineListener( new LineListener() 
-        {
-            public void update(LineEvent event) 
-            {
-                if (event.getType() == LineEvent.Type.STOP) 
-                {
-                    event.getLine().close();
-                }
-            }
-        });
 
         clip.start();
         clip.drain();
@@ -104,8 +100,7 @@ public class ReproducirSonido extends Thread{
     
     private void playRaya() throws UnsupportedAudioFileException, IOException, LineUnavailableException
     {
-
-    	String ruta = miDir.getCanonicalPath() +"/Documentos/Sonidos/raya.mp3";
+    	String ruta = miDir.getCanonicalPath() +"/Documentos/Sonidos/ralla.wav";
         File soundFile = new File(ruta);
         AudioInputStream sound = AudioSystem.getAudioInputStream(soundFile);
 
@@ -113,32 +108,8 @@ public class ReproducirSonido extends Thread{
         Clip clip = (Clip) AudioSystem.getLine(info);
         clip.open(sound);
 
-        clip.addLineListener( new LineListener() 
-        {
-            public void update(LineEvent event) 
-            {
-                if (event.getType() == LineEvent.Type.STOP) 
-                {
-                    event.getLine().close();
-                }
-            }
-        });
-
         clip.start();
         clip.drain();
         clip.close();
-    }
-    public int getSoundDurationForThreadWait() throws UnsupportedAudioFileException, IOException, LineUnavailableException
-    {
-        File soundFile = new File("blip.wav");
-        AudioInputStream sound = AudioSystem.getAudioInputStream(soundFile);
-
-        DataLine.Info info = new DataLine.Info(Clip.class, sound.getFormat());
-        Clip clip = (Clip) AudioSystem.getLine(info);
-        clip.open(sound);
-
-        //making this method return milliseconds since threads waits are in this unit
-        return (int) (clip.getMicrosecondLength()/1000);
-
     }
 }  

@@ -7,17 +7,23 @@ import java.awt.event.WindowListener;
 import java.util.Vector;
 
 import com.ucab.javachat.Cliente.model.Cliente;
+import com.ucab.javachat.Cliente.model.CodigoMorse;
+import com.ucab.javachat.Cliente.model.ReproducirSonido;
 import com.ucab.javachat.Cliente.view.VentPrivada;
 
-public class ControladorPrivada implements ActionListener {
+public class ControladorPrivada implements ActionListener{
 	private Cliente cliente;
 	private VentPrivada ventana;
+	private ReproducirSonido sonido;
+	private boolean esMorse = false;
 
 	public ControladorPrivada(VentPrivada ventana, Cliente cliente) {
 		this.ventana = ventana;
 		this.cliente = cliente;
 		ventana.txtMensaje.addActionListener(this);
+		ventana.btnConvertir.addActionListener(this);
 	    ventana.butEnviar.addActionListener(this);
+	    sonido = new ReproducirSonido();
 	  this.ventana.addWindowListener(new WindowListener()
 	  {         
 	     public void windowClosing(WindowEvent e) {
@@ -40,7 +46,10 @@ public class ControladorPrivada implements ActionListener {
 			ventana.setTitle("Conversación con: "+usuarios);
 	   }
 	
-	    private void cerrarVentana() {     
+	    @SuppressWarnings("deprecation")
+		private void cerrarVentana() {    
+	    	if(sonido.isAlive())
+				  sonido.stop();
 	    	String mensaje = "El usuario "+cliente.getNombre()+" se ha retirado de la conversación";
 	    	ventana.amigo.remove(cliente.getNombre());
 		    cliente.flujo(ventana.amigo, mensaje);
@@ -53,12 +62,45 @@ public class ControladorPrivada implements ActionListener {
 	        ventana.panMostrar.append(msg+"\n");
 	     }
 	    
-	   @Override
+	   @SuppressWarnings("deprecation")
+	@Override
 	   public void actionPerformed(ActionEvent e) 
 	   {
-	      String mensaje = ventana.txtMensaje.getText();  
-	      cliente.flujo(ventana.amigo, mensaje);
-	      ventana.txtMensaje.setText("");	  
+		  if(e.getSource()==this.ventana.butEnviar) {
+			  if(!esMorse) {
+				  if(sonido.isAlive())
+				  sonido.stop();
+		      	String mensaje = CodigoMorse.traducirAlfabeto(ventana.txtMensaje.getText()); 
+		      	System.out.println(mensaje);
+		      	cliente.flujo(ventana.amigo, mensaje);
+		      	ventana.txtMensaje.setText("");
+		      	ventana.txtMensaje.setEditable(true);
+		      	esMorse = false;
+			  } else {
+				  if(sonido.isAlive())
+					  sonido.stop();
+			      String mensaje = ventana.txtMensaje.getText();
+			      cliente.flujo(ventana.amigo, mensaje);
+			      ventana.txtMensaje.setText("");	
+			      ventana.txtMensaje.setEditable(true);
+			      esMorse = false;
+			  }
+		  } else if (e.getSource() == this.ventana.btnConvertir) {
+			  if(!esMorse) {
+				  ventana.txtMensaje.setText(CodigoMorse.traducirAlfabeto(ventana.txtMensaje.getText()));
+				  sonido = new ReproducirSonido(ventana.txtMensaje.getText());
+				  sonido.setPriority(1);
+			      sonido.start();
+				  ventana.txtMensaje.setEditable(false);
+				  esMorse = true;
+			  } else {
+				  if(sonido.isAlive())
+					  sonido.stop();
+				  ventana.txtMensaje.setText(CodigoMorse.traducirMorse(ventana.txtMensaje.getText()));
+				  ventana.txtMensaje.setEditable(true);
+				  esMorse = false;
+			  }
+		  }
 	   }
 
 }

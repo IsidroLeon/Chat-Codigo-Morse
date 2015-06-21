@@ -36,10 +36,7 @@ class threadCliente extends Thread{
             opcion = entrada.readInt();
             switch(opcion)
             {
-               case 1: //mensaje enviado
-            	   menser = entrada.readUTF();
-            	   System.out.println("ECO del servidor:"+menser);
-            	   //vcli.mostrarMsg(menser);            
+               case 1: //mensaje enviado          
             	   break;
                case 2://se agrega
             	   menser = entrada.readUTF();

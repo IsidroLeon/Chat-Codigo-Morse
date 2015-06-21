@@ -12,7 +12,7 @@ package com.ucab.javachat.Cliente.model;
 		 * @param mensaje Mensaje a traducir
 		 * @return morse 
 		 */
-		public String traducirAlfabeto(String mensaje){
+		public static String traducirAlfabeto(String mensaje){
 			
 			String letras = "abcdefghijklmnopqrstuvwxyz0123456789áéíóú.,?!()[]&:;=+-_$@";
 			mensaje = mensaje.toLowerCase();
@@ -85,7 +85,7 @@ package com.ucab.javachat.Cliente.model;
 				else {
 					for  (int j = 0; j < letras.length() ; j++) {
 						if (mensaje.charAt(i) == letras.charAt(j))
-							morse = morse + codigo[j]+' ';	
+							morse = morse + codigo[j]+' ';	// Poner el if si no hay letras
 						}
 					}
 				}
@@ -98,7 +98,7 @@ package com.ucab.javachat.Cliente.model;
 		 * @param mensaje
 		 * @return morse
 		 */
-		public String traducirMorse(String mensaje){
+		public static String traducirMorse(String mensaje){
 		
 				String letras = "abcdefghijklmnopqrstuvwxyz 0123456789.,?!()[]&:;=+-_$@";
 				String codigo[] = new String[60];
@@ -164,7 +164,10 @@ package com.ucab.javachat.Cliente.model;
 				
 		        for  (int i = 0; i < max; i++){
 		        	for (int j = 0; j < 60; j++)
-		        		if (oracion[i].equals(codigo[j])) morse = morse+letras.charAt(j);
+		        		if (oracion[i].equals(codigo[j])) {
+		        			morse = morse+letras.charAt(j);
+		        			break;
+		        		}
 		        }
 				return morse = morse.substring(1,morse.length()); //quita el espacio que se genera de mas
 	}

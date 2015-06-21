@@ -72,6 +72,7 @@ public class ServidorModel extends Thread
           		Autenticacion inicioDeSesion = new Autenticacion(this.getNameUser(), this.getClave());
           		// Envia true o false si el inicio de sesion es valido o invalido
           		boolean flagInicioSesion = inicioDeSesion.autenticar();
+          		//boolean flagInicioSesion = true;
                 salida.writeBoolean(flagInicioSesion);
                 if(flagInicioSesion) {
                 	serv.mostrar("Ha iniciado sesion: "+this.getNameUser());
@@ -88,6 +89,7 @@ public class ServidorModel extends Thread
           		}
           		scli.close();
           		scli2.close();
+          		break;
           }
     	}
     	catch (IOException e) {  
@@ -107,7 +109,7 @@ public class ServidorModel extends Thread
                 case 1://envio de mensaje a todos
                    mencli = entrada.readUTF();
                    serv.mostrar("mensaje recibido "+mencli);
-                   enviaMensaje(mencli);
+                   //enviaMensaje(mencli);
                    break;
                 case 2://envio de lista de activos
                    numUsers = clientesActivos.size();
@@ -115,7 +117,7 @@ public class ServidorModel extends Thread
                    for(int i=0;i<numUsers;i++)
                       salida.writeUTF(clientesActivos.get(i).nameUser);
                    break;
-                case 3: // envia mensaje a uno solo
+                case 3: // envia mensaje privado
                     mencli=entrada.readUTF();//mensaje enviado
                     amigostring = entrada.readUTF();
                     amigos = gson.fromJson(amigostring, new TypeToken<Vector<String>>() {}.getType()); 
@@ -135,21 +137,7 @@ public class ServidorModel extends Thread
         	serv.mostrar("No se puede cerrar el socket.");
         	}   
      }
-     
-     public void enviaMensaje(String mencli2)
-     {
-        ServidorModel user=  null;
-        for(int i = 0;i<clientesActivos.size();i++)
-        {
-           serv.mostrar("MENSAJE DEVUELTO:"+mencli2);
-           try
-            {
-              user = clientesActivos.get(i);
-              user.salida2.writeInt(1);//opcion de mensaje 
-              user.salida2.writeUTF(""+this.getNameUser()+" >"+ mencli2);              
-            }catch (IOException e) {e.printStackTrace();}
-        }
-     }
+    
      public void enviaUserActivos()
      {
         ServidorModel user=null;
@@ -177,8 +165,7 @@ public class ServidorModel extends Thread
               if(user.nameUser.equals(amigo))
               {
                  user.salida2.writeInt(3);//opcion de mensaje amigo
-                 user.salida2.writeUTF(""+this.getNameUser()+">"+mencli);
-                 System.out.println(mencli);
+                 user.salida2.writeUTF(mencli);
                  user.salida2.writeUTF(jsonamigos);
               }
             }catch (IOException e) {e.printStackTrace();}

@@ -9,6 +9,7 @@ import javax.swing.AbstractListModel;
 import javax.swing.JList;
 
 import com.ucab.javachat.Cliente.model.Cliente;
+import com.ucab.javachat.Cliente.model.CodigoMorse;
 import com.ucab.javachat.Cliente.model.ThreadActualizarUsuario;
 import com.ucab.javachat.Cliente.model.Usuario;
 import com.ucab.javachat.Cliente.view.VentCliente;
@@ -191,8 +192,12 @@ public class ControladorCliente implements ActionListener {
     
     public void mensajeAmigo(String msg, Vector<String> amigos)
     {
-    	System.out.println("Entre aca");
-    	contPrivada.setAmigo(amigos);      
+    	contPrivada.setAmigo(amigos);  
+    	System.out.println(msg+"   11");
+    	msg = CodigoMorse.traducirMorse(msg);
+    	System.out.println(msg+"   222");
+    	msg = ""+this.getUsuario()+">"+msg;
+    	System.out.println(msg+"   3333");
     	contPrivada.mostrarMsg(msg);
     }
 
