@@ -8,5 +8,6 @@
 	<classpathentry kind="var" path="CHAT_ROOT/jcalendar-1.4.jar"/>
 	<classpathentry kind="var" path="CHAT_ROOT/gson.jar"/>
 	<classpathentry kind="var" path="CHAT_ROOT/commons-codec-1.9.jar"/>
+	<classpathentry kind="var" path="CHAT_ROOT/mail.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

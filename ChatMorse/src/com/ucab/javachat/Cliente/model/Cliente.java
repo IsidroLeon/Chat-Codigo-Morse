@@ -101,6 +101,24 @@ public class Cliente{
 	   return flag;
    }
    
+   public boolean conexion(String correo) throws IOException {
+	   boolean flag = false;
+	   try {
+		   comunication = new Socket(Cliente.IP_SERVER, 8081); //envia
+		   comunication2 = new Socket(Cliente.IP_SERVER, 8082); //recibe
+		   entrada = new DataInputStream(comunication.getInputStream()); // envia al cliente
+		   salida = new DataOutputStream(comunication.getOutputStream()); // envia al cliente
+		   entrada2 = new DataInputStream(comunication2.getInputStream());
+		   flag = flujo(correo);
+		   System.out.println("liisto");
+	   } catch (IOException e) {
+		   JOptionPane.showMessageDialog(null, "Imposible conectar con el servidor actualmente", "Problema de conexión", JOptionPane.INFORMATION_MESSAGE);
+		   System.out.println("\tEl servidor no esta levantado");
+		   System.out.println("\t=============================");
+	   }
+	   return flag;
+   }
+   
    public String getNombre(){
       return vent.getUsuario();
    }
@@ -166,6 +184,18 @@ public class Cliente{
 	         System.out.println("error...." + e);
 	      }
 	      return flag;
-	   }
+   }
    
+   public boolean flujo(String correo){
+	   boolean flag = false;
+	   try{
+		   salida.writeInt(3);
+		   salida.writeUTF(correo);
+		   flag = entrada.readBoolean();
+		   System.out.println("liiiisto");
+	   } catch(IOException e){
+		   System.out.println("error recuperando contraseña..." + e);
+	   }
+	   return flag;
+   }
 }

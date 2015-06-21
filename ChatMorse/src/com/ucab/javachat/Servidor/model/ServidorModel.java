@@ -8,6 +8,7 @@ import java.util.Vector;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.ucab.javachat.Servidor.model.EnvioCorreo;
 import com.ucab.javachat.Servidor.controller.ServidorController;
 
 /**
@@ -90,6 +91,26 @@ public class ServidorModel extends Thread
           		scli.close();
           		scli2.close();
           		break;
+          	case 3: //Recuperar contraseña 
+          		String correo = entrada.readUTF();
+				try {
+					correo = Criptologia.desencriptar(correo);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+          		Autenticacion recupera = new Autenticacion(correo);
+          		String clave = recupera.comparaContraseña();
+          		if (clave != null) {
+	          		EnvioCorreo envio = new EnvioCorreo(correo, "Recuperación de contraseña", "La clave es:  "+clave);
+					envio.enviar();
+					salida.writeBoolean(true);
+          		} else {
+          			salida.writeBoolean(false);
+          		}
+          		scli.close();
+          		scli2.close();
+	          	break;
           }
     	}
     	catch (IOException e) {  

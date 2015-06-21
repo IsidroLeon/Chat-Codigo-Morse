@@ -12,6 +12,7 @@ public class Autenticacion {
 	Usuario user;
 	String nombreDeUsuario;
 	String clave;
+	String correo;
 	ArrayList<Usuario> usuariosArchivo = new ArrayList<Usuario>();
 	
 	/** Constructor para el registro de un nuevo usuario.
@@ -28,15 +29,18 @@ public class Autenticacion {
 	 * @param clave - clave del usuario que iniciara sesion
 	 */
 	public Autenticacion(String nombreDeUsuario, String clave) {
-		Criptologia cifrado = new Criptologia();
 		ManejoArchivos archivo = new ManejoArchivos();
 		usuariosArchivo = archivo.getListaUsuarios();
 		this.nombreDeUsuario = nombreDeUsuario;
 		try {
-			this.clave = cifrado.desencriptar(clave);
+			this.clave = Criptologia.desencriptar(clave);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public Autenticacion(String correo){
+		this.correo = correo;
 	}
 	
 	/** Realiza el proceso de autenticacion del usuario en el sistema contrastando sus datos
@@ -44,14 +48,13 @@ public class Autenticacion {
 	 * @return Verdadero cuando el usuario existe, falso en cualquier otro caso
 	 */
 	public boolean autenticar() {
-		Criptologia cifrado = new Criptologia();
 		if(!usuariosArchivo.isEmpty()) {
 			for (Usuario usuario : usuariosArchivo) {
 				try {
 					// comprueba si existe algun usuario con el correo o el nombre de usuario indicado
-					if ((usuario.getNombreDeUsuario() == this.nombreDeUsuario)||(usuario.getEmail() == this.nombreDeUsuario)) {
+					if (usuario.getNombreDeUsuario().trim().equals(nombreDeUsuario.trim())) {
 						// comprueba si hay algun usuario con esa clave
-						if (cifrado.desencriptar(usuario.getClave()) == cifrado.desencriptar(this.clave)) { 
+						if (Criptologia.desencriptar(usuario.getClave()).trim().equals(clave.trim())) { 
 							return true;
 						} else {
 							return false;
@@ -72,11 +75,10 @@ public class Autenticacion {
 	 * @return Verdadero si se registro el usuario, falso en cualquier otro caso
 	 */
 	public boolean registrar() {
-		Criptologia cifrado = new Criptologia();
 		if(usuariosArchivo != null) {
 			for (Usuario usuario : usuariosArchivo) {
 				try {
-					if (cifrado.desencriptar(usuario.getEmail()) == cifrado.desencriptar(user.getEmail())) {
+					if (Criptologia.desencriptar(usuario.getEmail()) == Criptologia.desencriptar(user.getEmail())) {
 						return false;
 					}
 					if (usuario.getNombreDeUsuario() == this.user.getNombreDeUsuario()) {
@@ -101,4 +103,20 @@ public class Autenticacion {
 		archivo.escribirArchivo(usuariosArchivo);
 		return true;
 	}
+
+	public String comparaContraseña(){
+		ManejoArchivos archivo = new ManejoArchivos();
+		for(Usuario user : archivo.getListaUsuarios()) {
+			String email = user.getEmail();
+			try {
+				if (Criptologia.desencriptar(email).trim().equals(correo.trim())){
+					return Criptologia.desencriptar(user.getClave());
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return null;
+	}
+	
 }

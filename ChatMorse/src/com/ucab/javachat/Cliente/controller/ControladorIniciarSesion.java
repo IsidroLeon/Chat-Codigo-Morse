@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import com.ucab.javachat.Cliente.view.VentCliente;
 import com.ucab.javachat.Cliente.view.VentIniciarSesion;
+import com.ucab.javachat.Cliente.view.VentRecuperarContraseña;
 import com.ucab.javachat.Cliente.view.VentRegistro;
 import com.ucab.javachat.Cliente.model.Validacion;
 
@@ -70,7 +71,9 @@ public class ControladorIniciarSesion implements ActionListener{
 			}
 		
 		if (vista.btnContrasena == e.getSource()){
-			/*aqui se abre la ventana para recuperar la contrasena*/
+			VentRecuperarContraseña ventana = new VentRecuperarContraseña();
+			new ControladorRecuperarContraseña(ventana);
+			this.vista.frmInicioDeSesion.dispose();
 		}
 		
 		if (vista.btnArchivo == e.getSource()){

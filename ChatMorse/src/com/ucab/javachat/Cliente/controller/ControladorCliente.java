@@ -10,6 +10,7 @@ import javax.swing.JList;
 
 import com.ucab.javachat.Cliente.model.Cliente;
 import com.ucab.javachat.Cliente.model.CodigoMorse;
+import com.ucab.javachat.Cliente.model.Criptologia;
 import com.ucab.javachat.Cliente.model.ThreadActualizarUsuario;
 import com.ucab.javachat.Cliente.model.Usuario;
 import com.ucab.javachat.Cliente.view.VentCliente;
@@ -39,7 +40,7 @@ public class ControladorCliente implements ActionListener {
 	public ControladorCliente(VentCliente ventana, ControladorIniciarSesion contSesion) {
 		boolean flag = false;
         setUsuario(contSesion.getUsuario());
-        setClave(contSesion.getClave());
+        setClave(Criptologia.encriptar(contSesion.getClave()));
         this.ventana = ventana;
         try {
 			cliente = new Cliente(this);

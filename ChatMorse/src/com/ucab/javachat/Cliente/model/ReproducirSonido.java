@@ -27,11 +27,9 @@ public class ReproducirSonido extends Thread{
     
     public void run() {
     	for (char letra : mensaje.toCharArray()) {
-    		System.out.println("entre");
     		if (letra == '-') {
     			try {
 					playRaya();
-					System.out.println("RAYA");
 					try {
 						Thread.sleep(100);
 					} catch (InterruptedException e) {
@@ -48,7 +46,6 @@ public class ReproducirSonido extends Thread{
     		} else if (letra == '.') {
     			try {
 					playPunto();
-					System.out.println("PUNTO");
 					try {
 						Thread.sleep(100);
 					} catch (InterruptedException e) {

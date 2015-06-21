@@ -2,6 +2,8 @@ package com.ucab.javachat.Cliente.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.util.Vector;
@@ -11,7 +13,7 @@ import com.ucab.javachat.Cliente.model.CodigoMorse;
 import com.ucab.javachat.Cliente.model.ReproducirSonido;
 import com.ucab.javachat.Cliente.view.VentPrivada;
 
-public class ControladorPrivada implements ActionListener{
+public class ControladorPrivada implements ActionListener, KeyListener {
 	private Cliente cliente;
 	private VentPrivada ventana;
 	private ReproducirSonido sonido;
@@ -23,6 +25,7 @@ public class ControladorPrivada implements ActionListener{
 		ventana.txtMensaje.addActionListener(this);
 		ventana.btnConvertir.addActionListener(this);
 	    ventana.butEnviar.addActionListener(this);
+	    ventana.txtMensaje.addKeyListener(this);
 	    sonido = new ReproducirSonido();
 	  this.ventana.addWindowListener(new WindowListener()
 	  {         
@@ -62,6 +65,29 @@ public class ControladorPrivada implements ActionListener{
 	        ventana.panMostrar.append(msg+"\n");
 	     }
 	    
+	    @SuppressWarnings("deprecation")
+		public void keyPressed (KeyEvent e) {
+	        if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+	        	if(!esMorse) {
+					  if(sonido.isAlive())
+					  sonido.stop();
+			      	String mensaje = CodigoMorse.traducirAlfabeto(ventana.txtMensaje.getText()); 
+			      	System.out.println(mensaje);
+			      	cliente.flujo(ventana.amigo, mensaje);
+			      	ventana.txtMensaje.setText("");
+			      	ventana.txtMensaje.setEditable(true);
+			      	esMorse = false;
+				  } else {
+					  if(sonido.isAlive())
+						  sonido.stop();
+				      String mensaje = ventana.txtMensaje.getText();
+				      cliente.flujo(ventana.amigo, mensaje);
+				      ventana.txtMensaje.setText("");	
+				      ventana.txtMensaje.setEditable(true);
+				      esMorse = false;
+				  }
+	        }
+	    }
 	   @SuppressWarnings("deprecation")
 	@Override
 	   public void actionPerformed(ActionEvent e) 
@@ -98,9 +124,22 @@ public class ControladorPrivada implements ActionListener{
 					  sonido.stop();
 				  ventana.txtMensaje.setText(CodigoMorse.traducirMorse(ventana.txtMensaje.getText()));
 				  ventana.txtMensaje.setEditable(true);
+				  ventana.txtMensaje.requestFocus(true);
 				  esMorse = false;
 			  }
 		  }
 	   }
+
+	@Override
+	public void keyReleased(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
