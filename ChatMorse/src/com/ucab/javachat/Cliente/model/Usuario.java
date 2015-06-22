@@ -82,7 +82,14 @@ public class Usuario extends Validacion {
 	public Usuario() {
 	}
 	
-	
+	public boolean usuarioVacio() {
+		if ((this.nombreDeUsuario != null)&&(this.fecha != null)&&
+				(this.nombreCompleto!= null)&&(this.email != null)&&(this.clave != null)) {
+			return false;
+		} else {
+			return true;
+		}
+	}
 
 	/**metodo toString para imprimir valores de la clase Usuario*/
 	public String toString() {

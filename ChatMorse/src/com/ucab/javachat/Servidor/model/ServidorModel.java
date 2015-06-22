@@ -77,11 +77,14 @@ public class ServidorModel extends Thread
           		Autenticacion inicioDeSesion = new Autenticacion(this.getNameUser(), this.getClave());
           		// Envia true o false si el inicio de sesion es valido o invalido
           		//boolean flagInicioSesion = inicioDeSesion.autenticar();
-          		boolean flagInicioSesion = true;
-                salida.writeBoolean(flagInicioSesion);
-                if(flagInicioSesion) {
-                	serv.mostrar("Ha iniciado sesion: "+this.getNameUser());
-                }
+          		Usuario autenticado = inicioDeSesion.autenticar();
+          		if (autenticado != null) {
+	          		String autenticadoJson =  gson.toJson(autenticado);
+	                salida.writeUTF(autenticadoJson);
+	                serv.mostrar("Ha iniciado sesion: "+this.getNameUser());
+          		} else {
+          			salida.writeUTF("Fallo");
+          		}
           		break;
           	case 2: // Registro
           		String usuarioRegistroJson = entrada.readUTF();
@@ -176,9 +179,6 @@ public class ServidorModel extends Thread
                    for(int i=0;i<numUsers;i++)
                       salida.writeUTF(clientesActivos.get(i).nameUser);
                    break;
-                   // Esta vaina tiene que enviar el usuario por separado
-                   // para saber quien lo envia en el cliente y poder traducir solo el mensaje
-                   // tambien para que el que lo envie no le suene el sonido
                 case 3: // envia mensaje privado
                     mencli = entrada.readUTF();//mensaje enviado
                     String emisor = entrada.readUTF();
@@ -209,8 +209,8 @@ public class ServidorModel extends Thread
            try
             {
               user=clientesActivos.get(i);
-              if(user==this)continue;//ya se lo envie
-              user.salida2.writeInt(2);//opcion de agregar 
+              if(user==this)continue; //ya se lo envie
+              user.salida2.writeInt(2); //opcion de agregar 
               user.salida2.writeUTF(this.getNameUser());	
             }catch (IOException e) {e.printStackTrace();}
         }

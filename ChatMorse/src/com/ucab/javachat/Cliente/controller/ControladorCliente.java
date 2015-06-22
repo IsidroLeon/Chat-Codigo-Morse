@@ -30,6 +30,7 @@ public class ControladorCliente implements ActionListener {
 	private ControladorPrivada contPrivada;
 	private String nombreUsuario;
 	private String clave;
+	private Usuario usuarioAutenticado;
 	private ThreadActualizarUsuario actualizarUsuario;
 
 	/**
@@ -38,19 +39,21 @@ public class ControladorCliente implements ActionListener {
 	 * @param ventana - Este carga las especificaciones de la ventana y inicializa todos sus componentes.
 	 */
 	public ControladorCliente(VentCliente ventana, ControladorIniciarSesion contSesion) {
-		boolean flag = false;
+
+		Usuario autenticado = new Usuario();
         setUsuario(contSesion.getUsuario());
         setClave(Criptologia.encriptar(contSesion.getClave()));
         this.ventana = ventana;
         try {
 			cliente = new Cliente(this);
-			flag = cliente.conexion(nombreUsuario, clave);
+			autenticado = cliente.conexion(nombreUsuario, clave);
 	        ventana.nomUsers = new Vector<String>();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
         
-        if (flag) {
+        if (!autenticado.usuarioVacio()) {
+        	this.usuarioAutenticado = autenticado;
 	        this.ventana.setVisible(true);
 	        this.ventana.butPrivado.addActionListener(this);
 	        actualizarUsuario = new ThreadActualizarUsuario(cliente);
@@ -84,6 +87,9 @@ public class ControladorCliente implements ActionListener {
         }
 	}
 	
+	public Usuario getUsuarioAutenticado(){
+		return this.usuarioAutenticado;
+	}
 	/**
 	 * 
 	 * @return El nombre del usuario que inicio sesion.

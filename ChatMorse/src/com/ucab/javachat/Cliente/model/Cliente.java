@@ -22,7 +22,9 @@ import java.util.Vector;
 import javax.swing.JOptionPane;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.ucab.javachat.Cliente.controller.ControladorCliente;
+import com.ucab.javachat.Cliente.model.Usuario;
 
 /**
  * Modelo del cliente que utiliza el chat. Crea la comunicar mediante sockets con el sevidor.
@@ -59,8 +61,10 @@ public class Cliente{
     * @param clave clave del usuario (cifrada)
     * @throws IOException
     */
-   public boolean conexion(String nombre, String clave) throws IOException {
+   public Usuario conexion(String nombre, String clave) throws IOException {
+	   Gson gson = new Gson();
 	   boolean flag = false;
+	   Usuario autenticado = new Usuario();
 	   try {
 		   comunication = new Socket(Cliente.IP_SERVER, 8081); //envia
 		   comunication2 = new Socket(Cliente.IP_SERVER, 8082); //recibe
@@ -71,7 +75,8 @@ public class Cliente{
 		   salida.writeInt(1);
 		   salida.writeUTF(nombre);
 		   salida.writeUTF(clave);
-		   flag = entrada.readBoolean();
+		   String autenticadoJson = entrada.readUTF();
+		   autenticado = gson.fromJson(autenticadoJson, new TypeToken<Usuario>() {}.getType());
 	   } catch (IOException e) {
 		   JOptionPane.showMessageDialog(null, "Imposible conectar con el servidor actualmente", "Problema de conexión", JOptionPane.INFORMATION_MESSAGE);
 		   System.out.println("\tEl servidor no esta levantado");
@@ -81,7 +86,7 @@ public class Cliente{
 		   new ThreadCliente(entrada2, vent).start();
 	   }
 	   
-	   return flag;
+	   return autenticado;
    }
    
    	/** Envia los datos del nuevo usuario al servidor para realizr las validaciones necesarias del lado del servidor

@@ -47,7 +47,7 @@ public class Autenticacion {
 	 * con los almacenados en el sistema
 	 * @return Verdadero cuando el usuario existe, falso en cualquier otro caso
 	 */
-	public boolean autenticar() {
+	public Usuario autenticar() {
 		if(usuariosArchivo != null) {
 			for (Usuario usuario : usuariosArchivo) {
 				try {
@@ -55,21 +55,21 @@ public class Autenticacion {
 					if (usuario.getNombreDeUsuario().trim().equals(nombreDeUsuario.trim())) {
 						// comprueba si hay algun usuario con esa clave
 						if (Criptologia.desencriptar(usuario.getClave()).trim().equals(clave.trim())) { 
-							return true;
+							return usuario;
 						} else {
-							return false;
+							return null;
 						}
 					} else {
-						return false;
+						return null;
 					}
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		} else {
-			return false;
+			return null;
 		}
-		return false;
+		return null;
 	}
 	
 	/** Realiza el proceso de registro de usuario, almacenando el nuevo usuario en el archiv con comprobacion previa
