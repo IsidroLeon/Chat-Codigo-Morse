@@ -9,16 +9,17 @@
 
 package com.ucab.javachat.Cliente.model;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.Socket;
+import java.nio.ByteBuffer;
 import java.util.Vector;
 
+import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 
 import com.google.gson.Gson;
@@ -63,7 +64,7 @@ public class Cliente{
     */
    public Usuario conexion(String nombre, String clave) throws IOException {
 	   Gson gson = new Gson();
-	   boolean flag = false;
+	   String autenticadoJson = "";
 	   Usuario autenticado = new Usuario();
 	   try {
 		   comunication = new Socket(Cliente.IP_SERVER, 8081); //envia
@@ -75,14 +76,17 @@ public class Cliente{
 		   salida.writeInt(1);
 		   salida.writeUTF(nombre);
 		   salida.writeUTF(clave);
-		   String autenticadoJson = entrada.readUTF();
-		   autenticado = gson.fromJson(autenticadoJson, new TypeToken<Usuario>() {}.getType());
+		   autenticadoJson = entrada.readUTF();
+		   if (!autenticadoJson.trim().equals("Fallo")) {
+			   System.out.println(autenticadoJson);
+			   autenticado = gson.fromJson(autenticadoJson, new TypeToken<Usuario>() {}.getType());
+		   }
 	   } catch (IOException e) {
 		   JOptionPane.showMessageDialog(null, "Imposible conectar con el servidor actualmente", "Problema de conexión", JOptionPane.INFORMATION_MESSAGE);
 		   System.out.println("\tEl servidor no esta levantado");
 		   System.out.println("\t=============================");
 	   }
-	   if (flag) {
+	   if (autenticadoJson != "Fallo") {
 		   new ThreadCliente(entrada2, vent).start();
 	   }
 	   
@@ -183,40 +187,26 @@ public class Cliente{
     * se crea un objeto json en el que se añaden los datos del usuario.
     * @param usuario - Objeto que contiene los datos de un usuario que esta en el proceso de registro.
     */
-   public boolean flujo(Usuario usuario) { 
-	   	boolean flag = false;
-		Gson gson = new Gson();
-	      
-		try {          
-			salida.writeInt(2);
-	        String jsonRegistroUsuario = gson.toJson(usuario);
-	        salida.writeUTF(jsonRegistroUsuario);
-	        BufferedInputStream bis;
-	        BufferedOutputStream bos;
-	        int in;
-	        byte[] byteArray;        
-	        try	{
-	        	File localFile = usuario.getImagen();
-		        bis = new BufferedInputStream(new FileInputStream(localFile));
-		        bos = new BufferedOutputStream(comunication.getOutputStream());
-		        //Enviamos el nombre del fichero
-		        salida.writeUTF(localFile.getName());
-		        //Enviamos el fichero
-		        byteArray = new byte[8192];
-		        while ((in = bis.read(byteArray)) != -1){
-		        	bos.write(byteArray,0,in);
-		        }
-		        bis.close();
-		        bos.close();
-	        }catch ( Exception e ) {
-	        	System.err.println(e);
-	        }
-	        flag = entrada.readBoolean();
-		} catch (IOException e) {
-			System.out.println("error...." + e);
-	    }
-	      
-	    return flag;
+   	public boolean flujo(Usuario usuario) {
+       boolean flag = false;
+       Gson gson = new Gson();  
+       try {         
+           salida.writeInt(2);
+           String jsonRegistroUsuario = gson.toJson(usuario);
+           salida.writeUTF(jsonRegistroUsuario);
+           BufferedImage image = ImageIO.read(new File(usuario.getImagen().getCanonicalPath()));
+           ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+           ImageIO.write(image, "jpg", byteArrayOutputStream);
+           byte[] size = ByteBuffer.allocate(4).putInt(byteArrayOutputStream.size()).array();
+           salida.write(size);
+           salida.write(byteArrayOutputStream.toByteArray());
+           salida.flush();
+           flag = entrada.readBoolean();
+        }
+        catch (IOException e) {
+            System.out.println("error...." + e);
+        }
+        return flag;
   }
    
    public boolean flujo(String correo){
@@ -225,7 +215,6 @@ public class Cliente{
 		   salida.writeInt(3);
 		   salida.writeUTF(correo);
 		   flag = entrada.readBoolean();
-		   System.out.println("liiiisto");
 	   } catch(IOException e){
 		   System.out.println("error recuperando contraseña..." + e);
 	   }

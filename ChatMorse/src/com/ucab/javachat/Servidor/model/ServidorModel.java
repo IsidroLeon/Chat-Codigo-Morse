@@ -1,14 +1,16 @@
 package com.ucab.javachat.Servidor.model;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.Socket;
+import java.nio.ByteBuffer;
 import java.util.Vector;
+
+import javax.imageio.ImageIO;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -87,52 +89,28 @@ public class ServidorModel extends Thread
           		}
           		break;
           	case 2: // Registro
-          		String usuarioRegistroJson = entrada.readUTF();
-          		Usuario usuarioRegistro = gson.fromJson(usuarioRegistroJson, new TypeToken<Usuario>() {}.getType());
-          		File miDir = new File (".");
-          		String ruta = "";
-          		BufferedInputStream bis;
-          		BufferedOutputStream bos;
-          		 
-          		byte[] receivedData;
-          		int in;
-          		String file;
-          		try{ 
-          			//Buffer de 1024 bytes
-          			receivedData = new byte[1024];
-          			bis = new BufferedInputStream(scli.getInputStream());
-          			//Recibimos el nombre del fichero
-          			file = entrada.readUTF();
-          			file = file.substring(file.indexOf('\\')+1,file.length());
-          			//Para guardar fichero recibido
-          			bos = new BufferedOutputStream(new FileOutputStream(file));
-          			while ((in = bis.read(receivedData)) != -1){
-          				bos.write(receivedData,0,in);
-          			}
-          			bos.close();
-          			ruta = miDir.getCanonicalPath() + "/" + usuarioRegistro.getImagen().getName();
-          			File imagen = new File(ruta);
-          			 //New path
-          			 File fileSendPath = new File(miDir + "/Documentos/Imagenes de Verificacion/" 
-          			 + usuarioRegistro.getNombreDeUsuario() + ".jpg");
-          			 //Moving the file.
-          			 boolean si = imagen.renameTo(fileSendPath);
-          			 if (si) usuarioRegistro.setImagen(imagen);
-          			           			 
-       			 }catch (Exception e ) {
-          			 System.err.println(e);
-      			 }
-          		
- 
-          		Autenticacion registro = new Autenticacion(usuarioRegistro);  
-          		boolean flagRegistro = registro.registrar();
-          		salida.writeBoolean(flagRegistro);
-          		if (flagRegistro) {
-          			serv.mostrar("Nuevo usuario registrado");
-          		}
-          		scli.close();
-          		scli2.close();
-          		break;
+                String usuarioRegistroJson = entrada.readUTF();
+                Usuario usuarioRegistro = gson.fromJson(usuarioRegistroJson, new TypeToken<Usuario>() {}.getType());
+               
+                File miDir = new File ("." + "/Documentos/Imagenes de Verificacion/" +
+                        usuarioRegistro.getNombreDeUsuario() + ".jpg");
+                byte[] sizeAr = new byte[4];
+                entrada.read(sizeAr);
+                int size = ByteBuffer.wrap(sizeAr).asIntBuffer().get();
+                byte[] imageAr = new byte[size];
+                entrada.read(imageAr);
+                BufferedImage image = ImageIO.read(new ByteArrayInputStream(imageAr));
+                ImageIO.write(image, "jpg", new File(miDir.getCanonicalPath()));
+                usuarioRegistro.setImagen(miDir.getCanonicalFile());
+                Autenticacion registro = new Autenticacion(usuarioRegistro); 
+                boolean flagRegistro = registro.registrar();
+                salida.writeBoolean(flagRegistro);
+                if (flagRegistro) {
+                    serv.mostrar("Nuevo usuario registrado");
+                }
+                scli.close();
+                scli2.close();
+                break;
           	case 3: //Recuperar contraseña 
           		String correo = entrada.readUTF();
 				try {
