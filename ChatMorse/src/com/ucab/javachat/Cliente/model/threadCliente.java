@@ -27,7 +27,7 @@ class threadCliente extends Thread{
    
    public void run()
    {
-      String menser=""/*,amigo=""*/;
+      String mensaje, emisor;
       Vector<String> amigos = new Vector<String>();
       int opcion=0;
       while(true)
@@ -39,16 +39,17 @@ class threadCliente extends Thread{
                case 1: //mensaje enviado          
             	   break;
                case 2://se agrega
-            	   menser = entrada.readUTF();
-            	   vcli.agregarUser(menser);                  
+            	   mensaje = entrada.readUTF();
+            	   vcli.agregarUser(mensaje);                  
             	   break;
                case 3://mensaje de amigo
             	   Gson gson = new Gson();
-            	   menser = entrada.readUTF();
+            	   mensaje = entrada.readUTF();
+            	   emisor = entrada.readUTF();
             	   String amigostring = entrada.readUTF();
             	   amigos = gson.fromJson(amigostring, new TypeToken<Vector<String>>() {}.getType());
-            	   vcli.mensajeAmigo(menser, amigos);
-            	   System.out.println("ECO del servidor:" +menser);
+            	   vcli.mensajeAmigo(mensaje, emisor, amigos);
+            	   System.out.println("ECO del servidor:" +mensaje);
             	   break;
             }
          }

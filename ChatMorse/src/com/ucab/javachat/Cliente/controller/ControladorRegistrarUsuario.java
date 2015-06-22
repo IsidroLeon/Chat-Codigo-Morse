@@ -29,6 +29,7 @@ import com.ucab.javachat.Cliente.model.Validacion;
 public class ControladorRegistrarUsuario implements ActionListener {
 	private VentRegistro vista;
 	private Usuario nuevoUsuario;
+	private boolean flagImagen = false;
 	
 	public Usuario getNuevoUsuario() {
 		return nuevoUsuario;
@@ -57,7 +58,6 @@ public class ControladorRegistrarUsuario implements ActionListener {
 	 */
 	public void actionPerformed(ActionEvent e) {
 		boolean flag = true;
-		boolean flagImagen = true;
 		if (vista.btnSeleccionarFoto == e.getSource()){
 			if (vista.campoUsuario.getText() != ""){
 				JFileChooser chooser = new JFileChooser();
@@ -70,13 +70,14 @@ public class ControladorRegistrarUsuario implements ActionListener {
 				//Elegiremos archivos del directorio;
 				chooser.setAcceptAllFileFilterUsed(false);
 				//Si seleccionamos algún archivo retornaremos su directorio
-				if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+				if (chooser.showOpenDialog(vista) == JFileChooser.APPROVE_OPTION) {
+					flagImagen = true;
 					File fichero = chooser.getSelectedFile();
 					nuevoUsuario.setImagen(fichero);
 					vista.nombreImagen.setText(fichero.getName());
-					flagImagen = true;
-				} 	
-				else flag = false;
+				} else {
+					flag = false;
+				}
 				vista.imagenValida.setText(" ");
 			}
 			else vista.imagenValida.setText("escriba un nombre de usuario.");
@@ -141,8 +142,10 @@ public class ControladorRegistrarUsuario implements ActionListener {
 		    vista.frmRegistroDeUsuario.dispose();
 		}	
 		
+		System.out.println(flagImagen);
 		if (flag){
 			if (flagImagen){
+			System.out.println("guardemos");
 			nuevoUsuario.setEmail(Criptologia.encriptar(nuevoUsuario.getEmail()));
 			nuevoUsuario.setClave(Criptologia.encriptar(nuevoUsuario.getClave()));
 			VentCliente ventana = new VentCliente();

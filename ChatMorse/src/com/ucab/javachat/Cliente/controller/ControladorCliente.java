@@ -7,6 +7,7 @@ import java.util.Vector;
 
 import javax.swing.AbstractListModel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 
 import com.ucab.javachat.Cliente.model.Cliente;
 import com.ucab.javachat.Cliente.model.Criptologia;
@@ -57,6 +58,8 @@ public class ControladorCliente implements ActionListener {
 	        
 	        ventPrivada = new VentPrivada(cliente);
 	        contPrivada = new ControladorPrivada(ventPrivada, cliente);
+        } else {
+        	JOptionPane.showMessageDialog(null, "La autenticación ha fallado", "Problema de conexión", JOptionPane.INFORMATION_MESSAGE);
         }
 	}
 	
@@ -72,9 +75,12 @@ public class ControladorCliente implements ActionListener {
 		}
         if (flag) {
         	contUsuario.cerrarVentana();
+        	JOptionPane.showMessageDialog(null, "Registro completado exitosamente", "Registro completado", JOptionPane.INFORMATION_MESSAGE);
         	Cliente.IP_SERVER = "localhost";
             VentIniciarSesion ventIniciar = new VentIniciarSesion();
     		new ControladorIniciarSesion(ventIniciar);
+        } else {
+        	JOptionPane.showMessageDialog(null, "El registro no fue satisfactorio, asegurese de que el email y el nombre de usuario no estan registrados", "Problema de registro", JOptionPane.INFORMATION_MESSAGE);
         }
 	}
 	
@@ -186,14 +192,14 @@ public class ControladorCliente implements ActionListener {
     		 }
     	 }
     	 nombres.add(this.getUsuario());
-    	 contPrivada.setAmigo(nombres);
+    	 contPrivada.setAmigo(nombres, this.getUsuario());
        }
     }
     
-    public void mensajeAmigo(String msg, Vector<String> amigos)
+    public void mensajeAmigo(String mensaje, String emisor, Vector<String> amigos)
     {
-    	contPrivada.setAmigo(amigos);
-    	contPrivada.mostrarMsg(msg, this.getUsuario());
+    	contPrivada.setAmigo(amigos, emisor);
+    	contPrivada.mostrarMsg(mensaje);
     }
 
 }

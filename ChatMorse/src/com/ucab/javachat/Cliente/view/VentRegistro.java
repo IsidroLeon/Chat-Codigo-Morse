@@ -23,7 +23,8 @@ import com.toedter.calendar.JDateChooser;
  * @version 1.0
  */
 
-public class VentRegistro {
+@SuppressWarnings("serial")
+public class VentRegistro extends JFrame{
 
 	public JFrame frmRegistroDeUsuario;
 	public JTextField campoUsuario;

@@ -76,8 +76,8 @@ public class ServidorModel extends Thread
           		this.setClave(entrada.readUTF());
           		Autenticacion inicioDeSesion = new Autenticacion(this.getNameUser(), this.getClave());
           		// Envia true o false si el inicio de sesion es valido o invalido
-          		boolean flagInicioSesion = inicioDeSesion.autenticar();
-          		//boolean flagInicioSesion = true;
+          		//boolean flagInicioSesion = inicioDeSesion.autenticar();
+          		boolean flagInicioSesion = true;
                 salida.writeBoolean(flagInicioSesion);
                 if(flagInicioSesion) {
                 	serv.mostrar("Ha iniciado sesion: "+this.getNameUser());
@@ -180,10 +180,11 @@ public class ServidorModel extends Thread
                    // para saber quien lo envia en el cliente y poder traducir solo el mensaje
                    // tambien para que el que lo envie no le suene el sonido
                 case 3: // envia mensaje privado
-                    mencli=entrada.readUTF();//mensaje enviado
+                    mencli = entrada.readUTF();//mensaje enviado
+                    String emisor = entrada.readUTF();
                     amigostring = entrada.readUTF();
                     amigos = gson.fromJson(amigostring, new TypeToken<Vector<String>>() {}.getType()); 
-                    enviaMensaje(mencli, amigos, amigostring);
+                    enviaMensaje(mencli, emisor, amigos, amigostring);
                    	break;
 	             }
           }
@@ -215,7 +216,7 @@ public class ServidorModel extends Thread
         }
      }
    
-   private void enviaMensaje(String mencli, Vector<String> amigos, String jsonamigos) 
+   private void enviaMensaje(String mencli, String emisor, Vector<String> amigos, String jsonamigos) 
    {
       ServidorModel user=null;
       for (String amigo : amigos) {
@@ -228,6 +229,7 @@ public class ServidorModel extends Thread
               {
                  user.salida2.writeInt(3);//opcion de mensaje amigo
                  user.salida2.writeUTF(mencli);
+                 user.salida2.writeUTF(emisor);
                  user.salida2.writeUTF(jsonamigos);
               }
             }catch (IOException e) {e.printStackTrace();}

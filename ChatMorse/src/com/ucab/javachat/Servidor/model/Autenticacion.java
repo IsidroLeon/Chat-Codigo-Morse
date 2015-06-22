@@ -48,7 +48,7 @@ public class Autenticacion {
 	 * @return Verdadero cuando el usuario existe, falso en cualquier otro caso
 	 */
 	public boolean autenticar() {
-		if(!usuariosArchivo.isEmpty()) {
+		if(usuariosArchivo != null) {
 			for (Usuario usuario : usuariosArchivo) {
 				try {
 					// comprueba si existe algun usuario con el correo o el nombre de usuario indicado
@@ -66,6 +66,8 @@ public class Autenticacion {
 					e.printStackTrace();
 				}
 			}
+		} else {
+			return false;
 		}
 		return false;
 	}

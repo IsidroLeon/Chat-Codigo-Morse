@@ -18,6 +18,7 @@ public class ControladorPrivada implements ActionListener, KeyListener {
 	private Cliente cliente;
 	private VentPrivada ventana;
 	private ReproducirSonido sonido;
+	private String emisor;
 	private boolean esMorse = false;
 
 	public ControladorPrivada(VentPrivada ventana, Cliente cliente) {
@@ -43,8 +44,9 @@ public class ControladorPrivada implements ActionListener, KeyListener {
 	  });
 	}
 	
-		public void setAmigo(Vector<String> amigos) {
+		public void setAmigo(Vector<String> amigos, String emisor) {
 			ventana.setVisible(true);
+			this.emisor = emisor;
 			ventana.amigo = amigos;
 			String usuarios = amigos.toString();
 			ventana.setTitle("Conversación con: "+usuarios);
@@ -56,20 +58,22 @@ public class ControladorPrivada implements ActionListener, KeyListener {
 				  sonido.stop();
 	    	String mensaje = "El usuario "+cliente.getNombre()+" se ha retirado de la conversación";
 	    	ventana.amigo.remove(cliente.getNombre());
-		    cliente.flujo(ventana.amigo, mensaje);
+		    cliente.flujo(ventana.amigo, mensaje, this.emisor);
 		    ventana.txtMensaje.setText("");
 		    ventana.panMostrar.setText("");
 		    ventana.setVisible(false);      
 	    }
 	    
-	    public void mostrarMsg(String msg, String usuario){
-	    	sonido = new ReproducirSonido(msg);
-			sonido.setPriority(1);
-		    sonido.start();
-		    ThreadSonido thread = new ThreadSonido(msg, ventana);
-		    thread.start();
+	    public void mostrarMsg(String msg) {
+	    	if(!(this.emisor.trim().equals(cliente.getNombre()))) {
+		    	sonido = new ReproducirSonido(msg);
+				sonido.setPriority(1);
+			    sonido.start();
+			    ThreadSonido thread = new ThreadSonido(msg, ventana);
+			    thread.start();
+	    	}
 	    	msg = CodigoMorse.traducirMorse(msg);
-	    	msg = ""+usuario+">"+msg;
+	    	msg = ""+this.emisor+">"+msg;
 	        ventana.panMostrar.append(msg+"\n");
 	     }
 	    
@@ -81,7 +85,7 @@ public class ControladorPrivada implements ActionListener, KeyListener {
 					  sonido.stop();
 			      	String mensaje = CodigoMorse.traducirAlfabeto(ventana.txtMensaje.getText()); 
 			      	System.out.println(mensaje);
-			      	cliente.flujo(ventana.amigo, mensaje);
+			      	cliente.flujo(ventana.amigo, mensaje, this.emisor);
 			      	this.ventana.txtMensaje.setText("");
 			      	ThreadSonido thread = new ThreadSonido(mensaje, ventana);
 				    thread.start();
@@ -90,7 +94,7 @@ public class ControladorPrivada implements ActionListener, KeyListener {
 					  if(sonido.isAlive())
 						  sonido.stop();
 				      String mensaje = ventana.txtMensaje.getText();
-				      cliente.flujo(ventana.amigo, mensaje);
+				      cliente.flujo(ventana.amigo, mensaje, this.emisor);
 				      this.ventana.txtMensaje.setText("");
 				      ThreadSonido thread = new ThreadSonido(mensaje, ventana);
 					    thread.start();
@@ -108,7 +112,7 @@ public class ControladorPrivada implements ActionListener, KeyListener {
 				  sonido.stop();
 		      	String mensaje = CodigoMorse.traducirAlfabeto(ventana.txtMensaje.getText()); 
 		      	System.out.println(mensaje);
-		      	cliente.flujo(ventana.amigo, mensaje);
+		      	cliente.flujo(ventana.amigo, mensaje, this.emisor);
 		      	this.ventana.txtMensaje.setText("");
 		      	ThreadSonido thread = new ThreadSonido(mensaje, ventana);
 			    thread.start();
@@ -117,7 +121,7 @@ public class ControladorPrivada implements ActionListener, KeyListener {
 				  if(sonido.isAlive())
 					  sonido.stop();
 			      String mensaje = ventana.txtMensaje.getText();
-			      cliente.flujo(ventana.amigo, mensaje);
+			      cliente.flujo(ventana.amigo, mensaje, this.emisor);
 			      this.ventana.txtMensaje.setText("");
 			      ThreadSonido thread = new ThreadSonido(mensaje, ventana);
 				  thread.start();

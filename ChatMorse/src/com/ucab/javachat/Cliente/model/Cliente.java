@@ -159,12 +159,13 @@ public class Cliente{
     * @param amigos - Usuarios en la ventana privada.
     * @param mens - Mensaje a enviar.
     */
-   public void flujo(Vector<String> amigos,String mens) { /*flujo para mensaje privado*/
+   public void flujo(Vector<String> amigos, String mens, String emisor) { /*flujo para mensaje privado*/
 	  Gson gson = new Gson();
       try {             
          System.out.println("el mensaje enviado desde el cliente es :" + mens);
          salida.writeInt(3); //opcion de mensaje a amigo
          salida.writeUTF(mens);
+         salida.writeUTF(emisor);
          String jsonamigos = gson.toJson(amigos);
          salida.writeUTF(jsonamigos);
       } catch (IOException e) {

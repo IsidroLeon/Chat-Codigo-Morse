@@ -114,7 +114,7 @@ public class ReproducirSonido extends Thread{
     	long duracion = 0;
     	for (char letra : mensaje.toCharArray()) {
     		if ((letra == '-')||(letra == '.')){
-    			duracion = duracion + 100;
+    			duracion = duracion + 800;
     		} else if (letra == ' ') {
     			duracion = duracion + 300;
     		} else if (letra == '/') {
