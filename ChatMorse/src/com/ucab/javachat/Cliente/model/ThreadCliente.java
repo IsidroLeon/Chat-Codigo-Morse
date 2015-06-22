@@ -16,13 +16,13 @@ import com.ucab.javachat.Cliente.controller.ControladorCliente;
  * @author Grupo 3 - A. Rodriguez, I. Teixeira, L. Valladares, D. Suarez
  * @version 2.0
  */
-class threadCliente extends Thread{
+class ThreadCliente extends Thread{
    DataInputStream entrada;
    ControladorCliente vcli;
-   public threadCliente (DataInputStream entrada,ControladorCliente vcli) throws IOException
+   public ThreadCliente (DataInputStream entrada,ControladorCliente vcli) throws IOException
    {
-      this.entrada=entrada;
-      this.vcli=vcli;
+      this.entrada = entrada;
+      this.vcli = vcli;
    }
    
    public void run()

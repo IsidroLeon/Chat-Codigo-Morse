@@ -69,12 +69,13 @@ public class ControladorPrivada implements ActionListener, KeyListener {
 		    	sonido = new ReproducirSonido(msg);
 				sonido.setPriority(1);
 			    sonido.start();
-			    ThreadSonido thread = new ThreadSonido(msg, ventana);
-			    thread.start();
 	    	}
+	    	ThreadSonido thread = new ThreadSonido(msg, ventana);
+			thread.start();
 	    	msg = CodigoMorse.traducirMorse(msg);
 	    	msg = ""+this.emisor+">"+msg;
 	        ventana.panMostrar.append(msg+"\n");
+	        this.emisor = cliente.getNombre();
 	     }
 	    
 	    @SuppressWarnings("deprecation")

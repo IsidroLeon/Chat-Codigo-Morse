@@ -97,7 +97,7 @@ public class ReproducirSonido extends Thread{
     
     private void playRaya() throws UnsupportedAudioFileException, IOException, LineUnavailableException
     {
-    	String ruta = miDir.getCanonicalPath() +"/Documentos/Sonidos/ralla.wav";
+    	String ruta = miDir.getCanonicalPath() +"/Documentos/Sonidos/raya.wav";
         File soundFile = new File(ruta);
         AudioInputStream sound = AudioSystem.getAudioInputStream(soundFile);
 
@@ -113,8 +113,10 @@ public class ReproducirSonido extends Thread{
     public long duracionSonido() {
     	long duracion = 0;
     	for (char letra : mensaje.toCharArray()) {
-    		if ((letra == '-')||(letra == '.')){
-    			duracion = duracion + 800;
+    		if (letra == '-') {
+    			duracion = duracion + 750;
+    		} else if (letra == '.') {
+    			duracion = duracion + 550;
     		} else if (letra == ' ') {
     			duracion = duracion + 300;
     		} else if (letra == '/') {

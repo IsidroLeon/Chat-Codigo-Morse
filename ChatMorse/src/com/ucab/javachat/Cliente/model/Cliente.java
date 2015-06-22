@@ -78,7 +78,7 @@ public class Cliente{
 		   System.out.println("\t=============================");
 	   }
 	   if (flag) {
-		   new threadCliente(entrada2, vent).start();
+		   new ThreadCliente(entrada2, vent).start();
 	   }
 	   
 	   return flag;
