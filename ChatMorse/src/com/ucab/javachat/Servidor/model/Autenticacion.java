@@ -32,11 +32,7 @@ public class Autenticacion {
 		ManejoArchivos archivo = new ManejoArchivos();
 		usuariosArchivo = archivo.getListaUsuarios();
 		this.nombreDeUsuario = nombreDeUsuario;
-		try {
-			this.clave = Criptologia.desencriptar(clave);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		this.clave = clave;
 	}
 	
 	public Autenticacion(String correo){
@@ -54,20 +50,14 @@ public class Autenticacion {
 					// comprueba si existe algun usuario con el correo o el nombre de usuario indicado
 					if (usuario.getNombreDeUsuario().trim().equals(nombreDeUsuario.trim())) {
 						// comprueba si hay algun usuario con esa clave
-						if (Criptologia.desencriptar(usuario.getClave()).trim().equals(clave.trim())) { 
+						if (Criptologia.desencriptar(usuario.getClave()).trim().equals(Criptologia.desencriptar(clave).trim())) { 
 							return usuario;
-						} else {
-							return null;
 						}
-					} else {
-						return null;
 					}
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
-		} else {
-			return null;
 		}
 		return null;
 	}
@@ -80,10 +70,10 @@ public class Autenticacion {
 		if(usuariosArchivo != null) {
 			for (Usuario usuario : usuariosArchivo) {
 				try {
-					if (Criptologia.desencriptar(usuario.getEmail()) == Criptologia.desencriptar(user.getEmail())) {
+					if (Criptologia.desencriptar(usuario.getEmail()).trim().equals(Criptologia.desencriptar(user.getEmail().trim()))) {
 						return false;
 					}
-					if (usuario.getNombreDeUsuario() == this.user.getNombreDeUsuario()) {
+					if (usuario.getNombreDeUsuario().trim().equals(this.user.getNombreDeUsuario().trim())) {
 						return false;
 					}
 					if (user.usuarioVacio()) {
@@ -99,7 +89,6 @@ public class Autenticacion {
 		{
 			usuariosArchivo = new ArrayList<Usuario>();
 		}
-		System.out.println(user);
 		usuariosArchivo.add(this.user);
 		ManejoArchivos archivo = new ManejoArchivos();
 		archivo.escribirArchivo(usuariosArchivo);

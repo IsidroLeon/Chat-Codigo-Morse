@@ -34,7 +34,6 @@ public final class ManejoArchivos {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		System.out.println(ruta);
 		this.listaUsuarios = leerArchivo();
 		
 	}

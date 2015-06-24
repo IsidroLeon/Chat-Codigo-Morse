@@ -49,7 +49,7 @@ public class EnvioCorreo {
  
 			Transport.send(message);
  
-			System.out.println("Done");
+			System.out.println("Correo enviado");
  
 		} catch (MessagingException e) {
 			throw new RuntimeException(e);

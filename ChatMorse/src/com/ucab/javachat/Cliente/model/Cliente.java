@@ -78,7 +78,6 @@ public class Cliente{
 		   salida.writeUTF(clave);
 		   autenticadoJson = entrada.readUTF();
 		   if (!autenticadoJson.trim().equals("Fallo")) {
-			   System.out.println(autenticadoJson);
 			   autenticado = gson.fromJson(autenticadoJson, new TypeToken<Usuario>() {}.getType());
 		   }
 	   } catch (IOException e) {
@@ -124,7 +123,6 @@ public class Cliente{
 		   salida = new DataOutputStream(comunication.getOutputStream()); // envia al cliente
 		   entrada2 = new DataInputStream(comunication2.getInputStream());
 		   flag = flujo(correo);
-		   System.out.println("liisto");
 	   } catch (IOException e) {
 		   JOptionPane.showMessageDialog(null, "Imposible conectar con el servidor actualmente", "Problema de conexión", JOptionPane.INFORMATION_MESSAGE);
 		   System.out.println("\tEl servidor no esta levantado");

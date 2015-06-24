@@ -86,6 +86,8 @@ public class ServidorModel extends Thread
 	                serv.mostrar("Ha iniciado sesion: "+this.getNameUser());
           		} else {
           			salida.writeUTF("Fallo");
+          			scli.close();
+                    scli2.close();
           		}
           		break;
           	case 2: // Registro

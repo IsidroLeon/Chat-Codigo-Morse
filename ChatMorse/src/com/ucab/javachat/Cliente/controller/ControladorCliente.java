@@ -54,6 +54,7 @@ public class ControladorCliente implements ActionListener {
         
         if (!autenticado.usuarioVacio()) {
         	this.usuarioAutenticado = autenticado;
+        	contSesion.cerrarVentana();
 	        this.ventana.setVisible(true);
 	        this.ventana.butPrivado.addActionListener(this);
 	        actualizarUsuario = new ThreadActualizarUsuario(cliente);

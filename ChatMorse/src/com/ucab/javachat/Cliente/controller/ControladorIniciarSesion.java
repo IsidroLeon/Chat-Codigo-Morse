@@ -46,6 +46,10 @@ public class ControladorIniciarSesion implements ActionListener{
 		return flag;
 	}
 	
+	public void cerrarVentana() {
+		this.vista.frmInicioDeSesion.dispose();
+	}
+	
 	public String getUsuario() {
 		return this.usuario;
 	}
@@ -67,7 +71,8 @@ public class ControladorIniciarSesion implements ActionListener{
 			if (validarInicioSesion()) {
 				VentCliente vistaCliente = new VentCliente(); // Si el inicio de sesion es valido crea la ventana
 				new ControladorCliente(vistaCliente, this);
-				this.vista.frmInicioDeSesion.dispose();
+				this.vista.txtClave.setText("");
+				this.vista.txtUsuario.setText("");
 			}
 		
 		if (vista.btnContrasena == e.getSource()){
