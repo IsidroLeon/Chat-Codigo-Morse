@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
  */
 
 public class Validacion{
-	
+		
 	/**
 	 * Obtiene un String de usuario y valida que cumpla los siguientes parametros
 	 * Mayor a 8 caracteres

@@ -3,9 +3,7 @@ package com.ucab.javachat.Cliente.view;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
-
 import java.awt.Font;
-
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
@@ -16,6 +14,7 @@ public class VentIniciarSesion extends JFrame{
 	public JTextField txtUsuario;
 	public JPasswordField txtClave;
 	public JButton btnContrasena, btnArchivo, btnEnviar, btnRegistro;
+	public JLabel lblValidacion;
 	
 	
 	public VentIniciarSesion() {
@@ -28,11 +27,11 @@ public class VentIniciarSesion extends JFrame{
 	private void initialize() {
 		frmInicioDeSesion = new JFrame();
 		frmInicioDeSesion.setTitle("Inicio de sesión");
-		frmInicioDeSesion.setBounds(100, 100, 257, 325);
+		frmInicioDeSesion.setBounds(100, 100, 243, 345);
 		frmInicioDeSesion.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmInicioDeSesion.getContentPane().setLayout(null);
 		
-		JLabel lblIniciarSesion = new JLabel("Inicio de Sesión");
+		JLabel lblIniciarSesion = new JLabel("Inicio de Sesión.");
 		lblIniciarSesion.setFont(new Font("Dialog", Font.BOLD, 18));
 		lblIniciarSesion.setBounds(40, 21, 200, 15);
 		frmInicioDeSesion.getContentPane().add(lblIniciarSesion);
@@ -60,11 +59,11 @@ public class VentIniciarSesion extends JFrame{
 		txtClave.setColumns(10);
 		
 		btnContrasena = new JButton("Recuperar contraseña");
-		btnContrasena.setBounds(20, 250, 200, 25);
+		btnContrasena.setBounds(20, 278, 200, 25);
 		frmInicioDeSesion.getContentPane().add(btnContrasena);
 		
 		btnEnviar = new JButton("Iniciar sesión");
-		btnEnviar.setBounds(20, 178, 200, 25);
+		btnEnviar.setBounds(20, 204, 200, 25);
 		frmInicioDeSesion.getContentPane().add(btnEnviar);
 		
 		btnArchivo = new JButton("Seleccionar");
@@ -72,7 +71,11 @@ public class VentIniciarSesion extends JFrame{
 		frmInicioDeSesion.getContentPane().add(btnArchivo);
 		
 		btnRegistro = new JButton("Registrar");
-		btnRegistro.setBounds(20, 214, 200, 25);
+		btnRegistro.setBounds(20, 241, 200, 25);
 		frmInicioDeSesion.getContentPane().add(btnRegistro);
+		
+		lblValidacion = new JLabel("");
+		lblValidacion.setBounds(20, 166, 207, 15);
+		frmInicioDeSesion.getContentPane().add(lblValidacion);
 	}
 }

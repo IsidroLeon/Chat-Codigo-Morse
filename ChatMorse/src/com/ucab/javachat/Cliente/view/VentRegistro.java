@@ -6,19 +6,16 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
-
 import java.awt.Font;
 import java.awt.Color;
-
 import javax.swing.JPasswordField;
-
 import com.toedter.calendar.JDateChooser;
 
 
 /**
  * Esta clase se encarga de mostrar la vista para cuando sea requerido registrar un usuario.
  * 
- * @author Diego Suarez
+ * @author
  * 
  * @version 1.0
  */
@@ -27,25 +24,14 @@ import com.toedter.calendar.JDateChooser;
 public class VentRegistro extends JFrame{
 
 	public JFrame frmRegistroDeUsuario;
-	public JTextField campoUsuario;
-	public JTextField campoNombre;
-	public JTextField campoEmail;
-	public JPasswordField campoContraseña;
-	public JRadioButton rdbtnMasculino;
-	public JRadioButton rdbtnFemenino;
-	public JLabel usuarioValido;
-	public JLabel nombreValido;
-	public JLabel fechaValida;
-	public JLabel sexoValido;
-	public JLabel emailValido;
-	public JLabel contraseñaValida;
-	public JLabel imagenValida;
-	public JButton btnRegistrar;
-	public JButton btnSeleccionarFoto;
+	public JTextField campoUsuario, campoNombre, campoEmail, nombreImagen;
+	public JPasswordField campoContraseña, campoRepContraseña;
+	public JRadioButton rdbtnMasculino, rdbtnFemenino;
+	public JLabel usuarioValido, nombreValido, fechaValida, sexoValido, emailValido, contraseñaValida, 
+	lblContraseñaIgual, lblSexoValido, lblImagenSeleccionada;
+	public JButton btnRegistrar, btnSeleccionarFoto, btnSalir;
 	public ButtonGroup grupoSexo;
 	public JDateChooser fechaUsuario;
-	public JButton btnSalir;
-	public JTextField nombreImagen;
 
 	/**
 	 * Create the application.
@@ -61,7 +47,7 @@ public class VentRegistro extends JFrame{
 	private void initialize() {
 		frmRegistroDeUsuario = new JFrame();
 		frmRegistroDeUsuario.setTitle("Registro de usuario");
-		frmRegistroDeUsuario.setBounds(100, 100, 620, 321);
+		frmRegistroDeUsuario.setBounds(100, 100, 645, 347);
 		frmRegistroDeUsuario.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmRegistroDeUsuario.getContentPane().setLayout(null);
 		
@@ -89,7 +75,7 @@ public class VentRegistro extends JFrame{
 		labelSexo.setBounds(32, 149, 50, 15);
 		frmRegistroDeUsuario.getContentPane().add(labelSexo);
 		
-		JLabel labelContraseña = new JLabel("Clave:");
+		JLabel labelContraseña = new JLabel("Contraseña:");
 		labelContraseña.setBounds(32, 176, 94, 15);
 		frmRegistroDeUsuario.getContentPane().add(labelContraseña);
 		
@@ -130,61 +116,75 @@ public class VentRegistro extends JFrame{
 		frmRegistroDeUsuario.getContentPane().add(campoContraseña);
 		
 		usuarioValido = new JLabel("-> 8+ caracteres y solo letras.");
-		usuarioValido.setForeground(new Color(178, 34, 34));
-		usuarioValido.setFont(new Font("Dialog", Font.PLAIN, 12));
-		usuarioValido.setBounds(365, 41, 178, 15);
+		usuarioValido.setForeground(Color.BLACK);
+		usuarioValido.setFont(new Font("Dialog", Font.BOLD, 12));
+		usuarioValido.setBounds(365, 41, 266, 15);
 		frmRegistroDeUsuario.getContentPane().add(usuarioValido);
 		
 		nombreValido = new JLabel("-> nombre sin numeros y caract.");
-		nombreValido.setForeground(new Color(178, 34, 34));
-		nombreValido.setFont(new Font("Dialog", Font.PLAIN, 12));
-		nombreValido.setBounds(365, 68, 254, 15);
+		nombreValido.setForeground(Color.BLACK);
+		nombreValido.setFont(new Font("Dialog", Font.BOLD, 12));
+		nombreValido.setBounds(365, 68, 266, 15);
 		frmRegistroDeUsuario.getContentPane().add(nombreValido);
 		
 		fechaValida = new JLabel("-> debes ser mayor de 10 años.");
-		fechaValida.setForeground(new Color(178, 34, 34));
-		fechaValida.setFont(new Font("Dialog", Font.PLAIN, 12));
+		fechaValida.setForeground(Color.BLACK);
+		fechaValida.setFont(new Font("Dialog", Font.BOLD, 12));
 		fechaValida.setBounds(365, 95, 254, 15);
 		frmRegistroDeUsuario.getContentPane().add(fechaValida);
 		
 		emailValido = new JLabel("");
-		emailValido.setFont(new Font("Dialog", Font.PLAIN, 12));
+		emailValido.setFont(new Font("Dialog", Font.BOLD, 12));
 		emailValido.setForeground(new Color(178, 34, 34));
-		emailValido.setBounds(375, 122, 189, 15);
+		emailValido.setBounds(365, 122, 254, 15);
 		frmRegistroDeUsuario.getContentPane().add(emailValido);
 		
 		contraseñaValida = new JLabel("-> 6 a 12 caract., mínimo un num.");
-		contraseñaValida.setForeground(new Color(178, 34, 34));
-		contraseñaValida.setFont(new Font("Dialog", Font.PLAIN, 12));
-		contraseñaValida.setBounds(365, 174, 254, 19);
+		contraseñaValida.setForeground(Color.BLACK);
+		contraseñaValida.setFont(new Font("Dialog", Font.BOLD, 12));
+		contraseñaValida.setBounds(365, 174, 266, 19);
 		frmRegistroDeUsuario.getContentPane().add(contraseñaValida);
 		
 		btnRegistrar = new JButton("Registrar");
-		btnRegistrar.setBounds(384, 246, 121, 25);
+		btnRegistrar.setBounds(409, 281, 121, 25);
 		frmRegistroDeUsuario.getContentPane().add(btnRegistrar);
 		
-		JLabel lblFotografa = new JLabel("Foto:");
-		lblFotografa.setBounds(32, 203, 94, 15);
+		JLabel lblFotografa = new JLabel("Imagen:");
+		lblFotografa.setBounds(32, 230, 94, 15);
 		frmRegistroDeUsuario.getContentPane().add(lblFotografa);
 		
-		btnSeleccionarFoto = new JButton("Seleccionar");
-		btnSeleccionarFoto.setBounds(298, 205, 121, 25);
+		btnSeleccionarFoto = new JButton("Seleccionar imagen");
+		btnSeleccionarFoto.setBounds(381, 228, 201, 19);
 		frmRegistroDeUsuario.getContentPane().add(btnSeleccionarFoto);
 		
 		btnSalir = new JButton("Salir");
-		btnSalir.setBounds(517, 247, 89, 23);
+		btnSalir.setBounds(542, 282, 89, 23);
 		frmRegistroDeUsuario.getContentPane().add(btnSalir);
 		
-		imagenValida = new JLabel("");
-		imagenValida.setFont(new Font("Dialog", Font.PLAIN, 12));
-		imagenValida.setForeground(new Color(178, 34, 34));
-		imagenValida.setBounds(437, 205, 137, 19);
-		frmRegistroDeUsuario.getContentPane().add(imagenValida);
-		
 		nombreImagen = new JTextField();
-		nombreImagen.setBounds(192, 208, 105, 19);
+		nombreImagen.setBounds(192, 228, 155, 19);
 		frmRegistroDeUsuario.getContentPane().add(nombreImagen);
 		nombreImagen.setColumns(10);
+		
+		JLabel lblRepetirContraseña = new JLabel("Repetir Contraseña:");
+		lblRepetirContraseña.setBounds(32, 203, 144, 15);
+		frmRegistroDeUsuario.getContentPane().add(lblRepetirContraseña);
+		
+		campoRepContraseña = new JPasswordField();
+		campoRepContraseña.setBounds(192, 201, 155, 19);
+		frmRegistroDeUsuario.getContentPane().add(campoRepContraseña);
+		
+		lblContraseñaIgual = new JLabel("-> repita la contraseña");
+		lblContraseñaIgual.setBounds(365, 201, 266, 15);
+		frmRegistroDeUsuario.getContentPane().add(lblContraseñaIgual);
+		
+		lblSexoValido = new JLabel("");
+		lblSexoValido.setBounds(416, 149, 190, 15);
+		frmRegistroDeUsuario.getContentPane().add(lblSexoValido);
+		
+		lblImagenSeleccionada = new JLabel("");
+		lblImagenSeleccionada.setBounds(192, 259, 254, 15);
+		frmRegistroDeUsuario.getContentPane().add(lblImagenSeleccionada);
 		
 	}
 }

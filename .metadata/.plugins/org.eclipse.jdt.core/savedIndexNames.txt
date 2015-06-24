@@ -7,7 +7,6 @@ INDEX VERSION 1.127+/home/diego/Chat-Codigo-Morse/.metadata/.plugins/org.eclipse
 4284254788.index
 207581026.index
 1225813827.index
-3765020915.index
 1435927619.index
 3693448964.index
 931100150.index

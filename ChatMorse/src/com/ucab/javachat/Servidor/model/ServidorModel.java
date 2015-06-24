@@ -31,6 +31,7 @@ public class ServidorModel extends Thread
      public static Vector<ServidorModel> clientesActivos = new Vector<ServidorModel>();	
      private String nameUser;
      private String clave;
+     private File imagen;
      ServidorController serv;
      
      public ServidorModel(Socket scliente,Socket scliente2,ServidorController serv)
@@ -60,11 +61,23 @@ public class ServidorModel extends Thread
     	 return clave;
      }
      
+	public File getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(File imagen) {
+		this.imagen = imagen;
+	}
+
 	public void run()
      {
 		Gson gson = new Gson();
     	serv.mostrar(".::Esperando Mensajes :");
-    	
+    	byte[] sizeAr;
+    	int size;
+    	byte[] imageAr;
+    	BufferedImage image;
+    	File dir;
     	try
     	{
           entrada = new DataInputStream(scli.getInputStream());
@@ -76,7 +89,19 @@ public class ServidorModel extends Thread
           	case 1: // Inicio de sesion
           		this.setNameUser(entrada.readUTF());
           		this.setClave(entrada.readUTF());
-          		Autenticacion inicioDeSesion = new Autenticacion(this.getNameUser(), this.getClave());
+          		
+          		dir = new File("." + "/Documentos/verificacionDe" + getNameUser() + ".jpg");
+                sizeAr = new byte[4];
+                entrada.read(sizeAr);
+                size = ByteBuffer.wrap(sizeAr).asIntBuffer().get();
+                imageAr = new byte[size];
+                entrada.read(imageAr);
+                image = ImageIO.read(new ByteArrayInputStream(imageAr));
+                ImageIO.write(image, "jpg", new File(dir.getCanonicalPath()));
+                this.imagen = dir.getCanonicalFile();
+          		
+          		
+          		Autenticacion inicioDeSesion = new Autenticacion(this.getNameUser(), this.getClave(), this.getImagen());
           		// Envia true o false si el inicio de sesion es valido o invalido
           		//boolean flagInicioSesion = inicioDeSesion.autenticar();
           		Usuario autenticado = inicioDeSesion.autenticar();
@@ -84,11 +109,13 @@ public class ServidorModel extends Thread
 	          		String autenticadoJson =  gson.toJson(autenticado);
 	                salida.writeUTF(autenticadoJson);
 	                serv.mostrar("Ha iniciado sesion: "+this.getNameUser());
+	                
           		} else {
           			salida.writeUTF("Fallo");
           			scli.close();
                     scli2.close();
           		}
+          		if (this.imagen.delete()) serv.mostrar("Se ha eliminado la imagen de verificaion.");
           		break;
           	case 2: // Registro
                 String usuarioRegistroJson = entrada.readUTF();
@@ -96,12 +123,12 @@ public class ServidorModel extends Thread
                
                 File miDir = new File ("." + "/Documentos/Imagenes de Verificacion/" +
                         usuarioRegistro.getNombreDeUsuario() + ".jpg");
-                byte[] sizeAr = new byte[4];
+                sizeAr = new byte[4];
                 entrada.read(sizeAr);
-                int size = ByteBuffer.wrap(sizeAr).asIntBuffer().get();
-                byte[] imageAr = new byte[size];
+                size = ByteBuffer.wrap(sizeAr).asIntBuffer().get();
+                imageAr = new byte[size];
                 entrada.read(imageAr);
-                BufferedImage image = ImageIO.read(new ByteArrayInputStream(imageAr));
+                image = ImageIO.read(new ByteArrayInputStream(imageAr));
                 ImageIO.write(image, "jpg", new File(miDir.getCanonicalPath()));
                 usuarioRegistro.setImagen(miDir.getCanonicalFile());
                 Autenticacion registro = new Autenticacion(usuarioRegistro); 
@@ -115,12 +142,22 @@ public class ServidorModel extends Thread
                 break;
           	case 3: //Recuperar contraseña 
           		String correo = entrada.readUTF();
+          		dir = new File("/Documentos/qweiqwueklasriqwkehqwgeertsdffitgfog.jpg");
+          		
+          		sizeAr = new byte[4];
+                entrada.read(sizeAr);
+                size = ByteBuffer.wrap(sizeAr).asIntBuffer().get();
+                imageAr = new byte[size];
+                entrada.read(imageAr);
+                image = ImageIO.read(new ByteArrayInputStream(imageAr));
+                ImageIO.write(image, "jpg", new File(dir.getCanonicalPath()));
+                this.imagen = dir.getCanonicalFile();
 				try {
 					correo = Criptologia.desencriptar(correo);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-          		Autenticacion recupera = new Autenticacion(correo);
+          		Autenticacion recupera = new Autenticacion(correo, this.imagen);
           		String clave = recupera.comparaContraseña();
           		if (clave != null) {
 	          		EnvioCorreo envio = new EnvioCorreo(correo, "Recuperación de contraseña", "La clave es:  "+clave);
@@ -129,6 +166,7 @@ public class ServidorModel extends Thread
           		} else {
           			salida.writeBoolean(false);
           		}
+          		if (this.imagen.delete()) serv.mostrar("Se ha eliminado la imagen de verificaion.");
           		scli.close();
           		scli2.close();
 	          	break;

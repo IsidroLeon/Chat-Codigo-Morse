@@ -16,7 +16,7 @@ import java.io.IOException;
  
 public class CompararImagenes
 {
-	public static boolean comparar(String imagen1, String imagen2)
+	public static boolean comparar(File imagen1, File imagen2) throws IOException
 	{
 		boolean iguales = true;
 		
@@ -48,15 +48,14 @@ public class CompararImagenes
 		return iguales;
 	}
 	
-	private static byte[] obtener_Imagen_Byte(String n)
+	private static byte[] obtener_Imagen_Byte(File n) throws IOException
 	{
 		// No uso getCannonicalPath para no tener que poner try and catch en toda la función
-		String dir = System.getProperty("user.dir")+"//"+n;
-		File file = new File(dir);
+		File file = n;
         if(!file.exists())
         {
         	System.out.println ("La Imagen No Existe Verifique El Nombre y la Ruta");
-        	System.out.println(dir);
+        	System.out.println(n.getCanonicalPath());
         	return null;
         }
  

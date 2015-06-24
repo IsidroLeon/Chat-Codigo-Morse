@@ -2,6 +2,7 @@ package com.ucab.javachat.Cliente.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.IOException;
 import java.util.Vector;
 
@@ -30,6 +31,7 @@ public class ControladorCliente implements ActionListener {
 	private ControladorPrivada contPrivada;
 	private String nombreUsuario;
 	private String clave;
+	private File imagen;
 	private Usuario usuarioAutenticado;
 	private ThreadActualizarUsuario actualizarUsuario;
 
@@ -39,14 +41,14 @@ public class ControladorCliente implements ActionListener {
 	 * @param ventana - Este carga las especificaciones de la ventana y inicializa todos sus componentes.
 	 */
 	public ControladorCliente(VentCliente ventana, ControladorIniciarSesion contSesion) {
-
 		Usuario autenticado = new Usuario();
         setUsuario(contSesion.getUsuario());
         setClave(Criptologia.encriptar(contSesion.getClave()));
+        setImagen(contSesion.getImagen());
         this.ventana = ventana;
         try {
 			cliente = new Cliente(this);
-			autenticado = cliente.conexion(nombreUsuario, clave);
+			autenticado = cliente.conexion(nombreUsuario, clave, imagen);
 	        ventana.nomUsers = new Vector<String>();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -115,6 +117,7 @@ public class ControladorCliente implements ActionListener {
 		return this.clave;
 	}
 	
+	
 	/**
 	 * Guarda la contraseña del usuario que quiere iniciar sesion.
 	 * @param clave
@@ -123,6 +126,22 @@ public class ControladorCliente implements ActionListener {
 		this.clave = clave;
 	}
 	
+	/**
+	 * 
+	 * @return La imagen del usuario que incio sesion.
+	 */
+	public File getImagen() {
+		return imagen;
+	}
+	
+	/**
+	 * Guarda la imagen del usuario que quiere iniciar sesion.
+	 * @param imagen
+	 */
+	public void setImagen(File imagen) {
+		this.imagen = imagen;
+	}
+
 	/**
 	 * Muestra en la ventana el nombre de usuario del cliente.
 	 */

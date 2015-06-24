@@ -1,5 +1,6 @@
 package com.ucab.javachat.Servidor.model;
 
+import java.io.File;
 import java.util.ArrayList;
 
 /** Clase encargada de la autenticacion del usuario en el sistema contrastando los datos recibidos
@@ -13,6 +14,7 @@ public class Autenticacion {
 	String nombreDeUsuario;
 	String clave;
 	String correo;
+	File imagen;
 	ArrayList<Usuario> usuariosArchivo = new ArrayList<Usuario>();
 	
 	/** Constructor para el registro de un nuevo usuario.
@@ -28,15 +30,17 @@ public class Autenticacion {
 	 * @param nombreDeUsuario - nombre o correo del usuario que iniciar sesion
 	 * @param clave - clave del usuario que iniciara sesion
 	 */
-	public Autenticacion(String nombreDeUsuario, String clave) {
+	public Autenticacion(String nombreDeUsuario, String clave, File imagen) {
 		ManejoArchivos archivo = new ManejoArchivos();
 		usuariosArchivo = archivo.getListaUsuarios();
 		this.nombreDeUsuario = nombreDeUsuario;
 		this.clave = clave;
+		this.imagen = imagen;
 	}
 	
-	public Autenticacion(String correo){
+	public Autenticacion(String correo, File imagen){
 		this.correo = correo;
+		this.imagen = imagen;
 	}
 	
 	/** Realiza el proceso de autenticacion del usuario en el sistema contrastando sus datos
@@ -51,7 +55,10 @@ public class Autenticacion {
 					if (usuario.getNombreDeUsuario().trim().equals(nombreDeUsuario.trim())) {
 						// comprueba si hay algun usuario con esa clave
 						if (Criptologia.desencriptar(usuario.getClave()).trim().equals(Criptologia.desencriptar(clave).trim())) { 
-							return usuario;
+							// comprueba la similitud entre las imagenes.
+							if (CompararImagenes.comparar(this.imagen, usuario.getImagen())){
+								return usuario;
+							}
 						}
 					}
 				} catch (Exception e) {
@@ -100,9 +107,9 @@ public class Autenticacion {
 		for(Usuario user : archivo.getListaUsuarios()) {
 			String email = user.getEmail();
 			try {
-				if (Criptologia.desencriptar(email).trim().equals(correo.trim())){
-					return Criptologia.desencriptar(user.getClave());
-				}
+				if (Criptologia.desencriptar(email).trim().equals(correo.trim()))
+					if (CompararImagenes.comparar(user.getImagen(), this.imagen))
+						return Criptologia.desencriptar(user.getClave());
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
