@@ -92,6 +92,8 @@ public class ControladorIniciarSesion implements ActionListener{
 			if (validarInicioSesion()) {
 				VentCliente vistaCliente = new VentCliente(); // Si el inicio de sesion es valido crea la ventana
 				new ControladorCliente(vistaCliente, this);
+				this.vista.txtClave.setText("");
+				this.vista.txtUsuario.setText("");
 			}
 		
 		if (vista.btnContrasena == e.getSource()){

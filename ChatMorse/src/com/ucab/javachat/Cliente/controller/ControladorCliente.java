@@ -17,6 +17,7 @@ import com.ucab.javachat.Cliente.model.Usuario;
 import com.ucab.javachat.Cliente.view.VentCliente;
 import com.ucab.javachat.Cliente.view.VentIniciarSesion;
 import com.ucab.javachat.Cliente.view.VentPrivada;
+import com.ucab.javachat.Cliente.view.VentModificar;
 
 /**
  *Esta clase es el controlador de la vista que se le muestra al usuario cuando inicia sesion.
@@ -29,12 +30,13 @@ public class ControladorCliente implements ActionListener {
 	private Cliente cliente;
 	private VentPrivada ventPrivada;
 	private ControladorPrivada contPrivada;
+	private VentModificar ventModificar ;
 	private String nombreUsuario;
 	private String clave;
 	private File imagen;
 	private Usuario usuarioAutenticado;
 	private ThreadActualizarUsuario actualizarUsuario;
-
+    private ControladorModificar modificador;
 	/**
 	 * Constructor de la clase. Añade los listener a los componentes de la ventana y ejecuta
 	 *  un hilo para actualizar la lista que muestra a los usuarios conectados.
@@ -59,11 +61,14 @@ public class ControladorCliente implements ActionListener {
         	contSesion.cerrarVentana();
 	        this.ventana.setVisible(true);
 	        this.ventana.butPrivado.addActionListener(this);
+	        this.ventana.butModificar.addActionListener(this);
 	        actualizarUsuario = new ThreadActualizarUsuario(cliente);
 	        actualizarUsuario.start();
 	        
 	        ventPrivada = new VentPrivada(cliente);
 	        contPrivada = new ControladorPrivada(ventPrivada, cliente);
+	        ventModificar = new VentModificar(getUsuarioAutenticado());
+	        modificador = new ControladorModificar(ventModificar, getUsuarioAutenticado(), cliente);
         } else {
         	JOptionPane.showMessageDialog(null, "La autenticación ha fallado", "Problema de conexión", JOptionPane.INFORMATION_MESSAGE);
         }
@@ -92,6 +97,10 @@ public class ControladorCliente implements ActionListener {
 	
 	public Usuario getUsuarioAutenticado(){
 		return this.usuarioAutenticado;
+	}
+	
+	public void setUsuarioAutenticado(Usuario usuarioAutenticado){
+		this.usuarioAutenticado = usuarioAutenticado;
 	}
 	/**
 	 * 
@@ -200,9 +209,17 @@ public class ControladorCliente implements ActionListener {
    /**
     * Controlador de eventos al presionar los botones de la ventana
     */
-    public void actionPerformed(ActionEvent evt) {
-       if(evt.getSource()==this.ventana.butPrivado)
-       {
+    public void actionPerformed(ActionEvent evt) {    
+    	if (evt.getSource()==this.ventana.butModificar) {
+    		boolean flag=false;
+    		modificador.vista.setVisible(true);
+    		System.out.println(usuarioAutenticado);
+			flag = modificador.isFlag();
+			if (flag){
+			usuarioAutenticado= modificador.getUsuarioModificar();			
+			}
+		}
+    	if(evt.getSource()==this.ventana.butPrivado) {
     	 Vector<Integer> posiciones = new Vector<Integer>();
     	 int[] indices = this.ventana.lstActivos.getSelectedIndices();
     	 for(int indice : indices)

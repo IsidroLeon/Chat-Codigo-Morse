@@ -236,4 +236,39 @@ public class Cliente{
 	   }
 	   return flag;
    }
+   
+   /**
+    * este metodo se encarga de enviar un objeto de tipo Usuario al servidor  
+    * @param usuario Objeto que contiene los datos de un usuario que esta en el proceso de registro.
+    * @param entrar
+    * @return
+    */
+   public boolean flujo(Usuario usuario,String nombreOriginal) {
+       boolean flag = false;
+       Gson gson = new Gson();  
+       try {         
+    	   String jsonRegistroUsuario = gson.toJson(usuario);
+    	   salida.writeInt(1);
+           salida.writeUTF(jsonRegistroUsuario);
+           salida.writeUTF(nombreOriginal);
+           //BufferedImage image = ImageIO.read(new File(usuario.getImagen().getCanonicalPath()));
+           //ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+           //ImageIO.write(image, "jpg", byteArrayOutputStream);
+           //byte[] size = ByteBuffer.allocate(4).putInt(byteArrayOutputStream.size()).array();
+           //salida.write(size);
+           //salida.write(byteArrayOutputStream.toByteArray());
+           //salida.flush();
+          
+           //if (entrada.readInt()==5);
+           flag = entrada.readBoolean();
+           if (flag) {
+        	   vent.setUsuarioAutenticado(usuario);
+        	   vent.setUsuario(usuario.getNombreDeUsuario());
+           }
+        }
+        catch (IOException e) {
+            System.out.println("Error...." + e);
+        }
+        return flag;
+  }
 }

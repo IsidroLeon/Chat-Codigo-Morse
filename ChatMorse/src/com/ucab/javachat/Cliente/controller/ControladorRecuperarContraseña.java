@@ -1,6 +1,8 @@
 package com.ucab.javachat.Cliente.controller;
 
-import com.ucab.javachat.Cliente.model.*;
+import com.ucab.javachat.Cliente.model.Cliente;
+import com.ucab.javachat.Cliente.model.Criptologia;
+import com.ucab.javachat.Cliente.model.Validacion;
 import com.ucab.javachat.Cliente.view.VentRecuperarContraseña;
 
 import java.awt.event.ActionEvent;

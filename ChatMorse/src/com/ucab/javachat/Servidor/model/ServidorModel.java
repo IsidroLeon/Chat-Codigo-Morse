@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.Socket;
 import java.nio.ByteBuffer;
+import java.util.ArrayList;
 import java.util.Vector;
 
 import javax.imageio.ImageIO;
@@ -33,6 +34,7 @@ public class ServidorModel extends Thread
      private String clave;
      private File imagen;
      ServidorController serv;
+     ArrayList<Usuario> usuariosArchivo = new ArrayList<Usuario>();
      
      public ServidorModel(Socket scliente,Socket scliente2,ServidorController serv)
      {
@@ -186,10 +188,19 @@ public class ServidorModel extends Thread
              opcion = entrada.readInt();
              switch(opcion)
              {
-                case 1://envio de mensaje a todos
-                   mencli = entrada.readUTF();
-                   serv.mostrar("mensaje recibido "+mencli);
-                   //enviaMensaje(mencli);
+                case 1: // Modificar datos
+                	String usuarioRegistroJson = entrada.readUTF();
+                    Usuario	usuarioRegistro=gson.fromJson(usuarioRegistroJson, new TypeToken<Usuario>() {}.getType());
+                    String nombreInicial = entrada.readUTF();
+                	Autenticacion modificarUsuario = new Autenticacion(usuarioRegistro, nombreInicial); 
+                	boolean flagRegistro = modificarUsuario.modificar();
+                	salida.writeBoolean(flagRegistro);
+                	
+                    if (flagRegistro) {
+                        System.out.println("guardado");
+                    }
+                    else 
+                    	serv.mostrar("no se pudo");
                    break;
                 case 2://envio de lista de activos
                    numUsers = clientesActivos.size();

@@ -33,7 +33,7 @@ public class VentCliente extends JFrame {
      public JLabel lblNomUser;
      public JList<String> lstActivos;
      public JButton butPrivado;	
-      
+     public JButton butModificar; 
      public JMenuBar barraMenu;
      public JMenu JMAyuda;
      public JMenuItem help;
@@ -55,12 +55,17 @@ public class VentCliente extends JFrame {
              JPanel panLeft=new JPanel();
              panLeft.setLayout(new BorderLayout());
              	panLeft.add(lblNomUser, BorderLayout.NORTH);
-             	panLeft.add(new JScrollPane(this.lstActivos),BorderLayout.CENTER);
+             	JScrollPane scrollPane = new JScrollPane(this.lstActivos);
+             	panLeft.add(scrollPane,BorderLayout.CENTER);
+             	
+             		butModificar = new JButton("Modificar datos");
+             		scrollPane.setColumnHeaderView(butModificar);
+             		butModificar.setBounds(0, 25, 174, 15);
              	panLeft.add(this.butPrivado,BorderLayout.NORTH);
-             
-             setLayout(new BorderLayout());
-             add(panLeft, BorderLayout.CENTER);   
-             add(lblNomUser,BorderLayout.NORTH);
+             	
+             getContentPane().setLayout(new BorderLayout());
+             getContentPane().add(panLeft, BorderLayout.CENTER);   
+             //add(lblNomUser,BorderLayout.NORTH);
                   
              setSize(190, 430);
              setLocation(120, 90);
