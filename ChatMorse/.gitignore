@@ -7,6 +7,8 @@ target/
 .DS_Store
  
 *.class
+*.json
+.recommenders
  
 ######################
 # Windows
