@@ -177,6 +177,7 @@ public class ServidorModel extends Thread
         String mencli = "";
         String amigostring = "";
         Vector<String> amigos = new Vector<String>();
+        int flagRegistro = 3;
                 
     	while(true){
           try{
@@ -196,19 +197,18 @@ public class ServidorModel extends Thread
 	                    size = ByteBuffer.wrap(sizeAr).asIntBuffer().get();
 	                    imageAr = new byte[size];
 	                    entrada.readFully(imageAr);
-	                    image = ImageIO.read(new ByteArrayInputStream(imageAr));
-	                    ImageIO.write(image, "jpg", new File(dir.getCanonicalPath()));
-	                    usuarioRegistro.setImagen(dir.getCanonicalFile());
+                    	image = ImageIO.read(new ByteArrayInputStream(imageAr));
+                    	ImageIO.write(image, "jpg", new File(dir.getCanonicalPath()));
+                    	usuarioRegistro.setImagen(dir.getCanonicalFile());
                     }
-                    Autenticacion modificarUsuario = new Autenticacion(usuarioRegistro, nombreInicial); 
-                	int flagRegistro = modificarUsuario.modificar();
-                	salida.writeInt(flagRegistro);
-                    if (flagRegistro == 0) {
-                    	serv.mostrar("El usuario "+this.getNameUser()+" ha sido modficado");
-                    	this.setNameUser(usuarioRegistro.getNombreDeUsuario());
-                    }
-                    else 
-                    	serv.mostrar("Error al modificar al usuario "+this.getNameUser());
+                    if (flagRegistro == 3) {
+	                    Autenticacion modificarUsuario = new Autenticacion(usuarioRegistro, nombreInicial); 
+	                	flagRegistro = modificarUsuario.modificar();
+	                    if (flagRegistro == 0) {
+	                    	serv.mostrar("El usuario "+this.getNameUser()+" ha sido modficado");
+	                    	this.setNameUser(usuarioRegistro.getNombreDeUsuario());
+	                    } else {
+	                    	serv.mostrar("Error al modificar al usuario "+this.getNameUser());
                    break;
                 case 2://envio de lista de activos
                    numUsers = clientesActivos.size();
@@ -225,15 +225,8 @@ public class ServidorModel extends Thread
                    	break;
 	             }
           }
-          	catch (Exception e) {
+          	catch (IOException e) {
           	System.out.println("El cliente termino la conexion.");
-          	clientesActivos.removeElement(this);
-      		try {
-      			scli.close();
-				scli2.close();
-			} catch (IOException e1) {
-				serv.mostrar("No se puede cerrar el socket.");
-			}
           	break;
           }
     	}

@@ -34,7 +34,8 @@ public class ControladorModificar  implements ActionListener {
 	}
 	
 	public final void cargarDatos(final Usuario modelo) {
-		this.vista.dateChooser.setDate((modelo.getFecha()));
+		 this.vista = new VentModificar();
+		 this.vista.dateChooser.setDate((modelo.getFecha()));
 		 this.vista.rdbtnMasculino.setSelected(modelo.isSexo());
 		 this.vista.rdbtnFemenino.setSelected(!modelo.isSexo());
 		 this.vista.textoNombre.setText(modelo.getNombreCompleto());
@@ -162,7 +163,11 @@ public class ControladorModificar  implements ActionListener {
 					 this.correoRepetido();
 				 } else if (opcion == 2) { // EL usuario ya existe
 					 this.usuarioRepetido();
-				 } else {
+				 } else if (opcion == 4) { //Error guardando la imagen
+					 JOptionPane.showMessageDialog(null, "Ocurrio un error al intentar modificar la imagen,"
+					 		+ " intente con otra.", "Problema de modificacion", JOptionPane.INFORMATION_MESSAGE);
+				 }
+				 else {
 					 JOptionPane.showMessageDialog(null, "La modificación no fue satisfactoria.", 
 							 "Problema de modificacion", JOptionPane.INFORMATION_MESSAGE);
 				 }
