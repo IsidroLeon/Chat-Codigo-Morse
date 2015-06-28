@@ -57,6 +57,8 @@ public JTextArea panMostrar;
       amigo = new Vector<String>();
       
       setSize(515,300);
-      setLocation(570,90);      			      
+      setLocation(570,90);
+      setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+	  setResizable(false);
    }
 }

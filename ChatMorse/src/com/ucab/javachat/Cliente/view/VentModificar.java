@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 import com.toedter.calendar.JDateChooser;
+import javax.swing.JPasswordField;
 
 @SuppressWarnings("serial")
 public class VentModificar extends JFrame {
@@ -22,17 +23,49 @@ public class VentModificar extends JFrame {
 	public JTextField textoUsuario;
 	public JTextField textoNombre;
 	public JTextField textoEmail;
-	public JButton botonGuardar,  botonSalir;
+	public JButton botonGuardar,botonSalir,btnImagen;
 	public JRadioButton rdbtnMasculino,rdbtnFemenino;
 	public ButtonGroup grupoSexo;
 	public JDateChooser dateChooser;
 	public JFrame f = new JFrame();
-	
+	public JPasswordField textoContraseña;
+	public JPasswordField textoRepetirContraseña;
+	public JLabel lblUsuarioErr, lblNombreErr, lblEmailErr, lblFechaErr, lblContraseñaErr, lblSexoErr, lblFotoErr;
+	public JTextField nombreImagen;
 
 	
-	public VentModificar(com.ucab.javachat.Cliente.model.Usuario usuarioAutenticado) {
+	public VentModificar() {
 		getContentPane().setLayout(null);
-		setBounds(100, 100, 361, 277);
+		setBounds(100, 100, 547, 378);
+		
+		
+		lblUsuarioErr = new JLabel("");
+		lblUsuarioErr.setBounds(327, 27, 194, 14);
+		getContentPane().add(lblUsuarioErr);
+		
+		lblNombreErr = new JLabel("");
+		lblNombreErr.setBounds(327, 58, 194, 14);
+		getContentPane().add(lblNombreErr);
+		
+		lblEmailErr = new JLabel("");
+		lblEmailErr.setBounds(327, 88, 194, 14);
+		getContentPane().add(lblEmailErr);
+		
+		lblFechaErr = new JLabel("");
+		lblFechaErr.setBounds(327, 119, 194, 14);
+		getContentPane().add(lblFechaErr);
+		
+		lblContraseñaErr = new JLabel("");
+		lblContraseñaErr.setBounds(327, 147, 194, 14);
+		getContentPane().add(lblContraseñaErr);
+		
+		lblSexoErr = new JLabel("");
+		lblSexoErr.setBounds(346, 210, 144, 14);
+		getContentPane().add(lblSexoErr);
+		
+		lblFotoErr = new JLabel("");
+		lblFotoErr.setBounds(327, 249, 194, 14);
+		getContentPane().add(lblFotoErr);
 		
 		JLabel lblNombre = new JLabel("Usuario:");
 		lblNombre.setBounds(29, 27, 90, 14);
@@ -43,7 +76,7 @@ public class VentModificar extends JFrame {
 		getContentPane().add(lblApellido);
 		
 		JLabel lblSexo = new JLabel("Sexo:");
-		lblSexo.setBounds(29, 144, 35, 14);
+		lblSexo.setBounds(29, 210, 35, 14);
 		getContentPane().add(lblSexo);
 		
 		JLabel lblEmail = new JLabel("Email:");
@@ -69,7 +102,7 @@ public class VentModificar extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		botonSalir.setBounds(181, 203, 136, 23);
+		botonSalir.setBounds(346, 308, 144, 23);
 		getContentPane().add(botonSalir );
 		
 		textoNombre = new JTextField();
@@ -78,16 +111,15 @@ public class VentModificar extends JFrame {
 		getContentPane().add(textoNombre);
 		
 		botonGuardar = new JButton("Guardar");
-		botonGuardar.setBounds(29, 203, 136, 23);
+		botonGuardar.setBounds(346, 274, 144, 23);
 		getContentPane().add(botonGuardar);
 		
 		rdbtnFemenino = new JRadioButton("Femenino");
-		rdbtnFemenino.setBounds(249, 144, 90, 14);
+		rdbtnFemenino.setBounds(243, 210, 107, 14);
 		getContentPane().add(rdbtnFemenino);
 		
 		rdbtnMasculino = new JRadioButton("Masculino");
-		rdbtnMasculino.setBounds(160, 144, 90, 14);
-		rdbtnMasculino.setSelected(usuarioAutenticado.isSexo());
+		rdbtnMasculino.setBounds(146, 210, 90, 14);
 		getContentPane().add(rdbtnMasculino);
 		
 		grupoSexo = new ButtonGroup();
@@ -99,15 +131,37 @@ public class VentModificar extends JFrame {
 		getContentPane().add(dateChooser);
 		
 		JLabel lblFoto = new JLabel("Foto:");
-		lblFoto.setBounds(29, 169, 46, 14);
+		lblFoto.setBounds(29, 249, 46, 14);
 		getContentPane().add(lblFoto);
 		
-		JButton btnNewButton = new JButton("Seleccionar foto");
-		btnNewButton.setBounds(165, 165, 152, 23);
-		getContentPane().add(btnNewButton);
-	
+	    btnImagen= new JButton("Seleccionar foto");
+		btnImagen.setBounds(165, 271, 152, 23);
+		getContentPane().add(btnImagen);
+		
+		JLabel lblContrasea = new JLabel("Contraseña:");
+		lblContrasea.setBounds(29, 144, 70, 20);
+		getContentPane().add(lblContrasea);
+		
+		JLabel lblRepetirContraseña = new JLabel("Repetir contraseña:");
+		lblRepetirContraseña.setBounds(29, 175, 101, 14);
+		getContentPane().add(lblRepetirContraseña);
+		
+		textoContraseña = new JPasswordField();
+		textoContraseña.setBounds(165, 144, 152, 20);
+		getContentPane().add(textoContraseña);
+		
+		textoRepetirContraseña = new JPasswordField();
+		textoRepetirContraseña.setBounds(165, 175, 152, 19);
+		getContentPane().add(textoRepetirContraseña);
+		
+		nombreImagen = new JTextField();
+		nombreImagen.setBounds(164, 243, 153, 20);
+		getContentPane().add(nombreImagen);
+		nombreImagen.setColumns(10);
+		
 	    setTitle("Modificar datos");
-	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	    setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+	    setResizable(false);
 	    setLocationRelativeTo(null);
 	    setVisible(false);
 	    }

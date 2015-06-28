@@ -31,7 +31,7 @@ public class ThreadActualizarUsuario extends Thread{
 		while (true) {	
 			vcli.ponerActivos(cliente.pedirUsuarios());
 			try {
-				sleep (3000);
+				sleep (7500);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

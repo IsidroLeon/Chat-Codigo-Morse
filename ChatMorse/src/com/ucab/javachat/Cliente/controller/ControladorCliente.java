@@ -30,7 +30,7 @@ public class ControladorCliente implements ActionListener {
 	private Cliente cliente;
 	private VentPrivada ventPrivada;
 	private ControladorPrivada contPrivada;
-	private VentModificar ventModificar ;
+	private VentModificar ventModificar;
 	private String nombreUsuario;
 	private String clave;
 	private File imagen;
@@ -42,7 +42,7 @@ public class ControladorCliente implements ActionListener {
 	 *  un hilo para actualizar la lista que muestra a los usuarios conectados.
 	 * @param ventana - Este carga las especificaciones de la ventana y inicializa todos sus componentes.
 	 */
-	public ControladorCliente(VentCliente ventana, ControladorIniciarSesion contSesion) {
+	public ControladorCliente(final VentCliente ventana, ControladorIniciarSesion contSesion) {
 		Usuario autenticado = new Usuario();
         setUsuario(contSesion.getUsuario());
         setClave(Criptologia.encriptar(contSesion.getClave()));
@@ -67,15 +67,16 @@ public class ControladorCliente implements ActionListener {
 	        
 	        ventPrivada = new VentPrivada(cliente);
 	        contPrivada = new ControladorPrivada(ventPrivada, cliente);
-	        ventModificar = new VentModificar(getUsuarioAutenticado());
-	        modificador = new ControladorModificar(ventModificar, getUsuarioAutenticado(), cliente);
+	        ventModificar = new VentModificar();
+	        modificador = new ControladorModificar(ventModificar, cliente);
         } else {
-        	JOptionPane.showMessageDialog(null, "La autenticación ha fallado", "Problema de conexión", JOptionPane.INFORMATION_MESSAGE);
+        	JOptionPane.showMessageDialog(null, "La autenticación ha fallado", 
+        			"Problema de conexión", JOptionPane.INFORMATION_MESSAGE);
         }
 	}
 	
-	public ControladorCliente(VentCliente ventana, ControladorRegistrarUsuario contUsuario) {
-		boolean flag = false;
+	public ControladorCliente(final VentCliente ventana, ControladorRegistrarUsuario contUsuario) {
+		int flag = 3; //error desconocido
 		Usuario nuevoUsuario = (contUsuario.getNuevoUsuario());
         this.ventana = ventana;
         try {
@@ -84,29 +85,34 @@ public class ControladorCliente implements ActionListener {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-        if (flag) {
+        if (flag == 0) { // Exitoso
         	contUsuario.cerrarVentana();
-        	JOptionPane.showMessageDialog(null, "Registro completado exitosamente", "Registro completado", JOptionPane.INFORMATION_MESSAGE);
-        	Cliente.IP_SERVER = "localhost";
+        	JOptionPane.showMessageDialog(null, "Registro completado exitosamente", 
+        			"Registro completado", JOptionPane.INFORMATION_MESSAGE);
             VentIniciarSesion ventIniciar = new VentIniciarSesion();
     		new ControladorIniciarSesion(ventIniciar);
+        } else if (flag == 1) { // Si el correo esta repetido
+        	contUsuario.correoRepetido(); 
+        } else if (flag == 2) { // Si el usuario esta repetido
+        	contUsuario.usuarioRepetido();
         } else {
-        	JOptionPane.showMessageDialog(null, "El registro no fue satisfactorio, asegurese de que el email y el nombre de usuario no estan registrados", "Problema de registro", JOptionPane.INFORMATION_MESSAGE);
+        	JOptionPane.showMessageDialog(null, "El registro no fue satisfactorio.", 
+        			"Problema de registro", JOptionPane.INFORMATION_MESSAGE);
         }
 	}
 	
-	public Usuario getUsuarioAutenticado(){
+	public final Usuario getUsuarioAutenticado(){
 		return this.usuarioAutenticado;
 	}
 	
-	public void setUsuarioAutenticado(Usuario usuarioAutenticado){
+	public final void setUsuarioAutenticado(Usuario usuarioAutenticado){
 		this.usuarioAutenticado = usuarioAutenticado;
 	}
 	/**
 	 * 
 	 * @return El nombre del usuario que inicio sesion.
 	 */
-	public String getUsuario() {
+	public final String getUsuario() {
 		return this.nombreUsuario;
 	}
 	
@@ -114,7 +120,7 @@ public class ControladorCliente implements ActionListener {
 	 * Guarda el nombre del usuario que quiere iniciar sesion.
 	 * @param user - Nombre de usuario.
 	 */
-	public void setUsuario(String usuario) {
+	public final void setUsuario(final String usuario) {
 		this.nombreUsuario = usuario;
 	}
 	
@@ -122,7 +128,7 @@ public class ControladorCliente implements ActionListener {
 	 * 
 	 * @return La contraseña del usuario que inicio sesion.
 	 */
-	public String getClave() {
+	public final String getClave() {
 		return this.clave;
 	}
 	
@@ -131,7 +137,7 @@ public class ControladorCliente implements ActionListener {
 	 * Guarda la contraseña del usuario que quiere iniciar sesion.
 	 * @param clave
 	 */
-	public void setClave(String clave) {
+	public final void setClave(final String clave) {
 		this.clave = clave;
 	}
 	
@@ -139,7 +145,7 @@ public class ControladorCliente implements ActionListener {
 	 * 
 	 * @return La imagen del usuario que incio sesion.
 	 */
-	public File getImagen() {
+	public final File getImagen() {
 		return imagen;
 	}
 	
@@ -147,15 +153,14 @@ public class ControladorCliente implements ActionListener {
 	 * Guarda la imagen del usuario que quiere iniciar sesion.
 	 * @param imagen
 	 */
-	public void setImagen(File imagen) {
+	public final void setImagen(final File imagen) {
 		this.imagen = imagen;
 	}
 
 	/**
 	 * Muestra en la ventana el nombre de usuario del cliente.
 	 */
-	public void setLabelUser()
-    {
+	public final void setLabelUser() {
 		this.ventana.lblNomUser.setText("Usuario " + getUsuario());
     }
 	
@@ -163,20 +168,18 @@ public class ControladorCliente implements ActionListener {
 	 * Muestra en la ventana la lista de usuarios conectados.
 	 * @param datos - Vector que contiene los nombres de los usuarios conectados.
 	 */
-    public void ponerActivos(Vector<String> datos)
-    {
+    public final void ponerActivos(final Vector<String> datos) {
        ventana.nomUsers = datos;
-       ponerDatosList(ventana.lstActivos,ventana.nomUsers);
+       ponerDatosList(ventana.lstActivos, ventana.nomUsers);
     }
     
     /**
      * Añade el nombre de usuario del cliente a la lista de usuarios conectados.
      * @param user - NOmbre de usuario del cliente.
      */
-    public void agregarUser(String user)
-    {
+    public final void agregarUser(final String user) {
        ventana.nomUsers.add(user);
-       ponerDatosList(ventana.lstActivos,ventana.nomUsers);
+       ponerDatosList(ventana.lstActivos, ventana.nomUsers);
     }
     
     /**
@@ -184,10 +187,9 @@ public class ControladorCliente implements ActionListener {
      * PD: ESTE METODO NUNCA SE USA.
      * @param user
      */
-    public void retirraUser(String user)
-    {        
+    public final void retirraUser(final String user) {        
        ventana.nomUsers.remove(user);
-       ponerDatosList(ventana.lstActivos,ventana.nomUsers);
+       ponerDatosList(ventana.lstActivos, ventana.nomUsers);
     }
     
     /**
@@ -196,41 +198,43 @@ public class ControladorCliente implements ActionListener {
      * @param datos - Vector que contiene el nombre de usuarios conectados.
      */
    @SuppressWarnings({ "unchecked", "rawtypes", "serial" })
-   private void ponerDatosList(JList<String> list,final Vector<String> datos)
-   {
+   private void ponerDatosList(final JList<String> list, final Vector<String> datos) {
        list.setModel(new AbstractListModel() {            
            @Override
-           public int getSize() { return datos.size(); }
+           public int getSize() {
+        	   return datos.size(); 
+           }
            @Override
-           public Object getElementAt(int i) { return datos.get(i); }
+           public Object getElementAt(final int i) {
+        	   return datos.get(i); 
+           }
        });
    }
    
    /**
     * Controlador de eventos al presionar los botones de la ventana
     */
-    public void actionPerformed(ActionEvent evt) {    
-    	if (evt.getSource()==this.ventana.butModificar) {
-    		boolean flag=false;
-    		modificador.vista.setVisible(true);
+    public final void actionPerformed(final ActionEvent evt) {    
+    	if (evt.getSource() == this.ventana.butModificar) {
+    		boolean flag = false;
+    		modificador.cargarDatos(getUsuarioAutenticado());
     		System.out.println(usuarioAutenticado);
 			flag = modificador.isFlag();
-			if (flag){
-			usuarioAutenticado= modificador.getUsuarioModificar();			
+			if (flag) {
+			usuarioAutenticado = modificador.getUsuarioModificar();			
 			}
 		}
-    	if(evt.getSource()==this.ventana.butPrivado) {
+    	if (evt.getSource() == this.ventana.butPrivado) {
     	 Vector<Integer> posiciones = new Vector<Integer>();
     	 int[] indices = this.ventana.lstActivos.getSelectedIndices();
-    	 for(int indice : indices)
-    	 {
+    	 for (int indice : indices) {
     		 posiciones.add(indice);
     	 }
     	 Vector<String> nombres = new Vector<String>();
-    	 for (int posicion : posiciones){
+    	 for (int posicion : posiciones) {
     		 try {
     			nombres.add(ventana.nomUsers.get(posicion));
-    		 } catch(ArrayIndexOutOfBoundsException ex) {
+    		 } catch (ArrayIndexOutOfBoundsException ex) {
     			 System.out.println(ex.getMessage());
     		 }
     	 }
@@ -239,7 +243,7 @@ public class ControladorCliente implements ActionListener {
        }
     }
     
-    public void mensajeAmigo(String mensaje, String emisor, Vector<String> amigos)
+    public final void mensajeAmigo(final String mensaje, final String emisor, final Vector<String> amigos)
     {
     	contPrivada.setAmigo(amigos, emisor);
     	contPrivada.mostrarMsg(mensaje);

@@ -69,7 +69,8 @@ public class VentCliente extends JFrame {
                   
              setSize(190, 430);
              setLocation(120, 90);
-             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);				
+             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+     	     setResizable(false);				
              setVisible(false);
      }
 }

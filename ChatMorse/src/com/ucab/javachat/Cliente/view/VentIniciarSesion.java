@@ -77,5 +77,8 @@ public class VentIniciarSesion extends JFrame{
 		lblValidacion = new JLabel("");
 		lblValidacion.setBounds(20, 166, 207, 15);
 		frmInicioDeSesion.getContentPane().add(lblValidacion);
+		
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	    setResizable(false);
 	}
 }

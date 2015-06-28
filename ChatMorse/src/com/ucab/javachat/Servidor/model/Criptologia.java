@@ -46,7 +46,7 @@ public class Criptologia {
        return base64EncryptedString;
    }
 
-   public static String desencriptar(String textoEncriptado) throws Exception {
+   public static String desencriptar(String textoEncriptado) {
 
        String secretKey = "=048!;|599;v_!!1:*y|FQ;w!a+x.93o8I7A48~Ba%i43*3r0:3B"; //llave para encriptar datos
        String base64EncryptedString = "";

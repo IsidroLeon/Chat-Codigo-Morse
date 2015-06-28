@@ -32,6 +32,7 @@ public class ControladorRegistrarUsuario implements ActionListener {
 	private Usuario nuevoUsuario;
 	private boolean flagImagen = false;
 	
+	
 	public Usuario getNuevoUsuario() {
 		return nuevoUsuario;
 	}
@@ -55,6 +56,16 @@ public class ControladorRegistrarUsuario implements ActionListener {
 		this.vista.frmRegistroDeUsuario.dispose();
 	}
 	
+	public void correoRepetido() {
+		this.vista.emailValido.setText("Este correo ya existe.");
+		vista.emailValido.setForeground(Color.RED);
+	}
+	
+	public void usuarioRepetido() {
+		this.vista.usuarioValido.setText("Este usuario ya existe");
+		vista.usuarioValido.setForeground(Color.RED);
+	}
+	
 	/**
 	 * Controlador de eventos para los botones de la vista.
 	 */
@@ -76,24 +87,16 @@ public class ControladorRegistrarUsuario implements ActionListener {
 				
 				//Si seleccionamos algún archivo retornaremos su directorio
 				if (chooser.showOpenDialog(vista) == JFileChooser.APPROVE_OPTION) {
-					flagImagen = true;
 					File fichero = chooser.getSelectedFile();
 					nuevoUsuario.setImagen(fichero);
 					vista.nombreImagen.setText(fichero.getName());
 					vista.lblImagenSeleccionada.setForeground(new Color(0, 128, 0));
 					vista.lblImagenSeleccionada.setText(" imagen seleccionada!");
-					/*if ((validacion.validarUsuario(vista.campoUsuario.getText()) == false) || 
-							(validacion.validarNombreCompleto(vista.campoNombre.getText()) == false) ||
-							(validacion.validarEmail(vista.campoEmail.getText()) == false) ||
-							(validacion.validarContraseña(String.valueOf(vista.campoContraseña.getPassword())) == false) ||
-							(String.valueOf(vista.campoContraseña.getPassword()).equals(String.valueOf(vista.campoRepContraseña.getPassword())) == false))
-						flag = false;*/
-				}
-				else {
+					flagImagen = true;
+				} else {
 					vista.lblImagenSeleccionada.setForeground(Color.RED);
-					vista.lblImagenSeleccionada.setText("por favor, seleccione una imagen.");	
+					vista.lblImagenSeleccionada.setText("por favor, seleccione una imagen.");
 				}
-				flag = false;
 			}
 		}
 		
@@ -196,7 +199,7 @@ public class ControladorRegistrarUsuario implements ActionListener {
  			}
  			else{
  				vista.contraseñaValida.setForeground(new Color(0, 128, 0));
- 				vista.contraseñaValida.setText(" ");
+ 				vista.contraseñaValida.setText(" campo valido!");
  				nuevoUsuario.setClave(String.valueOf(vista.campoContraseña.getPassword()));
  			}
 			// validaciones en ventana para el campo de repetir la contraseña
@@ -209,27 +212,19 @@ public class ControladorRegistrarUsuario implements ActionListener {
  				vista.lblContraseñaIgual.setText("la contraseña no coincide.");
  				flag = false;
  			}
- 			
- 			//validacion en ventana de la imagen
- 			if (!flagImagen){
- 				vista.lblImagenSeleccionada.setForeground(Color.RED);
- 				vista.lblImagenSeleccionada.setText("seleccione una imagen.");
- 				flag = false;
+ 			System.out.println(flag + "     "+flagImagen);
+ 			if (flag && flagImagen) {
+ 				nuevoUsuario.setEmail(Criptologia.encriptar(nuevoUsuario.getEmail()));
+ 				nuevoUsuario.setClave(Criptologia.encriptar(nuevoUsuario.getClave()));
+ 				VentCliente ventana = new VentCliente();
+ 				new ControladorCliente(ventana, this);
  			}
-
  		}
 		
 		if (vista.btnSalir == e.getSource()){
 			flag = false;
-			flagImagen = false;
+			
 		    vista.frmRegistroDeUsuario.dispose();
 		}	
-		
-		if (flag){
-			nuevoUsuario.setEmail(Criptologia.encriptar(nuevoUsuario.getEmail()));
-			nuevoUsuario.setClave(Criptologia.encriptar(nuevoUsuario.getClave()));
-			VentCliente ventana = new VentCliente();
-			new ControladorCliente(ventana, this);
-			}
 	}
 }

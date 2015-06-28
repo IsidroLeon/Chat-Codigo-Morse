@@ -17,14 +17,14 @@ import com.ucab.javachat.Cliente.model.Validacion;
 /*
  * @authors Ismael T.
  * */
-public class ControladorIniciarSesion implements ActionListener{
+public class ControladorIniciarSesion implements ActionListener {
 	private VentIniciarSesion vista;
 	private String usuario;
 	private String clave;
 	private File imagen = null;
 	private Validacion validar = new Validacion();
 	
-	public ControladorIniciarSesion(VentIniciarSesion vista) {
+	public ControladorIniciarSesion(final VentIniciarSesion vista) {
 		this.vista = vista;
 		this.vista.frmInicioDeSesion.setVisible(true);
 		
@@ -35,7 +35,7 @@ public class ControladorIniciarSesion implements ActionListener{
 		this.vista.btnRegistro.addActionListener(this);
 	}
 	
-	public boolean validarInicioSesion() {
+	public final boolean validarInicioSesion() {
 		boolean flag = true;
 		if (this.imagen == null) {
 			flag = false;
@@ -44,17 +44,20 @@ public class ControladorIniciarSesion implements ActionListener{
 		}
 		if (validar.validarUsuario(vista.txtUsuario.getText())) {
 			setUsuario(vista.txtUsuario.getText());
-			// devuelve error de usuario
 		}
-		else {
-				vista.lblValidacion.setForeground(Color.RED);
-				vista.lblValidacion.setText(" user y/o clave no coinciden.");
-				flag = false;
+		else { // devuelve error de usuario
+			vista.lblValidacion.setForeground(Color.RED);
+			vista.lblValidacion.setText("Usuario no cumple el formato");
+			flag = false;
 		}
 		if(validar.validarContraseña(String.valueOf(vista.txtClave.getPassword()))) {
 			setClave(String.valueOf(vista.txtClave.getPassword()));
-			//devuelve error de clave
-		} 
+			
+		} else { //devuelve error de clave
+			vista.lblValidacion.setForeground(Color.RED);
+			vista.lblValidacion.setText("Clave no cumple el formato");
+			flag = false;
+		}
 
 		return flag;
 	}
@@ -94,12 +97,13 @@ public class ControladorIniciarSesion implements ActionListener{
 				new ControladorCliente(vistaCliente, this);
 				this.vista.txtClave.setText("");
 				this.vista.txtUsuario.setText("");
+				this.imagen = null;
+				vista.lblValidacion.setText("");
 			}
 		
 		if (vista.btnContrasena == e.getSource()){
 			VentRecuperarContraseña ventana = new VentRecuperarContraseña();
 			new ControladorRecuperarContraseña(ventana);
-			this.vista.frmInicioDeSesion.dispose();
 		}
 		
 		if (vista.btnArchivo == e.getSource()){
@@ -116,18 +120,18 @@ public class ControladorIniciarSesion implements ActionListener{
 			if (chooser.showOpenDialog(vista) == JFileChooser.APPROVE_OPTION) {
 				this.imagen = chooser.getSelectedFile();
 				vista.lblValidacion.setForeground(new Color (0, 128, 0));
-				vista.lblValidacion.setText("     imagen seleccionada!");	
+				vista.lblValidacion.setText("     Imagen seleccionada!");	
 			}
 			else {
 				vista.lblValidacion.setForeground(Color.RED);
-				vista.lblValidacion.setText("       escoja una imagen.");	
+				vista.lblValidacion.setText("       Escoja una imagen.");	
 			}
 		}
 		
 		if (vista.btnRegistro == e.getSource()){
-				VentRegistro vistaReg = new VentRegistro();
-				new ControladorRegistrarUsuario(vistaReg);
-				this.vista.frmInicioDeSesion.dispose();
+			VentRegistro vistaReg = new VentRegistro();
+			new ControladorRegistrarUsuario(vistaReg);
+			this.vista.frmInicioDeSesion.dispose();
 		}
 	}
 

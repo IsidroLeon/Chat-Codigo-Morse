@@ -1,7 +1,14 @@
 package com.ucab.javachat.Cliente.controller;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.util.Arrays;
+
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import com.ucab.javachat.Cliente.model.Cliente;
 import com.ucab.javachat.Cliente.model.Criptologia;
@@ -16,14 +23,18 @@ import com.ucab.javachat.Cliente.view.VentModificar;
  */
 
 public class ControladorModificar  implements ActionListener {
-	private Usuario UsuarioModificar;
-	VentModificar vista;
-	Cliente cliente;
+	private Usuario usuarioModificar;
+	private VentModificar vista;
+	private Cliente cliente;
 	private boolean flag;
-	public ControladorModificar(VentModificar vista, Usuario modelo, Cliente cliente) {
-		 this.vista = vista ;
+	private boolean flagImagen = false;
+	public ControladorModificar(final VentModificar vista, Cliente cliente) {
+		 this.vista = vista;
 		 this.cliente = cliente;
-		 this.vista.dateChooser.setDate((modelo.getFecha()));;
+	}
+	
+	public final void cargarDatos(final Usuario modelo) {
+		this.vista.dateChooser.setDate((modelo.getFecha()));
 		 this.vista.rdbtnMasculino.setSelected(modelo.isSexo());
 		 this.vista.rdbtnFemenino.setSelected(!modelo.isSexo());
 		 this.vista.textoNombre.setText(modelo.getNombreCompleto());
@@ -32,89 +43,152 @@ public class ControladorModificar  implements ActionListener {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		// this.vista.textoEmail.setText(modelo.getEmail());
 		 this.vista.textoUsuario.setText(modelo.getNombreDeUsuario());
 		 this.vista.botonSalir.addActionListener(this);
 	     this.vista.botonGuardar.addActionListener(this);
-	     UsuarioModificar = modelo;
+	     this.vista.btnImagen.addActionListener(this);
+	     usuarioModificar = modelo;
+	     this.vista.setVisible(true);
+	}
+	
+	public final void usuarioRepetido() {
+		vista.lblUsuarioErr.setText("Este usuario ya existe");
+		vista.lblUsuarioErr.setForeground(Color.RED);
+	}
+	
+	public final void correoRepetido() {
+		vista.lblEmailErr.setText("Este correo ya existe");
+	    vista.lblEmailErr.setForeground(Color.RED);
 	}
 
-	public void actionPerformed(ActionEvent evento) {
-		if(vista.botonGuardar == evento.getSource()){
-			Validacion validacion = new Validacion();
-			 
-			flag=true;
-			 
-			
-			 
-			 if (validacion.validarUsuario(vista.textoUsuario.getText()) == false){
-					vista.textoUsuario.setText("nombre de usuario no valido");
-					flag = false;
-				}
-				else{
-					
-					 UsuarioModificar.setNombreDeUsuario(vista.textoUsuario.getText());
-					 vista.textoUsuario.setText(" ");
-				}
-			
-			 if(validacion.validarNombreCompleto(vista.textoNombre.getText()) == false){
-					vista.textoNombre.setText("ingrese nombre completo valido.");
-					flag = false;
-				}
-				else{
-		            UsuarioModificar.setNombreCompleto(vista.textoNombre.getText());
-		            vista.textoNombre.setText(" ");
-				}
-			 
-			 if (validacion.validarEmail(vista.textoEmail.getText())==false){
-				    vista.textoEmail.setText("invalido");
-					flag = false;
-				}
-				else{
-					 UsuarioModificar.setEmail(vista.textoEmail.getText());
-					vista.textoEmail.setText(" ");	
-				}
-			
-			 if (vista.grupoSexo.isSelected(vista.grupoSexo.getSelection()) == true)
-				 UsuarioModificar.setSexo(true);
-			else if (vista.grupoSexo.isSelected(vista.grupoSexo.getSelection()) == false)
-				 UsuarioModificar.setSexo(false);
-			 
-			 UsuarioModificar.setFecha(vista.dateChooser.getDate());
-				 
-			 if (flag) {
-				 UsuarioModificar.setEmail(Criptologia.encriptar(UsuarioModificar.getEmail()));
-				 cliente.flujo(UsuarioModificar, cliente.getNombre());		
-			 }
-				
+	public final void actionPerformed(final ActionEvent evento) {
+		Validacion validacion = new Validacion();
+		flag = true;
 		
+		
+		if (vista.btnImagen == evento.getSource()) {
+			if (vista.textoUsuario.getText() != "") {
+				JFileChooser chooser = new JFileChooser();
+				FileNameExtensionFilter filtro = new FileNameExtensionFilter(".jpg", "jpg");
+		        chooser.setFileFilter(filtro);
+		        chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+				File archivos = new File("/home/user");
+				chooser.setCurrentDirectory(archivos);
+				chooser.setDialogTitle("Seleccione una foto.");
+				
+				//Elegiremos archivos del directorio;
+				chooser.setAcceptAllFileFilterUsed(false);
+				
+				//Si seleccionamos algún archivo retornaremos su directorio
+				if (chooser.showOpenDialog(vista) == JFileChooser.APPROVE_OPTION) {
+					File fichero = chooser.getSelectedFile();
+					usuarioModificar.setImagen(fichero);
+					vista.nombreImagen.setText(fichero.getName());
+					vista.lblFotoErr.setForeground(new Color(0,128,0));
+					vista.lblFotoErr.setText(" imagen seleccionada!");
+					flagImagen = true;
+				} else {
+					vista.lblFotoErr.setForeground(Color.RED);
+					vista.lblFotoErr.setText("por favor, seleccione una imagen.");	
+				}
+			}
+		}	
+		if (vista.botonGuardar == evento.getSource()) {
+			if (!validacion.validarUsuario(vista.textoUsuario.getText())) {
+					vista.lblUsuarioErr.setText("Nombre de usuario invalido");
+					vista.lblUsuarioErr.setForeground(Color.RED);
+					flag = false;	
+				} else {
+					vista.lblUsuarioErr.setText(" "); 
+					usuarioModificar.setNombreDeUsuario(vista.textoUsuario.getText());
+				}
 			
+			 if (!validacion.validarNombreCompleto(vista.textoNombre.getText())) {
+					vista.lblNombreErr.setText("Nombre  invalido");
+					vista.lblNombreErr.setForeground(Color.RED);
+					flag = false;
+				} else {
+					vista.lblNombreErr.setText(" ");
+					usuarioModificar.setNombreCompleto(vista.textoNombre.getText());
+				}
+			 
+			 if (!validacion.validarEmail(vista.textoEmail.getText())) {
+				    vista.lblEmailErr.setText("Email invalido");
+				    vista.lblEmailErr.setForeground(Color.RED);
+					flag = false;
+				} else {
+					 vista.lblEmailErr.setText(" ");
+					 usuarioModificar.setEmail(vista.textoEmail.getText());
+					 usuarioModificar.setEmail(Criptologia.encriptar(usuarioModificar.getEmail()));
+				}
+			
+			 if (vista.grupoSexo.isSelected(vista.grupoSexo.getSelection())) {
+				usuarioModificar.setSexo(true);
+			} else if (vista.grupoSexo.isSelected(vista.grupoSexo.getSelection())) {
+				usuarioModificar.setSexo(false);
+			}
+			 
+			 if (!(String.valueOf(vista.textoContraseña.getPassword()).equals(""))) {
+				 System.out.println(vista.textoContraseña.getPassword());
+				 System.out.println(vista.textoRepetirContraseña.getPassword());
+				 if (Arrays.equals(vista.textoContraseña.getPassword(), vista.textoRepetirContraseña.getPassword())) {
+					 if ((validacion.validarContraseña(String.valueOf(vista.textoContraseña.getPassword())))) {
+						 usuarioModificar.setClave(String.valueOf(vista.textoContraseña.getPassword()));
+						 usuarioModificar.setClave(Criptologia.encriptar(usuarioModificar.getClave()));
+					 } else {
+						 flag = false;
+						 vista.lblContraseñaErr.setForeground(Color.RED);
+						 vista.lblContraseñaErr.setText("La contraseña no cumple el patron");
+					 }
+				 } else {
+					 flag = false;
+					 vista.lblContraseñaErr.setForeground(Color.RED);
+					 vista.lblContraseñaErr.setText("Las contraseñas no coinciden");
+				 }
+			 }
+			 if (validacion.validarFecha(vista.dateChooser.getDate())) {
+				 usuarioModificar.setFecha(vista.dateChooser.getDate());
+				 vista.lblFechaErr.setText("");
+			 } else {
+				 flag = false;
+				 vista.lblFechaErr.setForeground(Color.RED);
+				 vista.lblFechaErr.setText("Fecha invalida");
+			 }
+			 if (flag) {
+				 int opcion = cliente.flujo(usuarioModificar, cliente.getNombre(), flagImagen);	
+				 if (opcion == 0) { // Todo bien
+					 this.vista.setVisible(false);
+				 } else if (opcion == 1) { // El correo ya existe
+					 this.correoRepetido();
+				 } else if (opcion == 2) { // EL usuario ya existe
+					 this.usuarioRepetido();
+				 } else {
+					 JOptionPane.showMessageDialog(null, "La modificación no fue satisfactoria.", 
+							 "Problema de modificacion", JOptionPane.INFORMATION_MESSAGE);
+				 }
+			 }
 		}
 		else if (vista.botonSalir == evento.getSource()) {
-		  vista.setVisible(false);
-	      vista.dispose();
-	    
+			flag = false;
+			  
+		vista.setVisible(false);
+	    vista.dispose();
 		}
 	}
-
-	public Usuario getUsuarioModificar() {
-		return UsuarioModificar;
+	
+	public final Usuario getUsuarioModificar() {
+		return usuarioModificar;
 	}
 
-	public void setUsuarioModificar(Usuario usuarioModificar) {
-		UsuarioModificar = usuarioModificar;
+	public final void setUsuarioModificar(final Usuario usuarioModificar) {
+		this.usuarioModificar = usuarioModificar;
 	}
 
-	public boolean isFlag() {
+	public final boolean isFlag() {
 		return flag;
 	}
 
-	public void setFlag(boolean flag) {
+	public final void setFlag(final boolean flag) {
 		this.flag = flag;
 	}
-
-
-
-	
-
 }

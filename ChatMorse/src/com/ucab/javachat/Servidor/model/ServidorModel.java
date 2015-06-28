@@ -91,52 +91,48 @@ public class ServidorModel extends Thread
           	case 1: // Inicio de sesion
           		this.setNameUser(entrada.readUTF());
           		this.setClave(entrada.readUTF());
-          		
+          		System.out.println(this.getNameUser()+"       ");
           		dir = new File("." + "/Documentos/verificacionDe" + getNameUser() + ".jpg");
                 sizeAr = new byte[4];
                 entrada.read(sizeAr);
                 size = ByteBuffer.wrap(sizeAr).asIntBuffer().get();
                 imageAr = new byte[size];
-                entrada.read(imageAr);
+                entrada.readFully(imageAr);
                 image = ImageIO.read(new ByteArrayInputStream(imageAr));
                 ImageIO.write(image, "jpg", new File(dir.getCanonicalPath()));
                 this.imagen = dir.getCanonicalFile();
-          		
-          		
           		Autenticacion inicioDeSesion = new Autenticacion(this.getNameUser(), this.getClave(), this.getImagen());
-          		// Envia true o false si el inicio de sesion es valido o invalido
-          		//boolean flagInicioSesion = inicioDeSesion.autenticar();
           		Usuario autenticado = inicioDeSesion.autenticar();
           		if (autenticado != null) {
 	          		String autenticadoJson =  gson.toJson(autenticado);
 	                salida.writeUTF(autenticadoJson);
 	                serv.mostrar("Ha iniciado sesion: "+this.getNameUser());
-	                
           		} else {
           			salida.writeUTF("Fallo");
           			scli.close();
                     scli2.close();
           		}
-          		if (this.imagen.delete()) serv.mostrar("Se ha eliminado la imagen de verificaion.");
+          		if (this.imagen.delete()) {
+          			serv.mostrar("Se ha eliminado la imagen de verificaion.");
+          		}
           		break;
           	case 2: // Registro
                 String usuarioRegistroJson = entrada.readUTF();
                 Usuario usuarioRegistro = gson.fromJson(usuarioRegistroJson, new TypeToken<Usuario>() {}.getType());
-               
                 File miDir = new File ("." + "/Documentos/Imagenes de Verificacion/" +
                         usuarioRegistro.getNombreDeUsuario() + ".jpg");
                 sizeAr = new byte[4];
                 entrada.read(sizeAr);
                 size = ByteBuffer.wrap(sizeAr).asIntBuffer().get();
                 imageAr = new byte[size];
-                entrada.read(imageAr);
+                entrada.readFully(imageAr);
                 image = ImageIO.read(new ByteArrayInputStream(imageAr));
                 ImageIO.write(image, "jpg", new File(miDir.getCanonicalPath()));
                 usuarioRegistro.setImagen(miDir.getCanonicalFile());
                 Autenticacion registro = new Autenticacion(usuarioRegistro); 
-                boolean flagRegistro = registro.registrar();
-                salida.writeBoolean(flagRegistro);
-                if (flagRegistro) {
+                int flagRegistro = registro.registrar();
+                salida.writeInt(flagRegistro);
+                if (flagRegistro == 0) {
                     serv.mostrar("Nuevo usuario registrado");
                 }
                 scli.close();
@@ -144,13 +140,12 @@ public class ServidorModel extends Thread
                 break;
           	case 3: //Recuperar contraseña 
           		String correo = entrada.readUTF();
-          		dir = new File("/Documentos/qweiqwueklasriqwkehqwgeertsdffitgfog.jpg");
-          		
+          		dir = new File("." + "/Documentos/verificacionDe" + getNameUser() + ".jpg");
           		sizeAr = new byte[4];
                 entrada.read(sizeAr);
                 size = ByteBuffer.wrap(sizeAr).asIntBuffer().get();
                 imageAr = new byte[size];
-                entrada.read(imageAr);
+                entrada.readFully(imageAr);
                 image = ImageIO.read(new ByteArrayInputStream(imageAr));
                 ImageIO.write(image, "jpg", new File(dir.getCanonicalPath()));
                 this.imagen = dir.getCanonicalFile();
@@ -190,17 +185,30 @@ public class ServidorModel extends Thread
              {
                 case 1: // Modificar datos
                 	String usuarioRegistroJson = entrada.readUTF();
-                    Usuario	usuarioRegistro=gson.fromJson(usuarioRegistroJson, new TypeToken<Usuario>() {}.getType());
+                    Usuario	usuarioRegistro = gson.fromJson(usuarioRegistroJson, new TypeToken<Usuario>() {}.getType());
                     String nombreInicial = entrada.readUTF();
-                	Autenticacion modificarUsuario = new Autenticacion(usuarioRegistro, nombreInicial); 
-                	boolean flagRegistro = modificarUsuario.modificar();
-                	salida.writeBoolean(flagRegistro);
-                	
-                    if (flagRegistro) {
-                        System.out.println("guardado");
+                    boolean imagenCambia = entrada.readBoolean();
+                    if(imagenCambia) { // Solo hace esto si el usuario cambio la imagen
+	                    dir = new File ("." + "/Documentos/Imagenes de Verificacion/" +
+	                    usuarioRegistro.getNombreDeUsuario() + ".jpg");
+	                    sizeAr = new byte[4];
+	                    entrada.read(sizeAr);
+	                    size = ByteBuffer.wrap(sizeAr).asIntBuffer().get();
+	                    imageAr = new byte[size];
+	                    entrada.readFully(imageAr);
+	                    image = ImageIO.read(new ByteArrayInputStream(imageAr));
+	                    ImageIO.write(image, "jpg", new File(dir.getCanonicalPath()));
+	                    usuarioRegistro.setImagen(dir.getCanonicalFile());
+                    }
+                    Autenticacion modificarUsuario = new Autenticacion(usuarioRegistro, nombreInicial); 
+                	int flagRegistro = modificarUsuario.modificar();
+                	salida.writeInt(flagRegistro);
+                    if (flagRegistro == 0) {
+                    	serv.mostrar("El usuario "+this.getNameUser()+" ha sido modficado");
+                    	this.setNameUser(usuarioRegistro.getNombreDeUsuario());
                     }
                     else 
-                    	serv.mostrar("no se pudo");
+                    	serv.mostrar("Error al modificar al usuario "+this.getNameUser());
                    break;
                 case 2://envio de lista de activos
                    numUsers = clientesActivos.size();
@@ -217,7 +225,17 @@ public class ServidorModel extends Thread
                    	break;
 	             }
           }
-          	catch (IOException e) {System.out.println("El cliente termino la conexion.");break;}
+          	catch (Exception e) {
+          	System.out.println("El cliente termino la conexion.");
+          	clientesActivos.removeElement(this);
+      		try {
+      			scli.close();
+				scli2.close();
+			} catch (IOException e1) {
+				serv.mostrar("No se puede cerrar el socket.");
+			}
+          	break;
+          }
     	}
     	serv.mostrar("Se removio un usuario.");
     	clientesActivos.removeElement(this);

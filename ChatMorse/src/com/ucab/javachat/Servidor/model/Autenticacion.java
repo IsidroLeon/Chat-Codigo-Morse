@@ -1,6 +1,7 @@
 package com.ucab.javachat.Servidor.model;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /** Clase encargada de la autenticacion del usuario en el sistema contrastando los datos recibidos
@@ -84,18 +85,18 @@ public class Autenticacion {
 	 * si el correo o el nombre de usuario ya estan registrados
 	 * @return Verdadero si se registro el usuario, falso en cualquier otro caso
 	 */
-	public boolean registrar() {
+	public int registrar() {
 		if(usuariosArchivo != null) {
 			for (Usuario usuario : usuariosArchivo) {
 				try {
 					if (Criptologia.desencriptar(usuario.getEmail()).trim().equals(Criptologia.desencriptar(user.getEmail().trim()))) {
-						return false;
+						return 1;
 					}
 					if (usuario.getNombreDeUsuario().trim().equals(this.user.getNombreDeUsuario().trim())) {
-						return false;
+						return 2;
 					}
 					if (user.usuarioVacio()) {
-						return false;
+						return 3;
 					}
 				}
 				catch (Exception e) {
@@ -110,43 +111,40 @@ public class Autenticacion {
 		usuariosArchivo.add(this.user);
 		ManejoArchivos archivo = new ManejoArchivos();
 		archivo.escribirArchivo(usuariosArchivo);
-		return true;
+		return 0;
 	}
 
 	public String comparaContraseña() {
 		ManejoArchivos archivo = new ManejoArchivos();
 		for(Usuario user : archivo.getListaUsuarios()) {
 			String email = user.getEmail();
-			try {
-				if (Criptologia.desencriptar(email).trim().equals(correo.trim()))
+			if (Criptologia.desencriptar(email).trim().equals(correo.trim()))
+				try {
 					if (CompararImagenes.comparar(user.getImagen(), this.imagen))
 						return Criptologia.desencriptar(user.getClave());
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 		}
 		return null;
 	}
 	
-	public boolean modificar() {
+	public int modificar() {
 		boolean flag = false;
 		Usuario userModificar = new Usuario();
-		try {
-			if((usuariosArchivo != null)&&(!existeCorreoYUsuario((Criptologia.desencriptar(user.getEmail())), user.getNombreDeUsuario(), nombreDeUsuario))) {
-				for (Usuario usuario : usuariosArchivo) {
-					try {
-						// comprueba si existe algun usuario con el correo o el nombre de usuario indicado
-						if (usuario.getNombreDeUsuario().trim().equals(nombreDeUsuario.trim())) {
-							userModificar = usuario;
-							flag = true;
-						}
-					} catch (Exception e) {
-						e.printStackTrace();
+		int correo = existeCorreoYUsuario((Criptologia.desencriptar(user.getEmail())), user.getNombreDeUsuario(), nombreDeUsuario);
+		if((usuariosArchivo != null)&&(correo == 0)) {
+			for (Usuario usuario : usuariosArchivo) {
+				try {
+					// comprueba si existe algun usuario con el correo o el nombre de usuario indicado
+					if (usuario.getNombreDeUsuario().trim().equals(nombreDeUsuario.trim())) {
+						userModificar = usuario;
+						flag = true;
 					}
+				} catch (Exception e) {
+					e.printStackTrace();
 				}
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
 		}
 		if(flag) {
 			ManejoArchivos archivo = new ManejoArchivos();
@@ -154,26 +152,21 @@ public class Autenticacion {
 			usuariosArchivo.add(user);
 			archivo.escribirArchivo(usuariosArchivo);
 		}
-		return flag;
+		return correo;
 	}
 	
-	private boolean existeCorreoYUsuario(String correo, String nombre, String nombreOriginal) {
+	private int existeCorreoYUsuario(String correo, String nombre, String nombreOriginal) {
 		if(usuariosArchivo != null) {
 			for (Usuario usuario : usuariosArchivo) {
-				try {
-					if ((Criptologia.desencriptar(usuario.getEmail()).trim().equals(correo)&&(!usuario.getNombreDeUsuario().trim().equals(nombreOriginal)))) {
-						return true;
-					}
-					if (usuario.getNombreDeUsuario().trim().equals(nombre)&&(!usuario.getNombreDeUsuario().trim().equals(nombreOriginal))) {
-						return true;
-					}
+				if ((Criptologia.desencriptar(usuario.getEmail()).trim().equals(correo)&&(!usuario.getNombreDeUsuario().trim().equals(nombreOriginal)))) {
+					return 1;
 				}
-				catch (Exception e) {
-					e.printStackTrace();
-				}		
+				if (usuario.getNombreDeUsuario().trim().equals(nombre)&&(!usuario.getNombreDeUsuario().trim().equals(nombreOriginal))) {
+					return 2;
+				}	
 			}
 		}
-		return false;
+		return 0;
 	}
 	
 }

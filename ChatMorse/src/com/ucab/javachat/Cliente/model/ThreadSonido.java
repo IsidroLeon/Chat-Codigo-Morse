@@ -17,7 +17,6 @@ public class ThreadSonido extends Thread {
 		ventana.txtMensaje.setEditable(false);
 		ventana.butEnviar.setEnabled(false);
 		ventana.btnConvertir.setEnabled(false);
-		String borrador = ventana.txtMensaje.getText();
 		ventana.txtMensaje.setText("Espere hasta que se termine de reproducir el mensaje");
 		try {
 			Thread.sleep(duracion);
@@ -28,7 +27,7 @@ public class ThreadSonido extends Thread {
 		ventana.txtMensaje.setEditable(true);
 		ventana.butEnviar.setEnabled(true);
 		ventana.btnConvertir.setEnabled(true);
-		ventana.txtMensaje.setText(borrador);
+		ventana.txtMensaje.setText("");
 	}
 
 }

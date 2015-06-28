@@ -10,8 +10,7 @@ public class Principal {
 	   public static void main(String abc[]) throws IOException
 	   {                
 	     ServidorView vista = new ServidorView();
-	     @SuppressWarnings("unused")
-		ServidorController controlador = new ServidorController(vista);
+	     new ServidorController(vista);
 	   }
 
 }

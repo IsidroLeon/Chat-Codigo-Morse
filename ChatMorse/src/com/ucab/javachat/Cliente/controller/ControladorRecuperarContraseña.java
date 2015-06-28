@@ -67,19 +67,20 @@ public class ControladorRecuperarContraseña implements ActionListener{
 				flag = false;
 			}	
 		}
-		if (flag && flagImagen)
+		if (flag && flagImagen) {
 			try {
 				Cliente cliente = new Cliente();
 				if(cliente.conexion(correo,this.imagen)) {
-					vista.frameRecuperarContraseña.setVisible(false);
+					vista.frameRecuperarContraseña.dispose();
 					 JOptionPane.showMessageDialog(null, "Se ha enviado un correo con su contraseña", "Recuperación", JOptionPane.INFORMATION_MESSAGE);
 				} else {
-					 JOptionPane.showMessageDialog(null, "Ha ocurrido un error", "Problema de conexión", JOptionPane.INFORMATION_MESSAGE);
+					 JOptionPane.showMessageDialog(null, "Los datos enviados no coinciden con ningún usuario del servidor", "Problema de conexión", JOptionPane.INFORMATION_MESSAGE);
 				}
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
+		}
 	}
 
 }

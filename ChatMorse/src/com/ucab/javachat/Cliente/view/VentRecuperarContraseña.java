@@ -69,5 +69,8 @@ public class VentRecuperarContraseña {
 		labelValidacion.setFont(new Font("Dialog", Font.BOLD, 12));
 		labelValidacion.setBounds(12, 161, 274, 15);
 		frameRecuperarContraseña.getContentPane().add(labelValidacion);
+		
+		frameRecuperarContraseña.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frameRecuperarContraseña.setResizable(false);
 	}
 }

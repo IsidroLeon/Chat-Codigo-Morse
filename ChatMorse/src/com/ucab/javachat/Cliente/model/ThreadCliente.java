@@ -36,8 +36,6 @@ class ThreadCliente extends Thread{
             opcion = entrada.readInt();
             switch(opcion)
             {
-               case 1: //mensaje enviado          
-            	   break;
                case 2://se agrega
             	   mensaje = entrada.readUTF();
             	   vcli.agregarUser(mensaje);                  

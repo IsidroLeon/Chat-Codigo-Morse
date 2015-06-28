@@ -106,8 +106,8 @@ public class Cliente{
 	 * @param nuevoUsuario - Datos del nuevo usuario a registrar en el sistema
 	 * @throws IOException
 	 */
-   public boolean conexion(Usuario nuevoUsuario) throws IOException {
-	   boolean flag = false;
+   public int conexion(Usuario nuevoUsuario) throws IOException {
+	   int flag = 4; // Error desconocido
 	   try {
 		   comunication = new Socket(Cliente.IP_SERVER, 8081); //envia
 		   comunication2 = new Socket(Cliente.IP_SERVER, 8082); //recibe
@@ -194,8 +194,8 @@ public class Cliente{
     * se crea un objeto json en el que se añaden los datos del usuario.
     * @param usuario - Objeto que contiene los datos de un usuario que esta en el proceso de registro.
     */
-   	public boolean flujo(Usuario usuario) {
-       boolean flag = false;
+   	public int flujo(Usuario usuario) {
+       int flag = 3; //Error desconocido 
        Gson gson = new Gson();  
        try {         
            salida.writeInt(2);
@@ -208,7 +208,7 @@ public class Cliente{
            salida.write(size);
            salida.write(byteArrayOutputStream.toByteArray());
            salida.flush();
-           flag = entrada.readBoolean();
+           flag = entrada.readInt();
         }
         catch (IOException e) {
             System.out.println("error...." + e);
@@ -221,7 +221,6 @@ public class Cliente{
 	   try{
 		   salida.writeInt(3);
 		   salida.writeUTF(correo);
-		   
 		   BufferedImage image = ImageIO.read(new File(imagen.getCanonicalPath()));
            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
            ImageIO.write(image, "jpg", byteArrayOutputStream);
@@ -229,7 +228,6 @@ public class Cliente{
            salida.write(size);
            salida.write(byteArrayOutputStream.toByteArray());
            salida.flush();			   
-		   
 		   flag = entrada.readBoolean();
 	   } catch(IOException e){
 		   System.out.println("error recuperando contraseña..." + e);
@@ -243,25 +241,26 @@ public class Cliente{
     * @param entrar
     * @return
     */
-   public boolean flujo(Usuario usuario,String nombreOriginal) {
-       boolean flag = false;
+   public int flujo(Usuario usuario, String nombreOriginal, boolean imagenCambia) {
+       int flag = 3; //error desconocido
        Gson gson = new Gson();  
        try {         
     	   String jsonRegistroUsuario = gson.toJson(usuario);
     	   salida.writeInt(1);
            salida.writeUTF(jsonRegistroUsuario);
            salida.writeUTF(nombreOriginal);
-           //BufferedImage image = ImageIO.read(new File(usuario.getImagen().getCanonicalPath()));
-           //ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-           //ImageIO.write(image, "jpg", byteArrayOutputStream);
-           //byte[] size = ByteBuffer.allocate(4).putInt(byteArrayOutputStream.size()).array();
-           //salida.write(size);
-           //salida.write(byteArrayOutputStream.toByteArray());
-           //salida.flush();
-          
-           //if (entrada.readInt()==5);
-           flag = entrada.readBoolean();
-           if (flag) {
+           salida.writeBoolean(imagenCambia);
+           if (imagenCambia) {
+	           BufferedImage image = ImageIO.read(new File(usuario.getImagen().getCanonicalPath()));
+	           ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+	           ImageIO.write(image, "jpg", byteArrayOutputStream);
+	           byte[] size = ByteBuffer.allocate(4).putInt(byteArrayOutputStream.size()).array();
+	           salida.write(size);
+	           salida.write(byteArrayOutputStream.toByteArray());
+	           salida.flush();
+           }
+           flag = entrada.readInt();
+           if (flag == 0) {
         	   vent.setUsuarioAutenticado(usuario);
         	   vent.setUsuario(usuario.getNombreDeUsuario());
            }

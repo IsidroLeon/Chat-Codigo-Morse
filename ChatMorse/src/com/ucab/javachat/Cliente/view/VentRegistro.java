@@ -186,5 +186,8 @@ public class VentRegistro extends JFrame{
 		lblImagenSeleccionada.setBounds(192, 259, 254, 15);
 		frmRegistroDeUsuario.getContentPane().add(lblImagenSeleccionada);
 		
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+	    setResizable(false);
+		
 	}
 }
