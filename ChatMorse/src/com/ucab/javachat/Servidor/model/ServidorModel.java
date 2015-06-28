@@ -209,6 +209,8 @@ public class ServidorModel extends Thread
 	                    	this.setNameUser(usuarioRegistro.getNombreDeUsuario());
 	                    } else {
 	                    	serv.mostrar("Error al modificar al usuario "+this.getNameUser());
+	                    }
+                    }
                    break;
                 case 2://envio de lista de activos
                    numUsers = clientesActivos.size();
