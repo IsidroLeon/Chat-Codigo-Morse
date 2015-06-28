@@ -6,10 +6,16 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Vector;
 
 import com.ucab.javachat.Cliente.model.Cliente;
 import com.ucab.javachat.Cliente.model.CodigoMorse;
+import com.ucab.javachat.Cliente.model.Historial;
 import com.ucab.javachat.Cliente.model.ReproducirSonido;
 import com.ucab.javachat.Cliente.model.ThreadSonido;
 import com.ucab.javachat.Cliente.view.VentPrivada;
@@ -19,6 +25,7 @@ public class ControladorPrivada implements ActionListener, KeyListener {
 	private VentPrivada ventana;
 	private ReproducirSonido sonido;
 	private String emisor;
+	private String usuarios;
 	private boolean esMorse = false;
 
 	public ControladorPrivada(VentPrivada ventana, Cliente cliente) {
@@ -48,7 +55,7 @@ public class ControladorPrivada implements ActionListener, KeyListener {
 			ventana.setVisible(true);
 			this.emisor = emisor;
 			ventana.amigo = amigos;
-			String usuarios = amigos.toString();
+			usuarios = amigos.toString().replaceAll("[^a-zA-Z0-9ñáéíóúÁÉÍÓÚ,]+", "");
 			ventana.setTitle("Conversación con: "+usuarios);
 	   }
 	
@@ -56,10 +63,18 @@ public class ControladorPrivada implements ActionListener, KeyListener {
 		private void cerrarVentana() {    
 	    	if(sonido.isAlive())
 				  sonido.stop();
-	    	String mensaje = "El usuario "+cliente.getNombre()+" se ha retirado de la conversación";
+	    	String mensaje = CodigoMorse.traducirAlfabeto("El usuario "+cliente.getNombre()+" se ha retirado de la conversación");
 	    	ventana.amigo.remove(cliente.getNombre());
 		    cliente.flujo(ventana.amigo, mensaje, this.emisor);
 		    ventana.txtMensaje.setText("");
+		    String historial = ventana.panMostrar.getText();
+		    try {
+				Historial.guardarHistorial(usuarios, historial);
+			} catch (URISyntaxException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		    ventana.panMostrar.setText("");
 		    ventana.setVisible(false);      
 	    }
@@ -73,7 +88,10 @@ public class ControladorPrivada implements ActionListener, KeyListener {
 	    	ThreadSonido thread = new ThreadSonido(msg, ventana);
 			thread.start();
 	    	msg = CodigoMorse.traducirMorse(msg);
-	    	msg = ""+this.emisor+">"+msg;
+	    	Date d = Calendar.getInstance().getTime(); // Current time
+	    	SimpleDateFormat sdf = new SimpleDateFormat("[dd-MM-yyyy HH:mm:ss]"); // Set your date format
+	    	String currentData = sdf.format(d); // Get Date String according to date format
+	    	msg = currentData+" "+this.emisor+">"+msg;
 	        ventana.panMostrar.append(msg+"\n");
 	        this.emisor = cliente.getNombre();
 	     }
@@ -85,7 +103,6 @@ public class ControladorPrivada implements ActionListener, KeyListener {
 					  if(sonido.isAlive())
 					  sonido.stop();
 			      	String mensaje = CodigoMorse.traducirAlfabeto(ventana.txtMensaje.getText()); 
-			      	System.out.println(mensaje);
 			      	cliente.flujo(ventana.amigo, mensaje, this.emisor);
 			      	this.ventana.txtMensaje.setText("");
 			      	ThreadSonido thread = new ThreadSonido(mensaje, ventana);
@@ -112,7 +129,6 @@ public class ControladorPrivada implements ActionListener, KeyListener {
 				  if(sonido.isAlive())
 				  sonido.stop();
 		      	String mensaje = CodigoMorse.traducirAlfabeto(ventana.txtMensaje.getText()); 
-		      	System.out.println(mensaje);
 		      	cliente.flujo(ventana.amigo, mensaje, this.emisor);
 		      	this.ventana.txtMensaje.setText("");
 		      	ThreadSonido thread = new ThreadSonido(mensaje, ventana);

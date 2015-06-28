@@ -44,7 +44,7 @@ public class Criptologia {
            base64EncryptedString = new String(base64Bytes);
 
        } catch (Exception ex) {
-    	   System.out.println("error");
+    	   System.out.println("error" + ex);
        }
        return base64EncryptedString;
    }
@@ -69,7 +69,7 @@ public class Criptologia {
            base64EncryptedString = new String(plainText, "UTF-8");
 
        } catch (Exception ex) {
-    	   System.out.println("error");
+    	   System.out.println("error"+ ex);
        }
        return base64EncryptedString;
    }

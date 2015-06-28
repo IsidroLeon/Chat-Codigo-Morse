@@ -212,7 +212,6 @@ public class ControladorRegistrarUsuario implements ActionListener {
  				vista.lblContraseñaIgual.setText("la contraseña no coincide.");
  				flag = false;
  			}
- 			System.out.println(flag + "     "+flagImagen);
  			if (flag && flagImagen) {
  				nuevoUsuario.setEmail(Criptologia.encriptar(nuevoUsuario.getEmail()));
  				nuevoUsuario.setClave(Criptologia.encriptar(nuevoUsuario.getClave()));

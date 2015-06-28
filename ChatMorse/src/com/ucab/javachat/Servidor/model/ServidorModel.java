@@ -91,7 +91,6 @@ public class ServidorModel extends Thread
           	case 1: // Inicio de sesion
           		this.setNameUser(entrada.readUTF());
           		this.setClave(entrada.readUTF());
-          		System.out.println(this.getNameUser()+"       ");
           		dir = new File("." + "/Documentos/verificacionDe" + getNameUser() + ".jpg");
                 sizeAr = new byte[4];
                 entrada.read(sizeAr);

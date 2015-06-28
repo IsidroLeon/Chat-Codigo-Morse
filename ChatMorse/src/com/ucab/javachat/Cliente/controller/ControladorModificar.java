@@ -130,8 +130,6 @@ public class ControladorModificar  implements ActionListener {
 			}
 			 
 			 if (!(String.valueOf(vista.textoContraseña.getPassword()).equals(""))) {
-				 System.out.println(vista.textoContraseña.getPassword());
-				 System.out.println(vista.textoRepetirContraseña.getPassword());
 				 if (Arrays.equals(vista.textoContraseña.getPassword(), vista.textoRepetirContraseña.getPassword())) {
 					 if ((validacion.validarContraseña(String.valueOf(vista.textoContraseña.getPassword())))) {
 						 usuarioModificar.setClave(String.valueOf(vista.textoContraseña.getPassword()));

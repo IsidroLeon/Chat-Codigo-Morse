@@ -55,7 +55,6 @@ public class CompararImagenes
         if(!file.exists())
         {
         	System.out.println ("La Imagen No Existe Verifique El Nombre y la Ruta");
-        	System.out.println(n.getCanonicalPath());
         	return null;
         }
  

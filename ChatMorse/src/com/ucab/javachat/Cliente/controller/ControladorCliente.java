@@ -218,7 +218,6 @@ public class ControladorCliente implements ActionListener {
     	if (evt.getSource() == this.ventana.butModificar) {
     		boolean flag = false;
     		modificador.cargarDatos(getUsuarioAutenticado());
-    		System.out.println(usuarioAutenticado);
 			flag = modificador.isFlag();
 			if (flag) {
 			usuarioAutenticado = modificador.getUsuarioModificar();			
