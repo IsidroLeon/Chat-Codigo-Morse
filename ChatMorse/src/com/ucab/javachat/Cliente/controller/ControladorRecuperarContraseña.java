@@ -74,6 +74,13 @@ public class ControladorRecuperarContraseña implements ActionListener{
 				flag = false;
 			}	
 		}
+		
+		if (imagen.length() > 1536000) {
+			 JOptionPane.showMessageDialog(null, "La imagen pesa mucho, elija una imagen que"
+			 		+ " pese menos de 1.5mb", "Problema de modificacion", JOptionPane.INFORMATION_MESSAGE);
+			 flag = false;
+		}
+		
 		if (flag && flagImagen) {
 			try {
 				Cliente cliente = new Cliente();

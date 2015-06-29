@@ -31,7 +31,7 @@ public class Historial {
         uri = new URI("file:"+miDir.getCanonicalPath()+"/Documentos/Historial/"+participantes+".txt");
         file = new File(uri);
         if (!file.isDirectory()) { // si no existe el archivo , se crea 
-        	file.mkdir();
+        	file.getParentFile().mkdirs();
         	file.createNewFile();
         } else if (!file.exists()) {
         	file.createNewFile();

@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import com.ucab.javachat.Cliente.model.Criptologia;
@@ -211,6 +212,12 @@ public class ControladorRegistrarUsuario implements ActionListener {
  				vista.lblContraseñaIgual.setText("la contraseña no coincide.");
  				flag = false;
  			}
+ 			if(nuevoUsuario.getImagen().length() > 1536000) {
+				 JOptionPane.showMessageDialog(null, "La imagen pesa mucho, pruebe con una imagen"
+				 		+ " menor a 1.5 megas.", "Problema de modificacion", JOptionPane.INFORMATION_MESSAGE);
+				 flag = false;
+			 }
+			 
  			if (flag && flagImagen) {
  				nuevoUsuario.setEmail(Criptologia.encriptar(nuevoUsuario.getEmail()));
  				nuevoUsuario.setClave(Criptologia.encriptar(nuevoUsuario.getClave()));

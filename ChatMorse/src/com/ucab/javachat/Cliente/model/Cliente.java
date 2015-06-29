@@ -10,6 +10,7 @@
 package com.ucab.javachat.Cliente.model;
 
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -267,9 +268,8 @@ public class Cliente{
         	   vent.setUsuarioAutenticado(usuario);
         	   vent.setUsuario(usuario.getNombreDeUsuario());
            }
-        }
-        catch (IOException e) {
-            System.out.println("Error...." + e);
+        } catch (IOException e) {
+            System.out.println("Error.... " + e);
         }
         return flag;
   }

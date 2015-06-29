@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import com.ucab.javachat.Cliente.view.VentCliente;
@@ -101,15 +102,22 @@ public class ControladorIniciarSesion implements ActionListener {
 	 * metodo encargado de la accion de cada boton en la ventana de inicio de sesion.
 	 */
 	public void actionPerformed(ActionEvent e) {
-		if (vista.btnEnviar == e.getSource())	
-			if (validarInicioSesion()) {
-				VentCliente vistaCliente = new VentCliente(); // Si el inicio de sesion es valido crea la ventana
-				new ControladorCliente(vistaCliente, this);
-				this.vista.txtClave.setText("");
-				this.vista.txtUsuario.setText("");
-				this.imagen = null;
-				vista.lblValidacion.setText("");
+		if (vista.btnEnviar == e.getSource())	{
+			if (imagen.length() > 1536000) {
+				 JOptionPane.showMessageDialog(null, "La imagen pesa mucho, elija una imagen que"
+				 		+ " pese menos de 1.5mb", "Problema de modificacion", JOptionPane.INFORMATION_MESSAGE);
+				 
+			} else {
+				if (validarInicioSesion()) {
+					VentCliente vistaCliente = new VentCliente(); // Si el inicio de sesion es valido crea la ventana
+					new ControladorCliente(vistaCliente, this);
+					this.vista.txtClave.setText("");
+					this.vista.txtUsuario.setText("");
+					this.imagen = null;
+					vista.lblValidacion.setText("");
+				}
 			}
+		}
 		
 		if (vista.btnContrasena == e.getSource()){
 			VentRecuperarContraseña ventana = new VentRecuperarContraseña();

@@ -62,11 +62,11 @@ public final class ManejoArchivos {
 	public ArrayList<Usuario> leerArchivo() {
 		BufferedReader br = null;
 		File archivo = new File(ruta);
-		if(!archivo.isDirectory()){
-			archivo.mkdirs();
+		if(!archivo.exists()){
 			try {
 				archivo.createNewFile();
 			} catch (IOException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

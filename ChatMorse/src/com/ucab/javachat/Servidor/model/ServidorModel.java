@@ -36,11 +36,6 @@ public class ServidorModel extends Thread
 	 private File imagen;
 	 ServidorController serv;
 	 ArrayList<Usuario> usuariosArchivo = new ArrayList<Usuario>();
-	 byte[] sizeAr;
-	 int size;
-	 byte[] imageAr;
-	 BufferedImage image;
-	 File dir;
 	 Gson gson;
      /**
       * Contructor con parametros
@@ -180,6 +175,11 @@ public class ServidorModel extends Thread
      * @throws IOException 
      */
     private void iniciarSesion() throws IOException {
+    	byte[] sizeAr;
+	   	 int size;
+	   	 byte[] imageAr;
+	   	 BufferedImage image;
+	   	 File dir;
 		this.setNameUser(entrada.readUTF());
 		this.setClave(entrada.readUTF());
    		 dir = new File("." + "/Documentos/verificacionDe" + getNameUser() + ".jpg");
@@ -211,6 +211,10 @@ public class ServidorModel extends Thread
      * @throws IOException
      */
     private void registrarUsuario() throws IOException {
+    	byte[] sizeAr;
+	   	 int size;
+	   	 byte[] imageAr;
+	   	 BufferedImage image;
     	String usuarioRegistroJson = entrada.readUTF();
         Usuario usuarioRegistro = gson.fromJson(usuarioRegistroJson, new TypeToken<Usuario>() {}.getType());
         File miDir = new File ("." + "/Documentos/Imagenes de Verificacion/" +
@@ -238,6 +242,11 @@ public class ServidorModel extends Thread
      * @throws IOException
      */
     private void recuperarContraseña() throws IOException {
+    	byte[] sizeAr;
+	   	 int size;
+	   	 byte[] imageAr;
+	   	 BufferedImage image;
+	   	 File dir;
     	String correo = entrada.readUTF();
   		dir = new File("." + "/Documentos/verificacionDe" + getNameUser() + ".jpg");
   		sizeAr = new byte[4];
@@ -273,12 +282,17 @@ public class ServidorModel extends Thread
      * @throws IOException
      */
     private void modificarDatos() throws IOException {
+    	byte[] sizeAr;
+	   	int size;
+	   	byte[] imageAr;
+	   	BufferedImage image;
+	   	File dir;
     	int flagRegistro = 3;
     	String usuarioRegistroJson = entrada.readUTF();
         Usuario	usuarioRegistro = gson.fromJson(usuarioRegistroJson, new TypeToken<Usuario>() {}.getType());
         String nombreInicial = entrada.readUTF();
         boolean imagenCambia = entrada.readBoolean();
-        if(imagenCambia) { // Solo hace esto si el usuario cambio la imagen
+        if (imagenCambia) {
             dir = new File ("." + "/Documentos/Imagenes de Verificacion/" +
             usuarioRegistro.getNombreDeUsuario() + ".jpg");
             sizeAr = new byte[4];
@@ -286,9 +300,14 @@ public class ServidorModel extends Thread
             size = ByteBuffer.wrap(sizeAr).asIntBuffer().get();
             imageAr = new byte[size];
             entrada.readFully(imageAr);
-        	image = ImageIO.read(new ByteArrayInputStream(imageAr));
-        	ImageIO.write(image, "jpg", new File(dir.getCanonicalPath()));
-        	usuarioRegistro.setImagen(dir.getCanonicalFile());
+            System.out.println(imageAr);
+            try {
+	    		image = ImageIO.read(new ByteArrayInputStream(imageAr));
+	        	ImageIO.write(image, "jpg", new File(dir.getCanonicalPath()));
+	        	usuarioRegistro.setImagen(dir.getCanonicalFile());
+            } catch (IllegalArgumentException exc) {
+            	exc.getStackTrace();
+            }
         }
         if (flagRegistro == 3) {
             Autenticacion modificarUsuario = new Autenticacion(usuarioRegistro, nombreInicial); 
@@ -300,6 +319,7 @@ public class ServidorModel extends Thread
             	serv.mostrar("Error al modificar al usuario "+this.getNameUser());
             }
         }
+        salida.writeInt(flagRegistro);
     }
    
      /**

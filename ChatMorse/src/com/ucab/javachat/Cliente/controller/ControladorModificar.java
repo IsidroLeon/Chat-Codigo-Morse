@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.net.SocketTimeoutException;
 import java.util.Arrays;
 
 import javax.swing.JFileChooser;
@@ -77,7 +78,8 @@ public class ControladorModificar  implements ActionListener {
 	 */
 	public final void actionPerformed(final ActionEvent evento) {
 		Validacion validacion = new Validacion();
-		flag = true;		
+		flag = true;
+		int opcion = 3;
 		if (vista.btnImagen == evento.getSource()) {
 			if (vista.textoUsuario.getText() != "") {
 				JFileChooser chooser = new JFileChooser();
@@ -164,22 +166,25 @@ public class ControladorModificar  implements ActionListener {
 				 vista.lblFechaErr.setForeground(Color.RED);
 				 vista.lblFechaErr.setText("Fecha invalida");
 			 }
+			 if (usuarioModificar.getImagen().length() > 1536000) {
+				 JOptionPane.showMessageDialog(null, "La imagen pesa mucho, elija una imagen que"
+				 		+ " pese menos de 1.5mb", "Problema de modificacion", JOptionPane.INFORMATION_MESSAGE);
+				 flag = false;
+			 }
 			 if (flag) {
-				 int opcion = cliente.flujo(usuarioModificar, cliente.getNombre(), flagImagen);	
-				 if (opcion == 0) { // Todo bien
-					 this.vista.setVisible(false);
-				 } else if (opcion == 1) { // El correo ya existe
-					 this.correoRepetido();
-				 } else if (opcion == 2) { // EL usuario ya existe
-					 this.usuarioRepetido();
-				 } else if (opcion == 4) { //Error guardando la imagen
-					 JOptionPane.showMessageDialog(null, "Ocurrio un error al intentar modificar la imagen,"
-					 		+ " intente con otra.", "Problema de modificacion", JOptionPane.INFORMATION_MESSAGE);
-				 }
-				 else {
-					 JOptionPane.showMessageDialog(null, "La modificación no fue satisfactoria.", 
-							 "Problema de modificacion", JOptionPane.INFORMATION_MESSAGE);
-				 }
+					opcion = cliente.flujo(usuarioModificar, cliente.getNombre(), flagImagen);
+					 if (opcion == 0) { // Todo bien
+						 this.vista.setVisible(false);
+					 } else if (opcion == 1) { // El correo ya existe
+						 this.correoRepetido();
+					 } else if (opcion == 2) { // EL usuario ya existe
+						 this.usuarioRepetido();
+					 } else if (opcion == 4) { //Error guardando la imagen
+						 
+					 } else {
+						 JOptionPane.showMessageDialog(null, "La modificación no fue satisfactoria.", 
+								 "Problema de modificacion", JOptionPane.INFORMATION_MESSAGE);
+					 }
 			 }
 		}
 		else if (vista.botonSalir == evento.getSource()) {
