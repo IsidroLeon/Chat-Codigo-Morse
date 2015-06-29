@@ -15,7 +15,7 @@ import javax.swing.JPasswordField;
 
 /**
  * Clase encargada de la vista de la ventana modificar datos
- * @authors Grupo 3
+ * @author Grupo 3
  */
 
 @SuppressWarnings("serial")

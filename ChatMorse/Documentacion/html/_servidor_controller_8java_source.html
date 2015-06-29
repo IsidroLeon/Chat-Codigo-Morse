@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>ChatMorse: Fichero Fuente Escritorio/ChatMorse/src/com/ucab/javachat/Servidor/controller/ServidorController.java</title>
+<title>Chat codigo morse: Fichero Fuente Chat-Codigo-Morse/ChatMorse/src/com/ucab/javachat/Servidor/controller/ServidorController.java</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,8 +29,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">ChatMorse
+   <div id="projectname">Chat codigo morse
+   &#160;<span id="projectnumber">1</span>
    </div>
+   <div id="projectbrief">Chat en codigo morse</div>
   </td>
  </tr>
  </tbody>
@@ -112,65 +114,66 @@ $(document).ready(function(){initNavTree('_servidor_controller_8java_source.html
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">import</span> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1model_1_1_servidor_model.html">com.ucab.javachat.Servidor.model.ServidorModel</a>;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">import</span> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1view_1_1_servidor_view.html">com.ucab.javachat.Servidor.view.ServidorView</a>;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html">   10</a></span>&#160;<span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html">ServidorController</a> {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">private</span> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1view_1_1_servidor_view.html">ServidorView</a> vista;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html#a36f238b4a06304d92f09c51ca60c31e5">   13</a></span>&#160;    <span class="keyword">public</span> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html#a36f238b4a06304d92f09c51ca60c31e5">ServidorController</a>(<a class="code" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1view_1_1_servidor_view.html">ServidorView</a> vista) {</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        this.vista = vista;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html#a363c2a7d307466fc9afd04fa3de32b68">runServer</a>();</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    }</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    </div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html#a73afbbd665ab0cdb6bfb58e1726ffe3c">   18</a></span>&#160; <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html#a73afbbd665ab0cdb6bfb58e1726ffe3c">mostrar</a>(String msg)</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;   {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;      vista.txaMostrar.append(msg+<span class="stringliteral">&quot;\n&quot;</span>);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;   }</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html#a363c2a7d307466fc9afd04fa3de32b68">   22</a></span>&#160;   <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html#a363c2a7d307466fc9afd04fa3de32b68">runServer</a>()</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;   {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;      ServerSocket serv = null;<span class="comment">//para comunicacion</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;      ServerSocket serv2 = null;<span class="comment">//para enviar mensajes</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;      <span class="keywordtype">boolean</span> listening = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;      <span class="keywordflow">try</span>{</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;         serv=<span class="keyword">new</span> ServerSocket(8081);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;         serv2=<span class="keyword">new</span> ServerSocket(8082);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;         <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html#a73afbbd665ab0cdb6bfb58e1726ffe3c">mostrar</a>(<span class="stringliteral">&quot;.::Servidor activo :&quot;</span>);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;         <span class="keywordflow">while</span>(listening)</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;         {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            Socket sock=null,sock2=null;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="keywordflow">try</span> {</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;               <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html#a73afbbd665ab0cdb6bfb58e1726ffe3c">mostrar</a>(<span class="stringliteral">&quot;Esperando Usuarios&quot;</span>);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;               sock=serv.accept();</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;               sock2=serv2.accept();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            } <span class="keywordflow">catch</span> (IOException e)</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;               <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html#a73afbbd665ab0cdb6bfb58e1726ffe3c">mostrar</a>(<span class="stringliteral">&quot;Accept failed: &quot;</span> + serv + <span class="stringliteral">&quot;, &quot;</span> + e.getMessage());</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;               <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1model_1_1_servidor_model.html">ServidorModel</a> user= <span class="keyword">new</span> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1model_1_1_servidor_model.html">ServidorModel</a>(sock,sock2, <span class="keyword">this</span>);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html#a73afbbd665ab0cdb6bfb58e1726ffe3c">mostrar</a>(<span class="stringliteral">&quot;cliente agregado: &quot;</span>+user); </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            user.start();</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html#a73afbbd665ab0cdb6bfb58e1726ffe3c">mostrar</a>(<span class="stringliteral">&quot;.::Esperando Mensajes :&quot;</span>);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;         }</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;         </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      }<span class="keywordflow">catch</span>(IOException e){</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;         <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html#a73afbbd665ab0cdb6bfb58e1726ffe3c">mostrar</a>(<span class="stringliteral">&quot;error :&quot;</span>+e);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;   }</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
-<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller_html_a36f238b4a06304d92f09c51ca60c31e5"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html#a36f238b4a06304d92f09c51ca60c31e5">com.ucab.javachat.Servidor.controller.ServidorController.ServidorController</a></div><div class="ttdeci">ServidorController(ServidorView vista)</div><div class="ttdef"><b>Definition:</b> <a href="_servidor_controller_8java_source.html#l00013">ServidorController.java:13</a></div></div>
-<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1model_1_1_servidor_model_html"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1model_1_1_servidor_model.html">com.ucab.javachat.Servidor.model.ServidorModel</a></div><div class="ttdef"><b>Definition:</b> <a href="_servidor_model_8java_source.html#l00025">ServidorModel.java:25</a></div></div>
-<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller_html_a73afbbd665ab0cdb6bfb58e1726ffe3c"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html#a73afbbd665ab0cdb6bfb58e1726ffe3c">com.ucab.javachat.Servidor.controller.ServidorController.mostrar</a></div><div class="ttdeci">void mostrar(String msg)</div><div class="ttdef"><b>Definition:</b> <a href="_servidor_controller_8java_source.html#l00018">ServidorController.java:18</a></div></div>
-<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller_html_a363c2a7d307466fc9afd04fa3de32b68"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html#a363c2a7d307466fc9afd04fa3de32b68">com.ucab.javachat.Servidor.controller.ServidorController.runServer</a></div><div class="ttdeci">void runServer()</div><div class="ttdef"><b>Definition:</b> <a href="_servidor_controller_8java_source.html#l00022">ServidorController.java:22</a></div></div>
-<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller_html"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html">com.ucab.javachat.Servidor.controller.ServidorController</a></div><div class="ttdef"><b>Definition:</b> <a href="_servidor_controller_8java_source.html#l00010">ServidorController.java:10</a></div></div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html">   13</a></span>&#160;<span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html">ServidorController</a> {</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html#a7e3057cef89a67f6e9048eabd75426b7">   14</a></span>&#160;    <span class="keyword">private</span> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1view_1_1_servidor_view.html">ServidorView</a> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html#a7e3057cef89a67f6e9048eabd75426b7">vista</a>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    </div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html#a36f238b4a06304d92f09c51ca60c31e5">   20</a></span>&#160;    <span class="keyword">public</span> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html#a36f238b4a06304d92f09c51ca60c31e5">ServidorController</a>(<a class="code" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1view_1_1_servidor_view.html">ServidorView</a> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html#a7e3057cef89a67f6e9048eabd75426b7">vista</a>) {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        this.vista = <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html#a7e3057cef89a67f6e9048eabd75426b7">vista</a>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html#a363c2a7d307466fc9afd04fa3de32b68">runServer</a>();</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    }</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html#a73afbbd665ab0cdb6bfb58e1726ffe3c">   30</a></span>&#160; <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html#a73afbbd665ab0cdb6bfb58e1726ffe3c">mostrar</a>(String msg)</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;   {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;      vista.txaMostrar.append(msg+<span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;   }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html#a363c2a7d307466fc9afd04fa3de32b68">   38</a></span>&#160;   <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html#a363c2a7d307466fc9afd04fa3de32b68">runServer</a>()</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;   {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;      ServerSocket serv = null;<span class="comment">//para comunicacion</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      ServerSocket serv2 = null;<span class="comment">//para enviar mensajes</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      <span class="keywordtype">boolean</span> listening = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      <span class="keywordflow">try</span>{</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;         serv=<span class="keyword">new</span> ServerSocket(8081);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;         serv2=<span class="keyword">new</span> ServerSocket(8082);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;         <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html#a73afbbd665ab0cdb6bfb58e1726ffe3c">mostrar</a>(<span class="stringliteral">&quot;.::Servidor activo :&quot;</span>);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;         <span class="keywordflow">while</span>(listening)</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;         {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            Socket sock=null,sock2=null;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="keywordflow">try</span> {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;               <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html#a73afbbd665ab0cdb6bfb58e1726ffe3c">mostrar</a>(<span class="stringliteral">&quot;Esperando Usuarios&quot;</span>);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;               sock=serv.accept();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;               sock2=serv2.accept();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            } <span class="keywordflow">catch</span> (IOException e)</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;               <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html#a73afbbd665ab0cdb6bfb58e1726ffe3c">mostrar</a>(<span class="stringliteral">&quot;Accept failed: &quot;</span> + serv + <span class="stringliteral">&quot;, &quot;</span> + e.getMessage());</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;               <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1model_1_1_servidor_model.html">ServidorModel</a> user= <span class="keyword">new</span> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1model_1_1_servidor_model.html">ServidorModel</a>(sock,sock2, <span class="keyword">this</span>);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html#a73afbbd665ab0cdb6bfb58e1726ffe3c">mostrar</a>(<span class="stringliteral">&quot;cliente agregado: &quot;</span>+user); </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            user.start();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html#a73afbbd665ab0cdb6bfb58e1726ffe3c">mostrar</a>(<span class="stringliteral">&quot;.::Esperando Mensajes :&quot;</span>);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;         }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;         </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      }<span class="keywordflow">catch</span>(IOException e){</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;         <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html#a73afbbd665ab0cdb6bfb58e1726ffe3c">mostrar</a>(<span class="stringliteral">&quot;error :&quot;</span>+e);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;   }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller_html_a36f238b4a06304d92f09c51ca60c31e5"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html#a36f238b4a06304d92f09c51ca60c31e5">com.ucab.javachat.Servidor.controller.ServidorController.ServidorController</a></div><div class="ttdeci">ServidorController(ServidorView vista)</div><div class="ttdef"><b>Definition:</b> <a href="_servidor_controller_8java_source.html#l00020">ServidorController.java:20</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1model_1_1_servidor_model_html"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1model_1_1_servidor_model.html">com.ucab.javachat.Servidor.model.ServidorModel</a></div><div class="ttdef"><b>Definition:</b> <a href="_servidor_model_8java_source.html#l00026">ServidorModel.java:26</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller_html_a73afbbd665ab0cdb6bfb58e1726ffe3c"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html#a73afbbd665ab0cdb6bfb58e1726ffe3c">com.ucab.javachat.Servidor.controller.ServidorController.mostrar</a></div><div class="ttdeci">void mostrar(String msg)</div><div class="ttdef"><b>Definition:</b> <a href="_servidor_controller_8java_source.html#l00030">ServidorController.java:30</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller_html_a7e3057cef89a67f6e9048eabd75426b7"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html#a7e3057cef89a67f6e9048eabd75426b7">com.ucab.javachat.Servidor.controller.ServidorController.vista</a></div><div class="ttdeci">ServidorView vista</div><div class="ttdef"><b>Definition:</b> <a href="_servidor_controller_8java_source.html#l00014">ServidorController.java:14</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller_html_a363c2a7d307466fc9afd04fa3de32b68"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html#a363c2a7d307466fc9afd04fa3de32b68">com.ucab.javachat.Servidor.controller.ServidorController.runServer</a></div><div class="ttdeci">void runServer()</div><div class="ttdef"><b>Definition:</b> <a href="_servidor_controller_8java_source.html#l00038">ServidorController.java:38</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller_html"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html">com.ucab.javachat.Servidor.controller.ServidorController</a></div><div class="ttdef"><b>Definition:</b> <a href="_servidor_controller_8java_source.html#l00013">ServidorController.java:13</a></div></div>
 <div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1view_1_1_servidor_view_html"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_servidor_1_1view_1_1_servidor_view.html">com.ucab.javachat.Servidor.view.ServidorView</a></div><div class="ttdef"><b>Definition:</b> <a href="_servidor_view_8java_source.html#l00014">ServidorView.java:14</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_e5299afe291bd8344f72589e478b6892.html">Escritorio</a></li><li class="navelem"><a class="el" href="dir_b97110eeadfa978e2f1ddbe989a0efbd.html">ChatMorse</a></li><li class="navelem"><a class="el" href="dir_fcbd9d6e3387b6500baf78ad107b6fac.html">src</a></li><li class="navelem"><a class="el" href="dir_8ed2512e3d91de1820efcc99b53fd5f4.html">com</a></li><li class="navelem"><a class="el" href="dir_797bf6a62b3a649625898c6db28f5dae.html">ucab</a></li><li class="navelem"><a class="el" href="dir_db5bee107248ca5e160f4c34cfe2335a.html">javachat</a></li><li class="navelem"><a class="el" href="dir_9df8412c9b4aeaf8fb71c221d74c8f61.html">Servidor</a></li><li class="navelem"><a class="el" href="dir_470ebb15165a3aad4b3c85dc1438114c.html">controller</a></li><li class="navelem"><a class="el" href="_servidor_controller_8java.html">ServidorController.java</a></li>
-    <li class="footer">Generado el Domingo, 28 de Junio de 2015 20:00:49 para ChatMorse por
+    <li class="navelem"><a class="el" href="dir_06027c96803f4ae7485d3c6ab6ea4659.html">Chat-Codigo-Morse</a></li><li class="navelem"><a class="el" href="dir_c37c2b1e0391bbb3b2862a40729bac8e.html">ChatMorse</a></li><li class="navelem"><a class="el" href="dir_698feb8a8754d25583633a3b3af39fe8.html">src</a></li><li class="navelem"><a class="el" href="dir_d2ee5da602ffa679a824132ee9ad1aea.html">com</a></li><li class="navelem"><a class="el" href="dir_56349b6200b5c8953f34b3aeff705002.html">ucab</a></li><li class="navelem"><a class="el" href="dir_ef7300534267217be745bb9cc8e7f003.html">javachat</a></li><li class="navelem"><a class="el" href="dir_ba88510fd03bcb187ef5d68d346fb116.html">Servidor</a></li><li class="navelem"><a class="el" href="dir_14ac639af575c2bc5e1882848fffd8ee.html">controller</a></li><li class="navelem"><a class="el" href="_servidor_controller_8java.html">ServidorController.java</a></li>
+    <li class="footer">Generado el Lunes, 29 de Junio de 2015 12:26:43 para Chat codigo morse por
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

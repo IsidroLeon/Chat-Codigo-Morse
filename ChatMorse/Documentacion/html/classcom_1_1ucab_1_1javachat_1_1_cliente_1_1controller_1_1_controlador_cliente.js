@@ -10,10 +10,22 @@ var classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_clien
     [ "getUsuarioAutenticado", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a12ea6a6be82d2b5ce6bcc1fc6d4f3a73", null ],
     [ "mensajeAmigo", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#aad384e7a7cfd86adf60b62591a5d49ff", null ],
     [ "ponerActivos", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a0ec86bb408cc78782346b4c01b95a7d6", null ],
+    [ "ponerDatosList", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a581855238a10a921d4d3a4660c8e93b9", null ],
     [ "retirraUser", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#abb244f9e8904743e123c5e86a42c4710", null ],
     [ "setClave", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a8647e56fdb735f7abdef284b023e9f53", null ],
     [ "setImagen", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a6e7b9e6c4a82829efbd0aae6c2658184", null ],
     [ "setLabelUser", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#aa19a69efd4f74891f467345498ddcb39", null ],
     [ "setUsuario", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a29e6cb2c38d42517282ce2da900b3516", null ],
-    [ "setUsuarioAutenticado", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a32c622eb684b582d03d81ae98bf8be49", null ]
+    [ "setUsuarioAutenticado", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a32c622eb684b582d03d81ae98bf8be49", null ],
+    [ "actualizarUsuario", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a80066039dc3953b8fb26e28a2b4b0106", null ],
+    [ "clave", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a5b5a00d9f110f1be185d669775c854d3", null ],
+    [ "cliente", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a779b8b1fb5498365801ea9212419db0d", null ],
+    [ "contPrivada", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a9b006ee572e2d0f8ff7a5eb7bac79e7e", null ],
+    [ "imagen", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#ac9d4cfb3773a142a88dedb723927597d", null ],
+    [ "modificador", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#abd6cf34d99714bf8cd05899111e029a0", null ],
+    [ "nombreUsuario", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a65f03d6ee420fa8f50a482dbedc4dfb9", null ],
+    [ "usuarioAutenticado", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a36cda9fa617e7329c22739ea8e42cc8c", null ],
+    [ "ventana", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a11a0df23e05354aeee5df2b470b91f6e", null ],
+    [ "ventModificar", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a72c091d09e382bf8ca06266b85035e39", null ],
+    [ "ventPrivada", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#acba1507390786a210aa1876ef94a1a97", null ]
 ];

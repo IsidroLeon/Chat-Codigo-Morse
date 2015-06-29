@@ -1,0 +1,5 @@
+<map id="com.ucab.javachat.Servidor.model.ServidorModel.iniciarSesion" name="com.ucab.javachat.Servidor.model.ServidorModel.iniciarSesion">
+<area shape="rect" id="node2" href="$classcom_1_1ucab_1_1javachat_1_1_servidor_1_1model_1_1_servidor_model.html#aad88766777b8f162d8ee92ba5de47fee" title="com.ucab.javachat.Servidor.model.\lServidorModel.getNameUser" alt="" coords="280,5,507,46"/>
+<area shape="rect" id="node3" href="$classcom_1_1ucab_1_1javachat_1_1_servidor_1_1model_1_1_servidor_model.html#a41c2949a837481f36ee9cb7b3c77dd80" title="com.ucab.javachat.Servidor.model.\lServidorModel.getClave" alt="" coords="280,70,507,111"/>
+<area shape="rect" id="node4" href="$classcom_1_1ucab_1_1javachat_1_1_servidor_1_1model_1_1_servidor_model.html#aa0cf65003f403b8a0c6f1e9032c853b9" title="com.ucab.javachat.Servidor.model.\lServidorModel.getImagen" alt="" coords="280,135,507,177"/>
+</map>

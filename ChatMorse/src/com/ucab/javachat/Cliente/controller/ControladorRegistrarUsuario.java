@@ -22,7 +22,7 @@ import com.ucab.javachat.Cliente.model.Validacion;
  * Si todos los campos estan correctamente rellenados, se procede a enviar la información
  * al servidor para guardarla.
  * 
- * @authors Grupo 3 - A. Rodriguez, I. Teixeira, L. Valladares, D. Suarez
+ * @author Grupo 3 - A. Rodriguez, I. Teixeira, L. Valladares, D. Suarez
  * @version 2.0
  * 
  */
@@ -40,7 +40,6 @@ public class ControladorRegistrarUsuario implements ActionListener {
 	/**
 	 * Constructor del controlador. Aqui se añaden los Listener a los botones de la vista.
 	 * @param vista - Instancia de la ventana para registrar al usuario.
-	 * @param cliente - Instancia del modelo en el que se envian los datos del usuario al servidor.
 	 */
 	public ControladorRegistrarUsuario(VentRegistro vista){
 		this.vista = vista;

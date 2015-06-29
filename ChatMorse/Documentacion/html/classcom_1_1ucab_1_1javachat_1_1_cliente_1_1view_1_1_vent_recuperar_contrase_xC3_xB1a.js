@@ -1,6 +1,7 @@
 var classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_recuperar_contrase_xC3_xB1a =
 [
     [ "VentRecuperarContraseña", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_recuperar_contrase_xC3_xB1a.html#a05149abff663644104b70961accbce14", null ],
+    [ "initialize", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_recuperar_contrase_xC3_xB1a.html#a586eb94982c49c10b682dfa306631dbe", null ],
     [ "btnEnviar", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_recuperar_contrase_xC3_xB1a.html#a706b0887be2a8a4995cf3f6b3b81f16b", null ],
     [ "btnSeleccionar", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_recuperar_contrase_xC3_xB1a.html#a018ea4776e5b9ff7076aa560b4f19fe9", null ],
     [ "frameRecuperarContraseña", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_recuperar_contrase_xC3_xB1a.html#a04128faac0a1606d3b7377debaf91fc9", null ],

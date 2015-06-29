@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>ChatMorse: Fichero Fuente Escritorio/ChatMorse/src/com/ucab/javachat/Cliente/view/VentIniciarSesion.java</title>
+<title>Chat codigo morse: Fichero Fuente Chat-Codigo-Morse/ChatMorse/src/com/ucab/javachat/Cliente/view/VentIniciarSesion.java</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,8 +29,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">ChatMorse
+   <div id="projectname">Chat codigo morse
+   &#160;<span id="projectnumber">1</span>
    </div>
+   <div id="projectbrief">Chat en codigo morse</div>
   </td>
  </tr>
  </tbody>
@@ -113,92 +115,93 @@ $(document).ready(function(){initNavTree('_vent_iniciar_sesion_8java_source.html
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">import</span> javax.swing.JButton;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">import</span> javax.swing.JTextField;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;@SuppressWarnings(<span class="stringliteral">&quot;serial&quot;</span>)</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html">   11</a></span>&#160;public class <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html">VentIniciarSesion</a> extends JFrame{</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html#ae856c96e708fb56f72bc9cbc5d7fa2e6">   13</a></span>&#160;    <span class="keyword">public</span> JFrame <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html#ae856c96e708fb56f72bc9cbc5d7fa2e6">frmInicioDeSesion</a>;</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html#a6605fb227c982704cea8d29e26209d95">   14</a></span>&#160;    <span class="keyword">public</span> JTextField <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html#a6605fb227c982704cea8d29e26209d95">txtUsuario</a>;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html#a0f3064f6c169e2791341e6050b2d4fcb">   15</a></span>&#160;    <span class="keyword">public</span> JPasswordField <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html#a0f3064f6c169e2791341e6050b2d4fcb">txtClave</a>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html#a342802505cebdc0cd4894a05ce9bbe00">   16</a></span>&#160;    <span class="keyword">public</span> JButton <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html#a342802505cebdc0cd4894a05ce9bbe00">btnContrasena</a>, btnArchivo, btnEnviar, btnRegistro;</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html#acbc2aba983ddff4636b19495fed687ad">   17</a></span>&#160;    <span class="keyword">public</span> JLabel <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html#acbc2aba983ddff4636b19495fed687ad">lblValidacion</a>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    </div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html#a516cd038239865f918e02a6ffc91c312">   20</a></span>&#160;    <span class="keyword">public</span> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html#a516cd038239865f918e02a6ffc91c312">VentIniciarSesion</a>() {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        initialize();</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    }</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">private</span> <span class="keywordtype">void</span> initialize() {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        frmInicioDeSesion = <span class="keyword">new</span> JFrame();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        frmInicioDeSesion.setTitle(<span class="stringliteral">&quot;Inicio de sesión&quot;</span>);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        frmInicioDeSesion.setBounds(100, 100, 243, 345);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        frmInicioDeSesion.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        frmInicioDeSesion.getContentPane().setLayout(null);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        JLabel lblIniciarSesion = <span class="keyword">new</span> JLabel(<span class="stringliteral">&quot;Inicio de Sesión.&quot;</span>);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        lblIniciarSesion.setFont(<span class="keyword">new</span> Font(<span class="stringliteral">&quot;Dialog&quot;</span>, Font.BOLD, 18));</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        lblIniciarSesion.setBounds(40, 21, 200, 15);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        frmInicioDeSesion.getContentPane().add(lblIniciarSesion);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;@SuppressWarnings(<span class="stringliteral">&quot;serial&quot;</span>)</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html">   16</a></span>&#160;public class <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html">VentIniciarSesion</a> extends JFrame{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html#ae856c96e708fb56f72bc9cbc5d7fa2e6">   18</a></span>&#160;    <span class="keyword">public</span> JFrame <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html#ae856c96e708fb56f72bc9cbc5d7fa2e6">frmInicioDeSesion</a>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html#a6605fb227c982704cea8d29e26209d95">   19</a></span>&#160;    <span class="keyword">public</span> JTextField <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html#a6605fb227c982704cea8d29e26209d95">txtUsuario</a>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html#a0f3064f6c169e2791341e6050b2d4fcb">   20</a></span>&#160;    <span class="keyword">public</span> JPasswordField <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html#a0f3064f6c169e2791341e6050b2d4fcb">txtClave</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html#a601cd0931afd844e425c15c444a7963a">   21</a></span>&#160;    <span class="keyword">public</span> JButton btnContrasena, btnArchivo, btnEnviar, <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html#a601cd0931afd844e425c15c444a7963a">btnRegistro</a>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html#acbc2aba983ddff4636b19495fed687ad">   22</a></span>&#160;    <span class="keyword">public</span> JLabel <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html#acbc2aba983ddff4636b19495fed687ad">lblValidacion</a>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    </div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html#a516cd038239865f918e02a6ffc91c312">   25</a></span>&#160;    <span class="keyword">public</span> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html#a516cd038239865f918e02a6ffc91c312">VentIniciarSesion</a>() {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        initialize();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    }</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html#aabf69ec63fa04f391c28a0e83cd0ff11">   32</a></span>&#160;    <span class="keyword">private</span> <span class="keywordtype">void</span> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html#aabf69ec63fa04f391c28a0e83cd0ff11">initialize</a>() {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        frmInicioDeSesion = <span class="keyword">new</span> JFrame();</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        frmInicioDeSesion.setTitle(<span class="stringliteral">&quot;Inicio de sesión&quot;</span>);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        frmInicioDeSesion.setBounds(100, 100, 243, 345);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        frmInicioDeSesion.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        frmInicioDeSesion.getContentPane().setLayout(null);</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        JLabel lblUsuario = <span class="keyword">new</span> JLabel(<span class="stringliteral">&quot;Usuario:&quot;</span>);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        lblUsuario.setBounds(20, 80, 70, 15);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        frmInicioDeSesion.getContentPane().add(lblUsuario);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        JLabel lblClave = <span class="keyword">new</span> JLabel(<span class="stringliteral">&quot;Clave:&quot;</span>);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        lblClave.setBounds(20, 106, 70, 15);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        frmInicioDeSesion.getContentPane().add(lblClave);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        JLabel lblFoto = <span class="keyword">new</span> JLabel(<span class="stringliteral">&quot;Foto:&quot;</span>);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        lblFoto.setBounds(20, 132, 70, 15);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        frmInicioDeSesion.getContentPane().add(lblFoto);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        txtUsuario = <span class="keyword">new</span> JTextField();</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        txtUsuario.setBounds(84, 78, 128, 17);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        frmInicioDeSesion.getContentPane().add(txtUsuario);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        txtUsuario.setColumns(10);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        JLabel lblIniciarSesion = <span class="keyword">new</span> JLabel(<span class="stringliteral">&quot;Inicio de Sesión.&quot;</span>);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        lblIniciarSesion.setFont(<span class="keyword">new</span> Font(<span class="stringliteral">&quot;Dialog&quot;</span>, Font.BOLD, 18));</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        lblIniciarSesion.setBounds(40, 21, 200, 15);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        frmInicioDeSesion.getContentPane().add(lblIniciarSesion);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        JLabel lblUsuario = <span class="keyword">new</span> JLabel(<span class="stringliteral">&quot;Usuario:&quot;</span>);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        lblUsuario.setBounds(20, 80, 70, 15);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        frmInicioDeSesion.getContentPane().add(lblUsuario);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        JLabel lblClave = <span class="keyword">new</span> JLabel(<span class="stringliteral">&quot;Clave:&quot;</span>);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        lblClave.setBounds(20, 106, 70, 15);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        frmInicioDeSesion.getContentPane().add(lblClave);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        JLabel lblFoto = <span class="keyword">new</span> JLabel(<span class="stringliteral">&quot;Foto:&quot;</span>);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        lblFoto.setBounds(20, 132, 70, 15);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        frmInicioDeSesion.getContentPane().add(lblFoto);</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        txtClave = <span class="keyword">new</span> JPasswordField();</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        txtClave.setBounds(84, 103, 128, 19);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        frmInicioDeSesion.getContentPane().add(txtClave);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        txtClave.setColumns(10);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        txtUsuario = <span class="keyword">new</span> JTextField();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        txtUsuario.setBounds(84, 78, 128, 17);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        frmInicioDeSesion.getContentPane().add(txtUsuario);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        txtUsuario.setColumns(10);</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        btnContrasena = <span class="keyword">new</span> JButton(<span class="stringliteral">&quot;Recuperar contraseña&quot;</span>);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        btnContrasena.setBounds(20, 278, 200, 25);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        frmInicioDeSesion.getContentPane().add(btnContrasena);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        btnEnviar = <span class="keyword">new</span> JButton(<span class="stringliteral">&quot;Iniciar sesión&quot;</span>);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        btnEnviar.setBounds(20, 204, 200, 25);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        frmInicioDeSesion.getContentPane().add(btnEnviar);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        btnArchivo = <span class="keyword">new</span> JButton(<span class="stringliteral">&quot;Seleccionar&quot;</span>);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        btnArchivo.setBounds(84, 127, 128, 25);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        frmInicioDeSesion.getContentPane().add(btnArchivo);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        btnRegistro = <span class="keyword">new</span> JButton(<span class="stringliteral">&quot;Registrar&quot;</span>);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        btnRegistro.setBounds(20, 241, 200, 25);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        frmInicioDeSesion.getContentPane().add(btnRegistro);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        lblValidacion = <span class="keyword">new</span> JLabel(<span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        lblValidacion.setBounds(20, 166, 207, 15);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        frmInicioDeSesion.getContentPane().add(lblValidacion);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        setResizable(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    }</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;}</div>
-<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion_html_a516cd038239865f918e02a6ffc91c312"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html#a516cd038239865f918e02a6ffc91c312">com.ucab.javachat.Cliente.view.VentIniciarSesion.VentIniciarSesion</a></div><div class="ttdeci">VentIniciarSesion()</div><div class="ttdef"><b>Definition:</b> <a href="_vent_iniciar_sesion_8java_source.html#l00020">VentIniciarSesion.java:20</a></div></div>
-<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion_html_acbc2aba983ddff4636b19495fed687ad"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html#acbc2aba983ddff4636b19495fed687ad">com.ucab.javachat.Cliente.view.VentIniciarSesion.lblValidacion</a></div><div class="ttdeci">JLabel lblValidacion</div><div class="ttdef"><b>Definition:</b> <a href="_vent_iniciar_sesion_8java_source.html#l00017">VentIniciarSesion.java:17</a></div></div>
-<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion_html_a342802505cebdc0cd4894a05ce9bbe00"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html#a342802505cebdc0cd4894a05ce9bbe00">com.ucab.javachat.Cliente.view.VentIniciarSesion.btnContrasena</a></div><div class="ttdeci">JButton btnContrasena</div><div class="ttdef"><b>Definition:</b> <a href="_vent_iniciar_sesion_8java_source.html#l00016">VentIniciarSesion.java:16</a></div></div>
-<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion_html_ae856c96e708fb56f72bc9cbc5d7fa2e6"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html#ae856c96e708fb56f72bc9cbc5d7fa2e6">com.ucab.javachat.Cliente.view.VentIniciarSesion.frmInicioDeSesion</a></div><div class="ttdeci">JFrame frmInicioDeSesion</div><div class="ttdef"><b>Definition:</b> <a href="_vent_iniciar_sesion_8java_source.html#l00013">VentIniciarSesion.java:13</a></div></div>
-<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion_html_a0f3064f6c169e2791341e6050b2d4fcb"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html#a0f3064f6c169e2791341e6050b2d4fcb">com.ucab.javachat.Cliente.view.VentIniciarSesion.txtClave</a></div><div class="ttdeci">JPasswordField txtClave</div><div class="ttdef"><b>Definition:</b> <a href="_vent_iniciar_sesion_8java_source.html#l00015">VentIniciarSesion.java:15</a></div></div>
-<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion_html_a6605fb227c982704cea8d29e26209d95"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html#a6605fb227c982704cea8d29e26209d95">com.ucab.javachat.Cliente.view.VentIniciarSesion.txtUsuario</a></div><div class="ttdeci">JTextField txtUsuario</div><div class="ttdef"><b>Definition:</b> <a href="_vent_iniciar_sesion_8java_source.html#l00014">VentIniciarSesion.java:14</a></div></div>
-<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion_html"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html">com.ucab.javachat.Cliente.view.VentIniciarSesion</a></div><div class="ttdef"><b>Definition:</b> <a href="_vent_iniciar_sesion_8java_source.html#l00011">VentIniciarSesion.java:11</a></div></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        txtClave = <span class="keyword">new</span> JPasswordField();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        txtClave.setBounds(84, 103, 128, 19);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        frmInicioDeSesion.getContentPane().add(txtClave);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        txtClave.setColumns(10);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        btnContrasena = <span class="keyword">new</span> JButton(<span class="stringliteral">&quot;Recuperar contraseña&quot;</span>);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        btnContrasena.setBounds(20, 278, 200, 25);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        frmInicioDeSesion.getContentPane().add(btnContrasena);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        btnEnviar = <span class="keyword">new</span> JButton(<span class="stringliteral">&quot;Iniciar sesión&quot;</span>);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        btnEnviar.setBounds(20, 204, 200, 25);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        frmInicioDeSesion.getContentPane().add(btnEnviar);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        btnArchivo = <span class="keyword">new</span> JButton(<span class="stringliteral">&quot;Seleccionar&quot;</span>);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        btnArchivo.setBounds(84, 127, 128, 25);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        frmInicioDeSesion.getContentPane().add(btnArchivo);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        btnRegistro = <span class="keyword">new</span> JButton(<span class="stringliteral">&quot;Registrar&quot;</span>);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        btnRegistro.setBounds(20, 241, 200, 25);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        frmInicioDeSesion.getContentPane().add(btnRegistro);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        lblValidacion = <span class="keyword">new</span> JLabel(<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        lblValidacion.setBounds(20, 166, 207, 15);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        frmInicioDeSesion.getContentPane().add(lblValidacion);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        setResizable(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    }</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}</div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion_html_a601cd0931afd844e425c15c444a7963a"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html#a601cd0931afd844e425c15c444a7963a">com.ucab.javachat.Cliente.view.VentIniciarSesion.btnRegistro</a></div><div class="ttdeci">JButton btnRegistro</div><div class="ttdef"><b>Definition:</b> <a href="_vent_iniciar_sesion_8java_source.html#l00021">VentIniciarSesion.java:21</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion_html_a516cd038239865f918e02a6ffc91c312"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html#a516cd038239865f918e02a6ffc91c312">com.ucab.javachat.Cliente.view.VentIniciarSesion.VentIniciarSesion</a></div><div class="ttdeci">VentIniciarSesion()</div><div class="ttdef"><b>Definition:</b> <a href="_vent_iniciar_sesion_8java_source.html#l00025">VentIniciarSesion.java:25</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion_html_aabf69ec63fa04f391c28a0e83cd0ff11"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html#aabf69ec63fa04f391c28a0e83cd0ff11">com.ucab.javachat.Cliente.view.VentIniciarSesion.initialize</a></div><div class="ttdeci">void initialize()</div><div class="ttdef"><b>Definition:</b> <a href="_vent_iniciar_sesion_8java_source.html#l00032">VentIniciarSesion.java:32</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion_html_acbc2aba983ddff4636b19495fed687ad"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html#acbc2aba983ddff4636b19495fed687ad">com.ucab.javachat.Cliente.view.VentIniciarSesion.lblValidacion</a></div><div class="ttdeci">JLabel lblValidacion</div><div class="ttdef"><b>Definition:</b> <a href="_vent_iniciar_sesion_8java_source.html#l00022">VentIniciarSesion.java:22</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion_html_ae856c96e708fb56f72bc9cbc5d7fa2e6"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html#ae856c96e708fb56f72bc9cbc5d7fa2e6">com.ucab.javachat.Cliente.view.VentIniciarSesion.frmInicioDeSesion</a></div><div class="ttdeci">JFrame frmInicioDeSesion</div><div class="ttdef"><b>Definition:</b> <a href="_vent_iniciar_sesion_8java_source.html#l00018">VentIniciarSesion.java:18</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion_html_a0f3064f6c169e2791341e6050b2d4fcb"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html#a0f3064f6c169e2791341e6050b2d4fcb">com.ucab.javachat.Cliente.view.VentIniciarSesion.txtClave</a></div><div class="ttdeci">JPasswordField txtClave</div><div class="ttdef"><b>Definition:</b> <a href="_vent_iniciar_sesion_8java_source.html#l00020">VentIniciarSesion.java:20</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion_html_a6605fb227c982704cea8d29e26209d95"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html#a6605fb227c982704cea8d29e26209d95">com.ucab.javachat.Cliente.view.VentIniciarSesion.txtUsuario</a></div><div class="ttdeci">JTextField txtUsuario</div><div class="ttdef"><b>Definition:</b> <a href="_vent_iniciar_sesion_8java_source.html#l00019">VentIniciarSesion.java:19</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion_html"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html">com.ucab.javachat.Cliente.view.VentIniciarSesion</a></div><div class="ttdef"><b>Definition:</b> <a href="_vent_iniciar_sesion_8java_source.html#l00016">VentIniciarSesion.java:16</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_e5299afe291bd8344f72589e478b6892.html">Escritorio</a></li><li class="navelem"><a class="el" href="dir_b97110eeadfa978e2f1ddbe989a0efbd.html">ChatMorse</a></li><li class="navelem"><a class="el" href="dir_fcbd9d6e3387b6500baf78ad107b6fac.html">src</a></li><li class="navelem"><a class="el" href="dir_8ed2512e3d91de1820efcc99b53fd5f4.html">com</a></li><li class="navelem"><a class="el" href="dir_797bf6a62b3a649625898c6db28f5dae.html">ucab</a></li><li class="navelem"><a class="el" href="dir_db5bee107248ca5e160f4c34cfe2335a.html">javachat</a></li><li class="navelem"><a class="el" href="dir_df6bce020d46441ca680091ab4177918.html">Cliente</a></li><li class="navelem"><a class="el" href="dir_5206164751c7f7790c44ffd9bf03eefc.html">view</a></li><li class="navelem"><a class="el" href="_vent_iniciar_sesion_8java.html">VentIniciarSesion.java</a></li>
-    <li class="footer">Generado el Domingo, 28 de Junio de 2015 20:00:49 para ChatMorse por
+    <li class="navelem"><a class="el" href="dir_06027c96803f4ae7485d3c6ab6ea4659.html">Chat-Codigo-Morse</a></li><li class="navelem"><a class="el" href="dir_c37c2b1e0391bbb3b2862a40729bac8e.html">ChatMorse</a></li><li class="navelem"><a class="el" href="dir_698feb8a8754d25583633a3b3af39fe8.html">src</a></li><li class="navelem"><a class="el" href="dir_d2ee5da602ffa679a824132ee9ad1aea.html">com</a></li><li class="navelem"><a class="el" href="dir_56349b6200b5c8953f34b3aeff705002.html">ucab</a></li><li class="navelem"><a class="el" href="dir_ef7300534267217be745bb9cc8e7f003.html">javachat</a></li><li class="navelem"><a class="el" href="dir_50b0603f18aa803276af8b9d7d1ed343.html">Cliente</a></li><li class="navelem"><a class="el" href="dir_089e3fbee2b3a4b5db0e4dc9659e24d9.html">view</a></li><li class="navelem"><a class="el" href="_vent_iniciar_sesion_8java.html">VentIniciarSesion.java</a></li>
+    <li class="footer">Generado el Lunes, 29 de Junio de 2015 12:26:43 para Chat codigo morse por
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

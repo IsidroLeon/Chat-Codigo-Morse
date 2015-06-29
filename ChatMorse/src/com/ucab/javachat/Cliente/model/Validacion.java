@@ -24,7 +24,6 @@ public class Validacion{
 	 * debe tener al menos dos numeros
 	 *
 	 * @return      Verdadero en caso de pasar la comprobación, falso de lo contrario
-	 * @author		Luis Valladares
 	 */
 	public boolean validarUsuario(String nombreUsuario){
 		Pattern p = Pattern.compile("/(^(?=.*[a-zA-ZñáéíóúÑÁÉÍÓÚ])(?=.*[0-9].*[0-9])\\b.{8,})|(^(?=.*[0-9].*[0-9])\\b.{8,})");
@@ -39,7 +38,6 @@ public class Validacion{
 	 * debe contener al menos un numero y/o caracter grafico
 	 *
 	 * @return      Verdadero en caso de pasar la comprobación, falso de lo contrario
-	 * @author		Luis Valladares
 	 */
 	public boolean validarContraseña(String contraseña){
 		Pattern p = Pattern.compile("(^(?=.*[a-zA-ZñáéíóúÑÁÉÍÓÚ])((?=.*[0-9])|(?=.*[^A-Za-z0-9_ ]))\\b.{6,12})|(^(?=.*[0-9])|(?=.*[^A-Za-z0-9_ ])\\b.{6,12})");
@@ -53,7 +51,6 @@ public class Validacion{
 	 * se admiten letras minusculas, mayusculas, acentuadas y espacios
 	 *
 	 * @return      Verdadero en caso de pasar la comprobación, falso de lo contrario
-	 * @author		Luis Valladares
 	 */
 	public boolean validarNombreCompleto(String nombreCompleto){
 		Pattern p = Pattern.compile("[a-z A-Z ñáéíóúÁÉÍÓÚ]+\\b");
@@ -66,7 +63,6 @@ public class Validacion{
 	 * el correo debe cumplir con el formato nombre@domino.***
 	 *
 	 * @return      Verdadero en caso de pasar la comprobación, falso de lo contrario
-	 * @author		Luis Valladares
 	 */
 	public boolean validarEmail(String email){
 		Pattern p = Pattern.compile("^[-!#$%&'*+/0-9=?A-Z^_a-z{|}~](\\.?[-!#$%&'*+/0-9=?A-Z^_a-z{|}~])*@[a-zA-Z](-?[a-zA-Z0-9])*(\\.[a-zA-Z](-?[a-zA-Z0-9])*)+$");
@@ -80,7 +76,6 @@ public class Validacion{
 	 * la fecha dada debe ser menor que la fecha actual, no puede ser una fecha futura
 	 *
 	 * @return      Verdadero en caso de pasar la comprobación, falso de lo contrario
-	 * @author		Luis Valladares
 	 */
 	@SuppressWarnings("deprecation")
 	public boolean validarFecha(Date fecha){

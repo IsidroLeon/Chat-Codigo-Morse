@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>ChatMorse: Fichero Fuente Escritorio/ChatMorse/src/com/ucab/javachat/Cliente/model/Validacion.java</title>
+<title>Chat codigo morse: Fichero Fuente Chat-Codigo-Morse/ChatMorse/src/com/ucab/javachat/Cliente/model/Validacion.java</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,8 +29,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">ChatMorse
+   <div id="projectname">Chat codigo morse
+   &#160;<span id="projectnumber">1</span>
    </div>
+   <div id="projectbrief">Chat en codigo morse</div>
   </td>
  </tr>
  </tbody>
@@ -113,59 +115,59 @@ $(document).ready(function(){initNavTree('_validacion_8java_source.html','');});
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
 <div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html">   18</a></span>&#160;<span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html">Validacion</a>{</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        </div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html#a4d7e1104a20469f92144e9580b34f901">   29</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">boolean</span> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html#a4d7e1104a20469f92144e9580b34f901">validarUsuario</a>(String nombreUsuario){</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        Pattern p = Pattern.compile(<span class="stringliteral">&quot;/(^(?=.*[a-zA-ZñáéíóúÑÁÉÍÓÚ])(?=.*[0-9].*[0-9])\\b.{8,})|(^(?=.*[0-9].*[0-9])\\b.{8,})&quot;</span>);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        Matcher m = p.matcher(nombreUsuario);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordflow">return</span> m.matches();</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    }</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    </div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html#a03b6327d88c6fb0e69ef43ed72918e46">   44</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">boolean</span> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html#a03b6327d88c6fb0e69ef43ed72918e46">validarContraseña</a>(String contraseña){</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        Pattern p = Pattern.compile(<span class="stringliteral">&quot;(^(?=.*[a-zA-ZñáéíóúÑÁÉÍÓÚ])((?=.*[0-9])|(?=.*[^A-Za-z0-9_ ]))\\b.{6,12})|(^(?=.*[0-9])|(?=.*[^A-Za-z0-9_ ])\\b.{6,12})&quot;</span>);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        Matcher m = p.matcher(contraseña);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">return</span> m.matches();</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    </div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html#a1efa66eae747068c6492c79f9442be1a">   58</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">boolean</span> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html#a1efa66eae747068c6492c79f9442be1a">validarNombreCompleto</a>(String nombreCompleto){</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        Pattern p = Pattern.compile(<span class="stringliteral">&quot;[a-z A-Z ñáéíóúÁÉÍÓÚ]+\\b&quot;</span>);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        Matcher m = p.matcher(nombreCompleto);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">return</span> m.matches();</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    }</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    </div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html#ad8d244737f6462e48ab8d02a307a36f2">   71</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">boolean</span> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html#ad8d244737f6462e48ab8d02a307a36f2">validarEmail</a>(String email){</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        Pattern p = Pattern.compile(<span class="stringliteral">&quot;^[-!#$%&amp;&#39;*+/0-9=?A-Z^_a-z{|}~](\\.?[-!#$%&amp;&#39;*+/0-9=?A-Z^_a-z{|}~])*@[a-zA-Z](-?[a-zA-Z0-9])*(\\.[a-zA-Z](-?[a-zA-Z0-9])*)+$&quot;</span>);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        Matcher m = p.matcher(email);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">return</span> m.matches();</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    @SuppressWarnings(<span class="stringliteral">&quot;deprecation&quot;</span>)</div>
-<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html#a3367f0c6cc3c94de17840e359ffd2433">   86</a></span>&#160;    public <span class="keywordtype">boolean</span> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html#a3367f0c6cc3c94de17840e359ffd2433">validarFecha</a>(Date fecha){</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">if</span> (fecha.getYear() &gt; 15) {</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            <span class="keywordtype">long</span> nacimiento = fecha.getTime();</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            <span class="keywordtype">long</span> actual = System.currentTimeMillis();</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            <span class="keywordflow">if</span>(nacimiento &gt; actual) {</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            }</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        }</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    }</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
-<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion_html_a4d7e1104a20469f92144e9580b34f901"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html#a4d7e1104a20469f92144e9580b34f901">com.ucab.javachat.Cliente.model.Validacion.validarUsuario</a></div><div class="ttdeci">boolean validarUsuario(String nombreUsuario)</div><div class="ttdef"><b>Definition:</b> <a href="_validacion_8java_source.html#l00029">Validacion.java:29</a></div></div>
-<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion_html_a3367f0c6cc3c94de17840e359ffd2433"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html#a3367f0c6cc3c94de17840e359ffd2433">com.ucab.javachat.Cliente.model.Validacion.validarFecha</a></div><div class="ttdeci">boolean validarFecha(Date fecha)</div><div class="ttdef"><b>Definition:</b> <a href="_validacion_8java_source.html#l00086">Validacion.java:86</a></div></div>
-<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion_html_ad8d244737f6462e48ab8d02a307a36f2"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html#ad8d244737f6462e48ab8d02a307a36f2">com.ucab.javachat.Cliente.model.Validacion.validarEmail</a></div><div class="ttdeci">boolean validarEmail(String email)</div><div class="ttdef"><b>Definition:</b> <a href="_validacion_8java_source.html#l00071">Validacion.java:71</a></div></div>
-<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion_html_a03b6327d88c6fb0e69ef43ed72918e46"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html#a03b6327d88c6fb0e69ef43ed72918e46">com.ucab.javachat.Cliente.model.Validacion.validarContraseña</a></div><div class="ttdeci">boolean validarContraseña(String contraseña)</div><div class="ttdef"><b>Definition:</b> <a href="_validacion_8java_source.html#l00044">Validacion.java:44</a></div></div>
-<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion_html_a1efa66eae747068c6492c79f9442be1a"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html#a1efa66eae747068c6492c79f9442be1a">com.ucab.javachat.Cliente.model.Validacion.validarNombreCompleto</a></div><div class="ttdeci">boolean validarNombreCompleto(String nombreCompleto)</div><div class="ttdef"><b>Definition:</b> <a href="_validacion_8java_source.html#l00058">Validacion.java:58</a></div></div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html#a4d7e1104a20469f92144e9580b34f901">   28</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">boolean</span> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html#a4d7e1104a20469f92144e9580b34f901">validarUsuario</a>(String nombreUsuario){</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        Pattern p = Pattern.compile(<span class="stringliteral">&quot;/(^(?=.*[a-zA-ZñáéíóúÑÁÉÍÓÚ])(?=.*[0-9].*[0-9])\\b.{8,})|(^(?=.*[0-9].*[0-9])\\b.{8,})&quot;</span>);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        Matcher m = p.matcher(nombreUsuario);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordflow">return</span> m.matches();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    }</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html#a03b6327d88c6fb0e69ef43ed72918e46">   42</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">boolean</span> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html#a03b6327d88c6fb0e69ef43ed72918e46">validarContraseña</a>(String contraseña){</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        Pattern p = Pattern.compile(<span class="stringliteral">&quot;(^(?=.*[a-zA-ZñáéíóúÑÁÉÍÓÚ])((?=.*[0-9])|(?=.*[^A-Za-z0-9_ ]))\\b.{6,12})|(^(?=.*[0-9])|(?=.*[^A-Za-z0-9_ ])\\b.{6,12})&quot;</span>);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        Matcher m = p.matcher(contraseña);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">return</span> m.matches();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    </div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html#a1efa66eae747068c6492c79f9442be1a">   55</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">boolean</span> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html#a1efa66eae747068c6492c79f9442be1a">validarNombreCompleto</a>(String nombreCompleto){</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        Pattern p = Pattern.compile(<span class="stringliteral">&quot;[a-z A-Z ñáéíóúÁÉÍÓÚ]+\\b&quot;</span>);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        Matcher m = p.matcher(nombreCompleto);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">return</span> m.matches();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    </div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html#ad8d244737f6462e48ab8d02a307a36f2">   67</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">boolean</span> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html#ad8d244737f6462e48ab8d02a307a36f2">validarEmail</a>(String email){</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        Pattern p = Pattern.compile(<span class="stringliteral">&quot;^[-!#$%&amp;&#39;*+/0-9=?A-Z^_a-z{|}~](\\.?[-!#$%&amp;&#39;*+/0-9=?A-Z^_a-z{|}~])*@[a-zA-Z](-?[a-zA-Z0-9])*(\\.[a-zA-Z](-?[a-zA-Z0-9])*)+$&quot;</span>);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        Matcher m = p.matcher(email);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">return</span> m.matches();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    @SuppressWarnings(<span class="stringliteral">&quot;deprecation&quot;</span>)</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html#a3367f0c6cc3c94de17840e359ffd2433">   81</a></span>&#160;    public <span class="keywordtype">boolean</span> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html#a3367f0c6cc3c94de17840e359ffd2433">validarFecha</a>(Date fecha){</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">if</span> (fecha.getYear() &gt; 15) {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <span class="keywordtype">long</span> nacimiento = fecha.getTime();</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <span class="keywordtype">long</span> actual = System.currentTimeMillis();</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="keywordflow">if</span>(nacimiento &gt; actual) {</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        }</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    }</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;}</div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion_html_a4d7e1104a20469f92144e9580b34f901"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html#a4d7e1104a20469f92144e9580b34f901">com.ucab.javachat.Cliente.model.Validacion.validarUsuario</a></div><div class="ttdeci">boolean validarUsuario(String nombreUsuario)</div><div class="ttdef"><b>Definition:</b> <a href="_validacion_8java_source.html#l00028">Validacion.java:28</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion_html_a3367f0c6cc3c94de17840e359ffd2433"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html#a3367f0c6cc3c94de17840e359ffd2433">com.ucab.javachat.Cliente.model.Validacion.validarFecha</a></div><div class="ttdeci">boolean validarFecha(Date fecha)</div><div class="ttdef"><b>Definition:</b> <a href="_validacion_8java_source.html#l00081">Validacion.java:81</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion_html_ad8d244737f6462e48ab8d02a307a36f2"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html#ad8d244737f6462e48ab8d02a307a36f2">com.ucab.javachat.Cliente.model.Validacion.validarEmail</a></div><div class="ttdeci">boolean validarEmail(String email)</div><div class="ttdef"><b>Definition:</b> <a href="_validacion_8java_source.html#l00067">Validacion.java:67</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion_html_a03b6327d88c6fb0e69ef43ed72918e46"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html#a03b6327d88c6fb0e69ef43ed72918e46">com.ucab.javachat.Cliente.model.Validacion.validarContraseña</a></div><div class="ttdeci">boolean validarContraseña(String contraseña)</div><div class="ttdef"><b>Definition:</b> <a href="_validacion_8java_source.html#l00042">Validacion.java:42</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion_html_a1efa66eae747068c6492c79f9442be1a"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html#a1efa66eae747068c6492c79f9442be1a">com.ucab.javachat.Cliente.model.Validacion.validarNombreCompleto</a></div><div class="ttdeci">boolean validarNombreCompleto(String nombreCompleto)</div><div class="ttdef"><b>Definition:</b> <a href="_validacion_8java_source.html#l00055">Validacion.java:55</a></div></div>
 <div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion_html"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html">com.ucab.javachat.Cliente.model.Validacion</a></div><div class="ttdef"><b>Definition:</b> <a href="_validacion_8java_source.html#l00018">Validacion.java:18</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_e5299afe291bd8344f72589e478b6892.html">Escritorio</a></li><li class="navelem"><a class="el" href="dir_b97110eeadfa978e2f1ddbe989a0efbd.html">ChatMorse</a></li><li class="navelem"><a class="el" href="dir_fcbd9d6e3387b6500baf78ad107b6fac.html">src</a></li><li class="navelem"><a class="el" href="dir_8ed2512e3d91de1820efcc99b53fd5f4.html">com</a></li><li class="navelem"><a class="el" href="dir_797bf6a62b3a649625898c6db28f5dae.html">ucab</a></li><li class="navelem"><a class="el" href="dir_db5bee107248ca5e160f4c34cfe2335a.html">javachat</a></li><li class="navelem"><a class="el" href="dir_df6bce020d46441ca680091ab4177918.html">Cliente</a></li><li class="navelem"><a class="el" href="dir_9f7d71615494a9aa75c20c50483674fd.html">model</a></li><li class="navelem"><a class="el" href="_validacion_8java.html">Validacion.java</a></li>
-    <li class="footer">Generado el Domingo, 28 de Junio de 2015 20:00:49 para ChatMorse por
+    <li class="navelem"><a class="el" href="dir_06027c96803f4ae7485d3c6ab6ea4659.html">Chat-Codigo-Morse</a></li><li class="navelem"><a class="el" href="dir_c37c2b1e0391bbb3b2862a40729bac8e.html">ChatMorse</a></li><li class="navelem"><a class="el" href="dir_698feb8a8754d25583633a3b3af39fe8.html">src</a></li><li class="navelem"><a class="el" href="dir_d2ee5da602ffa679a824132ee9ad1aea.html">com</a></li><li class="navelem"><a class="el" href="dir_56349b6200b5c8953f34b3aeff705002.html">ucab</a></li><li class="navelem"><a class="el" href="dir_ef7300534267217be745bb9cc8e7f003.html">javachat</a></li><li class="navelem"><a class="el" href="dir_50b0603f18aa803276af8b9d7d1ed343.html">Cliente</a></li><li class="navelem"><a class="el" href="dir_7a01b97c9d9175021c839effa71ef2e3.html">model</a></li><li class="navelem"><a class="el" href="_validacion_8java.html">Validacion.java</a></li>
+    <li class="footer">Generado el Lunes, 29 de Junio de 2015 12:26:43 para Chat codigo morse por
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

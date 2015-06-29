@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['pedirusuarios',['pedirUsuarios',['../de/df9/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_cliente.html#ae828d3c313aa6e5a38129433baf036ab',1,'com::ucab::javachat::Cliente::model::Cliente']]],
-  ['poneractivos',['ponerActivos',['../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a0ec86bb408cc78782346b4c01b95a7d6',1,'com::ucab::javachat::Cliente::controller::ControladorCliente']]],
-  ['principal',['Principal',['../d4/daf/classcom_1_1ucab_1_1javachat_1_1_servidor_1_1main_1_1_principal.html',1,'com::ucab::javachat::Servidor::main']]],
-  ['principal',['Principal',['../d8/d13/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1main_1_1_principal.html',1,'com::ucab::javachat::Cliente::main']]]
+  ['jmacerca',['JMAcerca',['../classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#ad30b231b7819130f9ef8749da385cbc2',1,'com::ucab::javachat::Cliente::view::VentCliente']]],
+  ['jmayuda',['JMAyuda',['../classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#a0c84f912b0ec20c3de8d8d498a48d00f',1,'com::ucab::javachat::Cliente::view::VentCliente']]]
 ];

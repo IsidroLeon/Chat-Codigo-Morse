@@ -15,7 +15,7 @@ import com.ucab.javachat.Cliente.view.VentRegistro;
 import com.ucab.javachat.Cliente.model.Validacion;
 
 /** Clase del controlador para la ventana de inicio de sesion
- * @authors Grupo 3
+ * @author Grupo 3
  * */
 
 public class ControladorIniciarSesion implements ActionListener {
@@ -73,10 +73,6 @@ public class ControladorIniciarSesion implements ActionListener {
 		this.vista.frmInicioDeSesion.dispose();
 	}
 	
-	/**
-	 * getters y setters
-	 * @return
-	 */
 	public String getUsuario() {
 		return this.usuario;
 	}

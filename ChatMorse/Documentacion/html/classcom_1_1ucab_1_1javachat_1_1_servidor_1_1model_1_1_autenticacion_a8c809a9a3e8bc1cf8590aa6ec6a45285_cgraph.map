@@ -1,4 +1,5 @@
 <map id="com.ucab.javachat.Servidor.model.Autenticacion.modificar" name="com.ucab.javachat.Servidor.model.Autenticacion.modificar">
-<area shape="rect" id="node2" href="$classcom_1_1ucab_1_1javachat_1_1_servidor_1_1model_1_1_criptologia.html#ae580b0995ce546a2e8b37c819651d240" title="com.ucab.javachat.Servidor.model.\lCriptologia.desencriptar" alt="" coords="280,5,507,46"/>
-<area shape="rect" id="node3" href="$classcom_1_1ucab_1_1javachat_1_1_servidor_1_1model_1_1_usuario.html#a62a69897b00dc760eda6401c003e0201" title="com.ucab.javachat.Servidor.model.\lUsuario.getEmail" alt="" coords="280,70,507,111"/>
+<area shape="rect" id="node2" href="$classcom_1_1ucab_1_1javachat_1_1_servidor_1_1model_1_1_autenticacion.html#a15c2c2232a4db8e1ace53f7ad892117b" title="com.ucab.javachat.Servidor.model.\lAutenticacion.existeCorreoYUsuario" alt="" coords="281,5,514,46"/>
+<area shape="rect" id="node3" href="$classcom_1_1ucab_1_1javachat_1_1_servidor_1_1model_1_1_criptologia.html#ae580b0995ce546a2e8b37c819651d240" title="com.ucab.javachat.Servidor.model.\lCriptologia.desencriptar" alt="" coords="563,34,789,75"/>
+<area shape="rect" id="node4" href="$classcom_1_1ucab_1_1javachat_1_1_servidor_1_1model_1_1_usuario.html#a62a69897b00dc760eda6401c003e0201" title="com.ucab.javachat.Servidor.model.\lUsuario.getEmail" alt="" coords="284,122,511,163"/>
 </map>

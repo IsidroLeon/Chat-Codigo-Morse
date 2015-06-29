@@ -118,7 +118,7 @@ public class ControladorCliente implements ActionListener {
 	
 	/**
 	 * Guarda el nombre del usuario que quiere iniciar sesion.
-	 * @param user - Nombre de usuario.
+	 * @param usuario - Nombre de usuario.
 	 */
 	public final void setUsuario(final String usuario) {
 		this.nombreUsuario = usuario;

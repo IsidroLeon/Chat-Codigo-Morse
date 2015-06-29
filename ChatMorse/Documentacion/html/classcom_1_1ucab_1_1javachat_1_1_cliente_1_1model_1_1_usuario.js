@@ -18,5 +18,12 @@ var classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario =
     [ "setNombreDeUsuario", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario.html#a7bc835c87e85911fd7532630bc526303", null ],
     [ "setSexo", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario.html#ad94a088891efdf5ff68fc768187d124a", null ],
     [ "toString", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario.html#aa7602a327f0e4c69c61b8e650789ff97", null ],
-    [ "usuarioVacio", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario.html#a451d92b5925acf1f2f890e4986c5f96a", null ]
+    [ "usuarioVacio", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario.html#a451d92b5925acf1f2f890e4986c5f96a", null ],
+    [ "clave", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario.html#af1082bb0e7de636f707fa59a5878a2cc", null ],
+    [ "email", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario.html#a8fc8f1c566d24f60496423520509342e", null ],
+    [ "fecha", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario.html#aca2b6a3614ef22e018f57044867270f4", null ],
+    [ "imagen", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario.html#aeab50e53e8da4ba2ec5368b762149a7c", null ],
+    [ "nombreCompleto", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario.html#a58d80fb5329225ea6092f7e0527a1564", null ],
+    [ "nombreDeUsuario", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario.html#a7c0d166fc7f2db8fa0a513ec2b285e09", null ],
+    [ "sexo", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario.html#adf1a82916a522d4bd6047e9512673106", null ]
 ];

@@ -1,16 +1,19 @@
 var searchData=
 [
-  ['servidorcontroller',['ServidorController',['../d8/d63/classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html',1,'com::ucab::javachat::Servidor::controller']]],
-  ['servidorcontroller',['ServidorController',['../d8/d63/classcom_1_1ucab_1_1javachat_1_1_servidor_1_1controller_1_1_servidor_controller.html#a36f238b4a06304d92f09c51ca60c31e5',1,'com::ucab::javachat::Servidor::controller::ServidorController']]],
-  ['servidormodel',['ServidorModel',['../d6/d9c/classcom_1_1ucab_1_1javachat_1_1_servidor_1_1model_1_1_servidor_model.html',1,'com::ucab::javachat::Servidor::model']]],
-  ['servidormodel',['ServidorModel',['../d6/d9c/classcom_1_1ucab_1_1javachat_1_1_servidor_1_1model_1_1_servidor_model.html#aa0ce2b6483d9538d362f45e2ff7e7263',1,'com::ucab::javachat::Servidor::model::ServidorModel']]],
-  ['servidorview',['ServidorView',['../de/dcb/classcom_1_1ucab_1_1javachat_1_1_servidor_1_1view_1_1_servidor_view.html',1,'com::ucab::javachat::Servidor::view']]],
-  ['setamigo',['setAmigo',['../dc/d6a/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_privada.html#ae7f5eb2e446616f188a05c98d0e42c17',1,'com::ucab::javachat::Cliente::controller::ControladorPrivada']]],
-  ['setclave',['setClave',['../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a8647e56fdb735f7abdef284b023e9f53',1,'com::ucab::javachat::Cliente::controller::ControladorCliente']]],
-  ['setfecha',['setFecha',['../d9/da6/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario.html#a962413eaf8392fb0bbf4c258791c2f81',1,'com.ucab.javachat.Cliente.model.Usuario.setFecha()'],['../d3/d30/classcom_1_1ucab_1_1javachat_1_1_servidor_1_1model_1_1_usuario.html#a67f151ed25f6ca94c56acd260ac09a69',1,'com.ucab.javachat.Servidor.model.Usuario.setFecha()']]],
-  ['setimagen',['setImagen',['../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a6e7b9e6c4a82829efbd0aae6c2658184',1,'com::ucab::javachat::Cliente::controller::ControladorCliente']]],
-  ['setlabeluser',['setLabelUser',['../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#aa19a69efd4f74891f467345498ddcb39',1,'com::ucab::javachat::Cliente::controller::ControladorCliente']]],
-  ['setmensaje',['setMensaje',['../df/d11/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_reproducir_sonido.html#a00ae7bbb07322bf4d4b578c0d10b34bb',1,'com::ucab::javachat::Cliente::model::ReproducirSonido']]],
-  ['setnameuser',['setNameUser',['../d6/d9c/classcom_1_1ucab_1_1javachat_1_1_servidor_1_1model_1_1_servidor_model.html#a21f82e0d41c53cb292a639e580e5eb59',1,'com::ucab::javachat::Servidor::model::ServidorModel']]],
-  ['setusuario',['setUsuario',['../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a29e6cb2c38d42517282ce2da900b3516',1,'com::ucab::javachat::Cliente::controller::ControladorCliente']]]
+  ['labelvalidacion',['labelValidacion',['../classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_recuperar_contrase_xC3_xB1a.html#ae45dbcec0eea72f20ec90412c86167f1',1,'com::ucab::javachat::Cliente::view::VentRecuperarContraseña']]],
+  ['lblcontraseñaerr',['lblContraseñaErr',['../classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_modificar.html#a99720a1582c1144632281c6f30cbef10',1,'com::ucab::javachat::Cliente::view::VentModificar']]],
+  ['lblcontraseñaigual',['lblContraseñaIgual',['../classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_registro.html#a886e1cac78c4651283f028243cce1df6',1,'com::ucab::javachat::Cliente::view::VentRegistro']]],
+  ['lblemailerr',['lblEmailErr',['../classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_modificar.html#ad9f6389f1039a5f969a420931d9e3a56',1,'com::ucab::javachat::Cliente::view::VentModificar']]],
+  ['lblfechaerr',['lblFechaErr',['../classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_modificar.html#a1630d2bf2f67c698693e3ceff6125b04',1,'com::ucab::javachat::Cliente::view::VentModificar']]],
+  ['lblfotoerr',['lblFotoErr',['../classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_modificar.html#a9bd487ab660bd23b0d7555b562629395',1,'com::ucab::javachat::Cliente::view::VentModificar']]],
+  ['lblimagenseleccionada',['lblImagenSeleccionada',['../classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_registro.html#a37223764b979746e556d67c88c8299dc',1,'com::ucab::javachat::Cliente::view::VentRegistro']]],
+  ['lblnombreerr',['lblNombreErr',['../classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_modificar.html#a09882df1d2c6d6d88cf8f4555ec8b24c',1,'com::ucab::javachat::Cliente::view::VentModificar']]],
+  ['lblnomuser',['lblNomUser',['../classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#af68f442f498fbcc6ebfaf4243f05f1dd',1,'com::ucab::javachat::Cliente::view::VentCliente']]],
+  ['lblsexoerr',['lblSexoErr',['../classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_modificar.html#a2dc4ddc307e01d17fd8611aa513ec459',1,'com::ucab::javachat::Cliente::view::VentModificar']]],
+  ['lblsexovalido',['lblSexoValido',['../classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_registro.html#ac51964ac6bfaa9ac693fa580ecd397fe',1,'com::ucab::javachat::Cliente::view::VentRegistro']]],
+  ['lblusuarioerr',['lblUsuarioErr',['../classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_modificar.html#aab915a5c7399f2bd6ae4a02bf1c15099',1,'com::ucab::javachat::Cliente::view::VentModificar']]],
+  ['lblvalidacion',['lblValidacion',['../classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html#acbc2aba983ddff4636b19495fed687ad',1,'com::ucab::javachat::Cliente::view::VentIniciarSesion']]],
+  ['leerarchivo',['leerArchivo',['../classcom_1_1ucab_1_1javachat_1_1_servidor_1_1model_1_1_manejo_archivos.html#ad6301dc8f0af55ea43b53da2c7f8b0d3',1,'com::ucab::javachat::Servidor::model::ManejoArchivos']]],
+  ['listausuarios',['listaUsuarios',['../classcom_1_1ucab_1_1javachat_1_1_servidor_1_1model_1_1_manejo_archivos.html#a17efbeea9cbe222d0d8d10622d940da7',1,'com::ucab::javachat::Servidor::model::ManejoArchivos']]],
+  ['lstactivos',['lstActivos',['../classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#a63d3725a08f6ebfe73015ce9560ba462',1,'com::ucab::javachat::Cliente::view::VentCliente']]]
 ];

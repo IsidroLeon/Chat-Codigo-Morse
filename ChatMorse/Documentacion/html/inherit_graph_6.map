@@ -1,6 +1,7 @@
 <map id="Representación gráfica de la clase" name="Representación gráfica de la clase">
-<area shape="rect" id="node2" href="$df/d11/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_reproducir_sonido.html" title="com.ucab.javachat.Cliente.model.\lReproducirSonido" alt="" coords="121,5,341,46"/>
-<area shape="rect" id="node3" href="$d0/dc5/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_thread_actualizar_usuario.html" title="com.ucab.javachat.Cliente.model.\lThreadActualizarUsuario" alt="" coords="121,70,341,111"/>
-<area shape="rect" id="node4" href="$d7/dcf/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_thread_sonido.html" title="com.ucab.javachat.Cliente.model.\lThreadSonido" alt="" coords="121,135,341,177"/>
-<area shape="rect" id="node5" href="$d6/d9c/classcom_1_1ucab_1_1javachat_1_1_servidor_1_1model_1_1_servidor_model.html" title="com.ucab.javachat.Servidor.model.\lServidorModel" alt="" coords="117,201,344,242"/>
+<area shape="rect" id="node2" href="$classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_reproducir_sonido.html" title="com.ucab.javachat.Cliente.model.\lReproducirSonido" alt="" coords="121,5,341,46"/>
+<area shape="rect" id="node3" href="$classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_thread_actualizar_usuario.html" title="com.ucab.javachat.Cliente.model.\lThreadActualizarUsuario" alt="" coords="121,70,341,111"/>
+<area shape="rect" id="node4" href="$classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_thread_cliente.html" title="com.ucab.javachat.Cliente.model.\lThreadCliente" alt="" coords="121,135,341,177"/>
+<area shape="rect" id="node5" href="$classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_thread_sonido.html" title="com.ucab.javachat.Cliente.model.\lThreadSonido" alt="" coords="121,201,341,242"/>
+<area shape="rect" id="node6" href="$classcom_1_1ucab_1_1javachat_1_1_servidor_1_1model_1_1_servidor_model.html" title="com.ucab.javachat.Servidor.model.\lServidorModel" alt="" coords="117,266,344,307"/>
 </map>

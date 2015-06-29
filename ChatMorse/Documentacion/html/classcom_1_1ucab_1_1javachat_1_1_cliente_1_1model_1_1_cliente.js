@@ -11,5 +11,12 @@ var classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_cliente =
     [ "flujo", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_cliente.html#ae3d51eeea6685fce41818e231c28fd11", null ],
     [ "flujo", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_cliente.html#ae9914153c2e3e6fc5a659b5aa1022c67", null ],
     [ "getNombre", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_cliente.html#a2f102f095b1bd161a90a3d13f1285eeb", null ],
-    [ "pedirUsuarios", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_cliente.html#ae828d3c313aa6e5a38129433baf036ab", null ]
+    [ "pedirUsuarios", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_cliente.html#ae828d3c313aa6e5a38129433baf036ab", null ],
+    [ "comunication", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_cliente.html#a0d78afc69e7bc9e77d75465a325286da", null ],
+    [ "comunication2", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_cliente.html#a9b5085f5752fedd170f61ce4600611aa", null ],
+    [ "entrada", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_cliente.html#a7013786b0f5d5e4873d9ed6240731aab", null ],
+    [ "entrada2", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_cliente.html#aff51277b912b2520aba3178d26c15e9d", null ],
+    [ "IP_SERVER", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_cliente.html#a5decf95cef7084b662f4a4d207f165a5", null ],
+    [ "salida", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_cliente.html#ac507b3312693deaa9cf95a5fc4fea99d", null ],
+    [ "vent", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_cliente.html#a0c284a504567b7750e389d9a996715e3", null ]
 ];

@@ -1,8 +1,8 @@
 <map id="Representación gráfica de la clase" name="Representación gráfica de la clase">
-<area shape="rect" id="node2" href="$d2/d63/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html" title="com.ucab.javachat.Cliente.view.\lVentCliente" alt="" coords="123,5,335,46"/>
-<area shape="rect" id="node3" href="$d2/db1/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html" title="com.ucab.javachat.Cliente.view.\lVentIniciarSesion" alt="" coords="123,70,335,111"/>
-<area shape="rect" id="node4" href="$d1/d0f/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_modificar.html" title="com.ucab.javachat.Cliente.view.\lVentModificar" alt="" coords="123,135,335,177"/>
-<area shape="rect" id="node5" href="$d2/d2e/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_privada.html" title="com.ucab.javachat.Cliente.view.\lVentPrivada" alt="" coords="123,201,335,242"/>
-<area shape="rect" id="node6" href="$de/dac/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_registro.html" title="com.ucab.javachat.Cliente.view.\lVentRegistro" alt="" coords="123,266,335,307"/>
-<area shape="rect" id="node7" href="$de/dcb/classcom_1_1ucab_1_1javachat_1_1_servidor_1_1view_1_1_servidor_view.html" title="com.ucab.javachat.Servidor.view.\lServidorView" alt="" coords="120,331,339,373"/>
+<area shape="rect" id="node2" href="$classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html" title="com.ucab.javachat.Cliente.view.\lVentCliente" alt="" coords="123,5,335,46"/>
+<area shape="rect" id="node3" href="$classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html" title="com.ucab.javachat.Cliente.view.\lVentIniciarSesion" alt="" coords="123,70,335,111"/>
+<area shape="rect" id="node4" href="$classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_modificar.html" title="com.ucab.javachat.Cliente.view.\lVentModificar" alt="" coords="123,135,335,177"/>
+<area shape="rect" id="node5" href="$classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_privada.html" title="com.ucab.javachat.Cliente.view.\lVentPrivada" alt="" coords="123,201,335,242"/>
+<area shape="rect" id="node6" href="$classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_registro.html" title="com.ucab.javachat.Cliente.view.\lVentRegistro" alt="" coords="123,266,335,307"/>
+<area shape="rect" id="node7" href="$classcom_1_1ucab_1_1javachat_1_1_servidor_1_1view_1_1_servidor_view.html" title="com.ucab.javachat.Servidor.view.\lServidorView" alt="" coords="120,331,339,373"/>
 </map>

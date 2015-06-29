@@ -6,7 +6,7 @@ import java.util.Date;
 	 // De este modo, 82 representa 1982 y 92 representa 1992.
 	 
 	/** Clase que se encarga de definir los valores del usuario registrado
-	 *  @authors Grupo 3
+	 *  @author Grupo 3
 	* */
 
 public class Usuario {

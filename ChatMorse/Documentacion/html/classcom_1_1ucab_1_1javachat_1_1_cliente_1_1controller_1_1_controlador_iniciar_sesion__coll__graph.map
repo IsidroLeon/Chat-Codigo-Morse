@@ -1,2 +1,4 @@
 <map id="com.ucab.javachat.Cliente.controller.ControladorIniciarSesion" name="com.ucab.javachat.Cliente.controller.ControladorIniciarSesion">
+<area shape="rect" id="node3" href="$classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html" title="{com.ucab.javachat.Cliente.model.\lValidacion\n||+ validarUsuario()\l+ validarContraseña()\l+ validarNombreCompleto()\l+ validarEmail()\l+ validarFecha()\l}" alt="" coords="134,190,353,341"/>
+<area shape="rect" id="node5" href="$classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html" title="{com.ucab.javachat.Cliente.view.\lVentIniciarSesion\n||+ VentIniciarSesion()\l&#45; initialize()\l}" alt="" coords="445,212,656,319"/>
 </map>

@@ -30,7 +30,7 @@ import com.ucab.javachat.Cliente.model.Usuario;
 /**
  * Modelo del cliente que utiliza el chat. Crea la comunicar mediante sockets con el sevidor.
  *
- * @authors Grupo 3 - A. Rodriguez, I. Teixeira, L. Valladares, D. Suarez
+ * @author Grupo 3 - A. Rodriguez, I. Teixeira, L. Valladares, D. Suarez
  * @version 2.0
  */
 public class Cliente{
@@ -236,10 +236,13 @@ public class Cliente{
    }
    
    /**
-    * este metodo se encarga de enviar un objeto de tipo Usuario al servidor  
-    * @param usuario Objeto que contiene los datos de un usuario que esta en el proceso de registro.
-    * @param entrar
-    * @return
+    * este metodo se encarga de enviar un objeto de tipo Usuario al servidor para modificar
+    * sus datos
+    * @param usuario Objeto que contiene los datos de un usuario que esta en el proceso de modificacion
+    * @param nombreOriginal  - El nombre anterior a la modificación para la busqueda
+    * @param imagenCambia - determina si la imagen fue cambiada en la ventana
+    * @return 1 si el correo es repetido, 2 si el usuario es repetido, 3 si el error es desconocido
+    * 4 si la imagen es repetida
     */
    public int flujo(Usuario usuario, String nombreOriginal, boolean imagenCambia) {
        int flag = 3; //error desconocido

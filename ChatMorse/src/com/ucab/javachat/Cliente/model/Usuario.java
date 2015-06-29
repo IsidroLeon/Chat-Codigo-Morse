@@ -7,7 +7,7 @@ import java.util.Date;
 	  
 	  
 	 /** Clase que se encarga de definir los valores del usuario registrado
-	  *  @authors Grupo 3
+	  *  @author Grupo 3
 	 * */
 	
 public class Usuario extends Validacion {

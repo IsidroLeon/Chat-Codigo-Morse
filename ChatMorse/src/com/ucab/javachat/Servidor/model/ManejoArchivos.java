@@ -14,7 +14,7 @@ import com.ucab.javachat.Servidor.model.Usuario;
 
 /** Clase que manipula los archivos Json, el guardado y lectura de archivo y cualquier proceso relacionado
 *
-* @author Grupo 3
+* @author Grupo 3 - A. Rodriguez, I. Teixeira, L. Valladares, D. Suarez
 * 
 */
 
@@ -46,7 +46,7 @@ public final class ManejoArchivos {
 	}
 	
 	/**
-	 * @return
+	 * @return lista de usuarios guardado
 	 */
 	public ArrayList<Usuario> getListaUsuarios() {
 		return this.listaUsuarios;
@@ -58,10 +58,18 @@ public final class ManejoArchivos {
 	 * que tendra a todos los usuarios del sistemas
 	 *
 	 * @return      La lista de usuarios
-	 * @author		Luis Valladares
 	 */
 	public ArrayList<Usuario> leerArchivo() {
 		BufferedReader br = null;
+		File archivo = new File(ruta);
+		if(!archivo.isDirectory()){
+			archivo.mkdirs();
+			try {
+				archivo.createNewFile();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 		try {
 			br = new BufferedReader(new FileReader(ruta)); // Variable para el lector del archivo
 		} catch (FileNotFoundException ex) {
@@ -76,8 +84,7 @@ public final class ManejoArchivos {
 	/**
 	 * Almacena los datos que se encuentran en la lista pasada
 	 * a un archivo Json
-	 * @author		Luis Valladares
-	 * @param 		Lista de usuarios a guardar
+	 * @param listaUsuarios - Lista de usuarios a guardar
 	 */
 	
 	public void escribirArchivo(ArrayList<Usuario> listaUsuarios) {

@@ -1,4 +1,4 @@
 var namespacecom_1_1ucab_1_1javachat_1_1_servidor_1_1main =
 [
-    [ "Principal", "classcom_1_1ucab_1_1javachat_1_1_servidor_1_1main_1_1_principal.html", null ]
+    [ "Principal", "classcom_1_1ucab_1_1javachat_1_1_servidor_1_1main_1_1_principal.html", "classcom_1_1ucab_1_1javachat_1_1_servidor_1_1main_1_1_principal" ]
 ];

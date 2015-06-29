@@ -9,5 +9,10 @@ var classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_inici
     [ "setClave", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_iniciar_sesion.html#a9cf2679039366d1f9e37d2d506dec14c", null ],
     [ "setImagen", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_iniciar_sesion.html#abb99292844ba8b9f1e7379ec01ab9d93", null ],
     [ "setUsuario", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_iniciar_sesion.html#a93241d6ec2f9d3f2ed60c936d7bcffab", null ],
-    [ "validarInicioSesion", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_iniciar_sesion.html#a0af254dfeeb830b945c72b3f918c4145", null ]
+    [ "validarInicioSesion", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_iniciar_sesion.html#a0af254dfeeb830b945c72b3f918c4145", null ],
+    [ "clave", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_iniciar_sesion.html#a4160f40438f1adc07624e8db8ff06ab4", null ],
+    [ "imagen", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_iniciar_sesion.html#a56c738d74400de8a5daebe5896406276", null ],
+    [ "usuario", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_iniciar_sesion.html#a898736b6aeb7b452bf62cf4ef57826c7", null ],
+    [ "validar", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_iniciar_sesion.html#a234603ac5c3c51193b56b002702ba6d8", null ],
+    [ "vista", "classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_iniciar_sesion.html#a26be240734f616629b61b8483a47fe61", null ]
 ];

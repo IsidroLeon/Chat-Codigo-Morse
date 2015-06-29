@@ -1,13 +1,17 @@
 var NAVTREE =
 [
-  [ "ChatCodigoMorse", "index.html", [
+  [ "Chat codigo morse", "index.html", [
+    [ "Paquetes", null, [
+      [ "Paquetes", "namespaces.html", "namespaces" ]
+    ] ],
     [ "Clases", null, [
       [ "Lista de clases", "annotated.html", "annotated" ],
       [ "Índice de clases", "classes.html", null ],
       [ "Jerarquía de la clase", "hierarchy.html", "hierarchy" ],
       [ "Miembros de las clases", "functions.html", [
-        [ "Todo", "functions.html", null ],
-        [ "Funciones", "functions_func.html", null ]
+        [ "Todo", "functions.html", "functions_dup" ],
+        [ "Funciones", "functions_func.html", null ],
+        [ "Variables", "functions_vars.html", null ]
       ] ]
     ] ],
     [ "Archivos", null, [
@@ -18,8 +22,9 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-".html",
-"de/dac/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_registro.html#a7348a156becf753abdf2a1ccdf2c02a4"
+"_autenticacion_8java.html",
+"classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#a3c70efb0ed43251cc5629e0b741e3831",
+"namespacecom_1_1ucab_1_1javachat_1_1_cliente_1_1model.html"
 ];
 
 var SYNCONMSG = 'click en deshabilitar sincronización';

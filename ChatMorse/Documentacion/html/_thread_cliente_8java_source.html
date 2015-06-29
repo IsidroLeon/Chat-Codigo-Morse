@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>ChatMorse: Fichero Fuente Escritorio/ChatMorse/src/com/ucab/javachat/Cliente/model/ThreadCliente.java</title>
+<title>Chat codigo morse: Fichero Fuente Chat-Codigo-Morse/ChatMorse/src/com/ucab/javachat/Cliente/model/ThreadCliente.java</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,8 +29,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">ChatMorse
+   <div id="projectname">Chat codigo morse
+   &#160;<span id="projectnumber">1</span>
    </div>
+   <div id="projectbrief">Chat en codigo morse</div>
   </td>
  </tr>
  </tbody>
@@ -114,16 +116,16 @@ $(document).ready(function(){initNavTree('_thread_cliente_8java_source.html','')
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">import</span> com.google.gson.reflect.TypeToken;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">import</span> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html">com.ucab.javachat.Cliente.controller.ControladorCliente</a>;</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">class </span>ThreadCliente <span class="keyword">extends</span> Thread{</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;   DataInputStream entrada;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;   ControladorCliente vcli;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;   <span class="keyword">public</span> ThreadCliente (DataInputStream entrada,ControladorCliente vcli) <span class="keywordflow">throws</span> IOException</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_thread_cliente.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_thread_cliente.html">ThreadCliente</a> <span class="keyword">extends</span> Thread{</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_thread_cliente.html#a5f86e809df1f4651bc44b0c743fadb84">   20</a></span>&#160;   DataInputStream <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_thread_cliente.html#a5f86e809df1f4651bc44b0c743fadb84">entrada</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_thread_cliente.html#a500323ed0d88ad4a07e8af410c826171">   21</a></span>&#160;   <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html">ControladorCliente</a> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_thread_cliente.html#a500323ed0d88ad4a07e8af410c826171">vcli</a>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_thread_cliente.html#a3b6514de0a8b6c4330051895762883d6">   22</a></span>&#160;   <span class="keyword">public</span> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_thread_cliente.html#a3b6514de0a8b6c4330051895762883d6">ThreadCliente</a> (DataInputStream <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_thread_cliente.html#a5f86e809df1f4651bc44b0c743fadb84">entrada</a>,<a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html">ControladorCliente</a> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_thread_cliente.html#a500323ed0d88ad4a07e8af410c826171">vcli</a>) <span class="keywordflow">throws</span> IOException</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;   {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;      this.entrada = entrada;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;      this.vcli = vcli;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;      this.entrada = <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_thread_cliente.html#a5f86e809df1f4651bc44b0c743fadb84">entrada</a>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;      this.vcli = <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_thread_cliente.html#a500323ed0d88ad4a07e8af410c826171">vcli</a>;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;   }</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;   </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;   <span class="keyword">public</span> <span class="keywordtype">void</span> run()</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_thread_cliente.html#a20060712ad2740b2581494789ffae928">   28</a></span>&#160;   <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_thread_cliente.html#a20060712ad2740b2581494789ffae928">run</a>()</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;   {</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;      String mensaje, emisor;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;      Vector&lt;String&gt; amigos = <span class="keyword">new</span> Vector&lt;String&gt;();</div>
@@ -159,14 +161,19 @@ $(document).ready(function(){initNavTree('_thread_cliente_8java_source.html','')
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;   </div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_thread_cliente_html_a500323ed0d88ad4a07e8af410c826171"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_thread_cliente.html#a500323ed0d88ad4a07e8af410c826171">com.ucab.javachat.Cliente.model.ThreadCliente.vcli</a></div><div class="ttdeci">ControladorCliente vcli</div><div class="ttdef"><b>Definition:</b> <a href="_thread_cliente_8java_source.html#l00021">ThreadCliente.java:21</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_thread_cliente_html_a5f86e809df1f4651bc44b0c743fadb84"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_thread_cliente.html#a5f86e809df1f4651bc44b0c743fadb84">com.ucab.javachat.Cliente.model.ThreadCliente.entrada</a></div><div class="ttdeci">DataInputStream entrada</div><div class="ttdef"><b>Definition:</b> <a href="_thread_cliente_8java_source.html#l00020">ThreadCliente.java:20</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_thread_cliente_html_a3b6514de0a8b6c4330051895762883d6"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_thread_cliente.html#a3b6514de0a8b6c4330051895762883d6">com.ucab.javachat.Cliente.model.ThreadCliente.ThreadCliente</a></div><div class="ttdeci">ThreadCliente(DataInputStream entrada, ControladorCliente vcli)</div><div class="ttdef"><b>Definition:</b> <a href="_thread_cliente_8java_source.html#l00022">ThreadCliente.java:22</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_thread_cliente_html"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_thread_cliente.html">com.ucab.javachat.Cliente.model.ThreadCliente</a></div><div class="ttdef"><b>Definition:</b> <a href="_thread_cliente_8java_source.html#l00019">ThreadCliente.java:19</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_thread_cliente_html_a20060712ad2740b2581494789ffae928"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_thread_cliente.html#a20060712ad2740b2581494789ffae928">com.ucab.javachat.Cliente.model.ThreadCliente.run</a></div><div class="ttdeci">void run()</div><div class="ttdef"><b>Definition:</b> <a href="_thread_cliente_8java_source.html#l00028">ThreadCliente.java:28</a></div></div>
 <div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente_html"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html">com.ucab.javachat.Cliente.controller.ControladorCliente</a></div><div class="ttdef"><b>Definition:</b> <a href="_controlador_cliente_8java_source.html#l00028">ControladorCliente.java:28</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_e5299afe291bd8344f72589e478b6892.html">Escritorio</a></li><li class="navelem"><a class="el" href="dir_b97110eeadfa978e2f1ddbe989a0efbd.html">ChatMorse</a></li><li class="navelem"><a class="el" href="dir_fcbd9d6e3387b6500baf78ad107b6fac.html">src</a></li><li class="navelem"><a class="el" href="dir_8ed2512e3d91de1820efcc99b53fd5f4.html">com</a></li><li class="navelem"><a class="el" href="dir_797bf6a62b3a649625898c6db28f5dae.html">ucab</a></li><li class="navelem"><a class="el" href="dir_db5bee107248ca5e160f4c34cfe2335a.html">javachat</a></li><li class="navelem"><a class="el" href="dir_df6bce020d46441ca680091ab4177918.html">Cliente</a></li><li class="navelem"><a class="el" href="dir_9f7d71615494a9aa75c20c50483674fd.html">model</a></li><li class="navelem"><a class="el" href="_thread_cliente_8java.html">ThreadCliente.java</a></li>
-    <li class="footer">Generado el Domingo, 28 de Junio de 2015 20:00:49 para ChatMorse por
+    <li class="navelem"><a class="el" href="dir_06027c96803f4ae7485d3c6ab6ea4659.html">Chat-Codigo-Morse</a></li><li class="navelem"><a class="el" href="dir_c37c2b1e0391bbb3b2862a40729bac8e.html">ChatMorse</a></li><li class="navelem"><a class="el" href="dir_698feb8a8754d25583633a3b3af39fe8.html">src</a></li><li class="navelem"><a class="el" href="dir_d2ee5da602ffa679a824132ee9ad1aea.html">com</a></li><li class="navelem"><a class="el" href="dir_56349b6200b5c8953f34b3aeff705002.html">ucab</a></li><li class="navelem"><a class="el" href="dir_ef7300534267217be745bb9cc8e7f003.html">javachat</a></li><li class="navelem"><a class="el" href="dir_50b0603f18aa803276af8b9d7d1ed343.html">Cliente</a></li><li class="navelem"><a class="el" href="dir_7a01b97c9d9175021c839effa71ef2e3.html">model</a></li><li class="navelem"><a class="el" href="_thread_cliente_8java.html">ThreadCliente.java</a></li>
+    <li class="footer">Generado el Lunes, 29 de Junio de 2015 12:26:43 para Chat codigo morse por
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
