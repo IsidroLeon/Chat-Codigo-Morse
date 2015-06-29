@@ -14,9 +14,10 @@ import com.ucab.javachat.Cliente.view.VentRecuperarContraseña;
 import com.ucab.javachat.Cliente.view.VentRegistro;
 import com.ucab.javachat.Cliente.model.Validacion;
 
-/*
- * @authors Ismael T.
+/** Clase del controlador para la ventana de inicio de sesion
+ * @authors Grupo 3
  * */
+
 public class ControladorIniciarSesion implements ActionListener {
 	private VentIniciarSesion vista;
 	private String usuario;
@@ -35,6 +36,12 @@ public class ControladorIniciarSesion implements ActionListener {
 		this.vista.btnRegistro.addActionListener(this);
 	}
 	
+	/**
+	 * Metodo que valida los datos ingresados con el archivo Json de registro.
+	 * @return boolean flag. Si los datos son correctos el valor devuelto sera verdadero.
+	 * Si alguno de los datos ingresados no coincide con el archivo de registro el valor 
+	 * devuelto sera falso.
+	 */
 	public final boolean validarInicioSesion() {
 		boolean flag = true;
 		if (this.imagen == null) {
@@ -66,6 +73,10 @@ public class ControladorIniciarSesion implements ActionListener {
 		this.vista.frmInicioDeSesion.dispose();
 	}
 	
+	/**
+	 * getters y setters
+	 * @return
+	 */
 	public String getUsuario() {
 		return this.usuario;
 	}
@@ -89,7 +100,10 @@ public class ControladorIniciarSesion implements ActionListener {
 	public void setImagen(File imagen) {
 		this.imagen = imagen;
 	}
-
+	
+	/**
+	 * metodo encargado de la accion de cada boton en la ventana de inicio de sesion.
+	 */
 	public void actionPerformed(ActionEvent e) {
 		if (vista.btnEnviar == e.getSource())	
 			if (validarInicioSesion()) {

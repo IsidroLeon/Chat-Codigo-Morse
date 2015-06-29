@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>ChatMorse: Fichero Fuente Escritorio/ChatMorse/src/com/ucab/javachat/Cliente/view/VentCliente.java</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">ChatMorse
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="namespaces.html"><span>Paquetes</span></a></li>
+      <li><a href="annotated.html"><span>Clases</span></a></li>
+      <li class="current"><a href="files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_vent_cliente_8java_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Clases</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">VentCliente.java</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_vent_cliente_8java.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Cliente.java</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * Created on 12 de marzo de 2008, 06:06 AM</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * To change this template, choose Tools | Template Manager</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> * and open the template in the editor.</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="namespacecom_1_1ucab_1_1javachat_1_1_cliente_1_1view.html">   10</a></span>&#160;<span class="keyword">package </span>com.ucab.javachat.Cliente.view;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">import</span> java.awt.BorderLayout;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">import</span> java.util.Vector;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">import</span> javax.swing.JButton;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">import</span> javax.swing.JFrame;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">import</span> javax.swing.JLabel;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">import</span> javax.swing.JList;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">import</span> javax.swing.JMenu;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">import</span> javax.swing.JMenuBar;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">import</span> javax.swing.JMenuItem;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">import</span> javax.swing.JOptionPane;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">import</span> javax.swing.JPanel;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">import</span> javax.swing.JScrollPane;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;@SuppressWarnings(<span class="stringliteral">&quot;serial&quot;</span>)</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html">   31</a></span>&#160;public class <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html">VentCliente</a> extends JFrame {</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#ace603261d388c755e279d77d83a9cccb">   32</a></span>&#160;     <span class="keyword">public</span> String <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#ace603261d388c755e279d77d83a9cccb">mensajeCliente</a>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#af68f442f498fbcc6ebfaf4243f05f1dd">   33</a></span>&#160;     <span class="keyword">public</span> JLabel <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#af68f442f498fbcc6ebfaf4243f05f1dd">lblNomUser</a>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#a63d3725a08f6ebfe73015ce9560ba462">   34</a></span>&#160;     <span class="keyword">public</span> JList&lt;String&gt; <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#a63d3725a08f6ebfe73015ce9560ba462">lstActivos</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#a485c7cc6a21b05d2e515dab3077da86f">   35</a></span>&#160;     <span class="keyword">public</span> JButton <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#a485c7cc6a21b05d2e515dab3077da86f">butPrivado</a>; </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#a3c70efb0ed43251cc5629e0b741e3831">   36</a></span>&#160;     <span class="keyword">public</span> JButton <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#a3c70efb0ed43251cc5629e0b741e3831">butModificar</a>; </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#aa8b0cdf243fc9aa223a7f6c8f81ef86c">   37</a></span>&#160;     <span class="keyword">public</span> JMenuBar <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#aa8b0cdf243fc9aa223a7f6c8f81ef86c">barraMenu</a>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#a0c84f912b0ec20c3de8d8d498a48d00f">   38</a></span>&#160;     <span class="keyword">public</span> JMenu <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#a0c84f912b0ec20c3de8d8d498a48d00f">JMAyuda</a>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#a11f89017d035722b0043be1852e06ace">   39</a></span>&#160;     <span class="keyword">public</span> JMenuItem <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#a11f89017d035722b0043be1852e06ace">help</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#ad30b231b7819130f9ef8749da385cbc2">   40</a></span>&#160;     <span class="keyword">public</span> JMenu <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#ad30b231b7819130f9ef8749da385cbc2">JMAcerca</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#aef5b2dde73418c5bd6a3979c9c05dd61">   41</a></span>&#160;     <span class="keyword">public</span> JMenuItem <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#aef5b2dde73418c5bd6a3979c9c05dd61">acercaD</a>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#ad922d8637f46a059a345c80f3d599ddc">   42</a></span>&#160;     <span class="keyword">public</span> String <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#ad922d8637f46a059a345c80f3d599ddc">nombreusuario</a>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      </div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#aa5b1c55637429e4f697d736b09785113">   44</a></span>&#160;     <span class="keyword">public</span> JOptionPane <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#aa5b1c55637429e4f697d736b09785113">AcercaDe</a>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;     </div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#a9a84788d98e20e415acc5fbabfd3486a">   46</a></span>&#160;     <span class="keyword">public</span> Vector&lt;String&gt; <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#a9a84788d98e20e415acc5fbabfd3486a">nomUsers</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#a10f9a5e4dc7215b26b4f1e95280b1858">   48</a></span>&#160;     <span class="keyword">public</span> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#a10f9a5e4dc7215b26b4f1e95280b1858">VentCliente</a>(){</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;             super(<span class="stringliteral">&quot;Cliente Chat&quot;</span>);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;             lblNomUser = <span class="keyword">new</span> JLabel(<span class="stringliteral">&quot;Usuario &lt;&lt;  &gt;&gt;&quot;</span>);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;             lblNomUser.setHorizontalAlignment(JLabel.CENTER);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;             lstActivos=<span class="keyword">new</span> JList&lt;String&gt;();             </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;             butPrivado=<span class="keyword">new</span> JButton(<span class="stringliteral">&quot;Privado&quot;</span>);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;             JPanel panLeft=<span class="keyword">new</span> JPanel();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;             panLeft.setLayout(<span class="keyword">new</span> BorderLayout());</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                panLeft.add(lblNomUser, BorderLayout.NORTH);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                JScrollPane scrollPane = <span class="keyword">new</span> JScrollPane(this.lstActivos);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                panLeft.add(scrollPane,BorderLayout.CENTER);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                    butModificar = <span class="keyword">new</span> JButton(<span class="stringliteral">&quot;Modificar datos&quot;</span>);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                    scrollPane.setColumnHeaderView(butModificar);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                    butModificar.setBounds(0, 25, 174, 15);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                panLeft.add(this.butPrivado,BorderLayout.NORTH);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;             getContentPane().setLayout(<span class="keyword">new</span> BorderLayout());</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;             getContentPane().add(panLeft, BorderLayout.CENTER);   </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;             <span class="comment">//add(lblNomUser,BorderLayout.NORTH);</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                  </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;             setSize(190, 430);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;             setLocation(120, 90);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;             setResizable(<span class="keyword">false</span>);               </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;             setVisible(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;     }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;}</div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente_html_a63d3725a08f6ebfe73015ce9560ba462"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#a63d3725a08f6ebfe73015ce9560ba462">com.ucab.javachat.Cliente.view.VentCliente.lstActivos</a></div><div class="ttdeci">JList&lt; String &gt; lstActivos</div><div class="ttdef"><b>Definition:</b> <a href="_vent_cliente_8java_source.html#l00034">VentCliente.java:34</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente_html"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html">com.ucab.javachat.Cliente.view.VentCliente</a></div><div class="ttdef"><b>Definition:</b> <a href="_vent_cliente_8java_source.html#l00031">VentCliente.java:31</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente_html_a10f9a5e4dc7215b26b4f1e95280b1858"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#a10f9a5e4dc7215b26b4f1e95280b1858">com.ucab.javachat.Cliente.view.VentCliente.VentCliente</a></div><div class="ttdeci">VentCliente()</div><div class="ttdef"><b>Definition:</b> <a href="_vent_cliente_8java_source.html#l00048">VentCliente.java:48</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente_html_a0c84f912b0ec20c3de8d8d498a48d00f"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#a0c84f912b0ec20c3de8d8d498a48d00f">com.ucab.javachat.Cliente.view.VentCliente.JMAyuda</a></div><div class="ttdeci">JMenu JMAyuda</div><div class="ttdef"><b>Definition:</b> <a href="_vent_cliente_8java_source.html#l00038">VentCliente.java:38</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente_html_ace603261d388c755e279d77d83a9cccb"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#ace603261d388c755e279d77d83a9cccb">com.ucab.javachat.Cliente.view.VentCliente.mensajeCliente</a></div><div class="ttdeci">String mensajeCliente</div><div class="ttdef"><b>Definition:</b> <a href="_vent_cliente_8java_source.html#l00032">VentCliente.java:32</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente_html_aa8b0cdf243fc9aa223a7f6c8f81ef86c"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#aa8b0cdf243fc9aa223a7f6c8f81ef86c">com.ucab.javachat.Cliente.view.VentCliente.barraMenu</a></div><div class="ttdeci">JMenuBar barraMenu</div><div class="ttdef"><b>Definition:</b> <a href="_vent_cliente_8java_source.html#l00037">VentCliente.java:37</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente_html_a11f89017d035722b0043be1852e06ace"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#a11f89017d035722b0043be1852e06ace">com.ucab.javachat.Cliente.view.VentCliente.help</a></div><div class="ttdeci">JMenuItem help</div><div class="ttdef"><b>Definition:</b> <a href="_vent_cliente_8java_source.html#l00039">VentCliente.java:39</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente_html_ad30b231b7819130f9ef8749da385cbc2"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#ad30b231b7819130f9ef8749da385cbc2">com.ucab.javachat.Cliente.view.VentCliente.JMAcerca</a></div><div class="ttdeci">JMenu JMAcerca</div><div class="ttdef"><b>Definition:</b> <a href="_vent_cliente_8java_source.html#l00040">VentCliente.java:40</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente_html_a9a84788d98e20e415acc5fbabfd3486a"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#a9a84788d98e20e415acc5fbabfd3486a">com.ucab.javachat.Cliente.view.VentCliente.nomUsers</a></div><div class="ttdeci">Vector&lt; String &gt; nomUsers</div><div class="ttdef"><b>Definition:</b> <a href="_vent_cliente_8java_source.html#l00046">VentCliente.java:46</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente_html_ad922d8637f46a059a345c80f3d599ddc"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#ad922d8637f46a059a345c80f3d599ddc">com.ucab.javachat.Cliente.view.VentCliente.nombreusuario</a></div><div class="ttdeci">String nombreusuario</div><div class="ttdef"><b>Definition:</b> <a href="_vent_cliente_8java_source.html#l00042">VentCliente.java:42</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente_html_aa5b1c55637429e4f697d736b09785113"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#aa5b1c55637429e4f697d736b09785113">com.ucab.javachat.Cliente.view.VentCliente.AcercaDe</a></div><div class="ttdeci">JOptionPane AcercaDe</div><div class="ttdef"><b>Definition:</b> <a href="_vent_cliente_8java_source.html#l00044">VentCliente.java:44</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente_html_af68f442f498fbcc6ebfaf4243f05f1dd"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#af68f442f498fbcc6ebfaf4243f05f1dd">com.ucab.javachat.Cliente.view.VentCliente.lblNomUser</a></div><div class="ttdeci">JLabel lblNomUser</div><div class="ttdef"><b>Definition:</b> <a href="_vent_cliente_8java_source.html#l00033">VentCliente.java:33</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente_html_a485c7cc6a21b05d2e515dab3077da86f"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#a485c7cc6a21b05d2e515dab3077da86f">com.ucab.javachat.Cliente.view.VentCliente.butPrivado</a></div><div class="ttdeci">JButton butPrivado</div><div class="ttdef"><b>Definition:</b> <a href="_vent_cliente_8java_source.html#l00035">VentCliente.java:35</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente_html_a3c70efb0ed43251cc5629e0b741e3831"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#a3c70efb0ed43251cc5629e0b741e3831">com.ucab.javachat.Cliente.view.VentCliente.butModificar</a></div><div class="ttdeci">JButton butModificar</div><div class="ttdef"><b>Definition:</b> <a href="_vent_cliente_8java_source.html#l00036">VentCliente.java:36</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente_html_aef5b2dde73418c5bd6a3979c9c05dd61"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html#aef5b2dde73418c5bd6a3979c9c05dd61">com.ucab.javachat.Cliente.view.VentCliente.acercaD</a></div><div class="ttdeci">JMenuItem acercaD</div><div class="ttdef"><b>Definition:</b> <a href="_vent_cliente_8java_source.html#l00041">VentCliente.java:41</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_e5299afe291bd8344f72589e478b6892.html">Escritorio</a></li><li class="navelem"><a class="el" href="dir_b97110eeadfa978e2f1ddbe989a0efbd.html">ChatMorse</a></li><li class="navelem"><a class="el" href="dir_fcbd9d6e3387b6500baf78ad107b6fac.html">src</a></li><li class="navelem"><a class="el" href="dir_8ed2512e3d91de1820efcc99b53fd5f4.html">com</a></li><li class="navelem"><a class="el" href="dir_797bf6a62b3a649625898c6db28f5dae.html">ucab</a></li><li class="navelem"><a class="el" href="dir_db5bee107248ca5e160f4c34cfe2335a.html">javachat</a></li><li class="navelem"><a class="el" href="dir_df6bce020d46441ca680091ab4177918.html">Cliente</a></li><li class="navelem"><a class="el" href="dir_5206164751c7f7790c44ffd9bf03eefc.html">view</a></li><li class="navelem"><a class="el" href="_vent_cliente_8java.html">VentCliente.java</a></li>
+    <li class="footer">Generado el Domingo, 28 de Junio de 2015 20:00:49 para ChatMorse por
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
+</body>
+</html>

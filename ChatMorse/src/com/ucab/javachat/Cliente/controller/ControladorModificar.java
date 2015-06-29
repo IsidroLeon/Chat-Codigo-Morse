@@ -16,10 +16,9 @@ import com.ucab.javachat.Cliente.model.Usuario;
 import com.ucab.javachat.Cliente.model.Validacion;
 import com.ucab.javachat.Cliente.view.VentModificar;
 
-/**
- * 
+/** Clase encargada de la ventana que se muestra cuando se desean hacer 
+ * cambios en la informacion de un usuario.
  * @author Grupo 3 - A. Rodriguez, I. Teixeira, L. Valladares, D. Suarez
- *
  */
 
 public class ControladorModificar  implements ActionListener {
@@ -33,6 +32,11 @@ public class ControladorModificar  implements ActionListener {
 		 this.cliente = cliente;
 	}
 	
+	/**
+	 * metodo encargado de completar los campos de textos con la informacion que se 
+	 * posee en el archivo de registro.
+	 * @param modelo
+	 */
 	public final void cargarDatos(final Usuario modelo) {
 		 this.vista = new VentModificar();
 		 this.vista.dateChooser.setDate((modelo.getFecha()));
@@ -52,21 +56,28 @@ public class ControladorModificar  implements ActionListener {
 	     this.vista.setVisible(true);
 	}
 	
+	/**
+	 * metodo que muestra un label de error con el mensaje: "Este usuario ya existe"
+	 */
 	public final void usuarioRepetido() {
 		vista.lblUsuarioErr.setText("Este usuario ya existe");
 		vista.lblUsuarioErr.setForeground(Color.RED);
 	}
 	
+	/**
+	 * metodo que muestra un label de error con el mensaje: "Este correo ya existe"
+	 */
 	public final void correoRepetido() {
 		vista.lblEmailErr.setText("Este correo ya existe");
 	    vista.lblEmailErr.setForeground(Color.RED);
 	}
 
+	/**
+	 * metodo encargado de la accion de los botones y campos de textos en la ventana que se muestra
+	 */
 	public final void actionPerformed(final ActionEvent evento) {
 		Validacion validacion = new Validacion();
-		flag = true;
-		
-		
+		flag = true;		
 		if (vista.btnImagen == evento.getSource()) {
 			if (vista.textoUsuario.getText() != "") {
 				JFileChooser chooser = new JFileChooser();
@@ -179,6 +190,9 @@ public class ControladorModificar  implements ActionListener {
 		}
 	}
 	
+	/**
+	 * getters y setters
+	 */
 	public final Usuario getUsuarioModificar() {
 		return usuarioModificar;
 	}

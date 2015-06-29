@@ -15,7 +15,7 @@ import com.toedter.calendar.JDateChooser;
 /**
  * Esta clase se encarga de mostrar la vista para cuando sea requerido registrar un usuario.
  * 
- * @author
+ * @author Grupo 3
  * 
  * @version 1.0
  */
@@ -42,7 +42,7 @@ public class VentRegistro extends JFrame{
 	}
 
 	/**
-	 * Initialize the contents of the frame.
+	 * Inicializa los componentes de la ventana
 	 */
 	private void initialize() {
 		frmRegistroDeUsuario = new JFrame();

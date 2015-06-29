@@ -25,7 +25,7 @@ import javax.swing.JScrollPane;
 
 /**
  * 
- * @author Administrador
+ * @author Grupo 3
  */
 @SuppressWarnings("serial")
 public class VentCliente extends JFrame {

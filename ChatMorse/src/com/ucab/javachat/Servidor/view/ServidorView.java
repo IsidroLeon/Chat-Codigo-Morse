@@ -5,8 +5,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 /**
- *
- * @author Administrador
+ * Clase encargada de cargar componentes visuales de la ventana 
+ * @author Grupo 3
  */
 
 

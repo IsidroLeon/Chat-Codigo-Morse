@@ -20,6 +20,11 @@ import com.ucab.javachat.Cliente.model.ReproducirSonido;
 import com.ucab.javachat.Cliente.model.ThreadSonido;
 import com.ucab.javachat.Cliente.view.VentPrivada;
 
+/** Clase encargada de controlar todo lo que tenga que ver con la ventana de chat privado
+ * 
+ * @author Grupo 3
+ *
+ */
 public class ControladorPrivada implements ActionListener, KeyListener {
 	private Cliente cliente;
 	private VentPrivada ventana;
@@ -51,6 +56,11 @@ public class ControladorPrivada implements ActionListener, KeyListener {
 	  });
 	}
 	
+	/**
+	 * metodo que coloca en el titulo de la ventana los participantes de la conversacion
+	 * @param amigos
+	 * @param emisor
+	 */
 		public void setAmigo(Vector<String> amigos, String emisor) {
 			ventana.setVisible(true);
 			this.emisor = emisor;
@@ -59,6 +69,9 @@ public class ControladorPrivada implements ActionListener, KeyListener {
 			ventana.setTitle("Conversación con: "+usuarios);
 	   }
 	
+		/**
+		 * metodo que se encarga de cerrar la ventana eliminando al usuaario de la conversacion
+		 */
 	    @SuppressWarnings("deprecation")
 		private void cerrarVentana() {    
 	    	if(sonido.isAlive())
@@ -79,6 +92,12 @@ public class ControladorPrivada implements ActionListener, KeyListener {
 		    ventana.setVisible(false);      
 	    }
 	    
+	    /**
+	     * metodo encargado de mostrar el mensaje enviado al receptor o receptores indicando
+	     * la hora en la cual el mensaje se ha enviado y reproduciendo el mensaje en
+	     * codigo morse.
+	     * @param msg
+	     */
 	    public void mostrarMsg(String msg) {
 	    	if(!(this.emisor.trim().equals(cliente.getNombre()))) {
 		    	sonido = new ReproducirSonido(msg);
@@ -120,6 +139,11 @@ public class ControladorPrivada implements ActionListener, KeyListener {
 				  }
 	        }
 	    }
+	    
+	    /**
+	     * metodo encargado de las acciones de cada boton y/o campo de 
+	     * texto en la ventana del chat privado
+	     */
 	   @SuppressWarnings("deprecation")
 	@Override
 	   public void actionPerformed(ActionEvent e) 

@@ -6,7 +6,11 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.Color;
-
+/**
+ * Clase que se encarga de la vista de la ventana Recuperar constraseña
+ * @author Grupo 3
+ *
+ */
 public class VentRecuperarContraseña {
 
 	public JFrame frameRecuperarContraseña;
@@ -16,15 +20,12 @@ public class VentRecuperarContraseña {
 	public JTextField nombreImagen;
 	public JLabel labelValidacion;
 
-	/**
-	 * Create the application.
-	 */
 	public VentRecuperarContraseña() {
 		initialize();
 	}
 
 	/**
-	 * Initialize the contents of the frame.
+	 * Metodo encargado de cargar todos los componentes visuales en la ventana.
 	 */
 	private void initialize() {
 		frameRecuperarContraseña = new JFrame();

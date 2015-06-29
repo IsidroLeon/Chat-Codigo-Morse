@@ -9,22 +9,34 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.DataLine;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
+/**  Clase que se encarga de reproducir mediante sonidos de codigo morse los mensajes enviados
+ *  por los usuarios.
+ * @author Grupo 3
+ */
 
 
 public class ReproducirSonido extends Thread{
 	private String mensaje;
 	private File miDir = new File (".");
-
+	
+	/** Constructores con y sin parametros
+	 */
     public ReproducirSonido() { }
     
     public ReproducirSonido(String mensaje) {
     	this.mensaje = mensaje;
     }
     
+    /** Setter para ek mensaje que se reproducira
+     * @param mensaje
+     */
     public void setMensaje(String mensaje) {
     	this.mensaje = mensaje;
     }
     
+    /** Implementacioon del metodo run. en este metodo se debe implementar la funcionalidad de
+     * la clase. Se implementa en este metodo porque hereda de la clase Thread.
+     */
     public void run() {
     	for (char letra : mensaje.toCharArray()) {
     		if (letra == '-') {
@@ -80,6 +92,12 @@ public class ReproducirSonido extends Thread{
     	}
     }
 
+    /**
+     * Metodo que se encarga de la reproduccion del archivo de sonido Punto
+     * @throws UnsupportedAudioFileException
+     * @throws IOException
+     * @throws LineUnavailableException
+     */
     private void playPunto() throws UnsupportedAudioFileException, IOException, LineUnavailableException
     {
     	String ruta = miDir.getCanonicalPath() +"/Documentos/Sonidos/punto.wav";
@@ -95,6 +113,12 @@ public class ReproducirSonido extends Thread{
         clip.close();
     }
     
+    /**
+     *  Metodo que se encarga de la reproduccion del archivo de sonido Raya
+     * @throws UnsupportedAudioFileException
+     * @throws IOException
+     * @throws LineUnavailableException
+     */
     private void playRaya() throws UnsupportedAudioFileException, IOException, LineUnavailableException
     {
     	String ruta = miDir.getCanonicalPath() +"/Documentos/Sonidos/raya.wav";
@@ -110,6 +134,9 @@ public class ReproducirSonido extends Thread{
         clip.close();
     }
     
+    /**Metodo que se encarga del espacio de sonido que hay entre cada caracter del mensaje
+     * @return duracion
+     */
     public long duracionSonido() {
     	long duracion = 0;
     	for (char letra : mensaje.toCharArray()) {

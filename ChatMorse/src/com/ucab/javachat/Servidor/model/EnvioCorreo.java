@@ -10,18 +10,33 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+/**
+ * Clase encargada de enviar un correo a la direccion de correo de un usuario registrado 
+ * en la aplicacion. La clase se utiliza para el envio de la contraseña en Recuperar contraseña  
+ * @author Grupo 3
+ */
 
 public class EnvioCorreo {
 	private String correo; 
 	private String asunto;
 	private String cuerpo;
-	
+	/**
+	 * Constructor con parametros
+	 * @param correo
+	 * @param asunto
+	 * @param cuerpo
+	 */
 	public EnvioCorreo(String correo, String asunto, String cuerpo) {
 		this.correo = correo;
 		this.asunto = asunto;
 		this.cuerpo = cuerpo;
 	}
 	
+	/**
+	 * Metodo encargado del envio del correo.
+	 * Se creo el correo grupo3program2015@gmail.com para el envio de correos a usuarios 
+	 * registrados en la aplicacion.
+	 */
 	public void enviar () {
 		final String username = "grupo3program2015@gmail.com";
 		final String password = "clavemorse";

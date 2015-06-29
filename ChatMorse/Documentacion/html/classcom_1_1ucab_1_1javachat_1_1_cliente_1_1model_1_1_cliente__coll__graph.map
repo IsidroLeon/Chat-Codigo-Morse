@@ -1,0 +1,3 @@
+<map id="com.ucab.javachat.Cliente.model.Cliente" name="com.ucab.javachat.Cliente.model.Cliente">
+<area shape="rect" id="node2" href="$classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html" title="{com.ucab.javachat.Cliente.controller.\lControladorCliente\n||+ ControladorCliente()\l+ ControladorCliente()\l+ getUsuarioAutenticado()\l+ setUsuarioAutenticado()\l+ getUsuario()\l+ setUsuario()\l+ getClave()\l+ setClave()\l+ getImagen()\l+ setImagen()\l+ setLabelUser()\l+ ponerActivos()\l+ agregarUser()\l+ retirraUser()\l+ actionPerformed()\l+ mensajeAmigo()\l}" alt="" coords="5,133,243,445"/>
+</map>

@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-/*
+/**
  *Desarrollado Por:
  *Ing. Randy F. Amaya
  *Email: randy.amaya@uth.hn

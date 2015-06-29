@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>ChatCodigoMorse: Fichero Fuente Chat-Codigo-Morse/ChatMorse/src/com/ucab/javachat/Cliente/model/Usuario.java</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">ChatCodigoMorse
+   &#160;<span id="projectnumber">1</span>
+   </div>
+   <div id="projectbrief">Chat en codigo morse</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="../../annotated.html"><span>Clases</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('dd/da3/_cliente_2model_2_usuario_8java_source.html','../../');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Clases</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funciones</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Usuario.java</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">package </span>com.ucab.javachat.Cliente.model;</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;    <span class="keyword">import</span> java.io.File;</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">import</span> java.util.Date;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    <span class="comment">// Un año “y” se representa por el entero y – 1.900. </span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;     <span class="comment">// Por ejemplo el año 1982 se representaría por el entero 1982 – 1900 = 82. </span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;     <span class="comment">// De este modo, 82 representa 1982 y 92 representa 1992.</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;      </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;      </div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="../../d9/da6/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario.html">   13</a></span>&#160;<span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="../../d9/da6/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario.html">Usuario</a> <span class="keyword">extends</span> <a class="code" href="../../d6/dba/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html">Validacion</a> {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">private</span> String nombreDeUsuario;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">private</span> <span class="keywordtype">boolean</span> sexo;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">private</span> Date fecha;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">private</span> String nombreCompleto;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">private</span> String email;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">private</span> String clave;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">private</span> File imagen; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    @SuppressWarnings(<span class="stringliteral">&quot;deprecation&quot;</span>)</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../d9/da6/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario.html#a962413eaf8392fb0bbf4c258791c2f81">   29</a></span>&#160;    public <span class="keywordtype">void</span> <a class="code" href="../../d9/da6/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario.html#a962413eaf8392fb0bbf4c258791c2f81">setFecha</a>(<span class="keywordtype">int</span> dia, <span class="keywordtype">int</span> mes, <span class="keywordtype">int</span> año) {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        this.fecha = <span class="keyword">new</span> Date(año, mes, dia);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="../../d9/da6/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario.html#a962413eaf8392fb0bbf4c258791c2f81">setFecha</a>(Date fecha) {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            this.fecha = fecha;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    }   </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="../../d9/da6/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario.html#ad255edbcac5585116c65773022df0f02">   39</a></span>&#160;    <span class="keyword">public</span> Date <a class="code" href="../../d9/da6/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario.html#ad255edbcac5585116c65773022df0f02">getFecha</a>(){</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">return</span> fecha;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">public</span> String getNombreDeUsuario() {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">return</span> nombreDeUsuario;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">public</span> <span class="keywordtype">void</span> setNombreDeUsuario(String nombreDeUsuario) {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        this.nombreDeUsuario = nombreDeUsuario;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">public</span> <span class="keywordtype">boolean</span> isSexo() {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">return</span> sexo;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">public</span> <span class="keywordtype">void</span> setSexo(<span class="keywordtype">boolean</span> sexo) {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        this.sexo = sexo;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">public</span> String getNombreCompleto() {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">return</span> nombreCompleto;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">public</span> <span class="keywordtype">void</span> setNombreCompleto(String nombreCompleto) {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        this.nombreCompleto = nombreCompleto;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">public</span> String getEmail() {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">return</span> email;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">public</span> <span class="keywordtype">void</span> setEmail(String email) {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        this.email = email;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keyword">public</span> String getClave() {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">return</span> clave;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">public</span> <span class="keywordtype">void</span> setClave(String clave) {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        this.clave = clave;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="../../d9/da6/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario.html#af5dfba7bb9e4c89c8627cd630e80493d">   75</a></span>&#160;    <span class="keyword">public</span> <a class="code" href="../../d9/da6/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario.html#af5dfba7bb9e4c89c8627cd630e80493d">Usuario</a>(String nombreDeUsuario, <span class="keywordtype">boolean</span> sexo, Date fecha,</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            String nombreCompleto, String email, String clave) {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        this.nombreDeUsuario = nombreDeUsuario;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        this.sexo = sexo;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        this.fecha = fecha;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        this.nombreCompleto = nombreCompleto;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        this.email = email;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        this.clave = clave;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    }</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keyword">public</span> <a class="code" href="../../d9/da6/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario.html">Usuario</a>() {</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keyword">public</span> <span class="keywordtype">boolean</span> usuarioVacio() {</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordflow">if</span> ((this.nombreDeUsuario != null)&amp;&amp;(this.fecha != null)&amp;&amp;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                (this.nombreCompleto!= null)&amp;&amp;(this.email != null)&amp;&amp;(this.clave != null)) {</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        }</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    }</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="../../d9/da6/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario.html#aa7602a327f0e4c69c61b8e650789ff97">   98</a></span>&#160;    <span class="keyword">public</span> String <a class="code" href="../../d9/da6/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario.html#aa7602a327f0e4c69c61b8e650789ff97">toString</a>() {</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;Usuario [nombreDeUsuario=&quot;</span> + nombreDeUsuario</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                + <span class="stringliteral">&quot;, sexo=&quot;</span> + sexo + <span class="stringliteral">&quot;, fecha=&quot;</span> + fecha + <span class="stringliteral">&quot;, nombreCompleto=&quot;</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                + nombreCompleto + <span class="stringliteral">&quot;, email=&quot;</span> + email + <span class="stringliteral">&quot;, clave=&quot;</span> + clave</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                + <span class="stringliteral">&quot;]&quot;</span>;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    }</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keyword">public</span> File getImagen() {</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordflow">return</span> imagen;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    }</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keyword">public</span> <span class="keywordtype">void</span> setImagen(File imagen) {</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        this.imagen = imagen;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    }</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;}</div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario_html"><div class="ttname"><a href="../../d9/da6/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario.html">com.ucab.javachat.Cliente.model.Usuario</a></div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da3/_cliente_2model_2_usuario_8java_source.html#l00013">Usuario.java:13</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario_html_ad255edbcac5585116c65773022df0f02"><div class="ttname"><a href="../../d9/da6/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario.html#ad255edbcac5585116c65773022df0f02">com.ucab.javachat.Cliente.model.Usuario.getFecha</a></div><div class="ttdeci">Date getFecha()</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da3/_cliente_2model_2_usuario_8java_source.html#l00039">Usuario.java:39</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario_html_aa7602a327f0e4c69c61b8e650789ff97"><div class="ttname"><a href="../../d9/da6/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario.html#aa7602a327f0e4c69c61b8e650789ff97">com.ucab.javachat.Cliente.model.Usuario.toString</a></div><div class="ttdeci">String toString()</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da3/_cliente_2model_2_usuario_8java_source.html#l00098">Usuario.java:98</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario_html_a962413eaf8392fb0bbf4c258791c2f81"><div class="ttname"><a href="../../d9/da6/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario.html#a962413eaf8392fb0bbf4c258791c2f81">com.ucab.javachat.Cliente.model.Usuario.setFecha</a></div><div class="ttdeci">void setFecha(int dia, int mes, int año)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da3/_cliente_2model_2_usuario_8java_source.html#l00029">Usuario.java:29</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario_html_af5dfba7bb9e4c89c8627cd630e80493d"><div class="ttname"><a href="../../d9/da6/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario.html#af5dfba7bb9e4c89c8627cd630e80493d">com.ucab.javachat.Cliente.model.Usuario.Usuario</a></div><div class="ttdeci">Usuario(String nombreDeUsuario, boolean sexo, Date fecha, String nombreCompleto, String email, String clave)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da3/_cliente_2model_2_usuario_8java_source.html#l00075">Usuario.java:75</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion_html"><div class="ttname"><a href="../../d6/dba/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html">com.ucab.javachat.Cliente.model.Validacion</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d9b/_validacion_8java_source.html#l00018">Validacion.java:18</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_06027c96803f4ae7485d3c6ab6ea4659.html">Chat-Codigo-Morse</a></li><li class="navelem"><a class="el" href="../../dir_c37c2b1e0391bbb3b2862a40729bac8e.html">ChatMorse</a></li><li class="navelem"><a class="el" href="../../dir_698feb8a8754d25583633a3b3af39fe8.html">src</a></li><li class="navelem"><a class="el" href="../../dir_d2ee5da602ffa679a824132ee9ad1aea.html">com</a></li><li class="navelem"><a class="el" href="../../dir_56349b6200b5c8953f34b3aeff705002.html">ucab</a></li><li class="navelem"><a class="el" href="../../dir_ef7300534267217be745bb9cc8e7f003.html">javachat</a></li><li class="navelem"><a class="el" href="../../dir_50b0603f18aa803276af8b9d7d1ed343.html">Cliente</a></li><li class="navelem"><a class="el" href="../../dir_7a01b97c9d9175021c839effa71ef2e3.html">model</a></li><li class="navelem"><b>Usuario.java</b></li>
+    <li class="footer">Generado el Lunes, 29 de Junio de 2015 08:49:58 para ChatCodigoMorse por
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
+</body>
+</html>

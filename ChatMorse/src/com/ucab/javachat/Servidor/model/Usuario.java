@@ -1,12 +1,14 @@
 package com.ucab.javachat.Servidor.model;
 import java.io.File;
 import java.util.Date;
-	/** Un año “y” se representa por el entero y – 1.900. 
-	 * Por ejemplo el año 1982 se representaría por el entero 1982 – 1900 = 82. 
-	 * De este modo, 82 representa 1982 y 92 representa 1992.
-	 * @authors Ismael T.
-	 * */
-	
+	 // Un año “y” se representa por el entero y – 1.900. 
+	 // Por ejemplo el año 1982 se representaría por el entero 1982 – 1900 = 82. 
+	 // De este modo, 82 representa 1982 y 92 representa 1992.
+	 
+	/** Clase que se encarga de definir los valores del usuario registrado
+	 *  @authors Grupo 3
+	* */
+
 public class Usuario {
 	private String nombreDeUsuario;
 	private boolean sexo;

@@ -13,12 +13,13 @@ import java.awt.event.ActionEvent;
 import com.toedter.calendar.JDateChooser;
 import javax.swing.JPasswordField;
 
+/**
+ * Clase encargada de la vista de la ventana modificar datos
+ * @authors Grupo 3
+ */
+
 @SuppressWarnings("serial")
 public class VentModificar extends JFrame {
-	
-	/**
-	 * 
-	 */
 
 	public JTextField textoUsuario;
 	public JTextField textoNombre;
@@ -33,7 +34,9 @@ public class VentModificar extends JFrame {
 	public JLabel lblUsuarioErr, lblNombreErr, lblEmailErr, lblFechaErr, lblContraseñaErr, lblSexoErr, lblFotoErr;
 	public JTextField nombreImagen;
 
-	
+	/**
+	 * metodo encargado de cargar todos los componentes visuales de la ventana
+	 */
 	public VentModificar() {
 		getContentPane().setLayout(null);
 		setBounds(100, 100, 547, 378);

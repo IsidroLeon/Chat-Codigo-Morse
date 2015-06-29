@@ -7,6 +7,11 @@ import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
+/**
+ * Clase encargada de cargar los componentes visuales de la ventana de Inicio de Sesion
+ * @author Grupo 3
+ *
+ */
 @SuppressWarnings("serial")
 public class VentIniciarSesion extends JFrame{
 
@@ -22,7 +27,7 @@ public class VentIniciarSesion extends JFrame{
 	}
 
 	/**
-	 * Initialize the contents of the frame.
+	 * Inicializa los componentes en la ventana
 	 */
 	private void initialize() {
 		frmInicioDeSesion = new JFrame();

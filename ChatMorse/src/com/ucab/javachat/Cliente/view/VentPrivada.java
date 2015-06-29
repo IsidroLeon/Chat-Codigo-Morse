@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package com.ucab.javachat.Cliente.view;
 import java.awt.BorderLayout;
 import java.util.Vector;
@@ -11,8 +6,8 @@ import javax.swing.*;
 
 import com.ucab.javachat.Cliente.model.Cliente;
 /**
- *
- * @author Administrador
+ *Clase encargada de cargar los componentes visuales de la ventana de chat pivado y grupal
+ * @author Grupo 3
  */
 @SuppressWarnings("serial")
 public class VentPrivada extends JFrame
@@ -26,6 +21,10 @@ public JTextArea panMostrar;
    public Vector<String> amigo;
    public JButton btnConvertir = new JButton("Convertir");
    
+   /**
+    * metodo que se encarga de cargar todos los componentes visuales en la ventana
+    * @param cliente
+    */
    public VentPrivada(Cliente cliente)
    {
       super("Amigo");

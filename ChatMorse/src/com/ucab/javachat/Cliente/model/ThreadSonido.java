@@ -2,6 +2,15 @@ package com.ucab.javachat.Cliente.model;
 
 import com.ucab.javachat.Cliente.view.VentPrivada;
 
+/**
+ * Clase que se encarga de cargar los componentes visuales al enviar un mensaje para 
+ * la reproduccion en sonido del mensaje enviado. Bloque el campo de texto para que no se
+ * pueda escribir mientras esta la reproduccion del mensaje. Esto evita errores en la 
+ * reprodccion del mensaje al ser enviado.
+ * @author Grupo 3
+ *
+ */
+
 public class ThreadSonido extends Thread {
 	private long duracion;
 	private VentPrivada ventana;

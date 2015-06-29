@@ -14,7 +14,7 @@ import com.ucab.javachat.Servidor.model.Usuario;
 
 /** Clase que manipula los archivos Json, el guardado y lectura de archivo y cualquier proceso relacionado
 *
-* @author Luis Valladares
+* @author Grupo 3
 * 
 */
 

@@ -6,19 +6,35 @@ import java.net.Socket;
 
 import com.ucab.javachat.Servidor.model.ServidorModel;
 import com.ucab.javachat.Servidor.view.ServidorView;
-
+/**
+ * Clase que controla la parte del servidor
+ * @author Grupo 3
+ */
 public class ServidorController {
 	private ServidorView vista;
-
+	
+	/**
+	 * metodo que se encarga de iniciar la vista del servidor y llama al metodo runServer
+	 * @param vista
+	 */
 	public ServidorController(ServidorView vista) {
 		this.vista = vista;
 		runServer();
 	}
 	
+	/**
+	 * metodo necargado de agregar a la ventana del servidor 
+	 * el mensaje que recibe como parametro 
+	 * @param msg
+	 */
  public void mostrar(String msg)
    {
       vista.txaMostrar.append(msg+"\n");
    }
+ 
+ 	/**
+ 	 * metodo encargado de inicializar los sockets y poder admitir usuarios en la aplicacion 
+ 	 */
    public void runServer()
    {
       ServerSocket serv = null;//para comunicacion

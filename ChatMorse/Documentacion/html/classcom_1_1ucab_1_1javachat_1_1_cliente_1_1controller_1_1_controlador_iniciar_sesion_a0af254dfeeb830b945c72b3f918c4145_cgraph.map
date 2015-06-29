@@ -1,0 +1,6 @@
+<map id="com.ucab.javachat.Cliente.controller.ControladorIniciarSesion.validarInicioSesion" name="com.ucab.javachat.Cliente.controller.ControladorIniciarSesion.validarInicioSesion">
+<area shape="rect" id="node2" href="$classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html#a4d7e1104a20469f92144e9580b34f901" title="com.ucab.javachat.Cliente.model.\lValidacion.validarUsuario" alt="" coords="341,5,561,46"/>
+<area shape="rect" id="node3" href="$classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_iniciar_sesion.html#a93241d6ec2f9d3f2ed60c936d7bcffab" title="com.ucab.javachat.Cliente.controller.\lControladorIniciarSesion.setUsuario" alt="" coords="331,70,570,111"/>
+<area shape="rect" id="node4" href="$classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html#a03b6327d88c6fb0e69ef43ed72918e46" title="com.ucab.javachat.Cliente.model.\lValidacion.validarContraseña" alt="" coords="341,135,561,177"/>
+<area shape="rect" id="node5" href="$classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_iniciar_sesion.html#a9cf2679039366d1f9e37d2d506dec14c" title="com.ucab.javachat.Cliente.controller.\lControladorIniciarSesion.setClave" alt="" coords="331,201,570,242"/>
+</map>

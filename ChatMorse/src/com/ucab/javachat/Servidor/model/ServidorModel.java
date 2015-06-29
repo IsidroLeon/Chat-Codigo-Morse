@@ -19,8 +19,9 @@ import com.ucab.javachat.Servidor.model.EnvioCorreo;
 import com.ucab.javachat.Servidor.controller.ServidorController;
 
 /**
- *
- * @author Administrador
+ * Esta clase se encarga de recibir informacion para poder enviarla a otros metodos y 
+ * lograr un objetivo con ellos. Esta clase es un hilo. 
+ * @author Grupo 3
  */
 public class ServidorModel extends Thread
 {
@@ -35,7 +36,12 @@ public class ServidorModel extends Thread
      private File imagen;
      ServidorController serv;
      ArrayList<Usuario> usuariosArchivo = new ArrayList<Usuario>();
-     
+     /**
+      * Contructor con parametros
+      * @param scliente
+      * @param scliente2
+      * @param serv
+      */
      public ServidorModel(Socket scliente,Socket scliente2,ServidorController serv)
      {
         scli=scliente;
@@ -45,6 +51,9 @@ public class ServidorModel extends Thread
         serv.mostrar("cliente agregado: "+this);			
      }
      
+     /**
+      * getters y setters
+      */
      public void setNameUser(String user)
      {
        this.nameUser = user;
@@ -71,6 +80,14 @@ public class ServidorModel extends Thread
 		this.imagen = imagen;
 	}
 
+	/** Este metodo tiene varias funciones. Se encarga principalmente del inicio de sesion 
+	 * de un usuario en la aplicacion, del registro de un usuario en la aplicacion y del envio
+	 * de la clave a la dirrecion de correo de usuarios regstrados que hayan olvidado su clave de 
+	 * acceso. Ademas de esto el metodo tambien se encarga de modificar datos de usuarios
+	 * registrados, actualizar lista de contactos activos en la aplicacion y enviar mensajes
+	 * en la aplicacion. Todo esto esta dentro del metodo implementado run, el cual es 
+	 * un metodo que se debe implementar pues hereda de Thread.
+	 */
 	public void run()
      {
 		Gson gson = new Gson();
@@ -242,6 +259,9 @@ public class ServidorModel extends Thread
         	}   
      }
     
+	/**
+	 * metodo que actualiza el estado de conexion de los usuarios en la aplicacion
+	 */
      public void enviaUserActivos()
      {
         ServidorModel user=null;
@@ -257,6 +277,13 @@ public class ServidorModel extends Thread
         }
      }
    
+     /**
+      * metodo encargado del envio de mensajes en chats individuales y grupales
+      * @param mencli
+      * @param emisor
+      * @param amigos
+      * @param jsonamigos
+      */
    private void enviaMensaje(String mencli, String emisor, Vector<String> amigos, String jsonamigos) 
    {
       ServidorModel user=null;

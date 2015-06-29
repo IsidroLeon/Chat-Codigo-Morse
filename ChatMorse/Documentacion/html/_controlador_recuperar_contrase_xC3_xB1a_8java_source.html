@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>ChatMorse: Fichero Fuente Escritorio/ChatMorse/src/com/ucab/javachat/Cliente/controller/ControladorRecuperarContraseña.java</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">ChatMorse
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="namespaces.html"><span>Paquetes</span></a></li>
+      <li><a href="annotated.html"><span>Clases</span></a></li>
+      <li class="current"><a href="files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_controlador_recuperar_contrase_xC3_xB1a_8java_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Clases</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">ControladorRecuperarContraseña.java</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_controlador_recuperar_contrase_xC3_xB1a_8java.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">package </span>com.ucab.javachat.Cliente.controller;</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">import</span> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_cliente.html">com.ucab.javachat.Cliente.model.Cliente</a>;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">import</span> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_criptologia.html">com.ucab.javachat.Cliente.model.Criptologia</a>;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">import</span> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html">com.ucab.javachat.Cliente.model.Validacion</a>;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">import</span> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_recuperar_contrase_xC3_xB1a.html">com.ucab.javachat.Cliente.view.VentRecuperarContraseña</a>;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">import</span> java.awt.event.ActionEvent;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">import</span> java.awt.event.ActionListener;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">import</span> java.io.File;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">import</span> java.io.IOException;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">import</span> javax.swing.JFileChooser;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">import</span> javax.swing.JOptionPane;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">import</span> javax.swing.filechooser.FileNameExtensionFilter;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_recuperar_contrase_xC3_xB1a.html">   17</a></span>&#160;<span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_recuperar_contrase_xC3_xB1a.html">ControladorRecuperarContraseña</a> <span class="keyword">implements</span> ActionListener{</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">private</span> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_recuperar_contrase_xC3_xB1a.html">VentRecuperarContraseña</a> vista;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">private</span> File imagen = null;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">private</span> <span class="keywordtype">boolean</span> flagImagen = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_recuperar_contrase_xC3_xB1a.html#a9bf650dbd9bd8af042b92a43baa80111">   23</a></span>&#160;    <span class="keyword">public</span> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_recuperar_contrase_xC3_xB1a.html#a9bf650dbd9bd8af042b92a43baa80111">ControladorRecuperarContraseña</a> (<a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_recuperar_contrase_xC3_xB1a.html">VentRecuperarContraseña</a> vista){</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        this.vista = vista;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        this.vista.frameRecuperarContraseña.setVisible(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        this.vista.btnEnviar.addActionListener(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        this.vista.btnSeleccionar.addActionListener(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        this.vista.nombreImagen.setEditable(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    }</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">/*Primero se codifica, despues se manda al servidor y se ve si esta registrado. </span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment"> * Si el usuario esta registrado se envia el correo. */</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_recuperar_contrase_xC3_xB1a.html#a3e2d23c7eea7fa3a47b41cb6638d2335">   34</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_recuperar_contrase_xC3_xB1a.html#a3e2d23c7eea7fa3a47b41cb6638d2335">actionPerformed</a>(ActionEvent e) {    <span class="comment">//metodo para enviar la informacion</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordtype">boolean</span> flag = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">if</span> (vista.<a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_recuperar_contrase_xC3_xB1a.html#a018ea4776e5b9ff7076aa560b4f19fe9">btnSeleccionar</a> == e.getSource()){</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            JFileChooser chooser = <span class="keyword">new</span> JFileChooser();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            FileNameExtensionFilter filtro = <span class="keyword">new</span> FileNameExtensionFilter(<span class="stringliteral">&quot;.jpg&quot;</span>, <span class="stringliteral">&quot;jpg&quot;</span>);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            chooser.setFileFilter(filtro);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            File archivos = <span class="keyword">new</span> File (<span class="stringliteral">&quot;/home/user&quot;</span>);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            chooser.setCurrentDirectory(archivos);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            chooser.setDialogTitle(<span class="stringliteral">&quot;Seleccione una foto.&quot;</span>);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="comment">//Elegiremos archivos del directorio;</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            chooser.setAcceptAllFileFilterUsed(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <span class="comment">//Si seleccionamos algún archivo retornaremos su directorio</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">if</span> (chooser.showOpenDialog(vista.<a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_recuperar_contrase_xC3_xB1a.html#a04128faac0a1606d3b7377debaf91fc9">frameRecuperarContraseña</a>) == JFileChooser.APPROVE_OPTION) {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                this.imagen = chooser.getSelectedFile();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                vista.nombreImagen.setText(this.imagen.getName());</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                flagImagen = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                <span class="keywordflow">if</span> (!vista.<a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_recuperar_contrase_xC3_xB1a.html#a46bf84eb2459fc2de03962e04fbc053f">textField</a>.getText().contains(<span class="stringliteral">&quot;@&quot;</span>)) flag = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                vista.labelValidacion.setText(<span class="stringliteral">&quot;    por favor, seleccione una imagen.&quot;</span>); </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            flag = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        String correo = vista.textField.getText();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">if</span> (vista.<a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_recuperar_contrase_xC3_xB1a.html#a706b0887be2a8a4995cf3f6b3b81f16b">btnEnviar</a> == e.getSource()){</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html">Validacion</a> validar = <span class="keyword">new</span> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html">Validacion</a>();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keywordflow">if</span> (validar.<a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html#ad8d244737f6462e48ab8d02a307a36f2">validarEmail</a>(correo)){</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                correo = Criptologia.encriptar(vista.textField.getText());</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                vista.labelValidacion.setText(<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                vista.labelValidacion.setText(<span class="stringliteral">&quot;   por favor, escriba un correo valido.&quot;</span>);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                flag = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            }   </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">if</span> (flag &amp;&amp; flagImagen) {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <span class="keywordflow">try</span> {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_cliente.html">Cliente</a> cliente = <span class="keyword">new</span> <a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_cliente.html">Cliente</a>();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <span class="keywordflow">if</span>(cliente.<a class="code" href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_cliente.html#ad187c584feac2fbaddf36074a7d7ee64">conexion</a>(correo,<span class="keyword">this</span>.imagen)) {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                    vista.frameRecuperarContraseña.dispose();</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                     JOptionPane.showMessageDialog(null, <span class="stringliteral">&quot;Se ha enviado un correo con su contraseña&quot;</span>, <span class="stringliteral">&quot;Recuperación&quot;</span>, JOptionPane.INFORMATION_MESSAGE);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                     JOptionPane.showMessageDialog(null, <span class="stringliteral">&quot;Los datos enviados no coinciden con ningún usuario del servidor&quot;</span>, <span class="stringliteral">&quot;Problema de conexión&quot;</span>, JOptionPane.INFORMATION_MESSAGE);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            } <span class="keywordflow">catch</span> (IOException e1) {</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                <span class="comment">// TODO Auto-generated catch block</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                e1.printStackTrace();</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        }</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    }</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;}</div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_cliente_html_ad187c584feac2fbaddf36074a7d7ee64"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_cliente.html#ad187c584feac2fbaddf36074a7d7ee64">com.ucab.javachat.Cliente.model.Cliente.conexion</a></div><div class="ttdeci">Usuario conexion(String nombre, String clave, File imagen)</div><div class="ttdef"><b>Definition:</b> <a href="_cliente_8java_source.html#l00065">Cliente.java:65</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_recuperar_contrase_xC3_xB1a_html_a04128faac0a1606d3b7377debaf91fc9"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_recuperar_contrase_xC3_xB1a.html#a04128faac0a1606d3b7377debaf91fc9">com.ucab.javachat.Cliente.view.VentRecuperarContraseña.frameRecuperarContraseña</a></div><div class="ttdeci">JFrame frameRecuperarContraseña</div><div class="ttdef"><b>Definition:</b> <a href="_vent_recuperar_contrase_xC3_xB1a_8java_source.html#l00012">VentRecuperarContraseña.java:12</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_criptologia_html"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_criptologia.html">com.ucab.javachat.Cliente.model.Criptologia</a></div><div class="ttdef"><b>Definition:</b> <a href="_cliente_2model_2_criptologia_8java_source.html#l00024">Criptologia.java:24</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_recuperar_contrase_xC3_xB1a_html_a3e2d23c7eea7fa3a47b41cb6638d2335"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_recuperar_contrase_xC3_xB1a.html#a3e2d23c7eea7fa3a47b41cb6638d2335">com.ucab.javachat.Cliente.controller.ControladorRecuperarContraseña.actionPerformed</a></div><div class="ttdeci">void actionPerformed(ActionEvent e)</div><div class="ttdef"><b>Definition:</b> <a href="_controlador_recuperar_contrase_xC3_xB1a_8java_source.html#l00034">ControladorRecuperarContraseña.java:34</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_recuperar_contrase_xC3_xB1a_html"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_recuperar_contrase_xC3_xB1a.html">com.ucab.javachat.Cliente.controller.ControladorRecuperarContraseña</a></div><div class="ttdef"><b>Definition:</b> <a href="_controlador_recuperar_contrase_xC3_xB1a_8java_source.html#l00017">ControladorRecuperarContraseña.java:17</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion_html_ad8d244737f6462e48ab8d02a307a36f2"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html#ad8d244737f6462e48ab8d02a307a36f2">com.ucab.javachat.Cliente.model.Validacion.validarEmail</a></div><div class="ttdeci">boolean validarEmail(String email)</div><div class="ttdef"><b>Definition:</b> <a href="_validacion_8java_source.html#l00071">Validacion.java:71</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_recuperar_contrase_xC3_xB1a_html_a706b0887be2a8a4995cf3f6b3b81f16b"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_recuperar_contrase_xC3_xB1a.html#a706b0887be2a8a4995cf3f6b3b81f16b">com.ucab.javachat.Cliente.view.VentRecuperarContraseña.btnEnviar</a></div><div class="ttdeci">JButton btnEnviar</div><div class="ttdef"><b>Definition:</b> <a href="_vent_recuperar_contrase_xC3_xB1a_8java_source.html#l00015">VentRecuperarContraseña.java:15</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_recuperar_contrase_xC3_xB1a_html"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_recuperar_contrase_xC3_xB1a.html">com.ucab.javachat.Cliente.view.VentRecuperarContraseña</a></div><div class="ttdef"><b>Definition:</b> <a href="_vent_recuperar_contrase_xC3_xB1a_8java_source.html#l00010">VentRecuperarContraseña.java:10</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_recuperar_contrase_xC3_xB1a_html_a46bf84eb2459fc2de03962e04fbc053f"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_recuperar_contrase_xC3_xB1a.html#a46bf84eb2459fc2de03962e04fbc053f">com.ucab.javachat.Cliente.view.VentRecuperarContraseña.textField</a></div><div class="ttdeci">JTextField textField</div><div class="ttdef"><b>Definition:</b> <a href="_vent_recuperar_contrase_xC3_xB1a_8java_source.html#l00013">VentRecuperarContraseña.java:13</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_recuperar_contrase_xC3_xB1a_html_a018ea4776e5b9ff7076aa560b4f19fe9"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_recuperar_contrase_xC3_xB1a.html#a018ea4776e5b9ff7076aa560b4f19fe9">com.ucab.javachat.Cliente.view.VentRecuperarContraseña.btnSeleccionar</a></div><div class="ttdeci">JButton btnSeleccionar</div><div class="ttdef"><b>Definition:</b> <a href="_vent_recuperar_contrase_xC3_xB1a_8java_source.html#l00014">VentRecuperarContraseña.java:14</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_recuperar_contrase_xC3_xB1a_html_a9bf650dbd9bd8af042b92a43baa80111"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_recuperar_contrase_xC3_xB1a.html#a9bf650dbd9bd8af042b92a43baa80111">com.ucab.javachat.Cliente.controller.ControladorRecuperarContraseña.ControladorRecuperarContraseña</a></div><div class="ttdeci">ControladorRecuperarContraseña(VentRecuperarContraseña vista)</div><div class="ttdef"><b>Definition:</b> <a href="_controlador_recuperar_contrase_xC3_xB1a_8java_source.html#l00023">ControladorRecuperarContraseña.java:23</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_cliente_html"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_cliente.html">com.ucab.javachat.Cliente.model.Cliente</a></div><div class="ttdef"><b>Definition:</b> <a href="_cliente_8java_source.html#l00036">Cliente.java:36</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion_html"><div class="ttname"><a href="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_validacion.html">com.ucab.javachat.Cliente.model.Validacion</a></div><div class="ttdef"><b>Definition:</b> <a href="_validacion_8java_source.html#l00018">Validacion.java:18</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_e5299afe291bd8344f72589e478b6892.html">Escritorio</a></li><li class="navelem"><a class="el" href="dir_b97110eeadfa978e2f1ddbe989a0efbd.html">ChatMorse</a></li><li class="navelem"><a class="el" href="dir_fcbd9d6e3387b6500baf78ad107b6fac.html">src</a></li><li class="navelem"><a class="el" href="dir_8ed2512e3d91de1820efcc99b53fd5f4.html">com</a></li><li class="navelem"><a class="el" href="dir_797bf6a62b3a649625898c6db28f5dae.html">ucab</a></li><li class="navelem"><a class="el" href="dir_db5bee107248ca5e160f4c34cfe2335a.html">javachat</a></li><li class="navelem"><a class="el" href="dir_df6bce020d46441ca680091ab4177918.html">Cliente</a></li><li class="navelem"><a class="el" href="dir_7619e4caccf5e226c5585f6a0c946f1b.html">controller</a></li><li class="navelem"><a class="el" href="_controlador_recuperar_contrase_xC3_xB1a_8java.html">ControladorRecuperarContraseña.java</a></li>
+    <li class="footer">Generado el Domingo, 28 de Junio de 2015 20:00:49 para ChatMorse por
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
+</body>
+</html>

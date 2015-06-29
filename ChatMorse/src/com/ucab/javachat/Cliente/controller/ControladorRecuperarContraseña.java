@@ -14,6 +14,12 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+/**
+ * Clase encargada de controlar la ventana de Recuperar contraseña
+ * @author Grupo 3
+ *
+ */
+
 public class ControladorRecuperarContraseña implements ActionListener{
 
 	private VentRecuperarContraseña vista;
@@ -29,8 +35,9 @@ public class ControladorRecuperarContraseña implements ActionListener{
 	}
 
 		
-/*Primero se codifica, despues se manda al servidor y se ve si esta registrado. 
- * Si el usuario esta registrado se envia el correo. */
+/**
+ * metodo encargado de la accion de cada boton y/o campo de texto que se encuentra en la ventana
+ */
 	public void actionPerformed(ActionEvent e) {	//metodo para enviar la informacion
 		boolean flag = true;
 		if (vista.btnSeleccionar == e.getSource()){
