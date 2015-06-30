@@ -1,0 +1,337 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>ChatCodigoMorse: Fichero Fuente Chat-Codigo-Morse/ChatMorse/src/com/ucab/javachat/Cliente/controller/ControladorCliente.java</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">ChatCodigoMorse
+   &#160;<span id="projectnumber">1</span>
+   </div>
+   <div id="projectbrief">Chat en codigo morse</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="../../annotated.html"><span>Clases</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('d0/dde/_controlador_cliente_8java_source.html','../../');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Clases</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funciones</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">ControladorCliente.java</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">package </span>com.ucab.javachat.Cliente.controller;</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">import</span> java.awt.event.ActionEvent;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">import</span> java.awt.event.ActionListener;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">import</span> java.io.File;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">import</span> java.io.IOException;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">import</span> java.util.Vector;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">import</span> javax.swing.AbstractListModel;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">import</span> javax.swing.JList;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">import</span> javax.swing.JOptionPane;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">import</span> <a class="code" href="../../de/df9/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_cliente.html">com.ucab.javachat.Cliente.model.Cliente</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">import</span> <a class="code" href="../../da/d67/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_criptologia.html">com.ucab.javachat.Cliente.model.Criptologia</a>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">import</span> <a class="code" href="../../d0/dc5/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_thread_actualizar_usuario.html">com.ucab.javachat.Cliente.model.ThreadActualizarUsuario</a>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">import</span> <a class="code" href="../../d9/da6/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario.html">com.ucab.javachat.Cliente.model.Usuario</a>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">import</span> <a class="code" href="../../d2/d63/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html">com.ucab.javachat.Cliente.view.VentCliente</a>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">import</span> <a class="code" href="../../d2/db1/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html">com.ucab.javachat.Cliente.view.VentIniciarSesion</a>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">import</span> <a class="code" href="../../d2/d2e/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_privada.html">com.ucab.javachat.Cliente.view.VentPrivada</a>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">import</span> <a class="code" href="../../d1/d0f/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_modificar.html">com.ucab.javachat.Cliente.view.VentModificar</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html">   28</a></span>&#160;<span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html">ControladorCliente</a> <span class="keyword">implements</span> ActionListener {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">private</span> <a class="code" href="../../d2/d63/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html">VentCliente</a> ventana;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">private</span> <a class="code" href="../../de/df9/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_cliente.html">Cliente</a> cliente;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">private</span> <a class="code" href="../../d2/d2e/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_privada.html">VentPrivada</a> ventPrivada;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">private</span> <a class="code" href="../../dc/d6a/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_privada.html">ControladorPrivada</a> contPrivada;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">private</span> <a class="code" href="../../d1/d0f/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_modificar.html">VentModificar</a> ventModificar;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">private</span> String nombreUsuario;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">private</span> String clave;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">private</span> File imagen;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">private</span> <a class="code" href="../../d9/da6/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario.html">Usuario</a> usuarioAutenticado;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">private</span> <a class="code" href="../../d0/dc5/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_thread_actualizar_usuario.html">ThreadActualizarUsuario</a> actualizarUsuario;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">private</span> <a class="code" href="../../d6/d90/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_modificar.html">ControladorModificar</a> modificador;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a169ce22e78795bc739fde02d29afbf5a">   45</a></span>&#160;    <span class="keyword">public</span> <a class="code" href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a169ce22e78795bc739fde02d29afbf5a">ControladorCliente</a>(<span class="keyword">final</span> <a class="code" href="../../d2/d63/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html">VentCliente</a> ventana, <a class="code" href="../../d2/d0e/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_iniciar_sesion.html">ControladorIniciarSesion</a> contSesion) {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <a class="code" href="../../d9/da6/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario.html">Usuario</a> autenticado = <span class="keyword">new</span> <a class="code" href="../../d9/da6/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario.html">Usuario</a>();</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <a class="code" href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a29e6cb2c38d42517282ce2da900b3516">setUsuario</a>(contSesion.getUsuario());</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a8647e56fdb735f7abdef284b023e9f53">setClave</a>(<a class="code" href="../../da/d67/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_criptologia.html">Criptologia</a>.encriptar(contSesion.getClave()));</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <a class="code" href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a6e7b9e6c4a82829efbd0aae6c2658184">setImagen</a>(contSesion.getImagen());</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        this.ventana = ventana;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">try</span> {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            cliente = <span class="keyword">new</span> <a class="code" href="../../de/df9/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_cliente.html">Cliente</a>(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            autenticado = cliente.conexion(nombreUsuario, clave, imagen);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            ventana.nomUsers = <span class="keyword">new</span> Vector&lt;String&gt;();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        } <span class="keywordflow">catch</span> (IOException e) {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            e.printStackTrace();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">if</span> (!autenticado.usuarioVacio()) {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            this.usuarioAutenticado = autenticado;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            contSesion.cerrarVentana();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            this.ventana.setVisible(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            this.ventana.butPrivado.addActionListener(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            this.ventana.butModificar.addActionListener(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            actualizarUsuario = <span class="keyword">new</span> <a class="code" href="../../d0/dc5/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_thread_actualizar_usuario.html">ThreadActualizarUsuario</a>(cliente);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            actualizarUsuario.start();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            ventPrivada = <span class="keyword">new</span> <a class="code" href="../../d2/d2e/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_privada.html">VentPrivada</a>(cliente);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            contPrivada = <span class="keyword">new</span> <a class="code" href="../../dc/d6a/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_privada.html">ControladorPrivada</a>(ventPrivada, cliente);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            ventModificar = <span class="keyword">new</span> <a class="code" href="../../d1/d0f/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_modificar.html">VentModificar</a>();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            modificador = <span class="keyword">new</span> <a class="code" href="../../d6/d90/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_modificar.html">ControladorModificar</a>(ventModificar, cliente);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            JOptionPane.showMessageDialog(null, <span class="stringliteral">&quot;La autenticación ha fallado&quot;</span>, </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                    <span class="stringliteral">&quot;Problema de conexión&quot;</span>, JOptionPane.INFORMATION_MESSAGE);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">public</span> <a class="code" href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a169ce22e78795bc739fde02d29afbf5a">ControladorCliente</a>(<span class="keyword">final</span> <a class="code" href="../../d2/d63/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html">VentCliente</a> ventana, <a class="code" href="../../d5/dad/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_registrar_usuario.html">ControladorRegistrarUsuario</a> contUsuario) {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordtype">int</span> flag = 3; <span class="comment">//error desconocido</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <a class="code" href="../../d9/da6/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario.html">Usuario</a> nuevoUsuario = (contUsuario.getNuevoUsuario());</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        this.ventana = ventana;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">try</span> {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            cliente = <span class="keyword">new</span> <a class="code" href="../../de/df9/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_cliente.html">Cliente</a>(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            flag = cliente.conexion(nuevoUsuario);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        } <span class="keywordflow">catch</span> (IOException e) {</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            e.printStackTrace();</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">if</span> (flag == 0) { <span class="comment">// Exitoso</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            contUsuario.cerrarVentana();</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            JOptionPane.showMessageDialog(null, <span class="stringliteral">&quot;Registro completado exitosamente&quot;</span>, </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                    <span class="stringliteral">&quot;Registro completado&quot;</span>, JOptionPane.INFORMATION_MESSAGE);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            VentIniciarSesion ventIniciar = <span class="keyword">new</span> VentIniciarSesion();</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <span class="keyword">new</span> ControladorIniciarSesion(ventIniciar);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (flag == 1) { <span class="comment">// Si el correo esta repetido</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            contUsuario.correoRepetido(); </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (flag == 2) { <span class="comment">// Si el usuario esta repetido</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            contUsuario.usuarioRepetido();</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            JOptionPane.showMessageDialog(null, <span class="stringliteral">&quot;El registro no fue satisfactorio.&quot;</span>, </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                    <span class="stringliteral">&quot;Problema de registro&quot;</span>, JOptionPane.INFORMATION_MESSAGE);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        }</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    }</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keyword">public</span> <span class="keyword">final</span> Usuario getUsuarioAutenticado(){</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="keywordflow">return</span> this.usuarioAutenticado;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    }</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keywordtype">void</span> setUsuarioAutenticado(Usuario usuarioAutenticado){</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        this.usuarioAutenticado = usuarioAutenticado;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    }</div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#ada03c074086d0d54321cdf0347147397">  115</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">final</span> String <a class="code" href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#ada03c074086d0d54321cdf0347147397">getUsuario</a>() {</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keywordflow">return</span> this.nombreUsuario;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    }</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    </div>
+<div class="line"><a name="l00123"></a><span class="lineno"><a class="line" href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a29e6cb2c38d42517282ce2da900b3516">  123</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keywordtype">void</span> <a class="code" href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a29e6cb2c38d42517282ce2da900b3516">setUsuario</a>(<span class="keyword">final</span> String usuario) {</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        this.nombreUsuario = usuario;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    }</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    </div>
+<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a3e147fa15044b926e8f496e15153e8f9">  131</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">final</span> String <a class="code" href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a3e147fa15044b926e8f496e15153e8f9">getClave</a>() {</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <span class="keywordflow">return</span> this.clave;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    }</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    </div>
+<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a8647e56fdb735f7abdef284b023e9f53">  140</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keywordtype">void</span> <a class="code" href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a8647e56fdb735f7abdef284b023e9f53">setClave</a>(<span class="keyword">final</span> String clave) {</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        this.clave = clave;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    }</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    </div>
+<div class="line"><a name="l00148"></a><span class="lineno"><a class="line" href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#adb75ed57c31baca876b69990bbafb400">  148</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">final</span> File <a class="code" href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#adb75ed57c31baca876b69990bbafb400">getImagen</a>() {</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        <span class="keywordflow">return</span> imagen;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    }</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    </div>
+<div class="line"><a name="l00156"></a><span class="lineno"><a class="line" href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a6e7b9e6c4a82829efbd0aae6c2658184">  156</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keywordtype">void</span> <a class="code" href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a6e7b9e6c4a82829efbd0aae6c2658184">setImagen</a>(<span class="keyword">final</span> File imagen) {</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        this.imagen = imagen;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    }</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div>
+<div class="line"><a name="l00163"></a><span class="lineno"><a class="line" href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#aa19a69efd4f74891f467345498ddcb39">  163</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keywordtype">void</span> <a class="code" href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#aa19a69efd4f74891f467345498ddcb39">setLabelUser</a>() {</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        this.ventana.lblNomUser.setText(<span class="stringliteral">&quot;Usuario &quot;</span> + <a class="code" href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#ada03c074086d0d54321cdf0347147397">getUsuario</a>());</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    }</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    </div>
+<div class="line"><a name="l00171"></a><span class="lineno"><a class="line" href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a0ec86bb408cc78782346b4c01b95a7d6">  171</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keywordtype">void</span> <a class="code" href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a0ec86bb408cc78782346b4c01b95a7d6">ponerActivos</a>(<span class="keyword">final</span> Vector&lt;String&gt; datos) {</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;       ventana.nomUsers = datos;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;       ponerDatosList(ventana.lstActivos, ventana.nomUsers);</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    }</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    </div>
+<div class="line"><a name="l00180"></a><span class="lineno"><a class="line" href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a3aff80775389cf97755cd5c7db915603">  180</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keywordtype">void</span> <a class="code" href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a3aff80775389cf97755cd5c7db915603">agregarUser</a>(<span class="keyword">final</span> String user) {</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;       ventana.nomUsers.add(user);</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;       ponerDatosList(ventana.lstActivos, ventana.nomUsers);</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    }</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    </div>
+<div class="line"><a name="l00190"></a><span class="lineno"><a class="line" href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#abb244f9e8904743e123c5e86a42c4710">  190</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keywordtype">void</span> <a class="code" href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#abb244f9e8904743e123c5e86a42c4710">retirraUser</a>(<span class="keyword">final</span> String user) {        </div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;       ventana.nomUsers.remove(user);</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;       ponerDatosList(ventana.lstActivos, ventana.nomUsers);</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    }</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    </div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;   @SuppressWarnings({ <span class="stringliteral">&quot;unchecked&quot;</span>, <span class="stringliteral">&quot;rawtypes&quot;</span>, <span class="stringliteral">&quot;serial&quot;</span> })</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;   <span class="keyword">private</span> <span class="keywordtype">void</span> ponerDatosList(<span class="keyword">final</span> JList&lt;String&gt; list, <span class="keyword">final</span> Vector&lt;String&gt; datos) {</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;       list.setModel(<span class="keyword">new</span> AbstractListModel() {            </div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;           @Override</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;           <span class="keyword">public</span> <span class="keywordtype">int</span> getSize() {</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;               <span class="keywordflow">return</span> datos.size(); </div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;           }</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;           @Override</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;           <span class="keyword">public</span> Object getElementAt(<span class="keyword">final</span> <span class="keywordtype">int</span> i) {</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;               <span class="keywordflow">return</span> datos.get(i); </div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;           }</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;       });</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;   }</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;   </div>
+<div class="line"><a name="l00217"></a><span class="lineno"><a class="line" href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a132f8481c0894cdad40225f8541931a0">  217</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keywordtype">void</span> <a class="code" href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a132f8481c0894cdad40225f8541931a0">actionPerformed</a>(<span class="keyword">final</span> ActionEvent evt) {    </div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        <span class="keywordflow">if</span> (evt.getSource() == this.ventana.butModificar) {</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;            <span class="keywordtype">boolean</span> flag = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;            modificador.cargarDatos(getUsuarioAutenticado());</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;            flag = modificador.isFlag();</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;            <span class="keywordflow">if</span> (flag) {</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;            usuarioAutenticado = modificador.getUsuarioModificar();         </div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;            }</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        }</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;        <span class="keywordflow">if</span> (evt.getSource() == this.ventana.butPrivado) {</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;         Vector&lt;Integer&gt; posiciones = <span class="keyword">new</span> Vector&lt;Integer&gt;();</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;         <span class="keywordtype">int</span>[] indices = this.ventana.lstActivos.getSelectedIndices();</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;         <span class="keywordflow">for</span> (<span class="keywordtype">int</span> indice : indices) {</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;             posiciones.add(indice);</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;         }</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;         Vector&lt;String&gt; nombres = <span class="keyword">new</span> Vector&lt;String&gt;();</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;         <span class="keywordflow">for</span> (<span class="keywordtype">int</span> posicion : posiciones) {</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;             <span class="keywordflow">try</span> {</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;                nombres.add(ventana.nomUsers.get(posicion));</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;             } <span class="keywordflow">catch</span> (ArrayIndexOutOfBoundsException ex) {</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;                 System.out.println(ex.getMessage());</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;             }</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;         }</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;         nombres.add(this.getUsuario());</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;         contPrivada.setAmigo(nombres, this.getUsuario());</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;       }</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    }</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    </div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keywordtype">void</span> mensajeAmigo(<span class="keyword">final</span> String mensaje, <span class="keyword">final</span> String emisor, <span class="keyword">final</span> Vector&lt;String&gt; amigos)</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    {</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;        contPrivada.setAmigo(amigos, emisor);</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        contPrivada.mostrarMsg(mensaje);</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    }</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;}</div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente_html"><div class="ttname"><a href="../../d2/d63/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_cliente.html">com.ucab.javachat.Cliente.view.VentCliente</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d48/_vent_cliente_8java_source.html#l00031">VentCliente.java:31</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente_html_aa19a69efd4f74891f467345498ddcb39"><div class="ttname"><a href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#aa19a69efd4f74891f467345498ddcb39">com.ucab.javachat.Cliente.controller.ControladorCliente.setLabelUser</a></div><div class="ttdeci">final void setLabelUser()</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dde/_controlador_cliente_8java_source.html#l00163">ControladorCliente.java:163</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_modificar_html"><div class="ttname"><a href="../../d6/d90/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_modificar.html">com.ucab.javachat.Cliente.controller.ControladorModificar</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d03/_controlador_modificar_8java_source.html#l00024">ControladorModificar.java:24</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_criptologia_html"><div class="ttname"><a href="../../da/d67/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_criptologia.html">com.ucab.javachat.Cliente.model.Criptologia</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d15/_cliente_2model_2_criptologia_8java_source.html#l00024">Criptologia.java:24</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_privada_html"><div class="ttname"><a href="../../dc/d6a/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_privada.html">com.ucab.javachat.Cliente.controller.ControladorPrivada</a></div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d8e/_controlador_privada_8java_source.html#l00028">ControladorPrivada.java:28</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente_html_ada03c074086d0d54321cdf0347147397"><div class="ttname"><a href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#ada03c074086d0d54321cdf0347147397">com.ucab.javachat.Cliente.controller.ControladorCliente.getUsuario</a></div><div class="ttdeci">final String getUsuario()</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dde/_controlador_cliente_8java_source.html#l00115">ControladorCliente.java:115</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente_html_a6e7b9e6c4a82829efbd0aae6c2658184"><div class="ttname"><a href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a6e7b9e6c4a82829efbd0aae6c2658184">com.ucab.javachat.Cliente.controller.ControladorCliente.setImagen</a></div><div class="ttdeci">final void setImagen(final File imagen)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dde/_controlador_cliente_8java_source.html#l00156">ControladorCliente.java:156</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente_html_a3aff80775389cf97755cd5c7db915603"><div class="ttname"><a href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a3aff80775389cf97755cd5c7db915603">com.ucab.javachat.Cliente.controller.ControladorCliente.agregarUser</a></div><div class="ttdeci">final void agregarUser(final String user)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dde/_controlador_cliente_8java_source.html#l00180">ControladorCliente.java:180</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente_html_a3e147fa15044b926e8f496e15153e8f9"><div class="ttname"><a href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a3e147fa15044b926e8f496e15153e8f9">com.ucab.javachat.Cliente.controller.ControladorCliente.getClave</a></div><div class="ttdeci">final String getClave()</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dde/_controlador_cliente_8java_source.html#l00131">ControladorCliente.java:131</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario_html"><div class="ttname"><a href="../../d9/da6/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario.html">com.ucab.javachat.Cliente.model.Usuario</a></div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da3/_cliente_2model_2_usuario_8java_source.html#l00013">Usuario.java:13</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_modificar_html"><div class="ttname"><a href="../../d1/d0f/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_modificar.html">com.ucab.javachat.Cliente.view.VentModificar</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d2/daf/_vent_modificar_8java_source.html#l00022">VentModificar.java:22</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente_html_a169ce22e78795bc739fde02d29afbf5a"><div class="ttname"><a href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a169ce22e78795bc739fde02d29afbf5a">com.ucab.javachat.Cliente.controller.ControladorCliente.ControladorCliente</a></div><div class="ttdeci">ControladorCliente(final VentCliente ventana, ControladorIniciarSesion contSesion)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dde/_controlador_cliente_8java_source.html#l00045">ControladorCliente.java:45</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente_html_a0ec86bb408cc78782346b4c01b95a7d6"><div class="ttname"><a href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a0ec86bb408cc78782346b4c01b95a7d6">com.ucab.javachat.Cliente.controller.ControladorCliente.ponerActivos</a></div><div class="ttdeci">final void ponerActivos(final Vector&lt; String &gt; datos)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dde/_controlador_cliente_8java_source.html#l00171">ControladorCliente.java:171</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente_html_adb75ed57c31baca876b69990bbafb400"><div class="ttname"><a href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#adb75ed57c31baca876b69990bbafb400">com.ucab.javachat.Cliente.controller.ControladorCliente.getImagen</a></div><div class="ttdeci">final File getImagen()</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dde/_controlador_cliente_8java_source.html#l00148">ControladorCliente.java:148</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_privada_html"><div class="ttname"><a href="../../d2/d2e/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_privada.html">com.ucab.javachat.Cliente.view.VentPrivada</a></div><div class="ttdef"><b>Definition:</b> <a href="../../dc/dc8/_vent_privada_8java_source.html#l00013">VentPrivada.java:13</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_thread_actualizar_usuario_html"><div class="ttname"><a href="../../d0/dc5/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_thread_actualizar_usuario.html">com.ucab.javachat.Cliente.model.ThreadActualizarUsuario</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d43/_thread_actualizar_usuario_8java_source.html#l00012">ThreadActualizarUsuario.java:12</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente_html_abb244f9e8904743e123c5e86a42c4710"><div class="ttname"><a href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#abb244f9e8904743e123c5e86a42c4710">com.ucab.javachat.Cliente.controller.ControladorCliente.retirraUser</a></div><div class="ttdeci">final void retirraUser(final String user)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dde/_controlador_cliente_8java_source.html#l00190">ControladorCliente.java:190</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_registrar_usuario_html"><div class="ttname"><a href="../../d5/dad/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_registrar_usuario.html">com.ucab.javachat.Cliente.controller.ControladorRegistrarUsuario</a></div><div class="ttdef"><b>Definition:</b> <a href="../../de/d56/_controlador_registrar_usuario_8java_source.html#l00031">ControladorRegistrarUsuario.java:31</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente_html_a29e6cb2c38d42517282ce2da900b3516"><div class="ttname"><a href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a29e6cb2c38d42517282ce2da900b3516">com.ucab.javachat.Cliente.controller.ControladorCliente.setUsuario</a></div><div class="ttdeci">final void setUsuario(final String usuario)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dde/_controlador_cliente_8java_source.html#l00123">ControladorCliente.java:123</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente_html_a8647e56fdb735f7abdef284b023e9f53"><div class="ttname"><a href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a8647e56fdb735f7abdef284b023e9f53">com.ucab.javachat.Cliente.controller.ControladorCliente.setClave</a></div><div class="ttdeci">final void setClave(final String clave)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dde/_controlador_cliente_8java_source.html#l00140">ControladorCliente.java:140</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_cliente_html"><div class="ttname"><a href="../../de/df9/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_cliente.html">com.ucab.javachat.Cliente.model.Cliente</a></div><div class="ttdef"><b>Definition:</b> <a href="../../db/d15/_cliente_8java_source.html#l00036">Cliente.java:36</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_iniciar_sesion_html"><div class="ttname"><a href="../../d2/d0e/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_iniciar_sesion.html">com.ucab.javachat.Cliente.controller.ControladorIniciarSesion</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d21/_controlador_iniciar_sesion_8java_source.html#l00022">ControladorIniciarSesion.java:22</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente_html"><div class="ttname"><a href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html">com.ucab.javachat.Cliente.controller.ControladorCliente</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dde/_controlador_cliente_8java_source.html#l00028">ControladorCliente.java:28</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion_html"><div class="ttname"><a href="../../d2/db1/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_iniciar_sesion.html">com.ucab.javachat.Cliente.view.VentIniciarSesion</a></div><div class="ttdef"><b>Definition:</b> <a href="../../da/d18/_vent_iniciar_sesion_8java_source.html#l00016">VentIniciarSesion.java:16</a></div></div>
+<div class="ttc" id="classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente_html_a132f8481c0894cdad40225f8541931a0"><div class="ttname"><a href="../../d7/d25/classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_cliente.html#a132f8481c0894cdad40225f8541931a0">com.ucab.javachat.Cliente.controller.ControladorCliente.actionPerformed</a></div><div class="ttdeci">final void actionPerformed(final ActionEvent evt)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dde/_controlador_cliente_8java_source.html#l00217">ControladorCliente.java:217</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_06027c96803f4ae7485d3c6ab6ea4659.html">Chat-Codigo-Morse</a></li><li class="navelem"><a class="el" href="../../dir_c37c2b1e0391bbb3b2862a40729bac8e.html">ChatMorse</a></li><li class="navelem"><a class="el" href="../../dir_698feb8a8754d25583633a3b3af39fe8.html">src</a></li><li class="navelem"><a class="el" href="../../dir_d2ee5da602ffa679a824132ee9ad1aea.html">com</a></li><li class="navelem"><a class="el" href="../../dir_56349b6200b5c8953f34b3aeff705002.html">ucab</a></li><li class="navelem"><a class="el" href="../../dir_ef7300534267217be745bb9cc8e7f003.html">javachat</a></li><li class="navelem"><a class="el" href="../../dir_50b0603f18aa803276af8b9d7d1ed343.html">Cliente</a></li><li class="navelem"><a class="el" href="../../dir_2b86177058611f5ee4f4a01d3877bf96.html">controller</a></li><li class="navelem"><b>ControladorCliente.java</b></li>
+    <li class="footer">Generado el Lunes, 29 de Junio de 2015 20:43:59 para ChatCodigoMorse por
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -25,11 +25,11 @@ import com.ucab.javachat.Servidor.controller.ServidorController;
  */
 public class ServidorModel extends Thread
 {
-	 Socket scli=null;
-	 Socket scli2=null;
-	 DataInputStream entrada=null;
-	 DataOutputStream salida=null;
-	 DataOutputStream salida2=null;
+	 Socket scli = null;
+	 Socket scli2 = null;
+	 DataInputStream entrada = null;
+	 DataOutputStream salida = null;
+	 DataOutputStream salida2 = null;
 	 public static Vector<ServidorModel> clientesActivos = new Vector<ServidorModel>();	
 	 private String nameUser;
 	 private String clave;
@@ -180,8 +180,8 @@ public class ServidorModel extends Thread
 	   	 byte[] imageAr;
 	   	 BufferedImage image;
 	   	 File dir;
-		this.setNameUser(entrada.readUTF());
-		this.setClave(entrada.readUTF());
+		 this.setNameUser(entrada.readUTF());
+		 this.setClave(entrada.readUTF());
    		 dir = new File("." + "/Documentos/verificacionDe" + getNameUser() + ".jpg");
          sizeAr = new byte[4];
          entrada.read(sizeAr);
@@ -194,7 +194,8 @@ public class ServidorModel extends Thread
    		Autenticacion inicioDeSesion = new Autenticacion(this.getNameUser(), this.getClave(), this.getImagen());
    		Usuario autenticado = inicioDeSesion.autenticar();
    		if (autenticado != null) {
-       		String autenticadoJson =  gson.toJson(autenticado);
+   			 this.setNameUser(autenticado.getNombreDeUsuario());
+       		 String autenticadoJson =  gson.toJson(autenticado);
              salida.writeUTF(autenticadoJson);
              serv.mostrar("Ha iniciado sesion: "+this.getNameUser());
    		} else {

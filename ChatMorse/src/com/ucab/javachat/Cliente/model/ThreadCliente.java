@@ -4,6 +4,8 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.util.Vector;
 
+import javax.swing.JOptionPane;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.ucab.javachat.Cliente.controller.ControladorCliente;
@@ -57,6 +59,9 @@ class ThreadCliente extends Thread{
          }
       }
       System.out.println("se desconecto el servidor");
+      JOptionPane.showMessageDialog(null, "Has sido desconectado del servidor", 
+    		  "Servidor desconectado", JOptionPane.INFORMATION_MESSAGE);
+      System.exit(0);
    }
 
    

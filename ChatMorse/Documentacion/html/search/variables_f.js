@@ -7,7 +7,5 @@ var searchData=
   ['serv',['serv',['../classcom_1_1ucab_1_1javachat_1_1_servidor_1_1model_1_1_servidor_model.html#a7d4838a644ab2a4670f6f51d42b58c10',1,'com::ucab::javachat::Servidor::model::ServidorModel']]],
   ['sexo',['sexo',['../classcom_1_1ucab_1_1javachat_1_1_cliente_1_1model_1_1_usuario.html#adf1a82916a522d4bd6047e9512673106',1,'com.ucab.javachat.Cliente.model.Usuario.sexo()'],['../classcom_1_1ucab_1_1javachat_1_1_servidor_1_1model_1_1_usuario.html#acd0dc80b8cf0b186b4b43ab45be7cda9',1,'com.ucab.javachat.Servidor.model.Usuario.sexo()']]],
   ['sexovalido',['sexoValido',['../classcom_1_1ucab_1_1javachat_1_1_cliente_1_1view_1_1_vent_registro.html#ab97574b5c19dbb93dbf07b7dc7d99a57',1,'com::ucab::javachat::Cliente::view::VentRegistro']]],
-  ['size',['size',['../classcom_1_1ucab_1_1javachat_1_1_servidor_1_1model_1_1_servidor_model.html#a6e76b0c8430a0a1e2138d7c068e2b5f3',1,'com::ucab::javachat::Servidor::model::ServidorModel']]],
-  ['sizear',['sizeAr',['../classcom_1_1ucab_1_1javachat_1_1_servidor_1_1model_1_1_servidor_model.html#afff1501b625fe3b722b818e82f814213',1,'com::ucab::javachat::Servidor::model::ServidorModel']]],
   ['sonido',['sonido',['../classcom_1_1ucab_1_1javachat_1_1_cliente_1_1controller_1_1_controlador_privada.html#a4740211a06f0e2d20f057d84a35d09e1',1,'com::ucab::javachat::Cliente::controller::ControladorPrivada']]]
 ];

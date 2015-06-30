@@ -61,10 +61,11 @@ public class Autenticacion {
 	 */
 	public Usuario autenticar() {
 		if(usuariosArchivo != null) {
-			for (Usuario usuario : usuariosArchivo) {
+			for (Usuario usuario : usuariosArchivo) 
 				try {
 					// comprueba si existe algun usuario con el correo o el nombre de usuario indicado
-					if (usuario.getNombreDeUsuario().trim().equals(nombreDeUsuario.trim())) {
+					if ((usuario.getNombreDeUsuario().trim().equals(nombreDeUsuario.trim())) ||
+							(Criptologia.desencriptar(usuario.getEmail().trim()).equals(nombreDeUsuario.trim()))) {
 						// comprueba si hay algun usuario con esa clave
 						if (Criptologia.desencriptar(usuario.getClave()).trim().equals(Criptologia.desencriptar(clave).trim())) { 
 							// comprueba la similitud entre las imagenes.
@@ -76,7 +77,6 @@ public class Autenticacion {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-			}
 		}
 		return null;
 	}
